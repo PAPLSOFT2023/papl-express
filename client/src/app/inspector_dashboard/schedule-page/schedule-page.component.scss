@@ -1,0 +1,228 @@
+// .container {
+//     max-width: 600px;
+//     width: 100%;
+//     padding: 20px;
+//     border-radius: 5px;
+//     background-color: hsl(0, 0%, 100%);
+//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//     margin: auto; /* Center the container horizontally */
+//     margin-top: 50px; /* Adjust top margin as needed */
+//     margin-bottom: 50px; /* Adjust bottom margin as needed */
+//     display: flex;
+//     flex-direction: column; /* Align items vertically */
+//     align-items: center; /* Center-align items horizontally */
+
+// }
+
+// .request {
+//     margin-bottom: 20px;
+// }
+
+// .acceptance {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 10px;
+// }
+
+// .radio-options label {
+//     margin-right: 5px;
+// }
+
+// .from_to {
+//     display: flex;
+//     justify-content: space-between;
+//     border-top: 1px solid #ccc;
+//     padding-top: 5px;
+//     margin-top: 30px;
+// }
+
+// .from_to h3 {
+//     margin: 0;
+// }
+
+// .left-align {
+//     margin-right: auto;
+// }
+
+// .right-align {
+//     margin-left: auto;
+// }
+
+// .request1 {
+//     text-align: center;
+//     color: #333;
+//     font-size: 28px;
+//     margin-top: 0;
+//     text-decoration: underline;
+//     font-weight: bold;
+//     margin-bottom: 20px;
+// }
+
+// .form {
+//     font-size: 18px;
+//     text-align: center;
+//     color: #666;
+//     margin-bottom: 20px;
+// }
+
+// .acceptance p.acceptance {
+//     margin-right: 10px;
+// }
+
+// .buttons-container {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 30px;
+    
+// }
+
+// .approve-btn, .reject-btn {
+//     background-color: #4caf50;
+//     color: white;
+//     border: none;
+//     padding: 6px 12px;
+//     font-size: 18px;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     margin-right: 20px;
+//     transition: background-color 0.3s ease;
+// }
+
+// .reject-btn {
+//     background-color: #cf1212;
+// }
+// .approve-btn[disabled] {
+//     cursor: not-allowed; /* Block cursor interaction */
+//     background-color: #cccccc; /* Grey out the button */
+//     color: #666666; /* Text color */
+// }
+
+
+// .yes_btn {
+//     color: #17721a;
+// }
+
+// .no_btn {
+//     color: #cf1212;
+// }
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Center the container horizontally */
+    margin-top: 50px; /* Adjust top margin as needed */
+    margin-bottom: 50px; /* Adjust bottom margin as needed */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center-align items horizontally */
+    background-color: #baaaaa1c;
+
+}
+
+
+.request {
+    margin-bottom: 20px;
+}
+
+.acceptance {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.radio-options22 label {
+    margin-right: 10px;
+}
+.radio-options22{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.radio-options22 input[type="radio"] {
+    transform: scale(1.5); /* Adjust the scale value as needed */
+    margin-right: 5px; /* Optional: Adjust spacing between the radio and label */
+  }
+
+.from_to {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    padding-top: 5px;
+    margin-top: 30px;
+}
+
+.from_to h3 {
+    margin: 0;
+}
+
+.left-align {
+    margin-right: auto;
+}
+
+.right-align {
+    margin-left: auto;
+}
+
+.request1 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-top: 0;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form {
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.acceptance p.acceptance {
+    margin-right: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around; /* Space out the buttons evenly */
+    margin-top: 30px;
+    width: 100%; /* Ensure it takes the full width of the container */
+}
+
+.approve-btn, .reject-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Increase padding for better button size */
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; /* Make buttons equal in size */
+    max-width: 150px; /* Set max width for buttons */
+    margin: 0 10px; /* Add horizontal spacing between buttons */
+    text-align: center;
+}
+.reject-btn {
+    background-color: #cf1212;
+}
+.approve-btn[disabled] {
+    cursor: not-allowed; /* Block cursor interaction */
+    background-color: #cccccc; /* Grey out the button */
+    color: #666666; /* Text color */
+}
+
+
+.yes_btn {
+    color: #17721a;
+}
+
+.no_btn {
+    color: #cf1212;
+}

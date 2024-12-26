@@ -1,0 +1,344 @@
+<body class="body">
+  
+    <!-- <form (ngSubmit)="onSubmit()"> -->
+  
+   
+    <h2 class="h2">Inspection Schedule Authorization</h2>
+        <mat-card class="mat-card1" style="margin-top: 50px;">
+            <mat-card class="mat-card2">
+            <div>
+            <mat-form-field appearance="outline" class="form-field1">
+                <mat-label>Papl Contract No</mat-label>
+                    <input matInput [(ngModel)]="contract_number" name="contract_number" required>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>Region</mat-label>
+              <mat-select [(ngModel)]="region" name="region" required>
+                  <mat-option *ngFor="let region of region_values" [value]="region">{{region}}</mat-option>                   
+  
+  
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="form-field3">
+                <mat-label>Project Location</mat-label>
+                    <input matInput [(ngModel)]="location" name="location" required>  
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="form-field3">
+                <mat-label>Pincode</mat-label>
+                    <input matInput [(ngModel)]="pincode" name="pincode" required>
+            </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="form-field1">
+                    <mat-label>Master Customer</mat-label>
+                        <input matInput [(ngModel)]="master_customer" name="master_customer" required>
+                </mat-form-field> 
+  
+                <mat-form-field appearance="outline" class="form-field2">
+                    <mat-label>Customer Work order No</mat-label>
+                        <input matInput [(ngModel)]="work_order_no" name="work_order_no" required>
+                </mat-form-field>
+  
+                <!-- <mat-form-field appearance="outline" class="form-field2">
+                  <mat-label>Customer Work order Date</mat-label>
+                      <input matInput>
+              </mat-form-field> -->
+              <mat-form-field appearance="outline" class="form-field3">
+                <mat-label>Customer Work order Date</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="work_order_date" name="work_order_date">
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+  
+              <!-- <mat-form-field appearance="outline" class="form-field3">
+                <mat-label>Schedule From</mat-label>
+                <input matInput [matDatepicker]="pickerFrom">
+                <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFrom></mat-datepicker>
+              </mat-form-field> -->
+  
+  
+                
+  
+                
+    
+                <mat-form-field appearance="outline" class="form-field3">
+                    <mat-label>Customer Name as per WorkOrder</mat-label>
+                        <input matInput [(ngModel)]="customer_name_workorder" name="customer_name_workorder" required>
+                </mat-form-field>
+  
+                <!-- <mat-form-field appearance="outline" class="form-field3">
+                    <mat-label>Type of Inspection</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let inspection of inspection_type" [value]="inspection">{{inspection}}</mat-option>                   
+  
+                      
+                    </mat-select>
+                  </mat-form-field> -->
+            </div>
+        </mat-card>
+        <mat-card class="mat-card2">
+            <div>
+                <mat-form-field appearance="outline" class="form-field1">
+                    <mat-label>Project Name</mat-label>
+                        <input matInput [(ngModel)]="project_name" name="project_name" required>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="form-field2">
+                    <mat-label>Building Name</mat-label>
+                        <input matInput [(ngModel)]="building_name" name="building_name" required>
+                </mat-form-field>
+  
+                <mat-form-field appearance="outline" class="form-field3">
+                    <mat-label>Type of Building</mat-label>
+                    <mat-select [(ngModel)]="building_type" name="building_type" required>
+                      
+                      <mat-option *ngFor="let value of values" [value]="value">{{value}}</mat-option>                   
+                      </mat-select>
+                      
+                  </mat-form-field>
+  
+                  <mat-form-field appearance="outline" class="form-field3">
+                    <mat-label>Type of Inspection</mat-label>
+                    <mat-select [(ngModel)]="inspection_type_sync" name="inspection_type_sync" required>
+                      <mat-option *ngFor="let inspection of inspection_type" [value]="inspection">{{inspection}}</mat-option>                   
+  
+                      
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- <mat-form-field appearance="outline" class="form-field3">
+                      <mat-label>OEM</mat-label>
+                      <mat-select>
+                          <mat-option *ngFor="let oem_val of oem" [value]="oem">{{oem_val}}</mat-option>                   
+      
+      
+                      </mat-select>
+                    </mat-form-field> -->
+  
+                  <!-- <mat-form-field appearance="outline" class="form-field2">
+                    <mat-label>Others</mat-label>
+                        <input matInput>
+                </mat-form-field> -->
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="form-field1">
+                        <mat-label>Site Address</mat-label>
+                            <input matInput [(ngModel)]="site_address" name="site_address" required>
+                    </mat-form-field> 
+    
+                    <mat-form-field appearance="outline" class="form-field2">
+                        <mat-label>Customer Contract Person Name</mat-label>
+                            <input matInput [(ngModel)]="customer_contact_name" name="customer_contact_name" required>
+                    </mat-form-field>
+        
+                    <mat-form-field appearance="outline" class="form-field3">
+                        <mat-label>Customer Contact No</mat-label>
+                            <!-- <input matInput [(ngModel)]="customer_contact_number" name="customer_contact_number" required> -->
+                            <ngx-mat-intl-tel-input [(ngModel)]="customer_contact_number" name="customer_contact_number"  ></ngx-mat-intl-tel-input>
+  
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="outline" class="form-field3">
+                        <mat-label>Customer Contact EmailId</mat-label>
+                            <input matInput [(ngModel)]="customer_contact_mailid" name="customer_contact_mailid" required>
+                    </mat-form-field>      
+                </div>
+        </mat-card>
+        <mat-card class="mat-card3">
+          <div>
+             
+         
+            <!-- <button mat-raised-button class="btnOk"  (click)="openDialog()">Total No of Units</button> -->
+            <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>No of units</mat-label>
+                  <input matInput [(ngModel)]="total_number_of_units" name="total_number_of_units" required>
+                  <mat-icon class="mat-icon1" matSuffix (click)="openDialog()">add_circle</mat-icon>
+          </mat-form-field>
+  
+  
+            <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>Travel Expenses By</mat-label>
+              <mat-select [(ngModel)]="travel_expenses_by" name="travel_expenses_by" required>
+                  <mat-option *ngFor="let travel_accomodation of travel" [value]="travel_accomodation">{{travel_accomodation}}</mat-option>                   
+  
+  
+  
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>Accomodation By</mat-label>
+              <mat-select [(ngModel)]="accomodation_by" name="accomodation_by" required>
+                  <mat-option *ngFor="let travel_accomodation of travel" [value]="travel_accomodation">{{travel_accomodation}}</mat-option>                   
+  
+              </mat-select>
+            </mat-form-field>
+            <!-- <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>Select Inspector</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let select_inspector of inspector" [value]="select_inspector">{{select_inspector}}</mat-option>
+                
+              </mat-select>
+            </mat-form-field> -->
+            <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>OEM</mat-label>
+              <mat-select [(ngModel)]="oem_details_sync" name="oem_details_sync" required>
+                  <mat-option *ngFor="let oem_val of oem" [value]="oem_val">{{oem_val}}</mat-option>                   
+  
+  
+              </mat-select>
+            </mat-form-field>
+  
+      </div>
+      <div>
+          
+  
+        <mat-form-field appearance="outline" class="form-field3">
+            <mat-label>No of Visits as per WO</mat-label>
+                <input matInput [(ngModel)]="	no_of_visits_as_per_work_order" name="	no_of_visits_as_per_work_order" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field3">
+            <mat-label>No of Mandays as per WO</mat-label>
+                <input matInput [(ngModel)]="no_of_mandays_as_per_work_order" name="no_of_mandays_as_per_work_order" required>
+        </mat-form-field>
+  
+        <!-- <mat-form-field appearance="outline" class="form-field3">
+          <mat-label>Schedule</mat-label>
+              <input matInput>
+      </mat-form-field> 
+  
+      <mat-form-field appearance="outline" class="form-field3">
+          <mat-label>Total Units Scheduled</mat-label>
+              <input matInput>
+      </mat-form-field> -->
+      <!-- <mat-form-field appearance="outline" class="form-field3">
+          <mat-label>Schedule From</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field3">
+          <mat-label>Schedule To</mat-label>
+          <input matInput [matDatepicker]="picker1">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field> -->
+  
+        <mat-form-field appearance="outline" class="form-field3">
+          <mat-label>Inspection Time</mat-label>
+          <mat-select [(ngModel)]="inspection_time_sync" name="inspection_time_sync" required>
+            <mat-option *ngFor="let ins_time of inspection_time" [value]="ins_time">{{ins_time}}</mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field3">
+          <mat-label>Client Whatsapp No</mat-label>
+              <ngx-mat-intl-tel-input [(ngModel)]="client_whatsapp_number" name="client_whatsapp_number" ></ngx-mat-intl-tel-input>
+  
+         </mat-form-field>
+      
+  
+  
+        </div>
+        <div>
+          <!-- <mat-checkbox class="checkbox1">TPT-6</mat-checkbox>
+            <mat-checkbox class="checkbox">TPT-7</mat-checkbox>
+            <mat-checkbox class="checkbox">Load Test</mat-checkbox>
+            <mat-checkbox class="checkbox">PMT</mat-checkbox>
+            <mat-checkbox class="checkbox">Rope Condition</mat-checkbox>   -->
+              <mat-checkbox class="checkbox1" [(ngModel)]="tpt6" (change)="updatetpt6Flag()">TPT-6</mat-checkbox>
+            <mat-checkbox class="checkbox" [(ngModel)]="tpt7" (change)="updatetpt7Flag()">TPT-7</mat-checkbox>
+            <mat-checkbox class="checkbox" [(ngModel)]="load_test" (change)="updateload_testFlag()">Load Test</mat-checkbox>
+            <mat-checkbox class="checkbox"[(ngModel)]="pmt" (change)="updatepmtFlag()">PMT</mat-checkbox>
+            <mat-checkbox class="checkbox" [(ngModel)]="rope_condition" (change)="updaterope_conditionFlag()">Rope Condition</mat-checkbox>  
+        </div>
+        </mat-card>
+        <mat-card class="mat-card3">
+          <div>
+              <mat-form-field appearance="outline" class="form-field3">
+                  <mat-label>Schedule From</mat-label>
+                  <input matInput [matDatepicker]="picker" name="scheduleFrom" [(ngModel)]="scheduleFrom">
+                  <mat-hint>DD/MM/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+          
+                <mat-form-field appearance="outline" class="form-field3">
+                  <mat-label>Schedule To</mat-label>
+                  <input matInput [matDatepicker]="picker1" name="scheduleTo" [(ngModel)]="scheduleTo">
+                  <mat-hint>DD/MM/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-field3">
+                  <mat-label>Select Inspector</mat-label>
+                  <mat-select [(ngModel)]="inspector_name" name="inspector_name">
+                    <mat-option *ngFor="let select_inspector of inspector" [value]="select_inspector">{{select_inspector}}</mat-option>
+                    
+                  </mat-select>
+                </mat-form-field>
+                <button mat-raised-button class="btnOk"  (click)="openDialog1()">Schedule</button>  
+                <br>
+                
+  
+             
+  
+          </div>
+  
+          <div>
+            <!-- <button mat-raised-button class="btnOk"  (click)="openDialog1()">Schedule</button>   -->
+  
+            <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>Inspection Time</mat-label>
+              <mat-select [(ngModel)]="inspection_time_ins_sync" name="inspection_time_ins_sync">
+                <mat-option *ngFor="let inspection_ins of inspection_time_ins" [value]="inspection_ins">{{inspection_ins}}</mat-option>
+               
+              </mat-select>
+            </mat-form-field>
+
+           
+              
+            <!-- <mat-form-field appearance="outline" class="form-field3">
+              <mat-label>Client Whatsapp No</mat-label> -->
+  <!-- Example usage of NgxMatIntlTelInputComponent -->
+  <!-- <ngx-mat-intl-tel-input [(ngModel)]="phoneNumber" name="phoneNumber" ></ngx-mat-intl-tel-input>
+          </mat-form-field> -->
+  
+            <!-- your-component.component.html -->
+  
+    
+  
+  
+  
+          
+      
+  
+  
+  
+  
+              <!-- <mat-checkbox class="checkbox1" [(ngModel)]="tpt6" (change)="updatetpt6Flag()">TPT-6</mat-checkbox>
+            <mat-checkbox class="checkbox" [(ngModel)]="tpt7" (change)="updatetpt7Flag()">TPT-7</mat-checkbox>
+            <mat-checkbox class="checkbox" [(ngModel)]="load_test" (change)="updateload_testFlag()">Load Test</mat-checkbox>
+            <mat-checkbox class="checkbox"[(ngModel)]="pmt" (change)="updatepmtFlag()">PMT</mat-checkbox>
+            <mat-checkbox class="checkbox" [(ngModel)]="rope_condition" (change)="updaterope_conditionFlag()">Rope Condition</mat-checkbox>   -->
+          </div> 
+          </mat-card>
+  
+          <div>
+              <button mat-raised-button color="primary" class="btnsubmit" (click)="onSubmit()">Submit</button>
+          </div>
+        
+        </mat-card>
+    <!-- </form> -->
+  
+     
+    
+  </body>

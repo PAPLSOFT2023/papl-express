@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection Participants</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; font-size: 30px; margin-top:-10px;">
+        <i class="fas fa-handshake"></i> CLOSING MEETING <i class="fas fa-handshake"></i>
+    </h1>
+
+    <div class="container">
+        <p style="text-align: center; font-weight: bold; text-decoration: underline;">
+            <i class="fas fa-thumbs-up"></i> Thank you for your support during the inspection.
+        </p>
+        <p style="text-align: center; font-weight: bold; text-decoration: underline;">
+            <i class="fas fa-exclamation-triangle"></i> The critical findings as follows. Please ensure to rectify the snags at the earliest.
+        </p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6" style="text-align: center;">Inspection Conducted in the Presence Of</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Role</th>
+                        <th>Company</th>
+                        <th>Contact Number</th>
+                        <th>Digital Signature</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of rows; let i = index">
+                        <td>
+                            <input type="text" [(ngModel)]="row.name">
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="row.designation">
+                        </td>
+                        <td class="dropdown-container">
+                            <select class="dropdown" [(ngModel)]="row.role" required>
+                                <option value="Building Owner">Building Owner</option>
+                                <option value="Inspector">Inspector</option>
+                                <option value="Facility Manager">Facility Manager</option>
+                                <option value="Vendor(OEM)">Vendor(OEM)</option>
+                                <option value="PAPL Team">PAPL Team</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" [(ngModel)]="row.company">
+                        </td>
+                        <td>
+                            <input type="tel"
+                                   [(ngModel)]="row.contact_number"
+                                   name="contactNumber"
+                                   required
+                                   maxlength="10" 
+                                   class="form-control"
+                                   #contactNumber="ngModel"
+                                   (keypress)="allowOnlyNumbers($event)" 
+                                   (input)="validatePhoneNumber($event, i)"> 
+                          
+                            <div *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
+                              <small *ngIf="contactNumber.errors?.['required']" class="text-danger">Phone number is required.</small>
+                            </div>
+                          </td>
+                          
+                          
+                          
+                          
+                     
+                        <td>
+                            <div class="signature-pad-container">
+                              <signature-pad 
+                                class="signature-pad" 
+                                [options]="signaturePadOptions" 
+                                (onEnd)="drawComplete(i)">
+                              </signature-pad>
+                              <button class="clear-signature-btn" (click)="clearSignature(i)">x</button>
+                              <button class="capture-signature-btn" (click)="captureSignature(i)">Save</button>
+                            </div>
+                          </td>
+                          
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+         <div class="btn-container">
+            <button class="btn" (click)="addRow()"><i class="fas fa-plus"></i> Add Row</button>
+            <button class="btn" [class.disabled-button]="!allFieldsFilled()" [disabled]="!allFieldsFilled()" (click)="show()"> Proceed</button>
+        </div>
+
+      
+    </div>
+    
+
+</body>
+</html>

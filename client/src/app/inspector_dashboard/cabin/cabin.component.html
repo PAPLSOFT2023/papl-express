@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="loader-container" *ngIf="isLoading">
+    <div class="icon logo">
+      <div class="loader"></div>
+    </div>
+  </div>
+  <div class="label">CABIN-{{unit_no}}</div>
+  <div class="button-container">
+    <!-- Left Side Back Button -->
+    <button class="back-button" (click)="back()">
+        <img src="/assets/backicon.png" alt="Back" class="back-icon">
+        <b>Back</b>
+    </button>
+  
+    <!-- Right Side Next Button -->
+    <button class="next-button" (click)="next()" >
+        <b>Next</b>
+        <img src="/assets/nexticon.png" alt="Next" class="next-icon">
+    </button>
+  </div>
+</div>
+
+<div class="order-status">
+
+    <a class="step" *ngFor="let step of steps; let i = index" [ngClass]="{'completed': completedStatus[i]}" (click)="handleCardClick(step)">
+        <div class="card">
+            <div class="card-body">
+              <div class="content">
+                <div class="logo1">{{ getLogoLetters(step.description) }}</div>
+                <span>{{ step.description }}</span>
+                
+              </div>
+            </div>
+            
+          </div>
+      </a>
+  </div>
+  <router-outlet ></router-outlet>
+  

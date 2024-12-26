@@ -1,0 +1,198 @@
+.order-status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .step {
+    width: calc(25% - 20px);
+    margin: 0 10px 20px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Center buttons vertically */
+    margin-bottom: 30px; /* Space below the buttons */
+  }
+  
+  /* Your existing CSS for back and next buttons */
+  .back-button {
+    background-color: white; /* Background color */
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex; /* Aligns image and text horizontally */
+    align-items: center; /* Vertically centers the content */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-right: auto; /* Aligns to the left */
+  }
+  
+  // .back-button:hover {
+  //   background-color: #333; 
+  // }
+  
+  .back-icon {
+    width: 30px; /* Adjust the size of the icon */
+    height: auto;
+    margin-right: 8px; /* Space between the image and text */
+  }
+  
+  .next-button {
+    background-color: white; /* Background color */
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex; /* Aligns text and image horizontally */
+    align-items: center; /* Vertically centers the content */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+  }
+  
+  // .next-button:hover {
+  //   background-color: #333; 
+  // }
+  
+  .next-icon {
+    width: 30px; /* Adjust the size of the icon */
+    height: auto;
+    margin-left: 8px; /* Space between the text and image */
+  }
+  
+  .card {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  .completed .card {
+    background-color: lightgreen;
+    border-color: green;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .logo1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .progress-bar {
+    width: 100px; /* Adjust width as needed */
+    height: 7px;
+    background-color: lightblue;
+    margin-top: 10px; /* Add margin to separate progress bar from text */
+  }  
+  .container {
+    text-align: center; /* Centers the inline-block element horizontally */
+  }
+  
+  .label {
+    margin-top: 5px;
+    font-size: 16px;
+    background-color: lightblue;
+    padding: 2px 5px; /* Adjust padding to control background size */
+    display: inline-block; /* Ensures the background wraps tightly around the text */
+    border-radius: 10px;
+  }
+
+  
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+}
+
+.logo {
+  background-image: url('/assets/loader.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 80px;
+}
+
+.icon {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin-bottom: 0 auto 25px;
+  position: relative;
+  z-index: -1;
+}
+
+.loader {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #3b3765;
+  animation: spin 1.5s linear infinite;
+  z-index: 5;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #ee7f22;
+  animation: spin 3s linear infinite;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #b3b4b3;
+  animation: spin 3.5s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}

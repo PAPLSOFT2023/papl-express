@@ -1,0 +1,330 @@
+
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI','lato' Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container holding everything */
+.container {
+  display: grid;
+  grid-template-areas:
+      'header header'
+      'content content'
+      'footer footer';
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 60px 1fr auto;
+  height: 100vh;
+  background: url('/assets/bg.jpg') no-repeat center center;
+  background-size: cover;
+  color: #333;
+}
+/* Header styling */
+.header {
+  grid-area: header;
+  background-color: #24292e;
+  color: white;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center the h1 */
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Centered h1 */
+.header h1 {
+  font-size: 1.8em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+/* Footer styling */
+.footer {
+  grid-area: footer;
+  background-color: #24292e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.content {
+  position: relative;
+  grid-area: content;
+  padding: 20px;
+  background-color: rgba(15, 14, 14, 0.9);
+  overflow-y: auto;
+}
+
+.search-box {
+  position: fixed; /* Fixed position to keep it on the screen */
+  right:40px; /* Distance from the right side */
+  top:75px; /* Adjust this value to control the vertical position */
+  display: flex;
+  align-items: center;
+  width: fit-content; /* Ensures the width adjusts to content */
+  height: fit-content; /* Adjusts height to fit the content */
+  z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+.input-search{
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color:rgba(255, 255, 255, 0.231) ;
+  padding-right: 40px;
+  color:#fff;
+}
+.input-search::placeholder{
+  color:rgba(255,255,255,.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:white;
+  background-color:transparent;
+  pointer-events: painted;  
+}
+.btn-search:focus ~ .input-search{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+
+/* Main content styling */
+.content {
+  grid-area: content;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.724);
+  overflow-y: auto;
+}
+
+/* Card layout */
+.cards {
+  display: grid;
+  /* grid-template-rows: repeat(auto-fit, minmax(30px, 1fr)); */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card styling */
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #24292e;
+}
+
+/* Styling for card h3 */
+.card h3 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #24292e;
+  transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+}
+
+/* Hover effect */
+.card h3:hover {
+  color:#24292e;; /* Change the color on hover */
+  transform: scale(1.05); /* Slightly enlarge the heading */
+  text-shadow: 0 2px 5px rgba(0, 123, 255, 0.3); /* Add a subtle shadow effect */
+}
+
+
+/* Icon container for a more refined effect */
+.icon-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.icon-container i {
+  font-size: 45px;
+  color: #24292e;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s, color 0.3s;
+}
+
+.icon-container i:hover {
+  transform: rotate(5deg) scale(1.1);
+  color: #24292e;
+}
+
+.card p {
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Add this CSS to your stylesheet */
+
+/* Keyframes for rotation animation */
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* Apply the rotation animation to the icon */
+.history-icon {
+  animation: rotate 2s linear infinite; /* 2s for a full rotation, adjust as needed */
+}
+/* Keyframes for zoom-in and zoom-out animation */
+@keyframes zoom {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2); /* Zoom in */
+  }
+  100% {
+      transform: scale(1); /* Zoom out */
+  }
+}
+
+/* Apply zoom animation to the elevator icon */
+.lift-icon {
+  animation: zoom 2s ease-in-out infinite; /* 2s for one cycle, adjust as needed */
+}
+
+/* Apply zoom animation to the plus-circle icon */
+.generate-icon {
+  animation: zoom 2s ease-in-out infinite; /* 2s for one cycle, adjust as needed */
+}
+
+
+
+
+/* Footer styling */
+.footer {
+  grid-area: footer;
+  background-color: #24292e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for h2 */
+.container h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color:rgba(255, 255, 255, 0.8);
+  /* transition: color 0.3s, transform 0.3s, text-shadow 0.3s; */
+}
+
+/* Hover effect */
+.container h2:hover {
+  /* color:rgba(255, 255, 255, 0.8) ; Change the color on hover */
+  /* transform: scale(1.05); Slightly enlarge the heading */
+  /* text-shadow: 0 2px 5px rgba(255, 255, 255, 0.6); Add a subtle shadow effect */
+}
+
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+          'header'
+          'content'
+          'footer';
+  }
+
+  .cards {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+  }
+}
+
+/* Media Query for Mobile (480px and below) */
+@media (max-width: 480px) {
+  .header h1 {
+      font-size: 18px;
+  }
+
+  .menu-icon {
+      font-size: 20px;
+  }
+
+  .cards {
+      grid-template-columns: 1fr;
+      gap: 10px;
+  }
+
+  .card {
+      padding: 15px;
+  }
+}
+
+.open-btn {
+  background-color: #24292e; /* Dark color for the button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 15px; /* Space above the button */
+}
+
+.open-btn:hover {
+  background-color: #0366d6; /* Lighter color on hover */
+}
+
+

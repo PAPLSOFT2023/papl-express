@@ -1,0 +1,261 @@
+header {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    font-size: large;
+    
+   
+    // justify-content: space-between; /* Distribute space between items */
+}
+
+@font-face {
+    font-family: 'Calibri';
+    src: url('/assets/fonts/calibri/calibri-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  *{
+  font-family:'Calibri';
+  }
+
+.company-logo {
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+.certificate p {
+    text-align: center; /* Center align the text */
+    margin-left: 50px; /* Adjust margin as needed */
+    text-decoration: underline; /* Underline the content */
+    font-size: 25px;
+   
+}
+
+.signature_ins {
+    text-align: center; /* Center align the content */
+    margin-bottom: 30px;
+  }
+  
+  .new_sign {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+  }
+  
+  .Inspector {
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove padding */
+    font-size: 12px; /* Adjust font size as needed */
+  }
+  
+
+.new_sign {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 70px; /* Adjust the margin as needed */
+    margin-bottom: 140px; /* Adjust the margin as needed */
+  }
+  
+
+/* Style for the table containing the certificate number */
+table {
+    margin-bottom:50px; /* Adjust the space as needed */
+    margin-right: auto; /* Start the table from the left edge */
+}
+
+/* Style for the cells in the table */
+table td {
+    padding: 8px 12px; /* Adjust padding as needed */
+    border: 1px black; /* Pure black border without 'solid' keyword */
+}
+
+.signature {
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-signature {
+  width: 50px; /* Set the desired width */
+  height: auto; /* Adjust the height automatically to maintain aspect ratio */
+}
+
+.left-content,
+.right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.top,
+.down {
+    display: flex;
+    align-items: center;
+}
+
+
+.down p {
+    margin-top: -260px;
+    border-top: 1px solid #000; 
+    
+}
+
+.signature i {
+    font-size: 20px; 
+}
+
+.date {
+   
+    font-size: 10px; 
+    color: #333; 
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.date p {
+    margin: 0; 
+}
+
+
+
+.number{
+   
+   font-size: 8px;
+   margin-right: 12px ;
+
+    
+}
+.down_page {
+    text-align: center;
+    margin-top: 100px;
+    
+}
+
+.footer {
+    text-align: right;
+    font-size: 12px;
+}
+
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Align children with space between them */
+    align-items: center; /* Center align items vertically */
+    
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+
+table th {
+    background-color: #f9f9f9; /* Set header background color */
+}
+
+table td {
+    text-align: center; /* Center align content in table cells */
+}
+
+.table-header td {
+    font-weight: bold;
+}
+
+.table-footer td {
+    font-style: calibri;
+}
+
+.vertical {
+    position: absolute; /* Set position to absolute */
+    bottom: -1185px;
+    right: 10px;
+}
+
+.com{
+    color: rgb(137, 134, 134);
+}
+// .borderless-input {
+//     border: none;
+//     /* Optionally, you can add additional styles to make it look more appealing */
+//     outline: none; /* This removes the outline when the input is focused */
+//     box-shadow: none; /* This removes any box shadow */
+// }
+
+@page {
+    size: letter;
+    margin-top: 10mm;
+    margin-right: 10mm;
+    margin-bottom: 15mm;
+    margin-left: 10mm;
+  }
+
+table td,
+table th {
+      padding: 10px;
+      border: 1px solid #161616;
+      text-align: left; /* Align content to the left */
+  }
+
+
+  .button_pdf {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    align-items: center;     /* Centers the button vertically */
+    margin-top: 20px;        /* Adds space above the button */
+  }
+  
+  .button_pdf button {
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    color: white;              /* White text color */
+    border: none;              /* Removes default border */
+    padding: 10px 20px;        /* Adds padding inside the button */
+    font-size: 16px;           /* Increases font size */
+    cursor: pointer;           /* Changes cursor to pointer on hover */
+    border-radius: 5px;        /* Rounds the corners */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  }
+  
+  .button_pdf button i {
+    margin-right: 8px; /* Adds space between icon and text */
+  }
+  
+  .button_pdf button:hover {
+    background-color: #d32f2f; /* Darkens the button on hover */
+  }
+  
+
+  ///new css///
+  .logofooter {
+    display: flex;                 /* Use flexbox to align the logos */
+    justify-content: right;        /* Align the logos to the right */
+    align-items: center;           /* Center align the logos vertically */
+}
+
+.logofooter div {
+    border: 1px solid #000;        /* Add a box around each logo */
+    padding: 5px;                  /* Add padding inside the box */
+    display: flex;                 /* Use flexbox to align the logo inside the box */
+    justify-content: center;       /* Center the logo horizontally inside the box */
+    align-items: center;           /* Center the logo vertically inside the box */
+    margin: 0 10px;                /* Add space between the logo boxes */
+    width: 50px;                   /* Set a fixed width for the logo boxes */
+    height: 50px;                  /* Set a fixed height for the logo boxes */
+}
+
+.logofooter img {
+    width: 100%;                   /* Make the logo take up the full width of the box */
+    height: auto;                  /* Maintain the aspect ratio */
+    max-height: 100%;              /* Ensure the logo fits within the box */
+    object-fit: contain;           /* Ensure the logo maintains its aspect ratio inside the box */
+}
+.company-logo {
+    width: 150px;          /* Set a medium fixed width */
+    height: auto;          /* Maintain the aspect ratio */
+    max-height: 100px;     /* Optional: Set a maximum height to control size */
+    object-fit: contain;   /* Ensure the image maintains its aspect ratio */
+    margin: 10px;          /* Optional: Add margin around the image */
+}

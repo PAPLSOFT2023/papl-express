@@ -1,0 +1,246 @@
+
+
+
+
+  /* Base Styles */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    // background-color: #f4f4f9;
+    position: relative; /* Added for positioning child elements */
+    /* overflow: hidden; Prevent scrollbar */
+  }
+  
+  /* Search container styling */
+  .search-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  /* Search input box */
+  .search-input {
+    padding: 8px 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  /* Search button styling */
+  .search-btn {
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .search-btn:hover {
+    background-color: #33333394;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Keeps everything aligned to the left */
+    width: 100%;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .container {
+    width: 80%;
+    max-width: 900px;
+    // background-color: rgb(237, 237, 237);
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+margin-bottom: 20px; 
+ }
+ h4{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+ }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  th {
+    background-color: #24292ee4;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #fff;
+  }
+  
+  .btn-update {
+    background-color: #28a745;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545;
+  }
+  
+  .btn-add {
+    background-color: #333;
+  }
+  
+  /* Modern input styling with bottom border */
+  .container input[type="text"] {
+    width: 90%;
+    padding: 8px 10px;
+    margin: 4px 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+  }
+  
+  /* Hover and focus effect */
+  .container input[type="text"]:hover {
+    border-bottom-color: #888;
+  }
+  
+  .container input[type="text"]:focus {
+    border-bottom-color: black;
+    background-color: rgb(237, 237, 237);
+  }
+  
+  /* Media Queries */
+  /* Laptop View (Width 1024px and below) */
+  @media (max-width: 1024px) {
+    .search-container {
+      top: 10px;
+      right: 10px;
+    }
+  
+    .container {
+      width: 90%;
+    }
+  
+    h2 {
+      font-size: 1.25rem;  /* Adjusting header font size */
+    }
+  
+
+    /* Optional: Adjust button sizes */
+    .btn {
+      padding: 6px 14px;
+    }
+  }
+  
+  /* Tablet View (Width 768px and below) */
+  @media (max-width: 768px) {
+    .search-container {
+      top: 10px;
+      right: 10px;
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+    .search-input {
+      width: 80%;  /* Search input takes more space */
+    }
+  
+    .search-btn {
+      width: 20%;  /* Search button gets a smaller width */
+    }
+  
+    .container {
+      width: 100%;
+      padding: 15px;  /* Adjusting padding */
+    }
+  
+    table {
+      font-size: 0.9rem;  /* Adjusting table font size */
+    }
+  
+
+  
+    /* Optional: Add spacing for action buttons */
+    .action-buttons {
+      gap: 8px;
+    }
+  }
+  
+  /* Mobile View (Width 480px and below) */
+  @media (max-width: 480px) {
+    .search-container {
+      top: 10px;
+      right: 10px;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  
+    .search-input {
+      width: 80%;
+      margin-bottom: 10px;  /* Adds margin for better spacing */
+    }
+  
+    .search-btn {
+      width: 80%;  /* Search button takes full width on mobile */
+    }
+  
+    .container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    table {
+      font-size: 0.85rem;  /* Slightly smaller table font for mobile */
+    }
+  
+
+  
+    h2 {
+      font-size: 1.2rem;  /* Adjusting header size for small screens */
+    }
+  
+    /* Optional: Adjust button font sizes and padding */
+    .btn {
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
+  }

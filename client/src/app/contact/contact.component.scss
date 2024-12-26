@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/assets/tech1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 0, 0, 0.16); /* Adjust the opacity for the glass effect */
+    backdrop-filter: blur(3px); /* Adjust the blur value for the glass effect */
+}
+
+.contact {
+    padding-top: 60px;
+    position: relative; /* Ensure the contact form stays on top of the pseudo-element */
+    margin-top: auto; /* Adjust as needed */
+    // padding: 20px;
+    
+    
+    opacity: 22px;
+    border-radius: 8px;
+    // box-shadow: 0 0 10px rgba(64, 0, 255, 0.1);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact h1 {
+    color: rgba(1, 73, 4, 0.797);
+    font-weight: bolder;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #00000069;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(34, 0, 255, 0.1);
+    margin-top: 60px;
+   
+}
+
+label {
+    font-weight: bold;
+    color: #ccc;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #cccccca0;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #1e8bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    margin-left: 110px;
+}
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.text-danger {
+    color: red;
+}
+
+button:hover {
+    background-color: #594dfa;
+}
+
+button:active {
+    background-color: #004080;
+}

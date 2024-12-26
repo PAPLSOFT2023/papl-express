@@ -1,0 +1,108 @@
+<div class="wrapper"></div>
+    <div class="master" style="background-image: url('assets/lift.jpg');">
+        <h1>INSPECTION FEEDBACK FORM</h1>
+        <h4>Professionalism of Inspector</h4>
+        <div class="stars-box">
+            <!-- Stars for rating -->
+            <i class="star fas fa-star" title="Poor" (click)="rate(0, 0)" [ngClass]="{'checked': ratings[0][0]}"></i>
+            <i class="star fas fa-star" title="Average" (click)="rate(0, 1)" [ngClass]="{'checked': ratings[0][1]}"></i>
+            <i class="star fas fa-star" title="Good" (click)="rate(0, 2)" [ngClass]="{'checked': ratings[0][2]}"></i>
+            <i class="star fas fa-star" title="Very Good" (click)="rate(0, 3)" [ngClass]="{'checked': ratings[0][3]}"></i>
+            <i class="star fas fa-star" title="Excellent" (click)="rate(0, 4)" [ngClass]="{'checked': ratings[0][4]}"></i>
+        </div>git
+        <h5>{{ getLastCheckedText(0) }}</h5>
+        <div class="tags-box">
+            <input type="text" [(ngModel)]="option1" class="tag form-control" [disabled]="!isInputEnabled(0)" placeholder="Pls. Give reason for rating less than 5">
+        </div>
+    
+
+        <h4>Impartiality & Independence exhibited by Inspector</h4>
+        <div class="stars-box">
+            <i class="star fas fa-star" title="Poor" (click)="rate(1, 0)" [ngClass]="{'checked': ratings[1][0]}"></i>
+            <i class="star fas fa-star" title="Average" (click)="rate(1, 1)" [ngClass]="{'checked': ratings[1][1]}"></i>
+            <i class="star fas fa-star" title="Good" (click)="rate(1, 2)" [ngClass]="{'checked': ratings[1][2]}"></i>
+            <i class="star fas fa-star" title="Very Good" (click)="rate(1, 3)" [ngClass]="{'checked': ratings[1][3]}"></i>
+            <i class="star fas fa-star" title="Excellent" (click)="rate(1, 4)" [ngClass]="{'checked': ratings[1][4]}"></i>
+        </div>
+        <h5>{{ getLastCheckedText(1) }}</h5>
+        <div class="tags-box">
+            <input type="text" [(ngModel)]="option2" class="tag form-control" [disabled]="!isInputEnabled(1)" placeholder="Pls. Give reason for rating less than 5">
+        </div>
+        <h4>Communication & Explanation provided by Inspector</h4>
+        <div class="stars-box">
+            <i class="star fas fa-star" title="Poor" (click)="rate(2, 0)" [ngClass]="{'checked': ratings[2][0]}"></i>
+            <i class="star fas fa-star" title="Average" (click)="rate(2, 1)" [ngClass]="{'checked': ratings[2][1]}"></i>
+            <i class="star fas fa-star" title="Good" (click)="rate(2, 2)" [ngClass]="{'checked': ratings[2][2]}"></i>
+            <i class="star fas fa-star" title="Very Good" (click)="rate(2, 3)" [ngClass]="{'checked': ratings[2][3]}"></i>
+            <i class="star fas fa-star" title="Excellent" (click)="rate(2, 4)" [ngClass]="{'checked': ratings[2][4]}"></i>
+        </div>
+        <h5>{{ getLastCheckedText(2) }}</h5>
+        <div class="tags-box">
+            <input type="text" [(ngModel)]="option3" class="tag form-control" [disabled]="!isInputEnabled(2)" placeholder="Pls. Give reason for rating less than 5">
+        </div>
+        <h4>Knowledge of the Inspector</h4>
+        <div class="stars-box">
+            <i class="star fas fa-star" title="Poor" (click)="rate(3, 0)" [ngClass]="{'checked': ratings[3][0]}"></i>
+            <i class="star fas fa-star" title="Average" (click)="rate(3, 1)" [ngClass]="{'checked': ratings[3][1]}"></i>
+            <i class="star fas fa-star" title="Good" (click)="rate(3, 2)" [ngClass]="{'checked': ratings[3][2]}"></i>
+            <i class="star fas fa-star" title="Very Good" (click)="rate(3, 3)" [ngClass]="{'checked': ratings[3][3]}"></i>
+            <i class="star fas fa-star" title="Excellent" (click)="rate(3, 4)" [ngClass]="{'checked': ratings[3][4]}"></i>
+        </div>
+        <h5>{{ getLastCheckedText(3) }}</h5>
+        <div class="tags-box">
+            <input type="text" [(ngModel)]="option4" class="tag form-control" [disabled]="!isInputEnabled(3)" placeholder="Pls. Give reason for rating less than 5">
+        </div>
+        <h4>Overall service rendered by PAPL Corp</h4>
+        <div class="stars-box">
+            <i class="star fas fa-star" title="Poor" (click)="rate(4, 0)" [ngClass]="{'checked': ratings[4][0]}"></i>
+            <i class="star fas fa-star" title="Average" (click)="rate(4, 1)" [ngClass]="{'checked': ratings[4][1]}"></i>
+            <i class="star fas fa-star" title="Good" (click)="rate(4, 2)" [ngClass]="{'checked': ratings[4][2]}"></i>
+            <i class="star fas fa-star" title="Very Good" (click)="rate(4, 3)" [ngClass]="{'checked': ratings[4][3]}"></i>
+            <i class="star fas fa-star" title="Excellent" (click)="rate(4, 4)" [ngClass]="{'checked': ratings[4][4]}"></i>
+        </div>
+        <h5>{{ getLastCheckedText(4) }}</h5>
+        <div class="tags-box">
+        <input type="text" [(ngModel)]="option5" class="tag form-control" [disabled]="!isInputEnabled(4)" placeholder="Pls. Give reason for rating less than 5">
+        </div>
+    </div>
+
+
+<div class="wrapper">
+
+<div class="master" style="background-image: url('assets/lift.jpg');">
+    <div class="container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="name"><br>
+    
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" [(ngModel)]="designation"><br>
+    
+        <label for="contactNo">Contact No:</label>
+        <input type="text" id="contactNo" [(ngModel)]="contactNo"><br>
+    
+        <label for="emailId">Email Id:</label>
+        <input type="text" id="emailId" [(ngModel)]="emailId"><br>
+    
+        <label for="signature">Signature:</label><br>
+    
+        <div class="signature-pad-container">
+            <signature-pad 
+                class="signature-pad" 
+                [options]="signaturePadOptions" 
+                (onEnd)="drawComplete()">
+            </signature-pad>
+          
+            <button class="clear-signature-btn" (click)="clearSignature()">x</button>
+            
+            <button class="capture-signature-btn" (click)="captureSignature()">Save</button>
+          </div>
+          
+<br>
+    
+        <button class="proceed-button" (click)="check()">Submit</button>
+
+    </div>
+    
+    
+      
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Icon Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+</head>
+<body >
+<div *ngFor="let request of records">
+
+    <div class='job' style="padding-top: 20px;">
+      <h2>{{request.project_name}}</h2><div class="eye-icon"><i class="fas fa-eye" (click)="pdf(request.contract_number)"></i></div>
+      <p class='department'>No.of.units: {{request.total_units_schedule}}</p>
+      <p class='department'>Location: {{request.location}}</p>
+      <p class='department'>Types of inspection: {{request.type_of_inspection}}</p>
+
+      <br>
+      <div *ngFor="let item of request.name_reason | parseJson | keyvalue">
+        <p class='department'>{{ item.key }}: {{ item.value }}</p>
+      </div>
+      <a class='apply-button' (click)='handleClick(request.contract_number)'> Reschedule </a>
+      <!-- <p>{{request.name_reason}}</p> -->
+    
+
+      <div class='job-footer'>
+        <div class='job-dates'>
+          <div class='job-posted-date'>{{request.schedule_from | date: 'dd/MM/yyyy'}}</div>
+          <div class='job-expiry-date'>{{request.schedule_to | date: 'dd/MM/yyyy'}}</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <p *ngIf="records.length === 0">No more requests</p>
+
+<!-- <div><router-outlet></router-outlet></div> -->
+<!-- <h1>{{records | json}}</h1> -->
+
+
+
+</body>
+</html>

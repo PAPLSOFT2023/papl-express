@@ -1,0 +1,552 @@
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensures the modal is on top */
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative; /* To position the close button */
+    text-align: center; /* Centering the content inside the modal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+/* Close button styles */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    margin-top: -14px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 40px;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: red;
+  }
+  
+  /* Loading spinner (you can customize this style) */
+  .loading-spinner {
+    display: block;
+    margin: 20px auto;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Spinner animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .qr-code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .qr-instruction {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .qr-code {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .qr-logo {
+    margin-top: 15px;
+    max-width: 100px; /* Adjust as needed */
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .download-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .download-btn:hover {
+    background-color: #2874a6;
+  }
+  
+  
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:calibri;
+  }
+  
+  /* Container holding everything */
+  .container {
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'content content'
+        'footer footer';
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr auto;
+    height: 100vh;
+    background: url('/assets/bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: #333;
+  }
+  
+  /* Header styling */
+  .header {
+    grid-area: header;
+    background-color: #24292e;
+  
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Ensure content does not overlap search bar */
+  .content {
+    position: relative; /* Allow absolute positioning of the search bar */
+    grid-area: content;
+    padding: 20px;
+    background-color: #0f0e0e8f;
+    overflow-y: auto;
+  }
+  
+  
+  .header h1 {
+    font-size: 1.5em;
+  }
+  
+  
+  .search-box {
+    position: fixed; /* Fixed position to keep it on the screen */
+    right:40px; /* Distance from the right side */
+    top:75px; /* Adjust this value to control the vertical position */
+    display: flex;
+    align-items: center;
+    width: fit-content; /* Ensures the width adjusts to content */
+    height: fit-content; /* Adjusts height to fit the content */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+  }
+  
+  .input-search{
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color:rgba(255, 255, 255, 0.231) ;
+    padding-right: 40px;
+    color:#fff;
+  }
+  .input-search::placeholder{
+    color:rgba(255,255,255,.5);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+  }
+  .btn-search{
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color:white;
+    background-color:transparent;
+    pointer-events: painted;  
+  }
+  .btn-search:focus ~ .input-search{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  .input-search:focus{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  /* Main content styling */
+  .content {
+    grid-area: content;
+    padding: 20px;
+    background-color: rgba(15, 14, 14, 0.9);
+    overflow-y: auto;
+  }
+  
+  /* Table Container */
+  .table-responsive {
+    width:1400px;
+    max-height: 450px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-left:50px;
+    margin-bottom:10px;
+    margin-top:30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styled Table */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure no gaps between borders */
+  }
+  
+  .styled-table thead {
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick it to the top */
+    z-index: 1; /* Higher stacking context */
+    background-color: #24292e; /* Background color */
+    color: #ffffff; /* Text color for better visibility */
+  }
+  
+  .styled-table th, .styled-table td {
+    padding: 12px 15px; /* Add padding for readability */
+    text-align: center; /* Align text to the left */
+  }
+  
+  .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd; /* Add bottom border for rows */
+  }
+  
+  .styled-table tbody tr {
+    background-color: #f3f3f3; /* Alternate row colors for readability */
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #f3f3f3; /* Bottom border for the last row */
+  }
+  
+  
+  /* Style for Approve Button */
+  .edit-icon {
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px; /* Adds 10px space between approve and reject icons */
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* Custom Scrollbar Styling (Optional) */
+  .table-responsive::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+  }
+  
+  .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Scrollbar track color */
+  }
+  
+  .table-responsive::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb color */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Scrollbar thumb hover color */
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .styled-table th, .styled-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .styled-table th, .styled-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+  }
+  .styled-table th, .styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+  
+  .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+  }
+  .styled-table tbody tr:hover {
+    background-color: #e0e0e0d8;
+    transform: scale(1.02); /* Slight scale up on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  /* Keyframes for slide-in animation */
+  @keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to table rows */
+  .styled-table tbody tr {
+    animation: slideIn 0.5s ease forwards; /* Slide in animation */
+    opacity: 0; /* Initial state to prevent a flash of content */
+  }
+  
+  
+  
+  /* Styling for h2 */
+  .container h2 {
+    font-size: 2em;
+   
+    margin-bottom: 10px;
+    color:rgba(238, 232, 232, 0.8);
+    /* transition: color 0.3s, transform 0.3s, text-shadow 0.3s; */
+  }
+  
+  /* Footer styling */
+  .footer {
+    grid-area: footer;
+    background-color: #24292e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Large screens (desktops) */
+  @media (min-width: 1025px) {
+    .container {
+        grid-template-columns: 200px 1fr; /* Two-column layout */
+        grid-template-areas:
+            'header header'
+            'content content'
+            'footer footer';
+    }
+    .table-responsive {
+        width: 100%; /* Adjust table to container width */
+        margin-left: 0; /* Center table */
+    }
+    .search-box {
+        right: 60px; /* Adjust position */
+        top: 75px; /* Adjust position */
+    }
+  }
+  
+  /* Tablets (768px to 1024px) */
+  @media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr; /* Single-column layout */
+        grid-template-areas:
+            'header'
+            'content'
+            'footer';
+    }
+    .header h1 {
+        font-size: 20px; /* Smaller font size */
+    }
+    .menu-icon {
+        width: 25px;
+        height: 30px;
+        font-size: 22px; /* Smaller icon */
+    }
+    .search-box {
+        top: 65px; /* Adjust search box position */
+        right: 30px; /* Adjust search box position */
+    }
+    .table-responsive {
+        width: 90%; /* Adjust table width */
+        margin: 0 auto; /* Center the table */
+    }
+    .view-btn {
+        font-size: 12px; /* Adjust button font size */
+    }
+  }
+  
+  /* Large Mobile Phones (480px to 767px) */
+  @media (max-width: 767px) {
+    .container {
+        grid-template-columns: 1fr; /* Single-column layout */
+        padding: 10px; /* Reduce padding */
+    }
+    .header h1 {
+        font-size: 18px; /* Smaller header font size */
+    }
+    .menu-icon {
+        width: 20px;
+        height: 25px;
+        font-size: 18px; /* Smaller icon */
+    }
+    .search-box {
+        right: 20px; /* Adjust position */
+        top: 60px; /* Adjust position */
+        width: 80%; /* Stretch search box */
+    }
+    .input-search {
+        width: 200px; /* Adjust search input width */
+    }
+    .view-btn {
+        font-size: 11px; /* Adjust button font size */
+        padding: 5px 8px; /* Adjust padding */
+    }
+    .styled-table th, .styled-table td {
+        font-size: 13px; /* Smaller table font size */
+        padding: 8px; /* Reduce padding */
+    }
+  }
+  /* Style for the view icon */
+  .view-icon {
+    font-size:16px; /* Adjust size */
+    color: #333;
+    cursor: pointer; /* Show clicking hand cursor */
+  }
+  
+  /* Small Mobile Phones (up to 479px) */
+  @media (max-width: 479px) {
+    .header h1 {
+        font-size: 16px; /* Smaller font size for header */
+    }
+    .menu-icon {
+        width: 18px;
+        height: 20px;
+        font-size: 16px; /* Smaller icon */
+    }
+    .search-box {
+        right: 10px; /* Adjust position */
+        top: 55px; /* Adjust position */
+        width: 70%; /* Further stretch search box */
+    }
+    .input-search {
+        width: 150px; /* Adjust search input width */
+    }
+    .view-btn {
+        font-size: 10px; /* Adjust button font size */
+        padding: 4px 6px; /* Adjust padding */
+    }
+    .styled-table th, .styled-table td {
+        font-size: 12px; /* Smaller font size */
+        padding: 6px; /* Reduce padding */
+    }
+    .styled-table tbody tr:hover {
+        transform: none; /* Remove hover effect for smaller devices */
+        box-shadow: none; /* Remove shadow for smaller devices */
+    }
+    .footer {
+        padding: 8px; /* Smaller padding */
+    }
+  }
+  
+  /* Further Adjustments for Extra Small Devices (360px and below) */
+  @media (max-width: 360px) {
+    .header h1 {
+        font-size: 14px; /* Further reduced font size */
+    }
+    .menu-icon {
+        width: 15px;
+        height: 18px;
+        font-size: 14px; /* Smaller icon size */
+    }
+    .view-btn {
+        font-size: 9px; /* Further adjust button font size */
+        padding: 3px 5px; /* Adjust padding */
+    }
+    .input-search {
+        width: 100px; /* Adjust input width */
+        font-size: 14px; /* Smaller input text */
+    }
+    .styled-table th, .styled-table td {
+        font-size: 11px; /* Smaller table font size */
+        padding: 4px; /* Smaller padding */
+    }
+    .footer {
+        font-size: 12px; /* Smaller font size */
+    }
+
+
+    /* Style for the button */
+.button-style {
+    font-size: 15px;          /* Set the font size to 15px */
+    background: none;         /* No background color */
+    border: none;             /* No border */
+    padding: 0;               /* No padding */
+    color: inherit;           /* Inherit color from parent element */
+    cursor: pointer;         /* Change cursor to pointer on hover */
+    text-align: center;       /* Ensure the text is centered */
+    display: inline-flex;     /* Use inline-flex for a flexible button layout */
+    align-items: center;      /* Vertically center the content */
+    color: #000;
+    justify-content: center;  /* Horizontally center the content */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  /* Add hover effect */
+  .button-style:hover {
+    color: #007bff;           /* Change color to blue on hover */
+    background-color: #f8f9fa; /* Light gray background on hover */
+    border-radius: 4px;        /* Slight rounding of corners on hover */
+  }
+  
+  /* Optional: If you want to add focus styles when the button is clicked or focused */
+  .button-style:focus {
+    outline: none;           /* Remove default outline */
+    box-shadow: 0 0 0 2px #007bff; /* Blue glow effect */
+  }
+  
+  /* Optional: Style for the icon inside the button, if you plan to use icons */
+  .button-style i {
+    font-size: 20px;           /* Set icon size */
+    margin-right: 5px;         /* Space between icon and text */
+  }
+  
+  }
+

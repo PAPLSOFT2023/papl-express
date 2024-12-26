@@ -1,0 +1,190 @@
+<div class="container">
+    <div class="label">Unit No: {{unitNo}}</div>
+  </div>
+
+
+  <div class="card-container">
+    <div class="card">
+        <div class="card-body">
+            
+            <h1  class="PitTitle"> <b>{{ title }}</b></h1>
+            <button class="picture-view-btn" (click)="filterCheckedRecords()" >Show Existing Records</button>
+                <!-- <button  class="btn btn-primary">
+                  Show Checked Records
+                </button> -->
+              <!-- </div> -->
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+    
+                        <tr>
+                            <th>Observation</th>
+                            <th>Photo</th>
+                            <th>Select the Observation</th>
+                            <th>Image Required for Report </th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of dropdownArray; let index = index" >
+                            <td>
+                              <ng-container *ngIf="item.includes('---')">
+                                <ng-container *ngFor="let part of item.split('---'); let i = index">
+                                  <span *ngIf="part.trim() !== ''">{{ part }}</span>
+                                  <input 
+                                      *ngIf="i < item.split('---').length - 1"
+                                      type="text"
+                                      [(ngModel)]="inputValues[index][i]"
+                                      class="input-field"
+                                  />
+                              </ng-container>
+                              </ng-container>
+                              
+                                
+                                
+                                
+                                <ng-container *ngIf="!item.includes('---')">
+                                    {{ item }}
+                                </ng-container>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <input [disabled]="disable" *ngIf="photoArray[index] && (photoArray[index].toLowerCase() === 'y')" type="file" accept="image/*" class="form-control-file" id="'photoUpload_img'+index" (change)="handleFileInput($event, index)" [class.selected-file]="photoSelected[index]">
+                                    <p *ngIf="photoArray[index] && (photoArray[index].toLowerCase() === 'y')">OR</p>
+                                    
+                                    
+                            
+    
+                                    <span [class.disabled]="disable">
+                                        <label *ngIf="photoArray[index] && (photoArray[index].toLowerCase() === 'y')" class="input-group-text" [attr.id]="'photoUpload' + index" (click)="takePicture(index)">
+                                            <i class="fas fa-camera"></i>
+                                        </label>
+                                    </span>
+    
+    
+    
+                                    <span class="spacer"></span> 
+                                    <button [disabled]="disable" (click)="viewImage(index)" class="view-image-button" *ngIf="photoArray[index] && (photoArray[index].toLowerCase() === 'y')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <input [disabled]="disable" type="checkbox" [checked]="checkpoint[index]" (change)="checkpoint[index] = !checkpoint[index]" >
+                            </td>
+                            <td>
+                                <input [disabled]="disable|| !photoArray[index] || (photoArray[index].toLowerCase() !== 'y')" type="checkbox"  [checked]="NeedforReport[index]" (change)="NeedforReport[index] = !NeedforReport[index]">
+                            </td>                       
+                        </tr>
+    
+                        <td colspan="4" class="text-center">
+                            <button *ngIf="!hideAllDoneButton" (click)="save()"  id="positive" class="Positive-btn">Satisfactory</button>
+                            <span class="spacer"></span> 
+                            <button (click)="save_button_enable_fun()" id="negative" *ngIf="defect_button_flag" class="negative-btn">Issue</button>
+                        </td>
+                        
+                        
+                        
+                        
+                        <tr>
+                            <!-- Save button -->
+                            <td colspan="4" clasxs="text-center">
+                                <button (click)="save()" *ngIf="save_button_enable_flag"  class="btn-save">Save</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button to trigger displaying records with checked = 1 -->
+<!-- Button to trigger displaying records with checked = 1 -->
+
+
+<!-- <div *ngIf="filteredRecords.length > 0 && showPopup" class="filtered-records-container">
+    <div class="filtered-records-content">
+      <button class="close-button" (click)="closePopup()">×</button>
+      <div *ngFor="let record of filteredRecords" class="record">
+        <p><strong>Dropdown Option:</strong> {{ record.dropdown_option }}</p>
+  
+        <div *ngIf="record.img; else noImage">
+          <img [src]="record.img" alt="Record Image" class="record-image"/>
+        </div>
+        <ng-template #noImage>
+          <p>No image available</p>
+        </ng-template>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div *ngIf="filteredRecords.length==0 && showPopup" class="filtered-records-container">
+    <div class="filtered-records-content">
+            <button class="close-button" (click)="closePopup()">×</button>
+
+
+<p>Satisfactory Point</p>
+</div>
+
+  </div> -->
+
+    
+  <div *ngIf="showPopup" class="filtered-records-container">
+    <div class="filtered-records-content">
+      <button class="close-button" (click)="closePopup()">×</button>
+      
+      <!-- Check if there are records -->
+      <div *ngIf="filteredRecords.length > 0; else noRecords">
+        <div *ngFor="let record of filteredRecords" class="record">
+          <p><strong>Dropdown Option:</strong> {{ record.dropdown_option }}</p>
+    
+          <div *ngIf="record.img; else noImage">
+            <img [src]="record.img" alt="Record Image" class="record-image"/>
+          </div>
+          <ng-template #noImage>
+            <p>No image available</p>
+          </ng-template>
+        </div>
+      </div>
+  
+      <!-- Message when no records are present -->
+      <ng-template #noRecords>
+        <p>Satisfactory Selected</p>
+      </ng-template>
+    </div>
+  </div>
+  
+    <div class="floating-container" *ngIf="isCameraActive">
+        <video #videoElement autoplay playsinline></video>
+        <canvas #canvasElement style="display: none;"></canvas>
+        <img #imageElement style="max-width: 100%; max-height: 100%; display: none;">
+        <div class="button-container">
+          <button *ngIf="!isImageCaptured" (click)="captureImage()"   class="custom-button"  >Capture</button>
+          <button *ngIf="isImageCaptured" (click)="retakePicture()"  class="custom-button" >Retake</button>
+          <button *ngIf="isImageCaptured" (click)="confirmImage()"  class="custom-button" >OK</button>
+          <button (click)="cancelCapture()"   class="custom-button cancel-button"     >Cancel</button>
+          <button (click)="camera_flip()"  class="custom-button">flipcam</button>
+          <!-- <button (click)="camera_flip_Usb()"  class="custom-button">USBCam</button> -->
+        </div>
+      </div>
+     <div *ngIf="showImageView" class="image-view-container">
+        <div class="image-view-content">
+           <img [src]="selectedImageUrl" alt="Selected Image" class="selected-image">
+           <button (click)="closeImageView()" class="close-button">
+             <i class="fas fa-times"></i>
+           </button>
+        </div>
+       </div>
+    </div>
+
+    <div class="report-cards-container">
+        <div class="loader-container" *ngIf="isLoading">
+          <div class="icon logo">
+            <div class="loader"></div>
+          </div>
+        </div>
+        </div>
+    
+    
+    

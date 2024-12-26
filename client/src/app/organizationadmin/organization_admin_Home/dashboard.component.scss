@@ -1,0 +1,639 @@
+/* Basic reset */
+
+
+/* Search box container */
+.search-box {
+  position: absolute; /* Absolute positioning relative to .container */
+  top: 75px; /* Adjust this value to control the vertical position */
+  right: 40px; /* Distance from the right side */
+  display: flex;
+  align-items: center;
+  width: fit-content; /* Ensures the width adjusts to content */
+  height: fit-content; /* Adjusts height to fit the content */
+  z-index: 1000; /* Ensures it stays on top of other elements */
+  
+}
+
+/* Search button styling */
+.btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px; /* Position the button to the right of the input */
+  color: white;
+  background-color: transparent;
+}
+
+/* Expand search input on focus or button click */
+.btn-search:focus ~ .input-search,
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+/* Button hover effect */
+.btn-search:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+/* Search input box styling */
+.input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all 0.5s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.231);
+  padding-right: 40px;
+  color: #fff;
+}
+
+/* Placeholder text styling */
+.input-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+/* Expand search input on focus or button click */
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI','lato' Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container holding everything */
+.container {
+  display: grid;
+  grid-template-areas:
+      'header header'
+      'content content'
+      'footer footer';
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 60px 1fr auto;
+  height: 100vh;
+  background: url('/assets/bg.jpg') no-repeat center center;
+  background-size: cover;
+  color: #333;
+}
+
+
+/* Header styling */
+.header {
+  grid-area: header;
+  background-color: #24292e;
+  color: white;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center the h1 */
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Centered h1 */
+.header h1 {
+  font-size: 1.8em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Right-side elements */
+.header-right {
+  position: absolute;
+  right: 15px; /* Align to the right side */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between elements */
+}
+
+/* Administrator section */
+.emoji-icon {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  gap: 5px;
+}
+/* Style for the admin image */
+.admin-image {
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
+  margin-right: 5px; /* Space between the image and text */
+  vertical-align: middle; /* Aligns the image with the text */
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+  color: black;
+  padding:10px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+
+/* Hover effect on dropdown links */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+/* Main content styling */
+.content {
+  grid-area: content;
+  
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.724);
+  overflow-y: auto;
+}
+
+/* Card layout */
+.cards {
+  display: grid;
+  /* grid-template-rows: repeat(auto-fit, minmax(30px, 1fr)); */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card styling */
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #24292e;
+}
+
+/* Styling for card h3 */
+.card h3 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #24292e;
+  transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+}
+
+/* Hover effect */
+.card h3:hover {
+  color:#24292e;; /* Change the color on hover */
+  transform: scale(1.05); /* Slightly enlarge the heading */
+  text-shadow: 0 2px 5px rgba(0, 123, 255, 0.3); /* Add a subtle shadow effect */
+}
+
+
+/* Icon container for a more refined effect */
+.icon-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.icon-container i {
+  font-size: 45px;
+  color: #24292e;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s, color 0.3s;
+}
+
+.icon-container i:hover {
+  transform: rotate(5deg) scale(1.1);
+  color: #24292e;
+}
+
+.card p {
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Add this CSS to your stylesheet */
+
+/* Keyframes for rotation animation */
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* Apply the rotation animation to the icon */
+.history-icon {
+  animation: rotate 2s linear infinite; /* 2s for a full rotation, adjust as needed */
+}
+/* Keyframes for zoom-in and zoom-out animation */
+@keyframes zoom {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2); /* Zoom in */
+  }
+  100% {
+      transform: scale(1); /* Zoom out */
+  }
+}
+
+/* Apply zoom animation to the elevator icon */
+.lift-icon {
+  animation: zoom 2s ease-in-out infinite; /* 2s for one cycle, adjust as needed */
+}
+
+/* Apply zoom animation to the plus-circle icon */
+.generate-icon {
+  animation: zoom 2s ease-in-out infinite; /* 2s for one cycle, adjust as needed */
+}
+
+
+
+
+/* Footer styling */
+.footer {
+  grid-area: footer;
+  background-color: #24292e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for h2 */
+.container h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color:rgba(255, 255, 255, 0.8);
+  /* transition: color 0.3s, transform 0.3s, text-shadow 0.3s; */
+}
+
+/* Hover effect */
+.container h2:hover {
+  /* color:rgba(255, 255, 255, 0.8) ; Change the color on hover */
+  /* transform: scale(1.05); Slightly enlarge the heading */
+  /* text-shadow: 0 2px 5px rgba(255, 255, 255, 0.6); Add a subtle shadow effect */
+}
+
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+          'header'
+          'content'
+          'footer';
+  }
+
+  .cards {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+  }
+}
+
+/* Media Query for Mobile (480px and below) */
+@media (max-width: 480px) {
+  .header h1 {
+      font-size: 18px;
+  }
+
+  .menu-icon {
+      font-size: 20px;
+  }
+
+  .cards {
+      grid-template-columns: 1fr;
+      gap: 10px;
+  }
+
+  .card {
+      padding: 15px;
+  }
+}
+
+.popup {
+  display: fixed;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* manage-account-popup.component.css */
+.popup1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Make sure the popup is above the blurred background */
+  width: 400px;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content1 {
+  position: relative;
+}
+
+/* Align close button to the top-right corner */
+.close1 {
+  position: absolute;
+  top: 5px; /* Distance from the top */
+  right: 10px; /* Distance from the right */
+  font-size: 34px;
+  color: #c82333;
+  cursor: pointer;
+}
+
+
+.form-container {
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="file"] {
+  width: calc(100% - 10px);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.password-group {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.toggle-password i {
+  font-size: 16px;
+  color: #999;
+}
+
+.image-preview img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+  background-color: #0056b3;
+}
+
+/* Blur effect for the background */
+.popup-background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Slight dark overlay */
+  backdrop-filter: blur(10px); /* Blur effect */
+  z-index: 1000; /* Behind the popup */
+}
+//   .eyeIcon{
+//     margin-top: 10px;
+//   }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+//////pop logout/////
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it appears on top */
+}
+
+.popup-overlay.show {
+  display: flex; /* Show the popup when the class 'show' is added */
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  max-width: 400px;
+  text-align: center;
+  animation: popupAnimation 0.3s ease-in-out;
+}
+
+@keyframes popupAnimation {
+  0% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.popup-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup-buttons .confirm {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.popup-buttons .cancel {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.popup-buttons button i {
+  margin-right: 5px;
+}
+/* Loader Styles */
+.loader-container {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7); /* Light background overlay */
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

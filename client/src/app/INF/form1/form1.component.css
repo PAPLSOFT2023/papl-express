@@ -1,0 +1,201 @@
+.body{
+    height: 150vh;
+    width: 100vw;
+    top: 0px;
+ }
+ .mat-card1{
+     height: 160vh;
+     width: 95vw;
+     margin-left: 45px;
+     margin-right: 20px;
+     background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+     /* background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+     margin-top: 20px;
+     border-radius: 30px;
+ }
+ .mat-icon1{
+    color: #747373;
+ }
+ .mat-card2{
+     width: 89vw;
+     height: 30vh;
+     margin-left: 45px;
+     margin-right: 8px;
+     background-color: white;
+     margin-top: 50px;
+     border-radius: 20px;
+ }
+ .mat-card3{
+     width: 89vw;
+     height: 30vh;
+     margin-left: 40px;
+     margin-right: 8px;
+     margin-top: 50px;
+     border-radius: 20px;
+ }
+ .h2{
+     font-family: Georgia;
+     font-size: 50px;
+     margin-left: 400px;
+     margin-top: 20px;
+ }
+ .form-field1{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px;   
+ }
+ .form-field2{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px;  
+  
+ }
+ .form-field3{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px; 
+ 
+ }
+ .mat-accordion{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px; 
+ }
+ .btnOk{
+    width: 20vw;
+    height: 7.5vh;
+    margin-left: 30px;
+ }
+ .btnsubmit{
+    margin-top: 30px;
+    margin-left: 700px;
+    height: 50px;
+    width: 90px;
+    font-size: large;
+    font-family: Georgia;
+ }
+
+ .body{
+    height: 150vh;
+    width: 100vw;
+    top: 0px;
+ }
+ .mat-card1{
+     height: 160vh;
+     width: 95vw;
+     margin-left: 45px;
+     margin-right: 20px;
+     background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+     /* background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+     margin-top: 20px;
+     border-radius: 30px;
+ }
+ .mat-card2{
+     width: 89vw;
+     height: 30vh;
+     margin-left: 45px;
+     margin-right: 8px;
+     background-color: white;
+     margin-top: 50px;
+     border-radius: 20px;
+ }
+ .mat-card3{
+     width: 89vw;
+     height: 30vh;
+     margin-left: 40px;
+     margin-right: 8px;
+     margin-top: 50px;
+     border-radius: 20px;
+ }
+ .h2{
+     font-family: Georgia;
+     font-size: 50px;
+     margin-left: 400px;
+     margin-top: 30px;
+ }
+ .form-field1{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px;   
+ }
+ .form-field2{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px;  
+  
+ }
+ .form-field3{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px; 
+ 
+ }
+ .mat-accordion{
+     width: 20vw;
+     margin-top: 30px;
+     margin-left: 30px; 
+ }
+ .btnOk{
+    width: 20vw;
+    height: 7.5vh;
+    margin-left: 30px;
+ }
+ .btnsubmit{
+    margin-top: 30px;
+    margin-left: 700px;
+    height: 50px;
+    width: 105px;
+    font-size: large;
+    font-family: Georgia;
+ }
+ .mat-icon1{
+    color: #747373;
+ }
+ .checkbox{
+    margin: 20px 20px;
+    margin-left: 100px;
+   
+    font-family: Georgia;
+    font-size: large;
+ }
+ .checkbox1{
+    margin: 20px 20px;
+    margin-left: 20px;
+   
+    font-family: Georgia;
+    font-size: large;
+ }
+ .check-label{
+    margin-left: 30px;
+    font-family: Georgia;
+    font-size: large;
+    
+    
+ }
+ .mat-card3{
+    width: 89vw;
+    height: 45vh;
+    margin-left: 40px;
+    margin-right: 8px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+/* .body{
+    height: 150vh;
+    width: 150vw;
+    top: 0px;
+ } */
+ .mat-card1{
+     height: 180vh;
+     width: 95vw;
+     margin-left: 45px;
+     margin-right: 20px;
+     background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+     /* background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+     margin-top: 20px;
+     border-radius: 30px;
+ }
+
+
+

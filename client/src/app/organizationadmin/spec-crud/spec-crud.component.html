@@ -1,0 +1,1936 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/aaa.css" type="text/css">
+</head>
+<body>
+  <div class="header">
+    <h1>BRIEF SPECIFICATION CRUD OPERATION</h1>
+  </div>
+
+
+  <div class="search-container">
+    <input type="text"  [(ngModel)]="searchQuery" placeholder="Search..." class="search-input">
+    <button class="search-btn" (click)="searchTables()">Search</button>
+  </div>
+  
+  <br>
+  <br>
+
+  <div class="container" *ngIf="shouldDisplayTable('TYPE OF CABIN FAN')">
+    <h4>TYPE OF CABIN FAN</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i = index">
+            <td>{{i+1}}</td>
+              <td><input type="text" [(ngModel)]="item.type_of_cabin_fan" ></td>
+          <td class="action-buttons">
+            <button class="btn btn-update" (click)="updateItem(item.id,item.type_of_cabin_fan)">Update</button>
+            <button class="btn btn-delete" (click)="deleteItem(item.id)">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td><input type="text" [(ngModel)]="newItem.type_of_cabin_fan" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addItem()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+  <div class="container" *ngIf="shouldDisplayTable('HANDRAIL')">
+    <h4>HANDRAIL</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items1 let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.handrail"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateItem1(item.id,item.handrail)">Update</button>
+                <button class="btn btn-delete"(click)="deleteItem1(item.id)">Delete</button>
+            </td>
+          </tr>
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newItem1.handrail" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addItem1()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF EQUIPMENT')">
+    <h4>TYPE OF EQUIPMENT</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of equipment let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.equipment_name" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateItem2(item.id,item.equipment_name)">Update</button>
+                <button class="btn btn-delete" (click)="deleteItem2(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newItem2.equipment_name" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addItem2()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF USAGE')">
+    <h4>TYPE OF USAGE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of usage let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.type_of_usage" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateItem3(item.id,item.type_of_usage)">Update</button>
+                <button class="btn btn-delete" (click)="deleteItem3(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newusage.type_of_usage" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addItem3()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('MACHINE LOCATION')">
+    <h4>MACHINE LOCATION </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of location let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"  [(ngModel)]="item.machine_location" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatelocation(item.id,item.machine_location)">Update</button>
+                <button class="btn btn-delete" (click)="deleteupdate(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"   [(ngModel)]="newlocation.machine_location" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addlocation()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('NO.OF MACHINE ROOM')">
+    <h4>NO.OF MACHINE ROOM </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of no_machine_room let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"  [(ngModel)]="item.machine_room" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateroom(item.id,item.machine_room)">Update</button>
+                <button class="btn btn-delete" (click)="deleteroom(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"   [(ngModel)]="newroom.machine_room" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addroom()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('MACHINE ROOM')">
+    <h4>MACHINE ROOM</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of machine_room let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"   [(ngModel)]="item.machineroomnew" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatemroom(item.id,item.machineroomnew)">Update</button>
+                <button class="btn btn-delete" (click)="deletemroom(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"   [(ngModel)]="newmroom.machineroomnew" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addmroom()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('CONTROLLER DRIVE TYPE')">
+    <h4>CONTROLLER DRIVE TYPE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of controller_drive_type let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.controller_drive_type" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatecontroller(item.id,item.controller_drive_type)">Update</button>
+                <button class="btn btn-delete" (click)="deletecontroller(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"   [(ngModel)]="new_controller_drive_type.controller_drive_type" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addcontroller()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF OPERATION')">
+    <h4>TYPE OF OPERATION</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of type_of_operation let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.type_of_operation" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateoperation(item.id,item.type_of_operation)">Update</button>
+                <button class="btn btn-delete" (click)="deleteoperation(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newoperation.type_of_operation" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addoperation()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('GROUPING TYPE')">
+    <h4>GROUPING TYPE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of grouping_type let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.grouping_type" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updategroup(item.id,item.grouping_type)">Update</button>
+                <button class="btn btn-delete" (click)="deletegroup(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newgroup.grouping_type" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addgroup()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TRACTION CATEGORY')">
+    <h4>TRACTION CATEGORY</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of traction_category let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.traction_category" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatetraction(item.id,item.traction_category)">Update</button>
+                <button class="btn btn-delete"  (click)="deletetraction(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newtraction.traction_category" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="addtraction()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('ROPEWRAPDETAILS')">
+    <h4>ROPE WRAP DETAILS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of rope_wrap_details let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.rope_wrap_details" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatewrap(item.id,item.rope_wrap_details)">Update</button>
+                <button class="btn btn-delete"  (click)="deletewrap(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newwrap.rope_wrap_details" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="addwrap()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('MACHINE TYPE')">
+    <h4>MACHINE TYPE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of machine_type let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.machine_type" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatetype(item.id,item.machine_type)">Update</button>
+                <button class="btn btn-delete"  (click)="deletetype(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newtype.machine_type" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="addtype()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF ROPING')">
+    <h4>TYPE OF ROPING</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of type_of_roping let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.type_of_roping" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updaterope(item.id,item.type_of_roping)">Update</button>
+                <button class="btn btn-delete"  (click)="deleterope(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newrope.type_of_roping" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="addrope()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF MOTOR')">
+    <h4>TYPE OF MOTOR</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of type_of_motor let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.type_of_motor" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatemotor(item.id,item.type_of_motor)">Update</button>
+                <button class="btn btn-delete"  (click)="deletemotor(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newmotor.type_of_motor" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="addmotor()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('DOOR OPERATOR')">
+    <h4>DOOR OPERATOR</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of door_operator let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.door_operator"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatedoor(item.id,item.door_operator)">Update</button>
+                <button class="btn btn-delete"  (click)="deletedoor(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newdoor.door_operator" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="adddoor()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF OPENINGS')">
+    <h4>TYPE OF OPENINGS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of type_of_openings let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.type_of_openings"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateopen(item.id,item.type_of_openings)">Update</button>
+                <button class="btn btn-delete"  (click)="deleteopen(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newopen.type_of_openings" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="addopen()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('CAR OPERATING PANELS')">
+    <h4>CAR OPERATING PANELS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of car_operating_panels let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.car_operating_panels"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatecar(item.id,item.car_operating_panels)">Update</button>
+                <button class="btn btn-delete"  (click)="deletecar(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newcar.car_operating_panels" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addcar()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('CAR INDICATOR TYPE')">
+    <h4>CAR INDICATOR TYPE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of car_indicator_type let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.car_indicator_type"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updateindicator(item.id,item.car_indicator_type)">Update</button>
+                <button class="btn btn-delete"  (click)="deleteindicator(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newindicator.car_indicator_type" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addindicator()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('MULTIMEDIA DISPLAY')">
+    <h4>MULTIMEDIA DISPLAY</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of multimedia_display let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.multimedia_display"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"   (click)="updatedisplay(item.id,item.multimedia_display)">Update</button>
+                <button class="btn btn-delete"  (click)="deletedisplay(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newdisplay.multimedia_display" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="adddisplay()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('NO. OF CABIN FANS')">
+    <h4>NO. OF CABIN FANS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cabin_fans let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.cabin_fans"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatefan(item.id,item.cabin_fans)">Update</button>
+                <button class="btn btn-delete"  (click)="deletefan(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newfan.cabin_fans" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addfan()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF CALL BUTTONS')">
+    <h4>TYPE OF CALL BUTTONS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of type_of_call_buttons let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.type_of_call_buttons"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatecall(item.id,item.type_of_call_buttons)">Update</button>
+                <button class="btn btn-delete"  (click)="deletecall(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newcall.type_of_call_buttons" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addcall()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('STOP BUTTON')">
+    <h4>STOP BUTTON</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of stop_button let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.stop_button"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatestop(item.id,item.stop_button)">Update</button>
+                <button class="btn btn-delete"  (click)="deletestop(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newstop.stop_button" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addstop()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('SERVICE CABINET')">
+    <h4>SERVICE CABINET</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of service_cabinet let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.service_cabinet"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatecabinet(item.id,item.service_cabinet)">Update</button>
+                <button class="btn btn-delete"  (click)="deletecabinet(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newcabinet.service_cabinet" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addcabinet()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('VOICE ANNOUNCEMENT')">
+    <h4>VOICE ANNOUNCEMENT</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of voice_announcement let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"     [(ngModel)]="item.voice_announcement"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatevoice(item.id,item.voice_announcement)">Update</button>
+                <button class="btn btn-delete"  (click)="deletevoice(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newvoice.voice_announcement" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addvoice()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('CABIN BUMPER')">
+    <h4>CABIN BUMPER</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cabin_bumper let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.cabin_bumper"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatebumper(item.id,item.cabin_bumper)">Update</button>
+                <button class="btn btn-delete" (click)="deletebumper(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newbumper.cabin_bumper" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addbumper()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('AUTO ATTENDANT')">
+    <h4>AUTO ATTENDANT</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of auto_attendant let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.auto_attendant"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateattendant(item.id,item.auto_attendant)">Update</button>
+                <button class="btn btn-delete" (click)="deleteattendant(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newattendant.auto_attendant" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addattendant()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('AUTO INDEPENDANT')">
+    <h4>AUTO INDEPENDANT</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of auto_independant let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.auto_independant"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateindependant(item.id,item.auto_independant)">Update</button>
+                <button class="btn btn-delete" (click)="deleteindependant(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newindependant.auto_independant" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addindependant()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container"  *ngIf="shouldDisplayTable('NON STOP')">
+    <h4>NON STOP</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of non_stop let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.non_stop"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatenon(item.id,item.non_stop)">Update</button>
+                <button class="btn btn-delete" (click)="deletenon(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newnon.non_stop" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addnon()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('FAN SWITCH')">
+    <h4>FAN SWITCH</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of fan_switch let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.fan_switch"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateswitch(item.id,item.fan_switch)">Update</button>
+                <button class="btn btn-delete" (click)="deleteswitch(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newswitch.fan_switch" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addswitch()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('HALL INDICATOR TYPE')">
+    <h4>HALL INDICATOR TYPE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of hall_indicator_type let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.hall_indicator_type"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatehall(item.id,item.hall_indicator_type)">Update</button>
+                <button class="btn btn-delete" (click)="deletehall(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newhall.hall_indicator_type" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addhall()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('HALL LATERNS')">
+    <h4>HALL LATERNS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of hall_laterns let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.hall_laterns"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatelaterns(item.id,item.hall_laterns)">Update</button>
+                <button class="btn btn-delete" (click)="deletelaterns(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newlaterns.hall_laterns" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addlaterns()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('ARRIVAL CHIME')">
+    <h4>ARRIVAL CHIME</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arrival_chime let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.arrival_chime"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatechime(item.id,item.arrival_chime)">Update</button>
+                <button class="btn btn-delete" (click)="deletechime(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newchime.arrival_chime" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addchime()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('NO.OF RISERS AT MAIN LOBBY')">
+    <h4>NO.OF RISERS AT MAIN LOBBY</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of no_of_risers_at_main_lobby let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.risers_at_main_lobby"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updaterisers(item.id,item.risers_at_main_lobby)">Update</button>
+                <button class="btn btn-delete" (click)="deleterisers(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newrisers.no_of_risers_at_main_lobby" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addrisers()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('NO.OF RISERS AT OTHER FLOORS')">
+    <h4>NO.OF RISERS AT OTHER FLOORS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of no_of_risers_at_other_floors let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.risers_at_other_floors"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateother(item.id,item.risers_at_other_floors)">Update</button>
+                <button class="btn btn-delete" (click)="deleteother(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newother.no_of_risers_at_other_floors" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addother()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('HALL CALL TYPE AT MAIN LOBBY')">
+    <h4>HALL CALL TYPE AT MAIN LOBBY</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of hall_call_type_at_main_lobby let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.hall_call_type_at_main_lobby"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatelobby(item.id,item.hall_call_type_at_main_lobby)">Update</button>
+                <button class="btn btn-delete" (click)="deletelobby(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newlobby.hall_call_type_at_main_lobby" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addlobby()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('HALL CALL TYPE AT ALL FLOORS')">
+    <h4>HALL CALL TYPE AT ALL FLOORS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of hall_call_type_at_all_floors let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"    [(ngModel)]="item.hall_call_type_at_all_floors"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatefloors(item.id,item.hall_call_type_at_all_floors)">Update</button>
+                <button class="btn btn-delete" (click)="deletefloors(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newfloors.hall_call_type_at_all_floors" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addfloors()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('NO.OF CAR BUFFERS')">
+    <h4>NO.OF CAR BUFFERS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of no_of_car_buffers let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"   [(ngModel)]="item.no_of_car_buffers"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatebuffers(item.id,item.no_of_car_buffers)">Update</button>
+                <button class="btn btn-delete" (click)="deletebuffers(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newbuffers.no_of_car_buffers" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addbuffers()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF CAR BUFFERS')">
+    <h4>TYPE OF CAR BUFFERS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of type_of_car_buffers let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"   [(ngModel)]="item.type_of_car_buffers"></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatetypebuffers(item.id,item.type_of_car_buffers)">Update</button>
+                <button class="btn btn-delete" (click)="deletetypebuffers(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newtypebuffers.type_of_car_buffers" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addbuffers()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('NO.OF CWT BUFFERS')">
+    <h4>NO. OF CWT BUFFERS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of no_of_cwt_buffer let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"  [(ngModel)]="item.no_of_cwt_buffer" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatecwtbuffer(item.id,item.no_of_cwt_buffer)">Update</button>
+                <button class="btn btn-delete" (click)="deletecwtbuffer(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newcwtbuffer.no_of_cwt_buffer" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addcwtbuffer()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('TYPE OF CWT BUFFER')">
+    <h4>TYPE OF CWT BUFFER</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of type_of_cwt_buffer let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"  [(ngModel)]="item.type_of_cwt_buffer" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatetypecwtbuffer(item.id,item.type_of_cwt_buffer)">Update</button>
+                <button class="btn btn-delete" (click)="deletetypecwtbuffer(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newtypecwtbuffer.type_of_cwt_buffer" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addtypecwtbuffer()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('EMERGENCY LIGHT')">
+    <h4>EMERGENCY LIGHT</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of e_light let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.e_light" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatelight(item.id,item.e_light)">Update</button>
+                <button class="btn btn-delete" (click)="deletelight(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"   [(ngModel)]="newlight.e_light" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"(click)="addlight()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('EMERGENCY ALARM')">
+    <h4>EMERGENCY ALARM</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of e_alarm let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.e_alram" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updatealarm(item.id,item.e_alram)">Update</button>
+                <button class="btn btn-delete" (click)="deletealarm(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"   [(ngModel)]="newalarm.e_alarm" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addalarm()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('EMERGENCY INTERCOM')">
+    <h4>EMERGENCY INTERCOM</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of e_intercom let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.e_intercom" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updateintercom(item.id,item.e_intercom)">Update</button>
+                <button class="btn btn-delete"  (click)="deleteintercom(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newintercom.e_intercom"  placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addintercom()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('ARD OPERATION')">
+    <h4>ARD OPERATION</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ard_operation let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.ard_operation" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updateard(item.id,item.ard_operation)">Update</button>
+                <button class="btn btn-delete"  (click)="deleteard(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="neward.ard_operation"  placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addard()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('ARD AUDIO')">
+    <h4>ARD AUDIO</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of ard_audio let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.ard_audio" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updateardaudio(item.id,item.ard_audio)">Update</button>
+                <button class="btn btn-delete"  (click)="deleteardaudio(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newardaudio.ard_audio"  placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addardaudio()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('ARD VISUALS')">
+    <h4>ARD VISUALS</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let item of ard_visuals let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.ard_visuals" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update"  (click)="updateardvisuals(item.id,item.ard_visuals)">Update</button>
+                <button class="btn btn-delete"  (click)="deleteardvisuals(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newardvisuals.ard_visuals"  placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add" (click)="addardvisuals()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('FIREMAN OPERATION')">
+    <h4>FIREMAN OPERATION</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of fireman_operation let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.fireman_operation" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatefireman(item.id,item.fireman_operation)">Update</button>
+                <button class="btn btn-delete" (click)="deletefireman(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newfireman.fireman_operation"  placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addfireman()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('FIREMAN EMERGENCY RETURN')">
+    <h4>FIREMAN EMERGENCY RETURN</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of fireman_emerg_return let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.fireman_emerg_return" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateemerg(item.id,item.fireman_emerg_return)">Update</button>
+                <button class="btn btn-delete"  (click)="deleteemerg(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newemerg.fireman_emerg_return" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addemerg()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  
+  <div class="container"  *ngIf="shouldDisplayTable('FIREMAN AUDIO')">
+    <h4>FIREMAN AUDIO</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of fireman_audio let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.fireman_audio" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatefiremanaudio(item.id,item.fireman_audio)">Update</button>
+                <button class="btn btn-delete" (click)="deletefiremanaudio(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newfiremanaudio.fireman_audio" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addfiremanaudio()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('FIREMAN VISUAL')">
+    <h4>FIREMAN VISUAL</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of fireman_visual let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.fireman_visual" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatefiremanvisual(item.id,item.fireman_visual)">Update</button>
+                <button class="btn btn-delete" (click)="deletefiremanvisual(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newfiremanvisual.fireman_visual" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addfiremanvisual()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('MANUAL RESCUE')">
+    <h4>MANUAL RESCUE</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of manual_rescue let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text"  [(ngModel)]="item.manual_rescue" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updaterescue(item.id,item.manual_rescue)">Update</button>
+                <button class="btn btn-delete" (click)="deleterescue(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text"  [(ngModel)]="newrescue.manual_rescue" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addrescue()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('PASSENGER OVERLOAD OPERATION')">
+    <h4>PASSENGER OVERLOAD OPERATION</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of passenger_overload_operation let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.passenger_overload_operation" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatepassenger(item.id,item.passenger_overload_operation)">Update</button>
+                <button class="btn btn-delete" (click)="deletepassenger(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newpassenger.passenger_overload_operation" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addpassenger()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('PASSENGER OVERLOAD AUDIO')">
+    <h4>PASSENGER OVERLOAD AUDIO</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of passenger_overload_audio let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.passenger_overload_audio" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updateaudio(item.id,item.passenger_overload_audio)">Update</button>
+                <button class="btn btn-delete" (click)="deleteaudio(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newaudio.passenger_overload_audio" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addaudio()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('PASSENGER OVERLOAD VISUAL')">
+    <h4>PASSENGER OVERLOAD VISUAL</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of passenger_overload_visual let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.passenger_overload_visual" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatevisual(item.id,item.passenger_overload_visual)">Update</button>
+                <button class="btn btn-delete" (click)="deletevisual(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newvisual.passenger_overload_visual" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addvisual()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container"  *ngIf="shouldDisplayTable('SEISMIC SENSOR OPERATION')">
+    <h4>SEISMIC SENSOR OPERATION</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of seismic_sensor_operation let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.seismic_sensor_operation" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatesensor(item.id,item.seismic_sensor_operation)">Update</button>
+                <button class="btn btn-delete" (click)="deletesensor(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newsensor.seismic_sensor_operation" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addsensor()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container"  *ngIf="shouldDisplayTable('OEM MASTER')">
+    <h4>OEM MASTER</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Dropdown</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of vendor_master let i=index">
+            <td>{{i+1}}</td>
+            <td><input type="text" [(ngModel)]="item.vendor_name" ></td>
+            <td class="action-buttons">
+                <button class="btn btn-update" (click)="updatevendor(item.id,item.vendor_name)">Update</button>
+                <button class="btn btn-delete" (click)="deletevendor(item.id)">Delete</button>
+            </td>
+        
+
+        <tr>
+
+          <td></td>
+          <td><input type="text" [(ngModel)]="newvendor.vendor_name" placeholder="ADD DROPDOWN" ></td>
+          <td class="action-buttons">
+            
+            <button class="btn btn-add"  (click)="addvendor()">ADD</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+  
+ 
+</body>
+
+</html>
+
+
+<br>
+<br><br>
+<br>
+
+
+
+
+

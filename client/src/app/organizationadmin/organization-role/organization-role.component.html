@@ -1,0 +1,60 @@
+<div class="container">
+    <header class="header">
+      <h1>ORGANIZATION ROLE</h1>
+    </header>
+  
+    <main class="content">
+      <br />
+      <button class="open-form-btn" (click)="openAddForm()">
+        <i class="fas fa-plus"></i> Add Organization Role
+      </button>
+      <br /><br />
+  
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Organization</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let role of roles">
+              <td>{{ role.Role }}</td>
+              <td>{{ role.Organization }}</td>
+              <td>
+                <button class="edit-btn" (click)="openEditForm(role)">
+                  <i class="fas fa-edit" title="EDIT"></i>
+                </button>
+                <button class="delete-btn" (click)="deleterole(role)">
+                  <i class="fas fa-trash-alt" title="DELETE"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Popup Form -->
+      <div class="popup-form" *ngIf="showForm">
+        <div class="form-container">
+          <h3>{{ isEditMode ? 'Update role' : 'Add role' }}</h3>
+          <button type="button" class="close-btn" (click)="closeForm()"><i class="fas fa-times"></i></button>
+  
+          <form (ngSubmit)="saveForm()">
+            <label for="role">Role</label>
+            <input type="text" id="role" [(ngModel)]="formData.Role" name="role" required />
+  
+            <label for="organization">Organization</label>
+            <input type="text" id="organization" [(ngModel)]="formData.Organization" name="organization" required />
+  
+            <div class="form-actions">
+              <button type="submit"><i class="fas fa-check"></i>Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  

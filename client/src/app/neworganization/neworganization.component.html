@@ -1,0 +1,74 @@
+<div class="center-container">
+  <div class="form-container">
+    <h2>User Registration</h2>
+    <form #registrationForm="ngForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="userData.name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email ID:</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          [(ngModel)]="userData.email"
+          required
+          pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+        />
+        <div *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched" class="error-message">
+          <p>Please enter a valid email address.</p>
+        </div>
+      </div>
+
+      <!-- Add the "Organization" field here -->
+      <div class="form-group">
+        <label for="organization">Organization:</label>
+        <input type="text" id="organization" name="organization" [(ngModel)]="userData.organization" required />
+        <div *ngIf="registrationForm.controls['organization'].invalid && registrationForm.controls['organization'].touched" class="error-message">
+          <p>Please enter your organization.</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="organization_display_name">Organization Display Name:</label>
+        <input type="text" id="organization_display_name" name="organization_display_name" [(ngModel)]="userData.organization_display_name" required />
+        <div *ngIf="registrationForm.controls['organization_display_name'].invalid && registrationForm.controls['organization_display_name'].touched" class="error-message">
+          <p>Please enter the organization display name.</p>
+        </div>
+        <p class="field-description">*Mention in Acronym</p>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <div class="password-input">
+          <input type="{{ passwordVisible1 ? 'text' : 'password' }}" id="password" name="password" [(ngModel)]="userData.password" required />
+          <i class="fas fa-eye" (click)="togglePasswordVisibility1()"></i>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password:</label>
+        <div class="password-input">
+          <input type="{{ passwordVisible2 ? 'text' : 'password' }}" id="confirm_password" name="confirm_password" [(ngModel)]="userData.confirm_password" required />
+          <i class="fas fa-eye" (click)="togglePasswordVisibility2()"></i>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="terms-checkbox">
+          <p>
+            <input type="checkbox" id="terms" name="terms" [(ngModel)]="userData.terms" required />
+            I agree to the <a href="#">Terms and Conditions</a>
+          </p>
+        </label>
+      </div>
+      <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+    </form>
+    <div *ngIf="formSubmitted" class="success-message">
+      <p>{{ Submit_status }}</p>
+    </div>
+    <div *ngIf="passwordMismatch" class="error-message">
+      <p>{{Passwords_status}}</p>
+    </div>
+  </div>
+</div>

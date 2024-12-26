@@ -1,0 +1,43 @@
+<br>
+
+<div class="report-cards-container">
+
+  <!-- Iterate over reports -->
+  <div class="report-card" *ngFor="let unitDetail of unitDetails" (click)="proceed(unitDetail.document_id,unitDetail.contract_number,unitDetail.building_name)">
+    
+    <div class="card-header">
+      
+      <div class="card-title">
+        <i class="fas fa-file-contract"></i> <!-- File contract icon -->
+        {{ unitDetail.contract_number }}
+      </div>
+    </div>
+   
+    <div class="card-content">
+      
+      
+      <div class="info-row">
+        
+        <span class="info-label"><i class="fas fa-user"></i>Inspector:</span> <!-- User icon -->
+        <span class="info-value">{{ name }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label"><i class="fas fa-building"></i> Building Name:</span> <!-- Building icon -->
+        <span class="info-value">{{ unitDetail.building_name }}</span>
+      </div>
+      <!-- Additional Information -->
+      <div class="info-row">
+        <span class="info-label"><i class="far fa-calendar-alt"></i> Document Id:</span> <!-- Calendar icon -->
+        <span class="info-value">{{ unitDetail.document_id }}</span>
+
+      </div>
+        <!-- Download button -->
+        <!-- <a class="download-button"  download="report.pdf">
+           <i class="fas fa-download"></i> Download icon -->
+          <!-- Proceed -->
+        <!-- </a>  -->
+        
+      
+    </div>
+  </div>
+</div>

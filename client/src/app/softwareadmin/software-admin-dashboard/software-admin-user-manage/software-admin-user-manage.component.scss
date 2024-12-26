@@ -1,0 +1,64 @@
+.btn {
+  padding: 8px 16px;
+  font-size: 12px; /* Set the font size to 12px */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Add smooth transition for hover effect */
+}
+
+/* Create button */
+.create-btn {
+  background-color: #28A745; /* Default background color */
+  color: #fff; /* Default text color */
+}
+
+.create-btn:hover {
+  background-color: #1e7f34; /* Hover background color */
+}
+
+/* View button */
+.view-btn {
+  background-color: #007BFF; /* Default background color */
+  color: #fff; /* Default text color */
+}
+
+.view-btn:hover {
+  background-color: #0056b3; /* Hover background color */
+}
+
+/* Update button */
+.update-btn {
+  background-color: #FFC107; /* Default background color */
+  color: #fff; /* Default text color */
+}
+
+.update-btn:hover {
+  background-color: #c69306; /* Hover background color */
+}
+
+/* Delete button */
+.delete-btn {
+  background-color: #FF5733; /* Default background color */
+  color: #fff; /* Default text color */
+}
+
+.delete-btn:hover {
+  background-color: #d94623; /* Hover background color */
+}
+
+/* Add button style */
+.button-container {
+  text-align: left;
+  margin-left: 5px;
+  margin-top: 0px; /* Adjust margin-top to create spacing from the content above */
+}
+
+/* Adjust margin for the last button in the container */
+// .button-container button:last-child {
+//     margin-right: 0;
+// }
+
+/* Add top margin to the container */

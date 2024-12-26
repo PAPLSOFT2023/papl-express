@@ -1,0 +1,29 @@
+
+.container{
+    width: 1200px;
+  padding: 20px;
+  height: 450px;
+}
+
+.mat-input{
+    height: 10vh;
+    width: 10vw;
+
+}
+.form-field3{
+    width: 20vw;
+    margin-top: 30px;
+    margin-left: 30px; 
+
+}
+.form-field4{
+    width: 20vw;
+    margin-top: 30px;
+    margin-left: 75px; 
+
+}
+.mat-icon{
+    align-items: end;
+    justify-content:flex-end;
+    color: #747373;
+}

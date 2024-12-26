@@ -1,0 +1,108 @@
+.table-container {
+    width: 80%;
+    margin: 0 auto; 
+    margin-top: 20px;
+}
+table {
+    width: 100%; 
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid whitesmoke;
+    text-align: center;
+}
+tr:nth-child(odd) {
+    background-color: #f2f2f2; 
+}
+tr:nth-child(even) {
+    background-color: #ffffff; 
+}
+th, td {
+    padding: 10px;
+    min-width: 50px; 
+    max-width: 200px; 
+    word-wrap: break-word;
+}
+.tab{
+  background-image:linear-gradient(125deg,#2c3e50 50% ,black 50%);
+  color: white;
+
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+  }
+  
+  .logo {
+    background-image: url('/assets/papl_logo_sample.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 80px;
+  }
+  
+  .icon {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 0 auto 25px;
+    position: relative;
+    z-index: -1;
+  }
+  
+  .loader {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #3b3765;
+    animation: spin 1.5s linear infinite;
+    z-index: 5;
+  }
+  
+  .loader:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #ee7f22;
+    animation: spin 3s linear infinite;
+  }
+  
+  .loader:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #b3b4b3;
+    animation: spin 3.5s linear infinite;
+  }
+  
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+  }

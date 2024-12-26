@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+<div class="container">
+    <header class="header">
+      <h1>REPORT IMAGE</h1>
+      <div class="search-box">
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+        <input type="text" class="input-search" placeholder="Search...">
+      </div>
+    </header>
+  
+    <main class="content">
+      <h2>Report Images List</h2>
+      <br>
+      <hr>
+      <br>
+  
+      <!-- Display Images in a Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>S.NO</th>
+           
+              <th>INSPECTOR NAME</th>
+              <th>BUILDING NAME</th>
+              <th>PROJECT NAME</th>
+              <th>UNIT NAME</th>
+              <th>CONTRACT NO</th>
+              <th>DOCUMENT ID</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let image of images; let i = index">
+              <td>{{ i + 1 }}</td>
+             
+              <td>{{ image.inspector_name || 'N/A' }}</td>
+              <td>{{ image.building_name || 'N/A' }}</td>
+              <td>{{ image.project_name || 'N/A' }}</td>
+              <td>{{ image.unit_name || 'N/A' }}</td>
+              <td>{{ image.contract_no || 'N/A' }}</td>
+              <td>{{ image.document_id || 'N/A' }}</td>
+              <td>
+            
+             <i (click)="downloadFile(image.id, image.file_name)" class="fas fa-download"></i>
+          
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  

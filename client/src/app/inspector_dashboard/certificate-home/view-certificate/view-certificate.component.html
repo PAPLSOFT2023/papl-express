@@ -1,0 +1,35 @@
+<br>
+  <div class="report-cards-container">
+    <div class="report-card" *ngFor="let file of uploadFiles">
+  
+      <div class="card-header">
+  
+        <div class="card-title">
+          <i class="fas fa-file-contract"></i> <!-- File contract icon -->
+          Unit NO: {{ file.unit_name }}
+        </div>
+        </div>
+  
+        <div class="card-content" >
+  
+        
+        <div class="info-row">
+          <span class="info-label"><i class="fas fa-building"></i> Building Name:</span> <!-- Building icon -->
+          <span class="info-value">{{ file.building_name }}</span>
+        </div>
+        <!-- Additional Information -->
+        <div class="info-row">
+          <span class="info-label"><i class="fa fa-credit-card"></i> Contract:</span> <!-- Building icon -->
+          <span class="info-value"> {{ file.contract }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label"><i class="fa fa-book-alt"></i>Document ID:</span> <!-- Calendar icon -->
+          <span class="info-value"> {{ file.document_id }}</span>
+        </div>
+        <i class="fa fa-eye"  (click)="displayPDF(file.document_id,file.unit_name)"></i>
+  </div>
+      </div>
+    </div>
+ 
+
+  

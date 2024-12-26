@@ -1,0 +1,100 @@
+<div class="container">
+    <header class="header">
+      <h1>MAIL RESPONSE</h1>
+      <div class="search-box">
+        <button class="btn-search">
+          <i class="fas fa-search"></i>
+        </button>
+        <input
+          type="text"
+          class="input-search"
+          placeholder="Type to Search..."
+          [(ngModel)]="searchText"
+          (input)="filterClients()"
+        />
+      </div>
+      
+
+    </header>
+  
+    <main class="content">
+      <!-- Button to open the form popup -->
+      
+      <br>
+      <br>
+      <br>
+  
+      <!-- Popup Form Container -->
+      <div *ngIf="isUpdateMode" class="popup-overlay33">
+        <div class="popup-content33">
+          <h2 class="popup-title">Update Client Approval Status</h2>
+          <i class="fa fa-times cancel-icon" (click)="resetMailResponseForm()"></i>
+          <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group33">
+              <label for="clientApprovalStatus">Client Approval Status</label>
+              <select
+                id="clientApprovalStatus"
+                class="form-control"
+                [(ngModel)]="client_details.client_approval_status"
+                name="client_approval_status"
+                required
+              >
+                <option value="0">Not Approved</option>
+                <option value="1">Approved</option>
+              </select>
+            </div>
+
+            <div class="popup-buttons33">
+                <button type="submit" class="confirm">
+                  <i class="fa fa-check"></i> Update Status
+                </button>
+              </div>
+            
+
+  
+           
+          </form>
+        </div>
+      </div>
+  
+      <!-- OEM Details Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Contract Number</th>
+              <th>Project Name</th>
+              <th>Building Name</th>
+              <th>Schedule From</th>
+              <th>Schedule To</th>
+              <th>Client Approval Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of filteredClients">
+              <td>{{ client.contract_number }}</td>
+              <td>{{ client.project_name }}</td>
+              <td>{{ client.building_name }}</td>
+              <td>{{ datePipe.transform(client.schedule_from, 'yyyy-MM-dd') }}</td>
+              <td>{{ datePipe.transform(client.schedule_to, 'yyyy-MM-dd') }}</td>
+              <td>
+                <span *ngIf="client.client_approval_status === 1">Approved</span>
+                <span *ngIf="client.client_approval_status === 0">Not Approved</span>
+              </td>
+              <td>
+                <button
+                  class="edit-btn"
+                  (click)="editMailResponseUser(client)"
+                >
+                  <i class="fas fa-edit" title="EDIT"></i>
+                </button>
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  

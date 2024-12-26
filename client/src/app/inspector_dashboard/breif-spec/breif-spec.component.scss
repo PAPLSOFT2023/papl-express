@@ -1,0 +1,248 @@
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 10px; 
+}
+
+
+th, td {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: left;
+   
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.span {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 30px;
+}
+
+thead th, tbody th, tbody td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+ input[type="checkbox"] {
+    transform: scale(1.5); 
+    margin: auto; 
+    display: block;
+}
+
+ td{
+  padding:200px;
+  min-width:200px;
+  max-width:200px;
+}
+
+td.dropdown-container select option {
+    color: black;
+    background-color:whitesmoke;
+    text-align: center;
+}
+
+td.dropdown-container {
+    position: relative;
+}
+
+td.dropdown-container select {
+    width: 95%;
+    padding: 5px;
+    font-size: 16px;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 0px;
+    position: absolute;
+    left:2.5%;
+    top:8px;
+    text-align: center;
+}
+
+td.dropdown-container input {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    background-color:transparent;
+    font-size: 17px;
+}
+
+
+input[type="text"] {
+    width: 180%; 
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-left: -40%; 
+}
+
+input[type="number"] {
+    width: 180%; 
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-left: -40%; 
+}
+
+
+input[type="text"]:focus {
+    background-color: #ffffff; 
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1); 
+    outline: none;
+}
+.button-container button {
+    margin-right: 10px; /* Adjust the spacing as needed */
+  }
+  
+  .button-container button:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+  }
+  
+
+.button-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 10vh; 
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50px;
+    position: fixed;
+    bottom: 350px;
+    right:40px;
+    z-index: 1;
+}
+
+.box {
+    width: 100%;
+    height: 40px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-bottom: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.app{
+  color: black;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    table {
+        width: 100%;
+    }
+    td {
+        padding: 8px;
+        min-width: auto;
+        max-width: auto;
+    }
+    input[type="text"] {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    td {
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    td {
+        padding: 4px;
+    }
+    .container {
+        width: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+.button-containers {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Center buttons vertically */
+    margin-bottom: 30px; /* Space below the buttons */
+  }
+  
+  /* Your existing CSS for back and next buttons */
+  .back-button {
+    background-color: white; /* Background color */
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex; /* Aligns image and text horizontally */
+    align-items: center; /* Vertically centers the content */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-right: auto; /* Aligns to the left */
+  }
+  
+  // .back-button:hover {
+  //   background-color: #333; 
+  // }
+  
+  .back-icon {
+    width: 30px; /* Adjust the size of the icon */
+    height: auto;
+    margin-right: 8px; /* Space between the image and text */
+  }

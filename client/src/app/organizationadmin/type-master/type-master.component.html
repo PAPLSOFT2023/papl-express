@@ -1,0 +1,31 @@
+<h2>Type Master</h2>
+
+<div>
+  <label for="typeName">Type Name:</label>
+  <input [(ngModel)]="typeName" id="typeName" />
+  
+  <label for="organizationSelect">Select Organization:</label>
+  <select [(ngModel)]="selectedOrganizationId" id="organizationSelect">
+    <option *ngFor="let org of organizations" [value]="org.id">{{ org.organization_name }}</option>
+  </select>
+  
+  <button (click)="addType()">Add Type</button>
+</div>
+
+<h3>Existing Types</h3>
+<ul>
+  <li *ngFor="let type of types">
+    {{ type.type_name }} (Org ID: {{ type.organization_id }})
+    <button (click)="setUpdateType(type)">Edit</button>
+    <button (click)="deleteType(type.id)">Delete</button>
+  </li>
+</ul>
+
+<!-- Update Form -->
+<div *ngIf="isUpdating">
+  <h3>Update Type</h3>
+  <label for="updateTypeName">New Type Name:</label>
+  <input [(ngModel)]="updateTypeName" id="updateTypeName" />
+  <button (click)="updateType()">Update Type</button>
+  <button (click)="cancelUpdate()">Cancel</button>
+</div>

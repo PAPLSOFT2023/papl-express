@@ -1,0 +1,21 @@
+/* Container for horizontal card layout */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Card styles for Button 1 */
+  .card-button1 {
+    background-color: blue;
+    width: 200px;
+    margin-right: 5px; /* Add right margin for spacing */
+  }
+  
+  /* Card styles for Button 2 */
+  .card-button2 {
+    background-color: lightblue;
+    width: 200px;
+    margin-right: 5px; /* Add right margin for spacing */
+  }
+
+    

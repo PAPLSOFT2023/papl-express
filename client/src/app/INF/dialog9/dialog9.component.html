@@ -1,0 +1,13 @@
+<div class="mat-card">
+    <mat-form-field appearance="outline" class="form-field3" *ngFor="let _ of [].constructor(repeatCount); let i = index">
+        <mat-label>NomenClature</mat-label>
+                <input matInput [(ngModel)]="travelator_fieldValues[i]" name="travelator{{i}}">
+                
+    </mat-form-field>
+
+    
+    <mat-dialog-actions>
+        <button style="margin-left: 180px;" mat-raised-button  color="primary" mat-dialog-close>Ok</button>
+    </mat-dialog-actions>
+    
+</div>

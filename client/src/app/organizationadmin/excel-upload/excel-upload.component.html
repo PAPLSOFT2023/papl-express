@@ -1,0 +1,43 @@
+<div>
+    <h2>Upload Excel File</h2>
+    <input type="file" (change)="onFileSelect($event)" />
+    <input type="number" [(ngModel)]="lastSubProductId" placeholder="Enter last_sub_product ID" />
+    <button (click)="uploadFile()">Upload Excel</button>
+  </div>
+  
+  <div>
+    <h2>Last Sub Product Master List</h2>
+    <ul>
+      <li *ngFor="let product of lastSubProductList">
+        ID: {{ product.id }} - Name: {{ product.last_sub_product_name }}      </li>
+    </ul>
+  </div>
+  
+  <div>
+    <h2>Excel Upload Metadata</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Last Sub Product ID</th>
+          <th>Table Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let metadata of uploadMetadataList">
+          <td>
+            <input [(ngModel)]="metadata.last_sub_product_id" [readonly]="editMetadata && editMetadata.id !== metadata.id" />
+          </td>
+          <td>
+            <input [(ngModel)]="metadata.table_name" [readonly]="editMetadata && editMetadata.id !== metadata.id" />
+          </td>
+          <td>
+            <button *ngIf="editMetadata && editMetadata.id === metadata.id" (click)="updateMetadata()">Save</button>
+            <button *ngIf="!(editMetadata && editMetadata.id === metadata.id)" (click)="prepareUpdate(metadata)">Edit</button>
+            <button (click)="deleteMetadata(metadata.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,77 @@
+
+<!-- Main Content -->
+<div class="container">
+    <header class="header">
+      <h1>INSPECTOR TYPE</h1>
+    </header>
+  
+    <main class="content">
+      <br>
+      <!-- Button to open the form popup -->
+      <button class="open-form-btn" (click)="toggleFormPopup()">
+        <i class="fas fa-plus"></i>Add Inspector Type
+      </button>
+      <br>
+      <br>
+  
+      <!-- Popup Form Container -->
+      <div *ngIf="showFormPopup" class="popup-overlay33">
+        <div class="popup-content33">
+          <h2 class="popup-title">{{ isUpdateMode ? "UPDATE NEW INSPECTOR TYPE" : "ADD NEW INSPECTOR TYPE" }}</h2>
+          <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+  
+          <!-- Form for Add/Update -->
+          <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group33">
+              <label for="name">Inspector Type :</label>
+              <input
+                type="text"
+                id="name"
+                [(ngModel)]="inspector_type.inspector_type"
+                name="inspector_type"
+                required
+                #name="ngModel"
+              />
+              <!-- Validation error message -->
+              <div *ngIf="name.invalid && name.touched" class="error">
+                Inspector Type is required.
+              </div>
+            </div>
+  
+            <div class="popup-buttons33">
+              <!-- Submit Button, Disabled if form is invalid -->
+              <button type="submit" class="confirm" [disabled]="!userForm.form.valid">
+                <i class="fa fa-check"></i>{{ isUpdateMode ? "UPDATE" : "ADD" }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <!-- OEM Details Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Inspector Type</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inspector_type of inspector_all_type">
+              <td>{{ inspector_type.inspector_type }}</td>
+              <td>
+                <button class="edit-btn" (click)="editInspectorUser(inspector_type)">
+                  <i class="fas fa-edit" title="EDIT"></i>
+                </button>
+                <button class="delete-btn" (click)="deleteInspectorUser(inspector_type.id)">
+                  <i class="fas fa-trash-alt" title="DELETE"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  

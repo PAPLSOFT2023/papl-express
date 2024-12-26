@@ -1,0 +1,205 @@
+body {
+        
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+position: relative;
+border-radius: 5px;
+overflow: hidden; 
+}
+
+.master {
+position: relative;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+padding: 20px;
+margin-bottom: 5px;
+
+background-size: cover; 
+background-position: center;
+z-index: 0; 
+-webkit-print-color-adjust: exact;
+print-color-adjust: exact;
+
+}
+
+.master::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(11, 11, 11, 0.5); 
+z-index: 1; 
+}
+
+
+h1, h4, h5, .stars-box, .tags-box, .container, .button-container {
+position: relative; 
+z-index:2; 
+color: black;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+}
+
+h4 {
+    font-size:20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 16px;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-family: "Lucida Console", "Courier New", monospace; 
+   }
+
+.star {
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.stars-box {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tags-box {
+margin-bottom: 10px;
+display: flex;
+justify-content: center;
+}
+
+.tag {
+width: 20%;
+padding: 8px;
+margin-top: 5px;
+border-radius: 5px;
+border: 1px solid #ccc;
+font-size: 16px;
+text-align: center;
+}
+.container {
+border: 1px solid white;
+border-radius: 5px;
+padding: 20px;
+width: max-content;
+margin: 0 auto;
+margin-top: 20px;
+text-align: center;
+}
+
+.container label {
+display: inline-block;
+width: 180px; 
+margin-bottom: 5px;
+margin-right: 10px; 
+font-weight: bold;
+text-align: left; 
+color: white;
+font-size:16px;
+}
+
+.container input[type="text"] {
+width: calc(100% - 100px);
+padding: 8px; 
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-sizing: border-box; 
+}
+.button-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.proceed-button {
+padding:8px 20px;
+background-color:rgb(241, 241, 245);
+color:rgb(1, 18, 17);
+border: none;
+border-radius: 10px;
+font-size: 18px;
+cursor: pointer;
+margin: 10px;
+text-align: center;
+
+}
+.star.checked {
+color:yellow;
+}
+
+
+
+.signature-pad {
+    border: 2px solid #ddd; /* Adjust border width and color */
+    background-color: white; /* Set background to black for contrast */
+    border-radius: 5px; /* Optional: add rounded corners */
+    position: relative; /* Necessary for positioning child elements if needed */
+    display: inline-block; /* Ensures proper spacing around the pad */
+}
+
+
+.signature-pad canvas {
+    /* Optional: Set canvas properties if needed */
+    color: white; /* Ensure any text within the canvas is white */
+}
+
+
+
+
+  .signature-pad-container {
+    position: relative; /* Make the container relative for absolute positioning */
+    display: inline-block; /* Ensures the button is positioned correctly */
+  }
+
+  .clear-signature-btn {
+    position: absolute; /* Position the button absolutely within the container */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: semi-transparent background */
+    border: none; /* Remove default button border */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 5px; /* Add some padding */
+    font-size: 16px; /* Font size for the button */
+  }
+  
+  .clear-signature-btn:hover {
+    background-color: rgba(255, 255, 255, 1); /* Solid background on hover */
+  }
+  
+  .capture-signature-btn {
+    position: absolute; /* Position the button absolutely within the container */
+    bottom:5px; /* Distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center the button */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default button border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    padding:6px 16px; /* Padding for the button */
+    font-size: 16px; /* Font size for the button */
+  }
+  
+  .capture-signature-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  

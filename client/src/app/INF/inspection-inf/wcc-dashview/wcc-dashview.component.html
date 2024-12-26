@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>WCC</h1>
+        </header>
+       
+        <main class="content">
+            <h2>WCC LISTS</h2>
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search..." (keyup)="onSearch($event)">
+            </div>
+            
+            
+            <br>
+            <hr>
+            <br>
+
+            <!-- New Styled Table -->
+            <div class="table-responsive">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>CONTRACT NUMBER</th>
+                            <th>DOCUMENT ID</th>
+                            <th>BUILDING NAME</th>
+                            <th>INSPECTOR NAME</th>
+                            <th>VIEW</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pdf of filteredData; let i = index">
+                          <td>{{ i + 1 }}</td>
+                          <td [innerHTML]="highlightText(pdf.contract_no)"></td>
+                          <td [innerHTML]="highlightText(pdf.documentId)"></td>
+                          <td [innerHTML]="highlightText(pdf.building_name)"></td>
+                          <td [innerHTML]="highlightText(pdf.inspector_name)"></td>
+                          
+                          <td>
+                            <button class="view-btn" (click)="viewPdf(pdf.id)">
+                              <i class="fa fa-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                      
+                </table>
+            </div>
+        </main>
+
+        <div class="report-cards-container">
+            <div class="loader-container" *ngIf="isLoading">
+              <div class="icon logo">
+                <div class="loader"></div>
+              </div>
+            </div>
+            </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p><a style="color: yellow;" href="https://paplexpress.com" target="_blank">Paplexpress.com</a> - All rights reserved 2024</p>
+        </footer>
+        
+        
+    </div>
+</body>
+</html>

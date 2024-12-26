@@ -1,0 +1,84 @@
+<!-- Main Content -->
+<div class="container">
+  <header class="header">
+      <h1>OEM</h1>
+      <div class="search-box">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input type="text" class="input-search" [(ngModel)]="searchQuery" placeholder="Type to Search...">
+      </div>
+  </header>
+
+  <main class="content">
+      <br><br>
+
+      <!-- Button to open the form popup -->
+      <button class="open-form-btn" (click)="toggleFormPopup()">
+        <i class="fas fa-plus"></i>ADD NEW OEM
+      </button>
+      <br>
+      <br>
+
+      <!-- Popup Form Container -->
+      <div *ngIf="showFormPopup" class="popup-overlay33">
+        <div class="popup-content33">
+          <h2 class="popup-title">{{ isUpdateMode ? "UPDATE OEM" : "ADD NEW OEM" }}</h2>
+          <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+          <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group33">
+              <label for="organizationName">OEM Name:</label>
+              <input
+                type="text"
+                id="name"
+                [(ngModel)]="oem_all_detail.oem_name"
+                name="name"
+                required
+              />
+            </div>
+
+            <div class="form-group33">
+              <label for="organizationName">OEM Location:</label>
+              <input
+                type="text"
+                id="oem_location"
+                [(ngModel)]="oem_all_detail.oem_location"
+                name="oem_location"
+              />
+            </div>
+
+            <div class="popup-buttons33">
+              <button type="submit" class="confirm" [disabled]="!userForm.form.valid">
+                <i class="fa fa-check"></i>{{ isUpdateMode ? "UPDATE" : "ADD" }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- OEM Details Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>OEM Name</th>
+              <th>OEM Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let oem_detail of filteredOemDetails">
+              <td>{{ oem_detail.oem_name }}</td>
+              <td>{{ oem_detail.oem_location }}</td>
+              <td>
+                <button class="edit-btn" (click)="editOemUser(oem_detail)">
+                  <i class="fas fa-edit" title="EDIT"></i> 
+                </button>
+                <button class="delete-btn" (click)="deleteOemUser(oem_detail.id)">
+                  <i class="fas fa-trash-alt" title="DELETE"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>

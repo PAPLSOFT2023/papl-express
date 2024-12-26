@@ -1,0 +1,182 @@
+.fa-eye {
+    font-size: 20px; 
+    color: #007bff;
+    cursor: pointer; 
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+
+
+
+
+/* Container styling */
+.report-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+  
+  /* Card styling */
+  .report-card {
+    width: 300px;
+    background-color: #f7f4f4; /* Light gray background color */
+    border-radius: 10px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+//   .report-card:hover {
+//     transform: translateY(-5px);
+//     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+//   }
+  
+  /* Header styling */
+  .card-header {
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    color: #fff;
+    padding: 12px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center; 
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffffd9; /* Dark grayish color */
+  
+    margin: 0;
+  }
+  
+  /* Content styling */
+  .card-content {
+    padding: 16px;
+  }
+  
+  .info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .info-label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #171515;
+  }
+  
+  .info-value {
+    margin: 0;
+  }
+  
+  
+  .date,
+  .status {
+    font-size: 14px;
+    color: #666; 
+  }
+  
+  /* Icon styling */
+  .info-label i {
+    margin-right: 5px; 
+    font-size: 12px; 
+    color: #057898;
+  }
+  .company-logo{
+    height: 200px;
+    width: 300px;
+  }
+  /* Download button styling */
+  .download-button {
+    display: block; 
+    width: fit-content; /* Set width to fit content */
+    margin: 0 auto; /* Center alignment */
+    padding: 2px 6px;
+    background-color: #0a0a0ab1;; /* Blue color */
+    color: #fff;
+    text-decoration: none;
+    font-size: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+  }
+  
+  .logo {
+    background-image: url('/assets/papl_logo_sample.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 80px;
+  }
+  
+  .icon {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 0 auto 25px;
+    position: relative;
+    z-index: -1;
+  }
+  
+  .loader {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #3b3765;
+    animation: spin 1.5s linear infinite;
+    z-index: 5;
+  }
+  
+  .loader:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #ee7f22;
+    animation: spin 3s linear infinite;
+  }
+  
+  .loader:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #b3b4b3;
+    animation: spin 3.5s linear infinite;
+  }
+  
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+  }

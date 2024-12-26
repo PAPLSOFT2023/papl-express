@@ -1,0 +1,214 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    height: 100vh;
+}
+
+table {
+    border-collapse:collapse;
+    width: 60%;
+    margin: 20px;
+    text-align: left;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size:16px;
+   
+}
+
+thead {
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    color: #fff;
+    text-align: center;
+    
+}
+.file-btn {
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 17px;
+    cursor: pointer; /* Cursor style */
+    margin-right: 10px; /* Margin to separate buttons */
+}
+
+.camera-btn {
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    font-size: 17px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+}
+
+
+.btn {
+    color: #fff;
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+p{
+    text-align: center;
+    font-size: 30px;
+    font-weight:bold;
+}
+.plus{
+    margin-left:6px; 
+    align-items: center;
+    position: relative; 
+    top: 6px;
+    width: 25px;
+    height: 25px;
+    }
+    .disabled-button {
+        opacity: 0.5; 
+        cursor: not-allowed; 
+      }
+
+      .button_choose{
+        background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%); 
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        color: #ddd;
+        border-radius: 5px;
+      }
+      /* Background blur effect */
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    backdrop-filter: blur(8px); /* Blur effect */
+    z-index: 10; /* Make sure it's behind the floating container */
+}
+
+/* Floating container */
+.floating-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    z-index: 11; /* Make sure it's above the blurred background */
+    padding: 40px; /* Padding */
+    text-align: center; /* Center-align content */
+    width: 400px; /* Set the width */
+}
+
+/* Heading */
+.floating-container h2 {
+    margin-bottom: 20px; /* Margin below heading */
+}
+
+// /* File input */
+// .file_choose {
+//     display: none; /* Hide the default file input */
+// }
+.file_choose{
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%); 
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: #ddd;
+    border-radius: 5px;
+}
+.custom-file-input {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    margin-bottom: 10px; /* Margin below file input */
+}
+
+.custom-file-input:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Selected file name */
+.file_sel {
+    // display: block;
+    margin-top: 10px; /* Margin above selected file name */
+    color: #333; /* Black text */
+    font-size: 16px; /* Font size */
+}
+
+/* Submit button */
+button {
+    background-color: #229038; /* Green background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #e00f0f;
+}
+
+.close-btn:hover {
+    color: #010101;
+}
+/* Tooltip style */
+.close-btn[title]:hover:after {
+    // content: attr(title);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #080808;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        padding: 40px;
+    }
+    table {
+        width: 60%;
+    }
+
+}

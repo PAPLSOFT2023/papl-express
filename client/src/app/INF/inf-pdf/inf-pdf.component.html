@@ -1,0 +1,246 @@
+<table >
+    <tr>
+    <td class="background_logo">
+     
+        <img class="logo" src="assets/carp.jpg" alt="Your Logo">
+       
+      
+    </td>
+    <td colspan="6" class="Tittle">INSPECTION SCHEDULE AUTHORIZATION</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="papl_inf_version">PAPL/INF/26, VER.3.0, 15-11-2023 </td> <!-- Use empty columns for alignment -->
+    <td class="td_text_bold">Serial No:</td>
+    <td class="td_text_normal" colspan="4">{{ inf_26.id }}</td> 
+  </tr>
+  <!-- Rest of your table content -->
+  <tr>
+  
+      <tr>
+        <tr>
+        <td class="td_text_bold">PAPL CONTRACT NO.</td>
+        <td class="td_text_normal" colspan="2">{{inf_26.contract_number}}</td>
+        <td class="td_text_bold" colspan="1" >DATE:</td>
+        <td class="td_text_normal" colspan="3">{{ currentDate|date:'dd/MM/yyyy'}}</td>
+      </tr>
+      <tr>
+        <td class="td_text_bold">CUSTOMER WORK ORDER NUMBER & DATE:</td>
+        <td class="td_text_normal" colspan="6">{{inf_26.customer_workorder_name +' & '+inf_26.customer_workorder_date}}</td>
+      </tr>
+      <tr>
+        <td class="td_text_bold">CUSTOMER NAME AS PER WORK-ORDER</td>
+        <td class="td_text_normal" colspan="6">{{inf_26.customer_name_as_per_work_order}}</td>
+     </tr>
+     <tr>
+        <td class="td_text_bold" >TYPE OF INSPECTION.</td>
+        <td class="td_text_normal" colspan="3">{{inf_26.type_of_inspection}}</td>
+        <td class="td_text_bold"  ><time datetime="2010-06-03">SCOPE DOC. ID:</time></td>
+        <td  colspan="2" class="td_text_normal" >{{inf_26.job_type}}</td>
+      </tr>
+      <tr>
+        <td class="td_text_bold">PROJECT NAME</td>
+        <td colspan="6" class="td_text_normal">{{inf_26.project_name}}</td>
+     </tr>
+     <tr>
+        <td class="td_text_bold" >BUILDING NAME & LOCATION</td>
+        <td colspan="6" class="td_text_normal">{{inf_26.building_name +' & '+inf_26.location}}</td>
+     </tr>
+     <tr>
+        <td class="td_text_bold">TYPE OF BUILDING</td>
+        <td colspan="6" class="td_text_normal">{{inf_26.type_of_building}}</td>
+     </tr>
+     <tr>
+        <td class="td_text_bold">SITE ADDRESS</td>
+        <td colspan="6" class="td_text_normal">{{inf_26.site_address}}</td>
+    </tr>
+    <tr>
+        <td class="td_text_bold" rowspan="2">
+          CUSTOMER CONTACT PERSON & DETAILS 
+        </td>
+        <td colspan="6" class="td_text_normal" ><b>NAME:</b> {{" "+inf_26.customer_contact_name}}</td>
+        
+    </tr>
+    <tr>
+        <td  colspan="3" class="td_text_normal"><b>MOBILE:</b> {{inf_26.customer_contact_number}}</td>
+        <td colspan="3" class="td_text_normal"><b>MAIL ID:</b> {{inf_26.customer_contact_mailid}}</td>
+    </tr>
+    <tr>
+        <td class="td_text_bold">OEM DETAILS</td>
+        <td colspan="6" class="td_text_normal">{{inf_26.oem_details}}</td>
+    </tr>
+    <tr>
+        <td class="td_text_bold">
+            TOTAL No. OF UNITS IN THE PROJECT
+        </td>
+        <td  colspan="2" class="td_text_normal"><b>ELEV:</b> {{inf_26.no_of_elevator}}</td>
+        <td colspan="1" class="td_text_normal"> <b> ESC:</b>{{inf_26.no_of_escalator}}</td >
+        <td colspan="1" class="td_text_normal"><b>TRV:</b> {{inf_26.no_of_travelator}}</td>
+        <td colspan="1" class="td_text_normal"><b>MW:</b> {{inf_26.	no_of_mw}}</td>
+        <td colspan="1" class="td_text_normal"><b>CP:</b> {{inf_26.no_of_car_parking}}</td>
+    </tr>
+    <!-- <tr>
+        <td class="td_text_bold"> No.OF STOPS</td>
+        <td colspan="2" class="td_text_normal" >ELEV: {{inf_26.no_of_stops_elevator}}</td>
+        <td colspan="2" class="td_text_normal">DW: {{inf_26.no_of_stops_dw}}</td>
+        <td colspan="2" class="td_text_normal">HE: {{inf_26.no_of_home_elevator}}</td>
+    </tr> -->
+    <tr>
+        <td class="td_text_bold">SCOPE OF EXPENSES</td>
+        <td colspan="3" class="td_text_normal"><b>TRAVEL:</b> {{inf_26.travel_expenses_by}}</td>
+        <td colspan="3" class="td_text_normal"><b>ACCOMMODATION:</b> {{inf_26.accomodation_by}}</td>
+        </tr>
+    
+    <tr>
+        <td class="td_text_bold">NUMBER OF VISITS & MANDAYS AS PER WORK</td>
+        <td colspan="3" class="td_text_normal"><b>NO. OF. VISITS:</b> {{inf_26.no_of_visits_as_per_work_order}}</td>
+        <!-- <td colspan="1">INPROCESS:20</td> -->
+        <td colspan="3" class="td_text_normal"><b>MANDAYS AS PER WORK:</b> {{inf_26.no_of_mandays_as_per_work_order}}</td>
+        <!-- <td colspan="1">INSP:25</td> -->
+    </tr>
+    
+    <tr>
+        <td class="td_text_bold">NUMBER OF VISITS & MANDAYS COMPLETED</td>
+        <td colspan="3"><b>NO. OF. VISITS:</b> -</td>
+        <!-- <td colspan="1">INPROCESS:20</td> -->
+        <td colspan="3"><b>MANDAYS AS PER WORK:</b> -</td>
+    </tr>
+   
+    <tr>
+        <td class="td_text_bold">
+            No.OF UNITS INSPECTED IN THE PAST VISITS
+        </td>
+        <td colspan="6">-</td>
+       
+    </tr>
+  
+    <tr>
+    <td class="td_text_bold">No.OF UNITS INSPECT IN THE CURRENT VISIT</td>
+    <td colspan="6" class="td_text_normal">  {{inf_26.total_units_schedule}}</td>
+    
+  </tr>
+  <tr>
+    <td class="td_text_bold">SCHEDULED DAYS FOR CURRENT VISIT </td>
+    <td colspan="6" class="td_text_normal">{{differenceInDays}}</td>
+    
+  </tr>
+  <tr>
+    <td class="td_text_bold">SCHEDULED DATES FOR CURRENT INSPECTION</td>
+    <td colspan="3" class="td_text_normal"><b>FROM:</b> {{s_from}}</td>
+    <td colspan="3" class="td_text_normal"><b>TO:</b> {{s_to}}</td>
+    
+  </tr>
+  <tr> 
+    <td class="td_text_bold" rowspan="2" > SPL. INSTRUCTIONS TO INSPECTOR</td>
+    <td colspan="7" class="td_text_normal" >{{tpt6_val +" ,"+tpt7_val +" ,"+load_test+" ,"+pmt+" ,"+rope_condition}}</td>
+    </tr>
+  
+    <tr> 
+      <td colspan="7" class="td_text_normal" >{{callback+" ,"+balance}}</td>
+      </tr>
+  
+  </table>
+  <table class="bottom_table1">
+    <tr>
+        <td class="td_text_bold">VISIT </td>
+        <td class="td_text_bold"> FROM</td>
+        <td class="td_text_bold"> TO</td>
+        <td class="td_text_bold" >No. UNITS</td>
+        <!-- <td class="td_text_bold">UNIT ID</td> -->
+        <td  class="td_text_bold" >INSPECTOR NAME AND CODE</td>
+    </tr>
+    <tr>
+        <td class="td_text_bold">1ST VISIT</td>
+        <td class="td_text_normal">{{s_from}}</td>
+        <td class="td_text_normal">{{s_to}}</td>
+        <td class="td_text_normal">{{inf_26.total_units_schedule}} </td>
+        <!-- <td class="td_text_normal">-</td> -->
+        <!-- <td *ngFor="let inspector of inf_26.inspector_list; let last = last">
+          {{ inspector }}{{ last ? '' : ',' }}
+        </td> -->
+              <!-- <td>{{inf_26.inspector_list}}</td> -->
+        <td colspan="2" class="td_text_normal">{{concatenatedInspectors}}</td>
+        
+    </tr>
+    <tr>
+        <td class="td_text_bold">2ND VISIT</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td colspan="2"></td>
+     
+        <!-- <td></td> -->
+    </tr>
+   
+  
+        <!-- <tr>
+        <td class="td_text_bold" rowspan="2">PREPARED BY</td>
+        <td colspan="3" >NAME: </td>
+        <td class="td_text_bold" rowspan="2">AUTHORIZED BY</td>
+        <td colspan="3" >NAME: </td>
+      </tr>
+        <tr>
+        <td  colspan="3">SIGN: </td>
+        <td colspan="3" >SIGN: </td>
+       </tr> -->
+              
+     
+    </table>
+    
+  
+  
+        
+      
+      
+      
+     
+
+    
+      <!-- <table class="td_text_bold"> -->
+          <!-- <td class="bottom_head">  EXEMPTION TO CARRYOUT INSPECTION WITHOUT CLIENT WORK ORDER BASED ON CUSTOMER REQUEST</td> The "JUSTIFICATION FOR EXEMPTION" table content goes here</table> -->
+      <!-- <table class="justification-table"> -->
+      <!-- <thead> -->
+     <!-- <tr> -->
+    <!-- <th colspan="7">JUSTIFICATION FOR EXEMPTION</th></tr> -->
+    <!-- </thead> -->
+    <!-- <tbody> -->
+    <!-- <tr> -->
+    <!-- <td class="td_text_bold" rowspan="2">SALES</td> -->
+    <!-- <td colspan="3">NAME:sample</td> -->
+    <!-- <td class="td_text_bold" rowspan="2">CONTRACTS</td> -->
+    <!-- <td>APPROVED</td> -->
+    <!-- <td>NAME:sample</td> -->
+    <!-- </tr>
+    <tr>
+    <td colspan="3">SIGN:sample</td>
+    <td>NOT APPROVED</td>
+    <td>SIGN:sample</td>
+    </tr> -->
+  <!-- <input type="text" [(ngModel)]="selectedDetails.id"> -->
+    <!-- </tbody>
+    </table> -->
+    <!-- <h1>{{selectedDetails | json}}</h1>
+    -->
+    <table>
+    
+        <tr>
+          <td class="td_text_bold">Unit Name</td>
+          <td class="td_text_bold">No. of Stops</td>
+        </tr>
+     
+     
+        <!-- Use *ngFor to iterate over the combinedNames array -->
+        <tr *ngFor="let name of combinedNames; let i = index">
+          <td class="td_text_normal">{{ name }}</td>
+          <!-- Access the corresponding stop using the index -->
+          <td class="td_text_normal">{{ combinedStops[i] }}</td>
+        </tr>
+      </table>
+
+
+      <!-- <h1>{{inf_26 | json}}</h1> -->
+    
+    
+      
+        
+     
+    

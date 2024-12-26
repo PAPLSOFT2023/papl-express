@@ -1,0 +1,358 @@
+.page {
+  page-break-before: always;
+  page-break-after: always;
+  margin-bottom: 20px;
+  padding-bottom: 50px; 
+  position: relative;
+}
+body{
+  font-family:'Calibri';
+}
+
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('/assets/fonts/calibri/calibri-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+font-family:'Calibri';
+}
+
+
+
+
+.signature-image {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+
+}
+
+.signature-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.close_button {
+  background: #ff5c5c;
+  border: none;
+  color: white;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close_button i {
+  pointer-events: none; /* ensures the icon doesn't interfere with the button click */
+}
+
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.new_button, .button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius:8px; /* Rounded corners */
+}
+
+.new_button1{
+  background-color: #148d3d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius:8px; /* Rounded corners */
+}
+
+.new_button{
+  background-color: #000000;
+  color: white;
+
+  border: none;
+}
+
+
+.button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  font-size: 15px;
+}
+
+.button:hover {
+  background-color: #da190b;
+}
+
+
+ 
+
+ 
+
+
+.logo{
+  height:70px;
+  width: 200px;
+  margin-top: 30px;
+  margin-left:65px;
+}
+p{
+  text-align: center;
+}
+
+.table-container {
+  width: 80%;
+  margin: 0 auto; 
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+th {
+  background-color: #f2f2f2;
+}
+.sign{
+  text-align: left;
+}
+
+input[type="text"] {
+  padding:8px; 
+  border:none;
+  font-size: 16px;
+  width:300px; 
+}
+
+td[contenteditable="true"] {
+  padding: 10px;
+  min-width: 100px;
+  max-width: 100px;
+   
+}
+
+input[type="date"] {
+  font-size:18px; 
+  
+}
+
+
+@media only screen and (max-width: 768px) {
+  .table-container {
+      width: 100%;
+  }
+
+  input[type="text"] {
+      width: 100%;
+  }
+
+  td[contenteditable="true"] {
+      min-width: auto;
+      max-width: auto;
+  }
+}
+
+.footer {
+// position: fixed;          /* Fix the footer at the bottom */
+bottom: 0;                /* Aligns it to the bottom of the page */
+right: 0;                 /* Aligns it to the right end */
+text-align: right;        /* Ensures text is aligned to the right */
+width: 100%;              /* Ensures footer spans the width of the page */
+padding-right: 10px;      /* Optional padding to avoid touching the edge */
+font-size: 12px;          /* Adjust font size as per your needs */
+}
+@media print {
+  .button-container {
+    display: none;
+  }
+}
+.borderless-date-input {
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  /* Optionally, you can add more styles to customize the appearance */
+}
+
+
+/* Button Container */
+.button_all {
+display: flex;
+justify-content: center; /* Center align the buttons */
+margin-top: 200px; /* Space from content */
+}
+
+/* Button Styling */
+.download-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+color: white;
+margin: 0 10px;
+transition: all 0.3s ease;
+text-decoration: none;
+}
+
+
+.view-btn{
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+color: white;
+margin: 0 10px;
+transition: all 0.3s ease;
+text-decoration: none;
+
+}
+
+
+/* Button Icons */
+.download-btn i, .view-btn i {
+margin-right: 8px;
+font-size: 20px;
+}
+
+
+/* Signature Pad Container Styles */
+.signature-pad-container {
+position: relative; /* Allow positioning of child elements */
+padding: 20px; /* Add padding around the signature pad for better spacing */
+border: 2px solid #ccc; /* Add a light border to the signature pad */
+border-radius: 10px; /* Rounded corners for the signature pad container */
+background-color: #f9f9f9; /* Light background color for the container */
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Signature Pad Styles */
+.signature-pad {
+max-width: 100%; /* Ensure the signature pad does not overflow */
+height: auto; /* Maintain aspect ratio */
+}
+/* Button Container Styles */
+.button-container {
+display: flex; /* Use flexbox for button alignment */
+justify-content: center; /* Center the buttons */
+align-items: center; /* Align items vertically center */
+margin-top: 10px; /* Reduced space above the buttons */
+padding: 5px; /* Added padding for better spacing around buttons */
+}
+
+/* Clear Button Styles */
+.clear-signature-btn {
+position: absolute; /* Position this button absolutely */
+top: 5px; /* Distance from the top (reduced) */
+right: 5px; /* Distance from the right (reduced) */
+background-color: #ff4d4d; /* Red background */
+color: white; /* White text */
+padding: 6px 10px; /* Reduced padding for smaller button */
+border: none; /* Remove border */
+border-radius: 4px; /* Rounded corners */
+cursor: pointer; /* Pointer cursor on hover */
+transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth background and transform transition */
+font-size: 12px; /* Smaller font size for a more compact look */
+}
+
+/* Hover effect for Clear Button */
+.clear-signature-btn:hover {
+background-color: #ff1a1a; /* Darker red on hover */
+transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Capture Button Styles */
+.capture-signature-btn {
+background-color: #007bff; /* Blue background for a professional look */
+color: white; /* White text */
+padding: 6px 10px; /* Reduced padding for smaller button */
+border: none; /* Remove border */
+border-radius: 4px; /* Add rounded corners */
+cursor: pointer; /* Pointer cursor on hover */
+transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth background and transform transition */
+margin-left: 5px; /* Reduced space between buttons */
+font-size: 12px; /* Smaller font size for a more compact look */
+}
+
+/* Hover effect for Capture Button */
+.capture-signature-btn:hover {
+background-color: #0056b3; /* Darker blue on hover */
+transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.note {
+text-align: center; /* Center align the text */
+
+}

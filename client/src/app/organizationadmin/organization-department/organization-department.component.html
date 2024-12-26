@@ -1,0 +1,73 @@
+<div class="container">
+    <header class="header">
+      <h1>ORGANIZATION DEPARTMENT</h1>
+    </header>
+  
+    <main class="content">
+      <br />
+      <!-- Button to open the form popup for adding a new department -->
+      <button class="open-form-btn" (click)="openAddForm()">
+        <i class="fas fa-plus"></i> Add Organization Department
+      </button>
+      <br /><br />
+  
+      <!-- Departments Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Department</th>
+              <th>Organization</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let department of departments">
+              <td>{{ department.Department }}</td>
+              <td>{{ department.Organization }}</td>
+              <td>
+                <button class="edit-btn" (click)="openEditForm(department)">
+                    <i class="fas fa-edit" title="EDIT"></i>
+                  </button>
+                  <button class="delete-btn" (click)="deleteDepartment(department)">
+                    <i class="fas fa-trash-alt" title="DELETE"></i>
+                  </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  <!-- Popup Form -->
+<div class="popup-form" *ngIf="showForm">
+    <div class="form-container">
+      <h3>{{ isEditMode ? 'Update Department' : 'Add Department' }}</h3>
+  
+      <!-- Close Button with Red Color and Positioned Top Right -->
+      <button type="button" class="close-btn" (click)="closeForm()"><i class="fas fa-times"></i></button>
+  
+      <form>
+        <label for="department">Department</label>
+        <input
+          type="text"
+          id="department"
+          [(ngModel)]="formData.Department"
+          name="department"
+          required
+        />
+  
+        <label for="organization">Organization</label>
+        <input
+          type="text"
+          id="organization"
+          [(ngModel)]="formData.Organization"
+          name="organization"
+          required
+        />
+  
+        <div class="form-actions">
+          <button type="button" (click)="saveForm()"> <i class="fas fa-check"></i>Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

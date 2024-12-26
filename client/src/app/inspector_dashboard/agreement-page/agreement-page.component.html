@@ -1,0 +1,52 @@
+<!-- <div class="container">
+    <div class="opening-meeting">
+    <h3>OPENING MEETING</h3>
+    <p><b>Greetings of the Day One and all present here!</b></p>
+    <p>This inspection is categorized 1 as  third-party Type 3 inspection - inspection for safety, performance & maintenance quality assessment, and it is a checklist-based assessment.</p>
+    <p>During the course of the inspection, we will be collecting a lot of data about the elevator along with pictures as evidence of our findings. We assure you that the information gathered and pictures taken will be handled with confidentiality as we are bound by oath of secrecy.we are also bound by independence and impartiality requirements as an inspection body and if you find any issues with us or our conduct or inspection process you may write to <b>info@paplcorp.com</b> and your concerns will be addressed appropriately </p>
+    <p>This inspection will be conducted by Me/Us between<b>{{inf_26.schedule_from |  date: 'dd-MM-yyyy'}} </b> to <b>{{inf_26.schedule_to |  date: 'dd-MM-yyyy'}} </b></p>
+    <p><b>Thank you!</b></p>
+    <p class="disclaimer">For inquiries, please contact us at <a href="mailto:info@paplcorp.com">info@paplcorp.com</a>.</p>
+    <button class="action-button" (click)=" accept()">Proceed to Attendence Sheet</button>
+</div>
+</div> -->
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+ <div class="center">
+    <img  class="meet" [src]="location1" alt="Logo"> <span style="font-weight: bold;">OPENING MEETING</span> <img  class="meet" [src]="location1" alt="Logo">
+        </div>
+<div class="container">
+    <div class="opening-meeting">
+        <img class="voice" [src]="location"  (click)="speakText()" alt="Logo"> 
+        <p *ngIf="showMessage" class="wait-message">Please listen to the audio..</p>
+
+       
+    
+      
+        <p><b><i class="fas fa-handshake" style="color: blue;"></i> Greetings of the Day One and all Present here!</b></p>
+
+        <p><i class="fas fa-tools"></i> This inspection is categorized as a third-party Type 3 inspection - inspection for safety, performance & maintenance quality assessment, and it is a checklist-based assessment.</p>
+        <p><i class="fas fa-tools"></i> During the course of the inspection, we will be collecting a lot of data about the elevator along with pictures as evidence of our findings. We assure you that the information gathered and pictures taken will be handled with confidentiality as we are bound by oath of secrecy. We are also bound by independence and impartiality requirements as an inspection body and if you find any issues with us or our conduct or inspection process you may write to <b style="color: rgb(49, 113, 218);">info@paplcorp.com</b> and your concerns will be addressed appropriately.</p>
+        <div class="thank-you_one">
+        <p><i class="far fa-calendar-alt"></i> This inspection will be conducted by Me/Us between <b>{{inf_26.schedule_from |  date: 'dd-MM-yyyy'}}</b> to <b>{{inf_26.schedule_to |  date: 'dd-MM-yyyy'}}</b>.</p>
+    </div>
+        <div class="thank-you">
+             Thank you...! <i style="color: green;" class="fas fa-smile"></i>
+
+        </div>
+            <p class="disclaimer">For inquiries or issues, please contact us at <a href="mailto:info@paplcorp.com"><i class="fas fa-envelope"></i> info@paplcorp.com</a>.</p>
+
+        <!-- <button class="action-button" (click)="accept()"><i class="fas fa-arrow-right"></i> Proceed to Attendance Sheet</button> -->
+        <button class="action-button" [disabled]="!textRead" (click)="accept()" [ngClass]="{'disabled-button': !textRead}">
+            <i class="fas fa-arrow-right"></i>Proceed to Attendance Sheet
+          </button>
+    
+</div>
+</div>
+</body>                                
+

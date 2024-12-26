@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+  <!-- Add any other necessary styles or links here -->
+</head>
+<body class="images" background="assets/liftresponse.jpg">
+
+  <div class="container">
+    <p class="text">Inspection Schedule Response</p>
+
+    <div class="row" *ngIf="!Isapproved">
+
+      <div class="column">
+        <button class="button accept" (click)="showPopup()">✅ Accept</button>
+      </div>
+  
+      <!-- Reject Button Column -->
+      <div class="column">
+        <button class="button reject" (click)="showRejection()">❎ Reject</button>
+      </div>
+
+    </div> 
+
+<div *ngIf="show_already" class="already_responded">
+  <p>Already Responded</p>
+</div>
+
+    <!-- Rejection Popup -->
+    <div *ngIf="showRejectionPopup" class="popup">
+
+      <div class="popup-content">
+        <label for="issueType" class="label">Select the Reason for Rejection:</label>
+        <select id="issueType" class="select" [(ngModel)]="selectedCause">
+          <option *ngFor="let cause of rejectionCauses" [value]="cause.cause">{{ cause.cause }}</option>
+        </select>
+      
+        <div class="button-container">
+          <button class="button-submit" (click)="submitRejection()">SUBMIT</button>
+          <button class="button-close" (click)="closeRejection()">CLOSE</button>
+        </div>
+      </div>
+
+      </div>
+    </div>

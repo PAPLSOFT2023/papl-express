@@ -1,0 +1,622 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.gray-text {
+  color: rgb(210, 209, 209);
+}
+
+.green-text {
+  color: green;
+}
+/* your-component.component.css */
+.gray-text, .green-text {
+  display: inline-block;
+  margin-right: 10px;
+}
+.Mail_status{
+
+
+  margin-top: 12px;
+
+}
+.red-text {
+  color: red;
+}
+
+
+.loading-container {
+  width: 100%;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #3498db; /* Change the color as needed */
+  animation: loadingAnimation 2s infinite;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255, 255, 255, 0.8); /* Set a semi-transparent white overlay */
+z-index: 998; /* Adjust the z-index as needed */
+display: none;
+}
+
+/* Remove the overlay when the popup is open */
+body.blur-effect .overlay {
+display: block;
+}
+
+.popup-content {
+text-align: center;
+
+}
+// 
+
+.mail_status {
+/* Optional: Add any additional styling for individual p elements */
+margin: 5px 0; /* Example: Add some vertical margin */
+color:#595a59f0
+}
+
+.error_prob{
+color: #ff0000;
+font-size: 12sp;
+}
+
+
+/* Add styles for the popup */
+.popup-container {
+position: fixed;
+height: 250px;
+width: 600px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: rgb(255, 255, 255);
+padding: 20px;
+
+border: 1px solid #ccc;
+z-index: 999;
+}
+
+.close-button {
+position: absolute;
+color: #ff0000;
+top: 10px;
+font-size: 28px;
+right: 10px;
+cursor: pointer;
+}
+
+
+
+
+.job .button:hover {
+  background-color: #2980b9;
+}
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .department {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+  }
+  .apply-button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .apply-button:disabled {
+    /* Your button styles when it's disabled */
+    /* Add your disabled button styles here */
+    /* For example: */
+    background-color: #cccccc; /* Grey color */
+    color: #999999; /* Lighter text color */
+    cursor: not-allowed;
+    
+  }
+
+ 
+  .job-footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .job-dates {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+  }
+  .job-posted-date::before {
+    content: "Schedule From: ";
+  }
+  .job-expiry-date::before {
+    content: "Schedule To: ";
+  }
+  .eye-icon {
+    font-size: 18px;
+    color:black;
+    margin-top: 10px;
+  }
+
+  .menu-icon {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+  }
+ 
+  .profile-icon {
+    font-size: 30px;
+    color: black;
+    margin-right:30px;
+    cursor: pointer;
+  }
+ 
+
+  .icon-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: #ffffff;
+        background: #030404dc;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+      }
+      
+      .icon-button:hover {
+        cursor: pointer;
+      }
+      
+      .icon-button:active {
+        background: #cccccc;
+      }
+      
+      
+      .icon-button__badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 25px;
+        height: 25px;
+        background: red;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+      a{
+        color: black;
+      }
+
+
+
+
+
+
+      
+      
+      .profile-icon {
+        font-size: 20px;
+        margin-right: 8px;
+        cursor: pointer;
+        color: white;
+      }
+      
+      .profile-text {
+        margin-left: auto;
+        color: white;
+        font-size: 15px;
+      }
+      body {
+        position: relative;
+        overflow: auto;
+        padding: 0;
+        margin: 0;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/buildd.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: blur(8px); /* Adjust the blur intensity */
+        background-color: rgba(0, 0, 0, 0.847); /* Dark tint with reduced opacity */
+        backdrop-filter: blur(10px); /* Frosted glass effect */
+        -webkit-backdrop-filter: blur(10px); /* Frosted glass effect for Safari */
+        z-index: -1; /* Place it behind the content */
+      }
+
+        
+        .loading-bar {
+          width: 0%;
+          height: 100%;
+          background-color: #3498db; /* Change the color as needed */
+          animation: loadingAnimation 2s infinite;
+        }
+        
+        @keyframes loadingAnimation {
+          0% {
+            width: 0%;
+          }
+          50% {
+            width: 50%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+        
+        /* Popup styling */
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.8); /* Set a semi-transparent white overlay */
+          z-index: 998; /* Adjust the z-index as needed */
+          display: none;
+        }
+        
+        body.blur-effect .overlay {
+          display: block; /* Remove the overlay when the popup is open */
+        }
+        
+        .popup-content {
+          text-align: center;
+        }
+        
+        
+     
+        
+        .close-button {
+          position: absolute;
+          color: #ff0000;
+          top: 10px;
+          font-size: 28px;
+          right: 10px;
+          cursor: pointer;
+        }
+        
+      /* Job card styling */
+      ////////////container styling///////////////
+.job {
+  background-color: rgba(255, 255, 255, 0.884); /* Semi-transparent white background */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 30px;
+  text-align: center;
+  color: #000000; /* White text color */
+}
+
+        h2 {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+        
+        p {
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+        
+        .department {
+          font-size: 14px;
+          color: #666666;
+          margin-bottom: 5px;
+        }
+        
+        .apply-button {
+          background-color: #4CAF50;
+          border: none;
+          border-radius: 5px;
+          color: white;
+          font-size: 16px;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+        
+        .apply-button:disabled {
+          background-color: #cccccc; /* Grey color */
+          color: #999999; /* Lighter text color */
+          cursor: not-allowed;
+        }
+        
+        .job-footer {
+          border-top: 1px solid #ccc;
+          padding-top: 10px;
+          margin-top: 10px;
+        }
+        
+        .job-dates {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          color: #666;
+        }
+        
+        .job-posted-date::before {
+          content: "Schedule From: ";
+        }
+        
+        .job-expiry-date::before {
+          content: "Schedule To: ";
+        }
+        
+        .eye-icon {
+          font-size: 18px;
+          color: black;
+          margin-top: 10px;
+        }
+       
+        
+        /* Menu and profile styling */
+        // nav {
+        //   background-image: linear-gradient(125deg, #2c3e50 50%, #000000 50%);
+        //   padding: 10px;
+        //   display: flex;
+        //   position: fixed;
+        //   top: 0;
+        //   left: 0;
+        //   width: 100%;
+        //   padding: 15px; /* Padding around the navbar */
+        //   justify-content: space-between;
+        //   align-items: center;
+        // }
+      
+     
+        nav a {
+          color: #fff;
+          text-decoration: none;
+          padding: 10px;
+        }
+        
+
+        
+        .profile-icon {
+          font-size: 20px;
+          margin-left:250px;
+          cursor: pointer;
+          color: white;
+        }
+        
+        .profile-text {
+          margin-left: 10px;
+          color: white;
+          font-size: 15px;
+        }
+        
+
+     
+      nav {
+        background-image: linear-gradient(125deg, #2c3e50 50%, #000000 50%); /* Navbar background color */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        padding: 15px; /* Padding around the navbar */
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Distribute space between items */
+        align-items: center; /* Align items vertically */
+    }
+    
+    .menu-container {
+        flex-grow: 1; /* Allow the menu container to grow and take available space */
+        text-align: center; /* Center the text within the container */
+    }
+    
+    .menu-text {
+      color: rgb(230, 188, 21); /* Text color */
+      font-size: 30px; /* Font size */
+      margin: 0; /* Remove margin for better centering */
+      padding-right: 66px; /* Adjust right padding as needed */
+      transform: translateX(320px); /* Move text 2px to the right */
+      font-family: calibri;
+  }
+  
+    
+    .profile-container {
+        display: flex; /* Use flexbox for alignment */
+        align-items: center; /* Center items vertically */
+    }
+     /* Media Queries */
+
+/* For laptops (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-text {
+      font-size: 28px; /* Adjust font size for laptops */
+      padding-right: 40px; /* Adjust right padding */
+  }
+
+  .profile-icon {
+      font-size: 28px; /* Adjust profile icon size */
+  }
+
+  .profile-text {
+      font-size: 16px; /* Adjust profile text size */
+  }
+
+  .job {
+      margin: 30px auto; /* Adjust job card margin */
+      padding: 20px; /* Adjust padding */
+  }
+
+  h2 {
+      font-size: 22px; /* Increase heading size */
+  }
+
+  p {
+      font-size: 15px; /* Increase paragraph size */
+  }
+
+  .apply-button {
+      padding: 8px 16px; /* Adjust button size */
+  }
+
+  .job-footer {
+      font-size: 14px; /* Increase footer font size */
+  }
+}
+
+/* For larger screens (above 1024px) */
+@media (min-width: 1025px) {
+  .menu-text {
+      font-size: 30px; /* Larger font size for larger screens */
+  }
+
+  .profile-icon {
+      font-size: 32px; /* Larger profile icon size */
+  }
+
+  .profile-text {
+      font-size: 18px; /* Larger profile text size */
+  }
+
+  .job {
+      margin: 40px auto; /* Adjust job card margin */
+      padding: 30px; /* Adjust padding */
+  }
+
+  h2 {
+      font-size: 26px; /* Increase heading size */
+  }
+
+  p {
+      font-size: 16px; /* Standard paragraph size */
+  }
+
+  .apply-button {
+      padding: 10px 20px; /* Maintain button size */
+  }
+
+  .job-footer {
+      font-size: 15px; /* Increase footer font size */
+  }
+}
+/* Media Queries */
+
+/* For tablets (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .menu-text {
+      font-size: 26px; /* Adjust font size for tablets */
+      padding-right: 20px; /* Adjust right padding */
+  }
+
+  .profile-icon {
+      font-size: 24px; /* Adjust profile icon size */
+  }
+
+  .profile-text {
+      font-size: 14px; /* Adjust profile text size */
+  }
+
+  .job {
+      margin: 20px auto; /* Adjust job card margin */
+      padding: 15px; /* Adjust padding */
+  }
+
+  h2 {
+      font-size: 20px; /* Adjust heading size */
+  }
+
+  p {
+      font-size: 14px; /* Adjust paragraph size */
+  }
+
+  .apply-button {
+      padding: 8px 15px; /* Adjust button size */
+  }
+
+  .job-footer {
+      font-size: 13px; /* Adjust footer font size */
+  }
+}
+
+/* For mobile devices (up to 480px) */
+@media (max-width: 480px) {
+  .menu-text {
+      font-size: 22px; /* Adjust font size for mobile */
+      padding-right: 10px; /* Adjust right padding */
+  }
+
+  .profile-icon {
+      font-size: 20px; /* Adjust profile icon size */
+  }
+
+  .profile-text {
+      font-size: 12px; /* Adjust profile text size */
+  }
+
+  .job {
+      margin: 10px auto; /* Adjust job card margin */
+      padding: 10px; /* Adjust padding */
+  }
+
+  h2 {
+      font-size: 18px; /* Adjust heading size */
+  }
+
+  p {
+      font-size: 12px; /* Adjust paragraph size */
+  }
+
+  .apply-button {
+      padding: 6px 12px; /* Adjust button size */
+  }
+
+  .job-footer {
+      font-size: 12px; /* Adjust footer font size */
+  }
+}

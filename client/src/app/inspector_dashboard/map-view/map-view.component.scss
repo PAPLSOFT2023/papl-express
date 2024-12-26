@@ -1,0 +1,11 @@
+/* Add this to your map-view.component.scss or styles.css */
+.leaflet-div-icon {
+  font-size: 24px; /* Adjust size of the icon */
+  color: #f39c12; /* Change the icon color (e.g., orange for elevator) */
+}
+/* map-view.component.scss */
+
+#map {
+  height: 100vh; /* Full viewport height */
+  width: 100%;   /* Full width */
+}

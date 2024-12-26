@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Your Page Title</title> -->
+</head>
+<body>
+    <p class="heading">unit List</p>
+    <div class="containers">
+        <ul>
+            <!-- <li>
+                <p>P2</p>
+                <div class="content">
+                    <button>Proceed</button>
+                </div>
+            </li> -->
+            <li *ngFor="let unit of units">
+                <p>{{ unit }}</p>
+                <div class="content" (click)="proceed(unit)">
+                  <button>Proceed</button>
+                </div>
+              </li>
+
+             
+          
+        </ul>
+    </div>
+</body>
+</html>

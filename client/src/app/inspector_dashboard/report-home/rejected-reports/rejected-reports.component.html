@@ -1,0 +1,103 @@
+<!-- 
+  <br>
+  <br>
+  <div class="report-cards-container">
+    <div *ngIf="uploadFiles.length === 0" class="no-records-msg">No records found</div>
+
+    <div class="report-card" *ngFor="let file of uploadFiles">
+  
+      <div class="card-header">
+  
+        <div class="card-title">
+          <i class="fas fa-file-contract"></i> 
+          Unit NO: {{ file.unit_name }}
+        </div>
+        </div>
+  
+        <div class="card-content" >
+  
+       
+        
+        <div class="info-row">
+          <span class="info-label"><i class="fas fa-building"></i> Building Name:</span> 
+          <span class="info-value">{{ file.building_name }}</span>
+        </div>
+     
+        <div class="info-row">
+          <span class="info-label"><i class="fa fa-credit-card"></i> Contract:</span>
+          <span class="info-value"> {{ file.contract }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label"><i class="fa fa-book-alt"></i>Document ID:</span> 
+          <span class="info-value"> {{ file.document_id }}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label"><i class="fa fa-book-alt"></i>Rejected Reason:</span> 
+            <span class="info-value"> {{ file.rejected_reason }}</span>
+          </div>
+        <i class="fa fa-eye"  (click)="displayPDF(file.document_id,file.unit_name)"></i>
+  </div>
+      </div>
+    </div>
+  
+
+   -->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  
+</style>
+</head>
+<body>
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
+  </style>
+  </head>
+  <body>
+  
+  
+  
+  <div class="table-container">
+    
+    
+  
+    <div *ngIf="uploadFiles.length === 0" style="text-align: center;" class="no-records-msg">No records found</div>
+  
+    <table *ngIf="uploadFiles.length > 0">
+      <tr class="tab">
+        <th>Document ID</th>
+        <th>Building Name</th>
+        <th>Contract No</th>
+        <th>Units</th>
+        <th>Reason of Rejection</th>
+        <th>View Report</th>
+      </tr>
+      <tr *ngFor="let file of uploadFiles">
+        <td>{{ file.document_id }}</td>
+        <td>{{ file.building_name }}</td>
+        <td>{{ file.contract }}</td>
+        <td>{{ file.unit_name }}</td>
+        <td>{{ file.rejected_reason }}</td>
+        <td><i class="fa fa-eye" (click)="displayPDF(file.document_id, file.unit_name)"></i></td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="loader-container" *ngIf="isLoading">
+    <div class="icon logo">
+      <div class="loader"></div>
+    </div>
+    </div>
+  </body>
+  </html>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sales Form</title>
+</head>
+<body>
+    
+    <div class="container">
+
+      <div class="loader-container" *ngIf="isLoading">
+        <div class="icon logo">
+          <div class="loader"></div>
+        </div>
+      </div>
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-chart-bar"></i> INF HISTORY</h1>
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search..." (input)="onSearch($event)">
+            </div>
+        </header>
+
+        <main class="content">
+            <h2><i class="fas fa-file-alt"></i> INF HISTORY RECORD LIST</h2>
+            <br>
+            <hr>
+
+            <div class="filter-container">
+                
+                <div>
+                    <!-- <div>Download All Excel</div> -->
+                    <div class="btn-circle-download" [class.load]="loading" [class.done]="done" (click)="onClick()" (click)="downloadAllAsExcel()">
+                        <!-- Arrow icon (appears initially) -->
+                        <svg id="arrow" width="12px" height="18px" viewBox="17 14 14 20" >
+                          <path d="M24,15 L24,32"></path>
+                          <polyline points="30 27 24 33 18 27"></polyline>
+                        </svg>
+                      
+                        <!-- Tick icon (appears after circle completes) -->
+                        <svg id="check" width="18px" height="13px" viewBox="13 17 21 15">
+                          <polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
+                        </svg>
+                      
+                        <!-- Circular border animation -->
+                        <svg id="border" width="40px" height="40px" viewBox="0 0 40 40">
+                          <circle id="progress-circle" cx="20" cy="20" r="18"></circle>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="excel">Download Excel</div>
+
+                <button class="filter-icon-btn" (click)="togglePopup()">
+                  <i class="fas fa-filter"></i> Filter
+                </button>
+              </div>
+              
+              <!-- Filter Popup -->
+<div class="popup" id="filterPopup" *ngIf="isPopupVisible">
+    <div class="popup-header">
+        <span class="cancel-icon" (click)="togglePopup()">
+            <i class="fas fa-times"></i> <!-- Use the icon you prefer -->
+        </span>
+    </div>
+    <div class="filter-field">
+        <label for="duration">Duration:</label>
+        <select id="duration" [(ngModel)]="selectedFilter" (change)="applyDateRangeFilter()"  (change)="toggleDateRange($event)">
+            <option value="thisMonth">This Month</option>
+            <option value="lastTwoMonths">Last Two Months</option>
+            <option value="lastThreeMonths">Last Three Months</option>
+            <option value="lastSixMonths">Last 6 Months</option>
+            <option value="oneYear">One Year</option>
+            <option value="date-range">Select Date Range</option>
+        </select>
+    </div>
+              
+                <!-- Date Range Fields -->
+                <div class="date-range" *ngIf="isDateRangeFieldsVisible">
+                  <div class="filter-field">
+                    <label for="from-date">From Date:</label>
+                    <input type="date" id="fromDate" [(ngModel)]="fromDate">
+                  </div>
+                  <div class="filter-field">
+                    <label for="to-date">To Date:</label>
+                    <input type="date" id="toDate" [(ngModel)]="toDate">
+                  </div>
+                  <button class="filter-button" (click)="filterRecords()">Apply</button>
+              
+                  <!-- Text below Apply Button -->
+                  <p id="applyText" class="apply-text" *ngIf="isApplyTextVisible">(*Apply the filter & before downloading)</p>
+                </div>
+              
+                <!-- Download Button -->
+                <button class="download-button" (click)="downloadFilteredExcel()">Download</button>
+              </div>
+            
+            <!-- <div class="date-filter">
+                <label for="fromDate">From: </label>
+                <input type="date" id="fromDate" [(ngModel)]="fromDate">
+              
+                <label for="toDate">To: </label>
+                <input type="date" id="toDate" [(ngModel)]="toDate">
+
+                <button (click)="filterRecords()">Filter Records</button>
+
+              
+                <button (click)="downloadFilteredExcel()">Download Filtered Excel</button>
+                <label for="monthFilter">Filter By:</label>
+                <select id="monthFilter" [(ngModel)]="selectedFilter" (change)="applyDateRangeFilter()">
+                  <option value="">Select</option>
+                  <option value="thisMonth">This Month</option>
+                  <option value="lastTwoMonths">Last Two Months</option>
+                  <option value="lastThreeMonths">Last Three Months</option>
+                </select>
+              </div> -->
+
+            <!-- Status 1 Records -->
+            <div class="table-responsive">
+                <h3></h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>CONTRACT NO</th>
+                            <th>PROJECT NAME</th>
+                            <th>LOCATION</th>
+                            <th>NO.OF.UNITS</th>
+                            <th>Download As Excel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of filteredStatus0Records; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ record.contract_number }}</td>
+                            <td>{{ record.project_name }}</td>
+                            <td>{{ record.location }}</td>
+                            <td>{{ record.total_number_of_units }}</td>
+                            <!-- <td>
+                                <button class="edit-btn" (click)="handleClick(record.contract_number)">
+                                    <i class="fas fa-edit"></i> 
+                                </button>
+                            </td> -->
+                            <td><button (click)="downloadExcel(record)" class="icon-button">    <img src="assets/image.png" alt="Download Excel" class="excel-icon">
+                            </button></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+                <!-- <button >Download All as Excel</button> -->
+
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><a style="color: yellow;" href="https://paplexpress.com" target="_blank">Paplexpress.com</a> - All rights reserved 2024</p>
+        </footer>
+    </div>
+</body>
+</html>

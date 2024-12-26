@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Styled Project Information</title>
+</head>
+<body>
+   
+    <p>BASIC DATA</p>
+    <table>
+        <thead>
+            <th>Project Name</th>
+            <th>{{inf_26.project_name}}</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Location</td>
+                <td>{{inf_26.location}}</td>
+            </tr>
+            <tr>
+                <td>No. Of Units</td>
+                <td>{{recordCount}}<img class="plus" [src]="plusloc" (click)="openDialog1()" alt="Logo"> 
+                </td>  
+            </tr>
+              <!-- <tr>
+                <td>No. Of Inspection Days</td>
+                <td>{{inf_26.difference_in_days}}</td>
+            </tr> -->
+            <tr>
+                <td>Shift</td>
+                <td>{{inf_26.inspection_time_ins}}</td>
+            </tr>
+            <tr>
+               
+                        <td>Choose Building Image</td>
+                        <td>
+                            <button class="button_choose" (click)="showFloatingContainer()">
+                                <i style="font-size: 22px;" class="fas fa-file-upload"></i>
+                            </button>
+                            
+                            
+                            
+                          
+                        </td>
+                        
+                    </tr>
+                    
+                   
+         
+            
+        </tbody>
+      
+
+      
+    </table>
+    
+    <button class="btn" [class.disabled-button]="!isPlusClicked" [disabled]="!isPlusClicked" (click)="view()">Proceed</button>
+    <div class="background-blur" *ngIf="showContainer"></div>
+   
+    <div *ngIf="showContainer" class="floating-container">
+        <div class="close-btn" (click)="closeContainer()" title="Close">&times;</div>
+
+        <h2 style="font-size: 19px; ">
+            <i class="fas fa-image"></i> CHOOSE A PICTURE
+        </h2>
+        
+        <input type="file" (change)="onFileChanged($event)" class="file_choose" name="images">
+        <!-- <span class="file_sel" *ngIf="selectedFile">{{ selectedFile.name }}</span> -->
+        <button style="margin-top: 80px;" (click)="submitFile()">
+            <i class="fas fa-check-circle"></i> SUBMIT
+        </button>
+        
+    </div>
+    
+
+    <router-outlet ></router-outlet>
+</body>
+</html>
+
+
+
+
+

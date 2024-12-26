@@ -1,0 +1,177 @@
+<body>
+    
+
+    <div class="header">
+        <img class="company-logo" src="\assets\papl_logo2.png" alt="Company Logo">
+        <div class="certificate">
+            <p><b>CERTIFICATE OF INSPECTION</b></p>
+        </div>
+    </div>
+    <table>
+
+    <tr>
+        <td colspan="12"><b>CERTIFICATE NO: PAPL 2024 A1-B5 {{id}}</b></td>
+    </tr>
+
+    <tr>
+        <td colspan="12">THIS IS TO CERTIFY THAT THE BELOW UNITS HAVE BEEN INSPECTED BY US AND FOUND TO BE IN SAFE WORKING CONDITION.</td>
+    </tr>
+
+
+    <tr>
+        <td rowspan="3" colspan="2"> <b>CERTIFICATE ISSUED TO:</b></td>
+        <td rowspan="3" colspan="3">{{inf_26.master_customer_name}}</td>
+        <td rowspan="3" colspan="2"><b>BUILDING NAME & ADDRESS</b></td>
+        <td rowspan="3" colspan="2">{{inf_26.building_name +'&'+ inf_26.site_address}}</td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td colspan="2"><b>OEM</b></td>
+        <td colspan="3"> {{breif_spec[0]?.oem}}</td>
+        <td colspan="2"> <b>MAINTAINED BY</b> </td>
+        <td colspan="2">{{breif_spec[0]?.maintained_by}}</td>
+    </tr>
+
+    <td colspan="5" > <b>UNITS</b></td>
+    <!-- <td ></td > -->
+    <td colspan="5">{{breif_spec[0]?.unit_no}}</td>
+   
+
+<tr>
+        <td colspan="2"><b>DATE OF INSPECTION</b></td>
+        <td colspan="3">{{inf_26.schedule_from |  date: 'dd-MM-yyyy'}}</td>
+        <td colspan="2"><b>DATE OF RE-INSPECTION</b></td>
+        <td colspan="2"> 
+            <input type="date" class="borderless-input">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2"><b>INSPECTORS CODE</b></td>
+        <td colspan="3">{{breif_spec[0]?.inspector_name}}</td>
+        <td colspan="2"> <b>PAPL REPORT DOC ID</b></td>
+        <td colspan="2">{{breif_spec[0]?.document_id}}</td>
+    </tr>
+
+       <tr>
+        <td colspan="9" style="text-align: center;"><b>THIS CERTIFICATE COVERS UNITS WITH DETAILS AS BELOW</b></td>
+      </tr>
+
+   <tr>
+    <td><b>UNIT NO.</b></td>
+    <td><b>MACHINE S.No.</b></td>
+    <td><b>MFG. YEAR</b></td>
+    <td><b>EQUIPMENT</b></td>
+    <td><b>USAGE</b></td>
+    <td><b>CAPACITY</b></td>
+    <td><b>STOPS / OPENINGS</b></td>
+    <td> <b>SPEED MPS</b></td>
+    <td><b>NEXT INSPECTION DUE DATE</b></td>
+  </tr>
+
+  <tr>
+    <td>{{breif_spec[0]?.unit_no}}</td>
+    <td>{{breif_spec[0]?.motor_serial_number}}</td>
+    <td>{{breif_spec[0]?.year_of_manufacture}}</td>
+    <td>{{breif_spec[0]?.type_of_equipment}}</td>
+    <td>{{breif_spec[0]?.type_of_usage}}</td>
+    <td>{{breif_spec[0]?.capacity}}</td>
+    <td>{{breif_spec[0]?.floor_stops +'/'+breif_spec[0]?.floor_opening}}</td>
+    <td>{{breif_spec[0]?.speed}}</td>
+    <td>
+        <input type="date" class="borderless-input">
+    </td>
+    </tr>
+
+ 
+
+<tr>
+
+    <td colspan="9" style="text-align: center;">
+       <b> CERTIFICATE VALIDITY - ONE YEAR FROM {{' '+ currentDate | date:'dd-MM-yyyy' }}</b>
+</td>
+</tr>
+
+ <tr>
+<td colspan="12">
+
+<h3 style="text-align: center;"  style="font-weight: bold;">INSPECTION CARRIED OUT BASED ON NBC 2016</h3>
+ <p style="text-align: justify;">This certificate is being issued by us in the capacity of an independent and impartial inspection body Accredited by NABCB in compliance with ISO/IEC 17020:2012</p>
+        
+<p style="text-align: justify;"> THIS CERTIFICATE IS BEING ISSUED BASED ON A VISUAL INSPECTION of areas and sections of the <b>elevator pit, cabin, car top& hoist way, machine room and floor landings,</b>that are fully accessible and visible to the Inspector on the date of Inspection. Based on findings recorded on the date & place of inspection in accordance with the aforementioned standard the equipment is found to be in safe working condition and performing satisfactorily.</p>
+        
+<p style="text-align: justify;"> The issuance of this certificate does not release the contracting parties from their own responsibilities and the fulfillment of their obligations. This certificate is granted subject to the condition that it is understood and agreed that nothing herein contained shall be deemed to relieve any designer, manufacturer, seller, supplier, Repairer, or operator of any warranty, express or implied. Under no circumstances howsoever shall PVN Associates Private Limited be liable for any injury or damage to any person/s material, machinery, equipments or other items. Under no circumstances, PVN Associates Private Limited, is liable for any damages directly or consequentially whatsoever. This certificate shall not be reproduced except in full without the approval of PVN Associates Private Limited and receiving client.</p>
+<h2>Note:</h2> 
+<p style="text-align: justify;"> 1.  In case of any major repair, modification and/ or alteration, this certificate will become invalid, and the equipment needs to be re-certified.  </p>
+<p style="text-align: justify;">  2.  Action be taken on the items mentioned in the inspection report and continuous preventive maintenance according to maker’s instruction be ensured.</p>
+<p style="text-align: center;" > This certificate is issued according to the general terms and conditions of service of PVN Associates Private Limited.</p>
+        
+</td>
+</tr>
+</table>
+
+<div class="signature">
+
+    <div class="left-content">
+        <div class="top">
+           <br>
+           <br>
+           <br>
+    </div>
+    <img [src]="signature" class="small-page"  style="width: 85px; height: auto; margin-left: 70px; margin-bottom: 140px;"  alt="Inspector Signature Image">
+    <div class="down">
+    <p class="Inspector">VERIFIED AND SIGNED BY <b>INSPECTOR</b></p>
+    </div>
+    
+    </div>
+
+    <div class="right-content">
+
+        <div class="top">
+            <br>
+            <br>
+            <br>
+        </div>
+
+        
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="date">
+        <p>DATE OF ISSUE:  {{ currentDate | date:'dd-MM-yyyy' }}</p>
+        <p>PLACE OF ISSUE: CHENNAI</p>
+    </div>
+
+<div class="logofooter">
+
+         <div>
+            <img class="logo" src="\assets\papl_logo_sample.png" alt="Company Logo">
+        </div>
+
+         <div class="footer">
+            <img class="logo2" src="\assets\nabcb-logo.jpg" alt="Company Logo">
+            <p class="number"><b>IB 062</b></p>
+        </div>
+
+        <div>
+            <img class="logo1" src="\assets\image.jpg" alt="Company Logo">
+        </div>
+</div>
+</div>
+
+<div class="down_page">
+<p class="flat">Flat No. 01, Third Floor, No.3, Viswapriya Apartments, 1st Cross Road, Kasturibai Nagar, Adyar, Chennai – 600020</p>
+<div class="com">
+<h3><a href="http://www.paplcorp.com" >www.paplcorp.com</a></h3>
+</div>
+
+<p class="vertical">PAPL/INF/16,VER.1.4,18-04-2023</p>
+
+</div>
+
+
+
+</body>

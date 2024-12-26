@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this line in the <head> section of your index.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="container">
+  <!-- Header -->
+<header class="header">
+<h1>INSPECTION MASTER-TPT-3</h1>
+</header>
+<main class="content">
+
+<!-- your-component.component.html -->
+<div class="manualentry" *ngIf="flag_manual_Entry">
+  <div *ngIf="flag_manual_Entry" class="data-entry-container1">
+    <h2 class="center-text"><u>ENTRY MODE</u></h2>
+      <div class="crud-container">
+      <button class="openbtn" style="font-size: 14px; padding: 5px 10px;"  (click)="OpenEntry()"><i style="font-size: 14px;" class="fas fa-plus"></i>ADD</button>
+
+      <div class="table-wrapper">
+        <table *ngIf="items.length > 0">
+          <tr>
+            <th>Product</th>
+            <th>Parts</th>
+            <th>Description</th>
+            <th>Reference</th>
+            <th>Risklevel</th>
+            <th>Photo</th>
+            <th>Dropdown</th>
+            <th>functional_point</th>
+            <th>Emergency_Features</th>
+            <th>Customer_Scope</th>
+            <th>MNT/ADJ</th>
+            <th>marks</th>
+            <th>security</th>
+            <th>dropdown_count</th>
+            <th>Actions</th>
+            
+          </tr>
+          <tr class="scroll_td" *ngFor="let item of items">
+            <td class="scrollable-td">{{ item.Product }}</td>
+            <td class="scrollable-td">{{ item.Parts }}</td>
+            <td class="scrollable-td">{{ item.Description }}</td>
+            <td class="scrollable-td">{{ item.Reference }}</td>
+            <td class="scrollable-td">{{ item.Risklevel }}</td>
+            <td class="scrollable-td">{{ item.Photo }}</td>
+            <td class="scrollable-td">{{ item.Dropdown }}</td>
+            <td class="scrollable-td">{{ item.functional_point }}</td>
+            <td class="scrollable-td">{{ item.Emergency_Features }}</td>
+            <td class="scrollable-td">{{ item.Customer_Scope }}</td>
+            <td class="scrollable-td">{{ item.MNT_ADJ }}</td>
+          
+
+
+            <td class="scrollable-td">{{ item.marks }}</td>
+            <td class="scrollable-td">{{ item.security }}</td>
+            <td class="scrollable-td">{{ item.dropdown_count }}</td>
+            <td>
+              <button class="edit-button1" (click)="openEditForm(item)">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="delete-button1" (click)="deleteItem1(item.id)">
+                <i class="fas fa-trash-alt"></i> Delete
+              </button>
+            </td>
+            
+          </tr>
+        </table>
+      </div>
+      <body>
+
+        <div *ngIf="addForm" class="popup-formed-container">
+          <div class="popup-formed">
+            <form [formGroup]="entryForm" (ngSubmit)="submitForm($event)">          
+              <label for="product">Product:</label>
+              <input type="text" class="input" id="product" formControlName="product" required>
+        
+              <label for="parts">Parts:</label>
+              <input type="text"  class="input" id="parts" formControlName="parts" required>
+        
+              <label for="description">Description:</label>
+              <input type="text"  class="input"id="description" formControlName="description" required>
+        
+              <label for="reference">Reference:</label>
+              <input type="text"  class="input"id="reference" formControlName="reference" required>
+        
+              <label for="photo">Photo:</label>
+              <input type="text" class="input" id="photo" formControlName="photo" required>
+        
+              <label for="dropdown">Dropdown:</label>
+              <input  type="text"id="input" id="dropdown" formControlName="dropdown" required>
+                
+              <div class="button-container1">
+                <button type="submit" class="edit-button2" style="width: 100px; height: 40px;">
+                    <i class="fas fa-save"></i> Save
+                </button>
+                <button class="delete-button2" (click)="OpenEntry()" style="width: 100px; height: 40px;">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Other content of your page -->
+        
+        </body>
+  
+
+<div *ngIf="editForm"  class="popup-formed-container">
+  <div class="popup_formed">
+  <form [formGroup]="editEntryForm" (ngSubmit)="submitEditForm()">
+    
+    <label for="product">Product:</label>
+    <input type="text" class="input" id="product" formControlName="product" required>
+
+    <label for="parts">Parts:</label>
+    <input type="text" class="input" id="parts"  formControlName="parts" required>
+
+    <label for="description">Description:</label>
+    <input type="text" class="input" id="description" formControlName="description" required>
+
+    <label for="reference">Reference:</label>
+    <input type="text" class="input" id="reference" formControlName="reference" required>
+
+    <label for="photo">Photo:</label>
+    <input type="text" class="input" id="photo" formControlName="photo" required>
+
+    <label for="dropdown">Dropdown:</label>
+    <input type="text" id="input" id="dropdown" formControlName="dropdown" required>
+      <!-- Your existing HTML code -->
+   
+
+      <div class="button-container">
+        <button type="submit" class="edit-button3">
+          <i class="fas fa-save" style="font-size: 20px;"></i> Update
+        </button>
+        <button class="delete-button3" (click)="cancel_Edit()">
+          <i class="fas fa-times" style="font-size: 20px;"></i> Cancel
+        </button>
+      </div>
+      
+  </form>
+</div>
+</div>
+
+
+
+<button class="closebtn3" style="margin-top: 30px;" (click)="closeEntry()">
+  <i class="fas fa-times-circle"></i> Close
+</button>
+
+    </div>
+  </div>
+</div>
+
+<!-- <div class="Container1"> -->
+ 
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-check-circle"></i>
+        <span>Inspection Check List</span>
+       
+      </div>
+      <div class="inspection-count">
+        <p>{{ inspectionCount }}</p>
+      </div>
+      
+      <!-- <div class="card-content">
+        This is the content of Requirement and Observation.
+      </div> -->
+      <div class="card-actions">
+            <button class="btn btn-manual-entry" (click)="manualentry_click()"> 
+      <i class="fas fa-pencil-alt"></i> Manual Entry
+    </button>
+        <!-- Button to open Data Entry Container -->
+        <button class="card-button" (click)="toggleDataEntryContainer()"><i class="fas fa-file-excel"></i>
+          Upload XL-file</button>
+      </div>
+    </div>
+  
+    <!-- Data Entry Container (only shown when isUploadPopupVisible is true) -->
+    <div *ngIf="isUploadPopupVisible" class="background-overlay"></div> <!-- Background overlay -->
+
+    <div *ngIf="isUploadPopupVisible" class="upload-popup">
+      <i class="fa fa-times cancel-icon" (click)="closePopup()"></i> <!-- FA cancel icon -->
+      <label class="heading" for="fileInput">CHOOSE A FILE</label>
+      <input type="file" #fileInput accept=".xlsx,.xls" (change)="onFileChange_XL($event)" />
+      <button class="uploadbtn" (click)="uploadFile()">Upload</button>
+    </div>
+    
+  </div>
+<!-- </div> -->
+</main>
+
+        <!-- Footer -->
+ <footer class="footer">
+            <p><a style="color: yellow;" href="https://paplexpress.com" target="_blank">Paplexpress.com</a> - All rights reserved 2024</p>
+        </footer>
+</div>
+
+</body>
+
+</html>

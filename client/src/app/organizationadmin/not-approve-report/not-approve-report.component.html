@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sales Form</title>
+</head>
+
+<body>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-chart-bar "></i>REJECTED REPORTS</h1>
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search..." (input)="onSearch($event)">
+            </div>
+        </header>
+
+        <main class="content">
+            <h2><i class="fas fa-file-alt "></i> REJECTED REPORTS LIST</h2>
+            <br>
+            <hr>
+            <br>
+            <!-- <div class="filter-container">
+                <button class="filter-button1" (click)="exportAllToExcel()">
+                                        
+                    <i class="fas fa-download"></i>
+    
+                </button>
+            </div> -->
+
+            <div class="table-responsive">
+                <h3></h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>ID.NO</th>
+                            <th>CONTRACT NO</th>
+                            <th>DOCUMENT ID</th>
+                            <th>UNITS NAME</th>
+                            <th>INSPECTOR NAME</th>
+                            <th>BUILDING NAME</th>
+                            <th>REJECT REASON</th>
+                            <th>VIEW</th>
+                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of filteredreRecords; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{record.contract}}</td>
+                            <td>{{record.document_id}}</td>
+                            <td>{{record.unit_name}}</td>
+                            <td>{{record.inspector_name}}</td>
+                            <td>{{record.building_name}}</td>
+                            <td>{{record.rejected_reason}}</td>
+                            <td> <button class="view-btn" (click)="viewPdf(record.id)">
+                                <i class="fa fa-eye"></i>
+                              </button></td>
+
+
+                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+
+        <div class="report-cards-container">
+            <div class="loader-container" *ngIf="isLoading">
+              <div class="icon logo">
+                <div class="loader"></div>
+              </div>
+            </div>
+            </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><a style="color: yellow;" href="https://paplexpress.com" target="_blank">Paplexpress.com</a> - All rights reserved 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+<!-- user-management.component.html -->
+<h1 [ngClass]="'title'">Login Management</h1>
+
+<!-- Add User Button -->
+<button (click)="openUserPopup()" [ngClass]="'Adduser'">Add User</button>
+
+
+<!-- User Popup -->
+<div *ngIf="isUserPopupOpen" class="user-popup">
+  
+  <form (submit)=" addUser()">
+    <h2>Login Register</h2>
+    <label for="email">Email:</label>
+    <input [(ngModel)]="user.Email" name="email" type="email" required />
+
+    <label for="username">Username:</label>
+    <input [(ngModel)]="user.Username" name="username" required />
+
+
+    <label for="password">Password:</label>
+    <input [(ngModel)]="user.Password" name="password" type="password" required />  
+
+    <label for="confirm_password">Confirm Password:</label>
+    <input [(ngModel)]="user.Confirm_password" name="confirm_password" type="password" required />
+
+    <label for="organization">Organization Display Name:</label>
+    <input [(ngModel)]="user.Organization" name="organization" required />
+
+  
+
+    
+
+
+
+    <label for="status">Login Status:</label>
+    <select [(ngModel)]="user.Status" name="status"  required >
+      <option value="Active">Active</option>
+      <option value="Inactive">InActive</option>
+    </select>
+
+
+
+    <button type="submit"> Add User</button>
+    <button type="button" (click)="resetUser(); closeUserPopup()">Cancel</button>
+  </form>
+</div>
+
+<!-- ++++++++++++++++++++++++++++ UPdate +++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+<div *ngIf="isUserPopupOpen1" class="user-popup">
+  
+  <form (submit)="updateUser()">
+    <h2>Update Login</h2>
+    <label for="email">Email:</label>
+    <input [(ngModel)]="user.Email" name="email" type="email" required />
+
+    <label for="username">Username:</label>
+    <input [(ngModel)]="user.Username" name="username" required />
+
+   
+
+    <label for="organization">Organization Display Name:</label>
+    <input [(ngModel)]="user.Organization" name="organization" required />
+
+    
+
+    <label for="status">Login Status:</label>
+    <select [(ngModel)]="user.Status" name="status" required (ngModelChange)="onStatusChange($event)">
+      <option value="active">Active</option>
+      <option value="inactive">InActive</option>
+    </select>
+
+
+
+    <button type="submit">Update User</button>
+    <button type="button" (click)="resetUser(); closeUserPopup()">Cancel</button>
+  </form>
+</div>
+
+<!-- Display Users in a Table -->
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Organization</th>
+
+    <th>Login Status</th>
+    <th>Email Verified</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let user of users; let i = index" [ngClass]="{'green-row': i % 2 === 0, 'white-row': i % 2 !== 0}">
+    <td>{{ user.Email }}</td>
+    <td>{{ user.Username }}</td>
+    <td>{{ user.Organization}}</td>
+
+   
+    <td>{{ user.Status }}</td>
+
+
+    <td>{{ user.Emailverified }}</td>
+   
+    <td>
+      <button (click)="editUser(user.id)" [ngClass]="'editbutton'">Edit</button>
+      <button (click)="deleteUser(user.id, user.Email)" [ngClass]="'deletebutton'">Delete</button>
+    </td>
+  </tr>
+</table>
+

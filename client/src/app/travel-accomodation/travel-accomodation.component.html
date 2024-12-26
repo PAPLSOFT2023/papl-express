@@ -1,0 +1,68 @@
+
+
+<!-- Main Content -->
+<div class="container">
+  <header class="header">
+    <h1>TRAVEL ACCOMMODATION</h1>
+  </header>
+
+  <main class="content">
+    <br>
+    <!-- Button to open the form popup -->
+    <button class="open-form-btn" (click)="toggleFormPopup()">
+      <i class="fas fa-plus"></i>{{ isUpdateMode ? 'Update Travel Accommodation' : 'Add Travel Accommodation' }}
+    </button>
+    <br><br>
+
+    <!-- Popup Form Container -->
+    <div *ngIf="showFormPopup" class="popup-overlay33">
+      <div class="popup-content33">
+        <h2 class="popup-title">{{ isUpdateMode ? 'Update Travel Accommodation' : 'Add New Travel Accommodation' }}</h2>
+        <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+          <div class="form-group33">
+            <label for="type_of">Type Of:</label>
+            <input
+              type="text"
+              id="type_of"
+              [(ngModel)]="travel_accom.type_of"
+              name="type_of"
+              required
+            />
+          </div>
+
+          <div class="popup-buttons33">
+            <button type="submit" class="confirm">
+              <i class="fa fa-check"></i>{{ isUpdateMode ? 'Update' : 'Add' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Travel Accommodation Table -->
+    <div class="table-responsive">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Type Of</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let travel_accom of travel_all_accomodation">
+            <td>{{ travel_accom.type_of }}</td>
+            <td>
+              <button class="edit-btn" (click)="editTravelAccomUser(travel_accom)">
+                <i class="fas fa-edit" title="EDIT"></i>
+              </button>
+              <button class="delete-btn" (click)="deleteTravelAccomUser(travel_accom.id)">
+                <i class="fas fa-trash-alt" title="DELETE"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>

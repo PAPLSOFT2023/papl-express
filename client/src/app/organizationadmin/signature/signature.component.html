@@ -1,0 +1,108 @@
+<!-- Main Content -->
+ <div class="container">
+        <header class="header">
+            <h1>SIGNATURE</h1>
+           <!-- Search Box -->
+<div class="search-box">
+  <button class="btn-search"><i class="fas fa-search"></i></button>
+  <input
+    type="text"
+    class="input-search"
+    placeholder="Type to Search..."
+    [(ngModel)]="searchTerm"
+    (input)="filterSignatures()"/>
+</div>
+
+        </header>
+    
+        <main class="content">
+            <h2>INSPECTOR SIGNATURE</h2>
+            <br><hr><br>
+  
+      <!-- Button to open the form popup -->
+      <button class="open-form-btn" (click)="toggleFormPopup()">
+        <i class="fas fa-plus"></i> ADD NEW SIGNATURE
+      </button>
+      <br><br>
+  
+      <!-- Popup Form Container -->
+      <div *ngIf="showFormPopup" class="popup-overlay33">
+        <div class="popup-content33">
+          <h2 class="popup-title">
+            {{ isUpdateMode ? "Update signature" : "Add new signature" }}
+          </h2>
+          <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+  
+          <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group33">
+              <label for="inspector_name">Inspector Name:</label>
+              <input
+                type="text"
+                id="inspector_name"
+                [(ngModel)]="signature_type.inspector_name"
+                name="inspector_name"
+                required
+              />
+            </div>
+  
+            <div>
+              <label for="signature">Signature:</label>
+              <input
+                type="file"
+                id="signature"
+                #signatureInput
+                (change)="onSignatureChange($event)"
+              />
+              <img *ngIf="previewImage" [src]="previewImage" class="image-preview" alt="Signature Preview" />
+            </div>
+  
+            <div class="popup-buttons33">
+              <button type="submit" class="confirm" [disabled]="!userForm.form.valid">
+                <i class="fa fa-check"></i>{{ isUpdateMode ? "Update Signature" : "Add Signature" }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Signature List Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Inspector Name</th>
+              <th>Signature</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let signature_type of filteredSignatures">
+                <td>{{ signature_type.id }}</td>  <!-- Displaying the ID -->
+              <td>{{ signature_type.inspector_name }}</td>
+              <td>
+                <img *ngIf="signature_type.signature" [src]="signature_type.signature" alt="Signature" width="100" height="100" class="clickable-image" (click)="openImageModal(signature_type.signature)" />
+              </td>
+              <td>
+                <button class="edit-btn" (click)="editSignatureUser(signature_type)">
+                  <i class="fas fa-edit" title="EDIT"></i> 
+                </button>
+                <button class="delete-btn" (click)="deleteSignatureUser(signature_type.id)">
+                  <i class="fas fa-trash-alt" title="DELETE"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Image Modal -->
+      <div *ngIf="modalImage" class="modal-overlay" (click)="closeImageModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <img [src]="modalImage" alt="Full Signature" class="modal-image" />
+          <i class="fa fa-times cancel-icon" (click)="closeImageModal()"></i>
+        </div>
+      </div>
+    </main>
+  </div>
+  

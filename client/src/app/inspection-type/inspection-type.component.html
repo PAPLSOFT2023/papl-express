@@ -1,0 +1,81 @@
+
+
+<!-- Main Content -->
+<div class="container">
+  <header class="header">
+      <h1>INSPECTION TYPE</h1>
+      <!-- <div class="search-box">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input type="text" class="input-search" placeholder="Type to Search...">
+      </div> -->
+  </header>
+
+  <main class="content">
+      
+      <br><br>
+
+    <!-- Button to open the form popup -->
+    <button class="open-form-btn" (click)="toggleFormPopup()">
+      <i class="fas fa-plus"></i> Add Inspection Type
+    </button>
+    <br /><br />
+
+    <!-- Popup Form Container -->
+    <div *ngIf="showFormPopup" class="popup-overlay33">
+      <div class="popup-content33">
+        <!-- Conditional Form Title -->
+        <h2 class="popup-title">
+          {{ isUpdateMode ? "UPDATE INSPECTION TYPE" : "ADD INSPECTION TYPE" }}
+        </h2>
+        <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+
+        <!-- Form -->
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+          <div class="form-group33">
+            <label for="Name">Inspection Type:</label>
+            <input
+              type="text"
+              id="name"
+              [(ngModel)]="inspection_type_shift.inspection_name"
+              name="name"
+              required
+            />
+          </div>
+
+          <!-- Conditional Button Text -->
+          <div class="popup-buttons33">
+            <button type="submit" class="confirm">
+              <i class="fa fa-check"></i> {{ isUpdateMode ? "UPDATE" : "ADD" }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Inspection Type Table -->
+    <div class="table-responsive">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Inspection Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inspection_type_shift of inspection_all_type">
+            <td>{{ inspection_type_shift.inspection_name }}</td>
+            <td>
+              <button class="edit-btn" (click)="editInspectionTypeUser(inspection_type_shift)">
+                <i class="fas fa-edit" title="EDIT"></i>
+              </button>
+              <button class="delete-btn" (click)="deleteInspectionTypeUser(inspection_type_shift.id)">
+                <i class="fas fa-trash-alt" title="DELETE"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+

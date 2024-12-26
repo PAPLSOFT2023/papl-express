@@ -1,0 +1,104 @@
+<br>
+
+<div class="report-cards-container">
+  <div class="loader-container" *ngIf="isLoading">
+    <div class="icon logo">
+      <div class="loader"></div>
+    </div>
+  </div>
+
+  <!-- Iterate over reports -->
+  <div class="report-card" *ngFor="let report of incompleteReports" (click)="navigateToReportDetail(report.contract_number, report.document_id, report.parsedUnitNos)">
+   
+
+    <div *ngIf="report.inspector_name===inspector_name">
+      <div class="card-header">
+      
+        <div class="card-title">
+          <i class="fas fa-file-contract"></i> <!-- File contract icon -->
+          {{ replaceHyphenWithSlash(report.contract_number) }}
+        </div>
+      </div>
+     
+      <div class="card-content">
+        
+        
+        <div class="info-row">
+          
+          <span class="info-label"><i class="fas fa-user"></i> Inspector:</span> <!-- User icon -->
+          <span class="info-value">{{ report.inspector_name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label"><i class="fas fa-building"></i> Units:</span> <!-- Building icon -->
+          <span class="info-value">{{ report.parsedUnitNos }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label"><i class="fas fa-building"></i> Building Name:</span> <!-- Building icon -->
+          <span class="info-value">{{ report.building_name }}</span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label"><i class="fas fa-building"></i> Document id:</span> <!-- Building icon -->
+          <span class="info-value">{{ report.document_id }}</span>
+        </div>
+        <!-- Additional Information -->
+        <!-- <div class="info-row">
+          <span class="info-label"><i class="far fa-calendar-alt"></i> Date:</span> 
+          <span class="info-value">{{ report.date }}</span>
+  
+        </div>
+      
+          <a class="download-button" href="{{report.download_link}}" download="report.pdf">
+            <i class="fas fa-download"></i> 
+            Download
+          </a> -->
+          
+        
+      </div>
+
+    </div>
+   
+
+  </div>
+
+
+  
+</div>
+
+<body [class.blur]="containerVisible">
+
+  <div class="loader-container" *ngIf="isLoading">
+    <div class="icon logo">
+      <div class="loader"></div>
+    </div>
+  </div>
+
+  <div class="blur-overlay" *ngIf="containerVisible">
+
+  <div class="floating-container" [ngClass]="{'visible': containerVisible}">
+    <div class="container-content">
+      <h2 class="title">Select Unit For Generate Report</h2>
+
+      <div class="horizontal-checkpoints">
+        <!-- Checkpoint 1 -->
+        <div class="checkpoint" *ngFor="let unit of unit_array; let i=index">
+          <label class="checkbox-label">
+            <input type="checkbox" class="checkbox" (change)="handleCheckpoint($event, i,unit)">
+            <span class="checkbox-custom"></span>
+            <span class="unit-name">{{unit}}</span>
+          </label>
+        </div>
+       
+      </div>
+
+      <div class="button-container">
+        <button id="proceed-btn"  style="font-weight: bolder;"  class="proceed-btn" [disabled]="!isAnyCheckboxChecked" (click)="navigateToNavigateComponent()"><i class="fas fa-arrow-right"></i>Proceed</button>
+
+
+        <button  style="font-weight: bolder;" class="cancel-btn" (click)="cancel()" ><i class="fas fa-times"></i>Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>

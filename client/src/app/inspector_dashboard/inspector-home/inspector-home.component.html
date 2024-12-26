@@ -1,0 +1,157 @@
+<br><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Icon Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+ 
+</head>
+<body  >
+  <div *ngIf="open_popUp" class="popup-container">
+
+   
+
+
+    
+  <div class="popup-content">
+    <span class="close-button" (click)="closeDialog()">X</span>
+
+    <div [ngClass]="{'rotating-element': !isGetInfDataEnabled}">
+      <p class="mail_status" [ngStyle]="{'color': isGetInfDataEnabled ? 'green' : 'red'}" [(ngModel)]="isGetInfDataEnabled">Get INF Data</p>
+    </div>
+
+    <div [ngClass]="{'rotating-element': !isGetInspectorDataEnabled}">
+      <p class="mail_status" [ngStyle]="{'color': isGetInspectorDataEnabled ? 'green' : 'red'}" [(ngModel)]="isGetInspectorDataEnabled">Get Inspector Data</p>
+    </div>
+
+    <div [ngClass]="{'rotating-element': !isGetMailSetupEnabled}">
+      <p class="mail_status" [ngStyle]="{'color': isGetMailSetupEnabled ? 'green' : 'red'}" [(ngModel)]="isGetMailSetupEnabled">Get Mail Setup</p>
+    </div>
+    <div [ngClass]="{'rotating-element': !isSendingMailEnabled}">
+      <p class="mail_status" [ngStyle]="{'color': isSendingMailEnabled ? 'green' : 'red'}" [(ngModel)]="isSendingMailEnabled">
+        <i class="fas fa-envelope"></i> Sending Mail
+      </p>
+    </div>
+    
+
+    <div [ngClass]="{'rotating-element': !isMailReportEnabled}">
+      <p class="mail_status" [ngStyle]="{'color': isMailReportEnabled ? 'green' : 'red'}" [(ngModel)]="isMailReportEnabled">Mail Sent</p>
+    </div>
+  </div>
+  <div class="loading-container">
+    <div class="loading-bar"></div>
+    <br>
+    
+
+  </div>
+  <p class="error_prob">{{ Error }}</p>
+ 
+
+   
+ 
+</div>
+
+
+  
+
+<div *ngIf="!scheduleBool" >
+  <nav>
+    <div class="menu-container">
+        <p class="menu-text">
+            <i class="fas fa-clock"></i> SCHEDULED JOBS
+        </p>
+    </div>
+    
+    <div class="profile-container">
+        <i class="fas fa-user-circle profile-icon"></i>
+        <span class="profile-text">{{name}}</span>
+    </div>
+  
+    <div class="logout-container">
+        <a href="/app-home" class="logout-link" title="Logout">
+            <img src="/assets/power-on.png" alt="Logout" style="width: 30px; height: 30px;"/>
+        </a>
+    </div>
+</nav>
+  
+  <br>
+
+  <div style=" padding-left: 20px; position: fixed; margin-top: 70px; ">
+    <button type="button" (click)="redirectSchedule()"  class="icon-button">
+    <span class="material-icons">notifications</span>
+      <span class="icon-button__badge">{{recordCount}}</span>
+    </button>
+
+      </div>
+      <br>
+
+
+
+
+
+
+      <div *ngFor="let request of records">
+ 
+      <div class='job' style="padding-top: 20px;">
+        <h2>{{request.building_name}}</h2>
+        <div class="eye-icon"><i class="fas fa-eye" (click)="pdf(request.contract_number)"></i></div>
+        <p class='department'>Project Name: {{request.project_name}}</p>
+        <p class='department'>No.of.units: {{request.total_units_schedule}}</p>
+        <p class='department'>Location: {{request.location}}</p>
+        <p class='department'>Type of inspection: {{request.type_of_inspection}}</p>
+        <button class='apply-button' (click)="Send_Mail_Client(request.id)"  [disabled]="!isSendMailEnabled(request.inspector_array,request.mailset_status)"> Send Mail </button>
+        
+    
+        
+        <div class='job-footer'>
+          <div class='job-dates'>
+            <div class='job-posted-date'>{{request.schedule_from | date: 'dd/MM/yyyy'}}</div>
+            <div class='job-expiry-date'>{{request.schedule_to | date: 'dd/MM/yyyy'}}</div>
+          </div>
+          
+        </div>
+      
+<div class="Mail_status">
+          <p [ngClass]="{ 'gray-text': request.mailset_status !== 1 || request.mailset_status== null , 'green-text': request.mailset_status === 1 }">
+            <i class="fas fa-envelope"></i> Mail Sent </p>
+          <p [ngClass]="{
+            'gray-text': ((request.client_approval_status !== 1) && ( request.client_rejection_reason !== 0)),
+            'green-text': request.client_approval_status === 1 ||(request.client_rejection_reason.length > 2)
+          }">
+            <i class="fas fa-eye" ></i> Client Responded  
+            
+          </p>
+          <i class="fas fa-comments red-text "  *ngIf="request.client_approval_status !== 1 && request.client_rejection_reason.length > 2 " ></i>
+            <span *ngIf="request.client_approval_status !== 1 && (request.client_rejection_reason !== 0) && (request.client_rejection_reason.length > 2)" class="red-text">
+              Cause : {{ request.client_rejection_reason }}
+            </span>
+
+              <i class="fas fa-comments green-text"  *ngIf="request.client_approval_status !== 0 "  ></i>
+            <span *ngIf="request.client_approval_status === 1" class="green-text">
+              Mail Accepted  
+            </span>
+        </div>
+        
+        
+       
+
+      </div>
+      </div>
+      <!-- <p *ngIf="records.length === 0">No more accepted projects</p> -->
+
+<!-- <div><router-outlet></router-outlet></div> -->
+<!-- <h1>{{records | json}}</h1> -->
+
+</div>
+<div>
+  <!-- <div > -->
+    <router-outlet ></router-outlet>
+</div>
+
+
+</body>
+</html>

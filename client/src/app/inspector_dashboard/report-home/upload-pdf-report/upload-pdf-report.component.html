@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+    <p>Unit Lists</p>
+    <div class="container">
+    <table>
+        <thead>
+            <tr class="thg">
+                <th>Unit Name</th>
+                <th>Upload PDF</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let unit of units">
+                <td>{{ unit }}</td>
+             <td>
+               <div class="drop-icon" (click)="triggerFileInput(unit)">
+                    <i class="fa-light fa-file-upload"></i>
+                </div>
+                <input type="file" id="fileInput{{ unit }}" style="display: none;" (change)="onFileSelected($event, unit)">
+                <span>{{selectedFiles[unit]?.name}}</span> <!-- Display selected file name -->
+                
+            </td>
+            <td> <button (click)="uploadPDF(unit)">Upload</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

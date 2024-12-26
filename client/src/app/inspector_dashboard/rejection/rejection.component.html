@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Reject Reason</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Select Reason</mat-label>
+    <mat-select [(value)]="selectedReason">
+      <mat-option *ngFor="let reason of rejectionReasons" [value]="reason">
+        {{ reason }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button [mat-dialog-close]="selectedReason" cdkFocusInitial>Reject</button>
+  <button mat-button (click)="onCloseDialog()">Cancel</button> -->
+  <button style="margin-left: 100px;" mat-raised-button color="primary" mat-dialog-close (click)="reject()">Reject</button>
+</div>
+
+
+
+
+
+

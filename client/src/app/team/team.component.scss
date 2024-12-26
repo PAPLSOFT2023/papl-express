@@ -1,0 +1,65 @@
+// .container {
+//     max-width: 800px;
+//     margin: 20px auto;
+//     padding: 20px;
+//     background-color: #fff;
+//     background-image: url('/assets/team_banner.jpg');
+//     border-radius: 8px;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//     overflow: hidden; /* Hide any content that overflows */
+//   }
+//   body {
+    
+//     // background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     margin: 0;
+//     padding: 0;
+   
+//     /* Add opacity to the background */
+//     background-color: rgba(211, 204, 204, 0.5); /* Adjust the last value (0.5) to set the opacity level */
+//     background-image: url('/assets/teams.jpg');
+//     // background-repeat: no-repeat;
+//     background-size: cover;
+ 
+// }
+
+
+
+h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  .team-member {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .team-member h2 {
+    margin-top: 0;
+    color: #333;
+  }
+
+  .team-member p {
+    margin: 5px 0;
+  }
+
+  .team-member .label {
+    font-weight: bold;
+  }
+
+  .team-member .email {
+    color: blue;
+  }
+
+  .team-member .mobile {
+    color: green;
+  }
+
+  .team-member .destination {
+    font-style: italic;
+  }

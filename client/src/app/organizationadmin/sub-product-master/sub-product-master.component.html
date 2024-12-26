@@ -1,0 +1,26 @@
+<h2>Sub-Product Master</h2>
+<div>
+  <label for="subProductName">Sub-Product Name:</label>
+  <input [(ngModel)]="subProductName" id="subProductName" />
+</div>
+<div>
+  <label for="productId">Select Product:</label>
+  <select [(ngModel)]="selectedProductId" id="productId">
+    <option *ngFor="let product of products" [value]="product.id">{{ product.product_name }}</option>
+  </select>
+</div>
+<button (click)="selectedSubProductId ? updateSubProduct() : addSubProduct()">
+  {{ selectedSubProductId ? 'Update Sub-Product' : 'Add Sub-Product' }}
+</button>
+
+<h3>Existing Sub-Products</h3>
+<ul>
+  <li *ngFor="let subProduct of subProducts">
+    {{ subProduct.sub_product_name }} (Product: {{ subProduct.product_name }})
+    <button (click)="editSubProduct(subProduct)">Edit</button>
+    <button (click)="deleteSubProduct(subProduct.id)">Delete</button>
+  </li>
+</ul>
+
+
+

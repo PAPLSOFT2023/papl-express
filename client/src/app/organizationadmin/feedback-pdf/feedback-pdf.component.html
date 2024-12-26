@@ -1,0 +1,135 @@
+
+<!-- <table class="styled-table">
+  <thead>
+    <tr>
+      <th>CONTRACT NO</th>
+      <th>DOCUMENT ID</th>
+      <th>BUILDING NAME</th>
+      <th>PROJECT NAME</th>
+      <th>INSPECTOR NAME</th>
+      <th>feedback</th>
+      <th>QUESTION & RATINGS</th>
+      <th>NAME</th>
+      <th>DESIGNATION</th>
+      <th>CONTACT NO</th>
+      <th>EMAIL ID</th>
+      <th>signature</th>
+      <th>Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of feedback">
+      <td>{{ record.contract_number }}</td>
+      <td>{{ record.document_id }}</td>
+      <td>{{ record.building_name }}</td>
+      <td>{{ record.project_name }}</td>
+      <td>{{ record.inspector_name }}</td>
+      <td><pre>{{ formatOptions(record.options) }}</pre></td>
+
+
+      <td>
+        <div *ngFor="let item of question; let i = index">
+          <div>{{ item.question }}? - {{ record.ratingCounts[i] }}</div>
+        </div>
+      </td>
+
+      <td>{{ extractDetails(record.customer_details) }}</td>
+      <td>{{ extractDetails1(record.customer_details) }}</td>
+      <td>{{ extractDetails2(record.customer_details) }}</td>
+      <td>{{ extractDetails3(record.customer_details) }}</td>
+      
+      <td>
+        <img *ngIf="extractDetails4(record.customer_details)" 
+             [src]="extractDetails4(record.customer_details)" 
+             alt="Signature" 
+             style="max-width: 100px; max-height: 50px;">
+      </td>
+      
+
+      <td><button (click)="downloadPDF(record)">Download PDF</button></td>
+      <td>      <button (click)="downloadExcel(record)">Download Excel</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+ -->
+
+
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+ </head>
+ 
+ <div class="container">
+ 
+   <!-- Header -->
+   <header class="header">
+     <h1>FEEDBACK FORM</h1>
+     <div class="search-box">
+       <button class="btn-search" (click)="searchDocument()"><i class="fas fa-search"></i></button>
+       <input type="text" [(ngModel)]="searchQuery" class="input-search" placeholder="Type to Search..." />
+     </div>
+     
+     
+ 
+   </header>
+ 
+   <main class="content">
+     <h2>FEEDBACK FORM LIST</h2>
+ 
+     <br>
+     <hr>
+     <br>
+ 
+ 
+     <!-- Display Users in a Table -->
+     <div class="table-responsive">
+       <table class="styled-table">
+         <thead>
+           <tr>
+             <th>S.NO</th>
+             <th>CONTRACT NO</th>
+             <th>DOCUMENT ID</th>
+             <th>PROJECT NAME</th>
+             <th>BUILDING NAME</th>
+             <th>INSPECTOR NAME</th>
+             <th>DOWNLOAD</th>
+           </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let record of feedback; let i = index">
+             <td>{{i + 1}}</td>
+             <td>{{ record.contract_number }}</td>
+             <td>{{ record.document_id }}</td>
+             <td>{{ record.project_name }}</td>
+             <td>{{ record.building_name }}</td>
+             <td>{{ record.inspector_name }}</td>
+
+             <td>
+               <button class="edit-btn" (click)="downloadPDF(record)">
+                 <i class="fa fa-file-pdf" title="PDF"></i>
+               </button>
+               <button class="delete-btn" (click)="downloadExcel(record)">
+                 <i class="fa fa-file-excel" title="EXCEL"></i>
+               </button>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+ 
+ 
+   </main>
+
+
+

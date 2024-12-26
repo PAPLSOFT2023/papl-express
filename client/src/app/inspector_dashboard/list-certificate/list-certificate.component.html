@@ -1,0 +1,40 @@
+<!-- <div *ngFor="let unitDetail of unitDetails">
+    <div>{{ unitDetail.building_name }}</div>
+
+    <div>{{ unitDetail.document_id }}</div>
+    <div>{{ unitDetail.contract_number }}</div>
+    <button (click)="proceed(unitDetail.document_id)">Proceed</button>
+  </div> -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Column Table</title>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Print Certificate</h2>
+    <table>
+        <thead>
+            <tr class="thr">
+                <th>Building Name</th>
+                <th>Document-Id</th>
+                <th>Contract-No</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let unitDetail of unitDetails">
+                <td>{{ unitDetail.building_name }}</td>
+                <td>{{ unitDetail.document_id }}</td>
+                <td>{{ unitDetail.contract_number }}</td>
+                <td><button (click)="proceed(unitDetail.document_id, unitDetail.contract_number)">Proceed</button></td>
+            </tr>
+                  </tbody>
+    </table>
+</div>
+</body>
+</html>

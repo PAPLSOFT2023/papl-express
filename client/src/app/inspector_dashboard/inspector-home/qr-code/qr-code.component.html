@@ -1,0 +1,86 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <!-- Close Button -->
+      <button class="close-btn" (click)="closeModal()">×</button>
+  
+      <!-- Loading Spinner -->
+      <div *ngIf="isLoading" class="loading-spinner"></div>
+  
+      <!-- QR Code Container -->
+      <div class="qr-code-container" *ngIf="qrCodeImageUrl && !isLoading">
+        <p class="qr-instruction">Scan the QR code to view the certificate:</p>
+        <img [src]="qrCodeImageUrl" alt="QR Code" class="qr-code" />
+  
+        <!-- Centered Logo -->
+        <img src="assets/carp.jpg" alt="Logo" class="qr-logo" />
+      </div>
+  
+      <!-- Download Button -->
+      <button
+        *ngIf="qrCodeImageUrl && !isLoading"
+        class="download-btn"
+        (click)="downloadQRCode()"
+      >
+        Download QR Code
+      </button>
+    </div>
+  </div>
+  
+  <!-- Certificate Table -->
+  <div class="container">
+    <header class="header">
+      <h1>QR CODE CERTIFICATE</h1>
+      <div class="search-box">
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+        <input type="text" class="input-search"  [(ngModel)]="searchTerm"  (ngModelChange)="filterCertificates()"  placeholder="Type to Search..." />
+      </div>
+    </header>
+  
+    <main class="content">
+      <h2>QR</h2>
+      <br />
+      <hr />
+      <br />
+  
+      <!-- Display Users in a Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>S.NO</th>
+              <th>INSPECTOR NAME</th>
+              <th>BUILDING NAME</th>
+              <th>PROJECT NAME</th>
+              <th>UNIT NAME</th>
+              <th>CONTRACT NO</th>
+              <th>DOCUMENT ID</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr    *ngFor="let certificate of filteredCertificates; let i = index">
+              <td>{{ i + 1 }}</td> <!-- Index-based serial number -->
+              <td>{{ certificate.inspector_name }}</td>
+              <td>{{ certificate.building_name }}</td>
+              <td>{{ certificate.project_name }}</td>
+              <td>{{ certificate.unit_name }}</td>
+              <td>{{ certificate.contract }}</td>
+              <td>{{ certificate.document_id }}</td>
+              <td>
+                <span class="button-style" type="button" title="OPEN QR" (click)="generateQRCode(certificate.unit_name, certificate.document_id)">
+                  <i class="fas fa-qrcode"></i>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  

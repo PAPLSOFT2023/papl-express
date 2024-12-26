@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <div class="container">
+    
+        <!-- Header -->
+        <header class="header">
+            <h1>APPROVAL MAIL INSPECTOR</h1>
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search..." >
+              </div>
+            
+        </header>
+       
+        <main class="content">
+            <h2>APPROVAL MAIL INSP</h2>
+            
+            <br>
+            <hr>
+            <br>
+            <!-- Add User Button -->
+<div class="add-user-container">
+    <button class="add-user-button" (click)="openPopup('add')">
+      <i class="fas fa-plus"></i> Add User
+    </button>
+  </div>
+  
+
+  
+  <!-- Modal -->
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <!-- Close Button (X) -->
+      <span class="close" title="close" (click)="closePopup()">&times;</span>
+  
+      <!-- Modal Header -->
+      <h2>{{ modalTitle }}</h2>
+  
+      <!-- Email Input -->
+      <label for="email">Email ID:</label>
+      <input type="email" id="email" [(ngModel)]="email" placeholder="Enter email" required/>
+  
+      <!-- Add/Update Button -->
+      <button
+        class="add-user-modal-button"
+        (click)="modalMode === 'add' ? addUser() : updateUser()"
+      >
+      <i class="fa fa-check"></i> {{ modalMode === 'add' ? 'Add' : 'Update' }}
+      </button>
+    </div>
+  </div>
+  
+            
+            
+
+  <div class="table-responsive">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>EMAIL ID</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through users and display each user's data -->
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <i class="fas fa-edit edit-icon" 
+               style="font-size: 15px;" 
+               type="button" 
+               (click)="openPopup('edit', user.email)" 
+               title="EDIT">
+            </i>
+            <i class="fas fa-trash-alt delete-icon" 
+               style="font-size: 15px;" 
+               type="button" 
+               (click)="deleteUser(user.id)" 
+               title="DELETE">
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

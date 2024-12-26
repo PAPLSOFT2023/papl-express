@@ -1,0 +1,523 @@
+
+////////////////css code///////////////////
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI','lato' Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Container holding everything */
+  .container {
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'content content'
+        'footer footer';
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr auto;
+    height: 100vh;
+    background: url('/assets/bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fffcfc;
+    
+  }
+  /* Header styling */
+  .header {
+    grid-area: header;
+    background-color: #24292e;
+    color: white;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the h1 */
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Centered h1 */
+  .header h1 {
+    font-size: 1.8em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  
+  
+  /* Footer styling */
+  .footer {
+    grid-area: footer;
+    background-color: #24292e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .content {
+    position: relative;
+    grid-area: content;
+    background-color: #ffffff;
+    padding: 20px;
+    background-color: rgba(15, 14, 14, 0.9);
+    overflow-y: auto;
+  }
+  //department background blur 
+    .data-entry-container {
+      position: fixed;
+      top: 500%;
+      left: 500%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+   
+    .popup-form .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .popup-form label {
+      display: block;
+      font-weight: bold;
+    }
+    .popup-form .input-group{
+      position: relative;
+    }
+  
+    .popup-form input[type="text"],
+    .popup-form input[type="password"]
+     {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #525258c6;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+  
+    
+    
+    
+    /* Adjustments for table headers */
+    th {
+      background-color: #333;
+      // padding: 5px; /* Padding for table headers */
+      color: white;
+      text-align: center;
+    }
+    
+    
+    
+  
+   
+    /* Style for form inputs and select */
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    /* Style for the form container */
+    .form-group.has-error {
+      position: relative;
+    }
+    .form-group.has-error .error-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+   
+    /* Style for form groups */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    /* Style for labels */
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+    /* Style for input fields */
+    .form-group input[type="text"],
+    .form-group select {
+      width: 100%;
+      padding:10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+   
+  
+  
+    
+    
+    /* Media Query for smaller screens */
+    @media screen and (max-width: 768px) {
+      .data-entry-container {
+        width: 100%; /* Adjust for smaller screens */
+        max-width: none; /* Remove the maximum width */
+       
+      }
+      
+     
+    }
+    
+   
+  
+   
+  
+  
+     /* Styles for the popup form */
+     .popup-formed-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: black;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999; /* Ensure it's above other elements */
+      backdrop-filter: blur(10px); /* Add a blur effect to the background */
+    }
+    
+    .popup-formed {
+      background-color: white;
+      color: black;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+    
+    .table-wrapper {
+      max-height: 500px; /* Set max height for the table */
+      overflow-y: auto;
+      margin-top: 16px;
+      
+    }
+    
+    .crud-container table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      
+      
+    }
+    
+    .crud-container th {
+      padding: 20px;
+      text-align: center;
+     
+      border: 1px solid #5d5a5a;
+  
+      
+    }
+
+    .crud-container td{
+      padding: 30px 10px;
+      text-align: center;
+      width: 200px; /* Set the desired width */
+
+      
+     
+      border: 1px solid #5d5a5a;
+    }
+    
+    .crud-container th { 
+      background-color: #24292e;
+      font-weight: bold;
+    }
+    
+    .scrollable-td {
+      max-width: 200px; /* Set max-width for scrollable cells */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background-color: white;
+    
+      
+    }
+   
+    
+  /* Style for Approve Button */
+  .edit-icon {
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px; /* Adds 10px space between approve and reject icons */
+  }
+   
+    /* Style for Reject Button */
+  .delete-icon {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .delete-icon {
+    color: #c82333;
+  }
+    
+    
+    /* Style for form labels */
+    label {
+      margin-top: 10px;
+      // display: block;
+      font-weight: bold;
+    }
+    
+    /* Style for form inputs */
+    .input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      
+    }
+  
+   .popup_formed {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(255, 255, 255);
+      border: 1px solid #ccc;
+      box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      z-index: 1000;
+      width: 60%;
+      max-width: 400px;
+      border-radius: 8px;
+  }
+    
+  /////////////new css code/////////////
+    
+   
+    /* Basic reset */
+    * {
+     
+      font-family:calibri;
+    }
+    
+   
+  
+    
+    /* Header styling */
+    .header {
+      grid-area: header;
+      background-color: #24292e;
+    
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+  
+  
+  
+  
+  
+  .popup-formed {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(255, 255, 255);
+      border: 1px solid #ccc;
+      box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      z-index: 1001;
+      width: 60%;
+      max-width: 400px;
+      max-height: 80vh; /* Set a maximum height relative to the viewport */
+      overflow-y: auto; /* Enable vertical scrolling */
+      border-radius: 8px;
+  }
+  
+  /* Container for the buttons */
+  .button-container {
+    display: flex;
+    justify-content: center; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Space above the button group */
+  }
+  
+  /* Style for individual buttons */
+  .button-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .save-button {
+    background-color: #28a745; /* Green background for Save */
+    color: white;
+  }
+  
+  .cancel-button {
+    background-color: #dc3545; /* Red background for Cancel */
+    color: white;
+  }
+  
+  .update-button {
+    background-color: #007bff; /* Blue background for Update */
+    color: white;
+  }
+  
+  /* Style for the Add Button */
+  .add-button {
+    display: inline-flex; /* Flex to align text and any icons */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Center text horizontally */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: white; /* Text color */
+    background-color: #28a745; /* Green background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
+    margin-top: 10px;
+  }
+  
+  /* Hover and Focus Effects */
+  .add-button:hover, 
+  .add-button:focus {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    outline: none; /* Remove outline on focus */
+  }
+  
+  /* Active State for Click Feedback */
+  .add-button:active {
+    transform: translateY(0); /* Reset lift effect on click */
+    background-color: #1e7e34; /* Even darker green on active */
+  }
+  
+  
+  .add-button1{
+    display: inline-flex; /* Flex to align text and any icons */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Center text horizontally */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: white; /* Text color */
+    background-color: #1f55a0; /* Green background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .add-button1:hover, 
+  .add-button1:focus{
+    background-color: #1f55a0; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    outline: none; /* Remove outline on focus */
+   
+  }
+  /* Active State for Click Feedback */
+  .add-button1:active {
+    transform: translateY(0); /* Reset lift effect on click */
+    background-color: #1f55a0; /* Even darker green on active */
+  }
+  
+  .fa-plus{
+    margin-right: 4px;
+  }
+  
+  .fa-download{
+    margin-right: 4px;
+  }
+  
+ 
+  tbody{
+    background-color: white;
+    color: black;
+  }
+
+  
+.search-box {
+  position: fixed; /* Fixed position to keep it on the screen */
+  right:40px; /* Distance from the right side */
+  top:75px; /* Adjust this value to control the vertical position */
+  display: flex;
+  align-items: center;
+  width: fit-content; /* Ensures the width adjusts to content */
+  height: fit-content; /* Adjusts height to fit the content */
+  z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+.input{
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color:rgba(255, 255, 255, 0.231) ;
+  padding-right: 40px;
+  color:#fff;
+}
+.input::placeholder{
+  color:rgba(255,255,255,.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:white;
+  background-color:transparent;
+  pointer-events: painted;  
+}
+.btn-search:focus ~ .input{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input:focus{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+

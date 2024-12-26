@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <title >PAPL EXPRESS - Your One-Stop Solution</title>
+    <!-- Add your CSS and JavaScript links here -->
+</head>
+<body >
+  
+
+    <!-- Header Section -->
+    
+    <header  class="header">
+            <div  class="logo">
+                <h2><img src="assets/papl_logo.png" alt="Your Logo" class="logo"></h2>
+                <!-- <span style="color: aliceblue; font-size: 25px;" class="logo-text">PAPL EXPRESS</span>  -->
+
+            </div>
+        <nav class="nav">
+            <ul>
+                <li style="  font-size: 15px"><a routerLink="/about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li style="font-size: 15px"><a routerLink="/video_run"><i class="fas fa-video"></i> Video-Tutorial</a></li>
+                <li style="font-size: 15px;"><a routerLink="/contact"><i class="fas fa-headset"></i> Contact-Us</a></li>
+                <li style="font-size: 15px;"><a routerLink="/team"><i class="fas fa-users"></i> Our-Team-Details</a></li>
+
+                
+                
+                
+               
+             
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+        
+       
+            <div class="header-buttons">
+                <button style="color: rgb(19, 20, 18); font-weight: bolder;" routerLink="/login">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                  </button>
+                  <button style="color: rgb(10, 10, 10); font-weight: bolder;" routerLink="/neworganization">
+                    <i class="fas fa-user-plus"></i> New Registration Here!
+                  </button>
+                  
+            </div>
+        <div class="language-selector">
+            <div class="language-content" (mouseenter)="showLanguageMenu()" (mouseleave)="hideLanguageMenu()">
+                <i class="fas fa-globe"></i>
+                <span>English</span>
+            </div>
+           
+        </div> 
+    
+   
+    </header>
+
+    <!-- Homepage Section -->
+    
+    <div class="homepage">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 style="font-weight: bolder; color: linear-gradient(90deg, rgba(255, 198, 11, 0.684) 50%, rgba(40, 55, 125, 0.929) 50%); padding: 10px;">
+                    <i class="fas fa-globe animated-icon"></i>
+                    WELCOME TO PAPL EXPRESS
+                   
+                  </h1>
+                  
+
+              
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section  style="color: rgb(240, 238, 234); font-weight: bolder; background-color: rgba(12, 12, 12, 0.526); padding: 8px;" class="features-section">
+            <div  class="feature">
+
+              <div class="icon-container">
+  <i class="fas fa-building animated-icon"></i>
+</div>
+
+
+
+                <h2>Elevators</h2>
+                <p>Discover our state-of-the-art elevator solutions designed for safety and convenience.</p>
+            </div>
+            <div class="feature">
+                <div class="icon-container">
+                  <i class="fas fa-walking animated-icon"></i>
+                </div>
+                <h2>Escalators</h2>
+                <p>Experience smooth and efficient escalators that enhance building mobility.</p>
+              </div>
+              
+            
+            <div class="feature">
+                <div class="icon-container">
+                <i class="fas fa-car animated-icon"></i>
+            </div>
+                <h2>Car Parking Lifts</h2>
+                <p>Optimize parking management with our intelligent car parking lift solutions.</p>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="testimonial-section">
+            <div class="testimonial">
+                <blockquote style="color: rgb(240, 238, 234); font-weight: bolder; background-color: rgba(12, 12, 12, 0.596); padding: 8px; font-size: 13px;">
+                    "PAPL transformed our building's mobility and parking management. Their solutions are top-notch."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Additional Sections -->
+        <!-- <section class="additional-content">
+            <h2>Our Commitment</h2>
+            <p style="color: rgb(240, 238, 234); font-size: 12px; font-weight: bolder; background-color: rgba(12, 12, 12, 0.634); padding: 8px;">At PAPL, we are committed to providing innovative solutions that improve the mobility and efficiency of your building. Our team of experts is dedicated to ensuring the safety and convenience of our customers.</p>
+        </section> -->
+
+        <section class="contact-us">
+            <p style="font-size: 10px;">©Copyright 2024 to PAPL SOFT. All Rights Reserved.</p>
+            <p>Powered By PAPL SOFT</p>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="mailto:your@email.com"><i class="far fa-envelope"></i> Email</a></li>
+                <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+            
+        </section>
+        
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+
+    <!-- Add your scripts here -->
+
+</body>
+</html>

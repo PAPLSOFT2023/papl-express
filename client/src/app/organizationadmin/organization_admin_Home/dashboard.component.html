@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <title>Dashboard</title>
+    <link rel="stylesheet" href="css/himal.css" type="text/css"> -->
+</head>
+<body>
+  
+   
+
+  
+    <div class="container">
+      
+        <!-- Header -->
+        <header class="header">
+            <h1>Admin Dashboard</h1>
+            
+            
+            <div class="header-right">
+                <div class="emoji-icon">
+                    <!-- Dynamic Image Preview -->
+            <img *ngIf="previewSrc" [src]="previewSrc" alt="Preview Image" class="admin-image dynamic-image">{{name}}
+
+
+
+  
+                </div>
+        
+                <div class="dropdown">
+                    <!-- Dropdown Button -->
+                    <button class="dropbtn" (click)="toggleDropdown()">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+        
+                    <!-- Dropdown Content -->
+                    <div class="dropdown-content" [class.show]="dropdownVisible">
+                        <a  (click)="openManageAccountPopup()"><i class="fa fa-cog"></i> Manage Account</a>
+                        <a (click)="openLogoutPopup()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+
+
+
+        <!-- Sidebar -->
+        <!-- <nav class="sidebar">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav> -->
+
+       
+        <main class="content">
+            <h2>Home</h2>
+            
+            <div class="search-box">
+              <button class="btn-search"><i class="fas fa-search"></i></button>
+              <input type="text" class="input-search" placeholder="Type to Search...">
+            </div>
+            <br>
+            <hr>
+            <br>
+
+            <div class="cards">
+            <div class="card" (click)="redirect5()" style="cursor: pointer;">
+                <h3 style="font-size: 17px;"><b>MANAGE DATA</b></h3>
+                <div class="icon-container">
+                    <!-- Marketing-related Font Awesome icon -->
+                    <i class="fa fa-plus-circle generate-icon"></i>
+                </div>
+            </div>
+            
+            <!-- <div class="cards">
+                <div class="card" (click)="redirect()" style="cursor: pointer;">
+                   <h3 style="font-size: 30px;">{{ approvalcount }}</h3>
+
+                  <div class="icon-container">
+                  
+                    <i class="fa fa-file-alt"></i>
+                  </div>
+                  <b style="font-size: 17px;">REPORT APPROVAL<span [@countAnimation]></span></b>
+                </div>
+            </div> -->
+
+                <div class="cards">
+               <div class="card"  (click)="redirect1()">
+               
+                    <!-- <h3 style="font-size: 30px;">{{ status1Count }}</h3> -->
+                    
+                    <div class="icon-container">
+                        
+                        <!-- Marketing-related Font Awesome icon -->
+                        
+                        <i class="fa fa-user-cog"></i>
+                     
+                    </div>
+                    <b style="font-size: 17px;">USERS SETUP<span [@countAnimation]></span></b>
+                </div>
+            </div>
+
+
+            
+
+
+
+
+
+              
+
+                <div class="cards">
+                    <div class="card" (click)="redirect3()" style="cursor: pointer;">
+                      <!-- <h3 style="font-size: 30px;">{{ totalUnitsCount }}</h3> -->
+                      <div class="icon-container">
+                        <i class="fa fa-user-edit fa-2x" ></i>
+                      </div>
+                      <b style="font-size: 17px;">PROFILE SETUP<span [@countAnimation]></span></b>
+                    </div>
+                </div>
+
+                
+            <div class="cards">
+              <div class="card" (click)="redirect4()" style="cursor: pointer;">
+                  <h3 style="font-size: 17px;"><b>MSF-24</b></h3>
+                  <div class="icon-container">
+                      <!-- Marketing-related Font Awesome icon -->
+                      <i class="fa fa-cog fa-spin fa-3x"></i> <!-- Spinning cog icon with larger size -->
+                  </div>
+              </div>
+            </div>
+
+
+            <div class="cards">
+              <div class="card" (click)="redirect6()" style="cursor: pointer;">
+                  <h3 style="font-size: 17px;"><b>INSPECTOR CV</b></h3>
+                  <div class="icon-container">
+                      <!-- Marketing-related Font Awesome icon -->
+                      <i class="fa fa-user-tie"></i> <!-- Spinning cog icon with larger size -->
+                  </div>
+              </div>
+            </div>
+
+            <div class="cards">
+              <div class="card" (click)="redirect7()" style="cursor: pointer;">
+                  <h3 style="font-size: 17px;"><b>INPECTOR SIGNATURE</b></h3>
+                  <div class="icon-container">
+                      <!-- Marketing-related Font Awesome icon -->
+                      <i class="fa fa-signature"></i><!-- Spinning cog icon with larger size -->
+                  </div>
+              </div>
+            </div>
+
+            <div class="cards">
+              <div class="card" (click)="redirect8()" style="cursor: pointer;">
+                  <h3 style="font-size: 17px;"><b>Mail Hub</b></h3>
+                  <div class="icon-container">
+                      <!-- Marketing-related Font Awesome icon -->
+                      <i class="fa fa-envelope"></i>
+<!-- Spinning cog icon with larger size -->
+                  </div>
+              </div>
+            </div>
+
+
+            <div class="cards">
+              <div class="card" (click)="redirect19()" style="cursor: pointer;">
+                  <h3 style="font-size: 17px;"><b>MAIL RESPONSE</b></h3>
+                  <div class="icon-container">
+                      <!-- Marketing-related Font Awesome icon -->
+                      <i class="fa fa-envelope"></i>
+<!-- Spinning cog icon with larger size -->
+                  </div>
+              </div>
+            </div>
+
+            <div class="cards">
+              <div class="card" (click)="redirect()" style="cursor: pointer;">
+                 <!-- <h3 style="font-size: 30px;"  >{{ status0Count }}</h3> -->
+                 <h3 style="font-size: 30px;">{{ approvalcount }}</h3>
+
+                <div class="icon-container">
+                
+                  <i class="fa fa-file-alt"></i>
+                </div>
+                <b style="font-size: 17px;">REPORT APPROVAL<span [@countAnimation]></span></b>
+              </div>
+          </div>
+
+
+
+<!-- mugesh --------------------------------------------------------------->
+
+
+
+            <div class="cards">
+              <div class="card"  (click)="redirect9()" style="cursor: pointer;">
+              
+                   <h3 style="font-size: 30px;">{{ activestatus1Count }}</h3>
+                   
+                   <div class="icon-container">
+                                            
+                    <i style="font-size: 40px;" class="fa fa-list-ol animated-icon" aria-hidden="true"></i>
+                    
+                   </div>
+                   <b style="font-size: 17px;">ACTIVE SCHEDULED LIST<span [@countAnimation]></span></b>
+               </div>
+           </div>
+  
+  
+              
+              <div class="cards">
+                  <div class="card" (click)="redirect10()" style="cursor: pointer;">
+                     <h3 style="font-size: 30px;"  >{{ status1Count }}</h3>
+                    <div class="icon-container">
+                    
+                      <i style="font-size: 40px;" class="fa fa-file-alt animated-icon" aria-hidden="true"></i>
+                    </div>
+                    <b style="font-size: 17px;">DOCUMENT VIEW`S<span [@countAnimation]></span></b>
+                  </div>
+              </div>
+  
+  
+  
+  
+  
+                
+              <div class="cards">
+                  <div class="card" (click)="redirect11()" style="cursor: pointer;">
+                    <h3 style="font-size: 30px;">{{ totalUnitsInspectedCount }}</h3>
+                    <div class="icon-container">
+                      <i style="font-size: 40px;" class="fas fa-search zoom-icon"></i>
+                    </div>
+                    <b style="font-size: 17px;">NO.OF UNITS INSPECTED<span [@countAnimation]></span></b>
+                  </div>
+                </div>
+  
+  
+                <div class="cards">
+                  <div class="card" (click)="redirect12()" style="cursor: pointer;">
+                    <h3 style="font-size: 30px;">{{ certificatecount.length }}</h3>
+                    <div class="icon-container">
+                      <i style="font-size: 40px;" class="fa fa-certificate zoom-icon"></i>
+                    </div>
+                    <b style="font-size: 17px;">NO.OF CERTIFICATE ISSUED<span [@countAnimation]></span></b>
+                  </div>
+              </div>
+  
+  
+  
+  
+              
+              <!-- <div class="cards">
+                  <div class="card" (click)="redirect13()" style="cursor: pointer;">
+                    <h3 style="font-size: 30px;">{{ approvalcount }}</h3>
+                    <div class="icon-container">
+                      <i style="font-size: 40px;" class="fa fa-hourglass-half zoom-icon"></i>
+                    </div>
+                    <b style="font-size: 17px;">Approval in Queue<span [@countAnimation]></span></b>
+                  </div>
+              </div> -->
+  
+  
+                
+            
+  
+  
+              <div class="cards">
+                  <div class="card" (click)="redirect14()" style="cursor: pointer;">
+                    <h3 style="font-size: 30px;">{{ speccount }}</h3>
+                    <div class="icon-container">
+                      <i style="font-size: 40px;"class="fas fa-file-download zoom-icon"></i>
+                    </div>
+                    <b style="font-size: 17px;">Brief SPEC Download<span [@countAnimation]></span></b>
+                  </div>
+              </div>
+  
+<!--   
+              <div class="cards">
+                  <div class="card" (click)="redirect15()" style="cursor: pointer;">
+                    <h3 style="font-size: 30px;">{{ 1 }}</h3>
+                    <div class="icon-container">
+                      <i style="font-size: 40px;"class="fa fa-wrench zoom-icon"></i>
+                    </div>
+                    <b style="font-size: 17px;">Brief SPEC crud<span [@countAnimation]></span></b>
+                  </div>
+              </div> -->
+  
+  
+  
+              <div class="cards">
+                <div class="card" (click)="redirect16()" style="cursor: pointer;">
+                  <h3 style="font-size: 30px;">{{ approvalreportcount }}</h3>
+                  <div class="icon-container">
+                    <i style="font-size: 40px; "class="fas fa-clipboard-check zoom-icon"></i>
+                  </div>
+                  <b style="font-size: 17px;">Approved Report<span [@countAnimation]></span></b>
+                </div>
+            </div>
+  
+  
+            <div class="cards">
+              <div class="card" (click)="redirect17()" style="cursor: pointer;">
+                <h3 style="font-size: 30px;">{{ nonapprovalreportcount }}</h3>
+                <div class="icon-container">
+                  <i style="font-size: 40px;"class="fas fa-times zoom-icon"></i>
+                </div>
+                <b style="font-size: 17px;">Rejected Report<span [@countAnimation]></span></b>
+              </div>
+          </div>
+  
+  
+          <div class="cards">
+            <div class="card" (click)="redirect18()" style="cursor: pointer;">
+              <h3 style="font-size: 30px;">{{ feedbackcount }}</h3>
+              <div class="icon-container">
+                <i style="font-size: 40px;"class="fas fa-file-download zoom-icon"></i>
+              </div>
+              <b style="font-size: 17px;">FEEDBACK DOWNLOAD<span [@countAnimation]></span></b>
+            </div>
+        </div>
+
+
+        <div class="cards">
+          <div class="card" (click)="redirect20()" style="cursor: pointer;">
+            <div class="icon-container">
+              <i style="font-size: 40px;"class="fas fa-file-download zoom-icon"></i>
+            </div>
+            <b style="font-size: 17px;">REPORT IMAGE<span></span></b>
+          </div>
+      </div>
+
+               
+                
+                
+            </div>
+            
+       
+        
+        </main>
+        
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><a style="color: yellow;" href="https://paplexpress.com" target="_blank">Paplexpress.com</a> - All rights reserved 2024</p>
+        </footer>
+    </div>
+
+<!-- ////////////////////pop up for log out confirmation//////////////////// -->
+    <div class="popup-overlay" [class.show]="showPopup">
+        <div class="popup-content">
+            <!-- <h2>Confirm Logout</h2> -->
+            <p>Are you sure you want to log out?</p>
+            <div class="popup-buttons">
+                <button class="confirm" (click)="confirmLogout()">
+                    <i class="fa fa-check"></i> Yes
+                </button>
+                <button class="cancel" (click)="closePopup()">
+                    <i class="fa fa-times"></i> No
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ///////////pop for manage account form update html code /////////////////// -->
+    <div class="popup-background-blur" *ngIf="isVisible"></div> <!-- Background blur -->
+    <div class="popup1" *ngIf="isVisible">
+      <div class="popup-content1">
+        <span class="close1" (click)="closePopup1()" title="Close">&times;</span>
+    
+        <div class="form-container">
+          <h2>Manage Account</h2>
+          <!-- Form submit action linked to the component method -->
+          <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
+            <div class="form-group">
+              <label for="Username">Name</label>
+              <!-- Two-way data binding for firstName -->
+              <input type="text" id="Username" name="Username" [(ngModel)]="formData.Username" required>
+            </div>
+    
+            <div class="form-group">
+              <label for="email">Email</label>
+              <!-- Two-way data binding for email -->
+              <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+            </div>
+    
+            <div class="form-group password-group">
+              <label for="password">Password</label>
+              <!-- Password field bound to formData and visibility toggle -->
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                [(ngModel)]="formData.password" 
+                [type]="isPasswordVisible ? 'text' : 'password'" 
+                required
+              >
+              <span class="toggle-password" (click)="togglePasswordVisibility()">
+                <!-- Password visibility icon -->
+                <i 
+                  id="eyeIcon" 
+                  [ngClass]="{'fa-eye': isPasswordVisible, 'fa-eye-slash': !isPasswordVisible}" 
+                  class="fa" 
+                  style="margin-top: 20px; margin-right: 5px;">
+                </i>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="picture">Upload Profile Picture</label>
+              <!-- Handle file input and preview the image -->
+              <input type="file" id="Picture" name="Picture" (change)="onFileSelected($event)">
+            </div>
+            
+            <!-- Image preview block -->
+            <div class="image-preview" *ngIf="previewSrc">
+              <img id="preview" [src]="previewSrc" alt="Preview Image" style="max-width: 100px; max-height: 100px;">
+            </div>
+            
+            
+    
+            <div class="form-group">
+              <button type="submit">Update Account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  
+   
+
+</body>
+
+</html>

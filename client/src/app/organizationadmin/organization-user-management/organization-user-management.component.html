@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+ <body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>LOGIN  MANAGEMENT</h1>
+            <div class="search-box">
+              <button class="btn-search"><i class="fas fa-search"></i></button>
+              <input type="text" class="input-search" placeholder="Type to Search..." [(ngModel)]="searchText" (input)="filterUsers()">
+            </div>
+            
+            
+        </header>
+       
+        <main class="content">
+            <h2>LOGIN DETAILS</h2>
+            
+            <br>
+            <hr>
+            <br>
+
+            <div class="add-user-container">
+              <button class="add-user-button" (click)="openUserPopup()" [ngClass]="'Adduser'" >
+                  <i class="fas fa-plus"></i>Add User</button>
+          </div>
+
+
+
+
+
+<!-- User Popup -->
+<div class="popup-container" *ngIf="isUserPopupOpen">
+  <div class="popup">
+    <h3>ADD USER DETAILS</h3>
+   
+
+  
+  <form (submit)=" addUser()">
+
+   
+  
+    <label for="newEmail">Email:</label>
+    <input [(ngModel)]="user.Email" name="email" type="email" required />
+
+    <label for="newUsername">Username:</label>
+    <input [(ngModel)]="user.Username" name="username" required />
+
+
+    <label for="newpassword">Password:</label>
+    <input [(ngModel)]="user.Password" name="password" type="password" required />  
+
+    <label for="newconfirmpassword">Confirm Password:</label>
+    <input [(ngModel)]="user.Confirm_password" name="confirm_password" type="password" required />
+
+    <label for="newdepartment">Department</label>
+
+
+<select  [(ngModel)]="user.Department" required (change)="onDropdownChangeDepart($event)">
+  <option *ngFor="let Dept of departments" [value]="Dept">{{ Dept }}</option>
+</select>
+
+    
+<label for="role">Role</label>
+
+
+<select  [(ngModel)]="user.Role"  required (change)="onDropdownChangeRole($event)">
+  <option *ngFor="let role of roles" [value]="role">{{ role}}</option>
+</select> 
+
+
+
+    <label for="status">Login Status:</label>
+    <select [(ngModel)]="user.Status" name="status"  required >
+      <option value="Active">Active</option>
+      <option value="Inactive">InActive</option>
+    </select>
+
+
+
+  <div class="button-container">
+      <button type="submit" >  <i class="fas fa-user-plus"></i> {{ editMode ? 'ADD' : 'ADD' }}</button>
+      <button type="button" class="cancel" (click)="resetUser(); closeUserPopup()">  <i class="fas fa-times"></i>Cancel</button>
+    </div>
+    </form>    
+</div>
+</div>
+
+
+
+<!-- Display Users in a Table -->
+<div class="table-responsive">
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Organization</th>
+      <th>Department</th>
+      <th>Role</th>
+      <th>Login Status</th>
+      <th>Email Verified</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filteredUsers; let i = index" [ngClass]="{'green-row': i % 2 === 0, 'white-row': i % 2 !== 0}">
+      <td>{{ user.Email }}</td>
+      <td>{{ user.Username }}</td>
+      <td>{{ user.Organization}}</td>
+      <td>{{ user.Department }}</td>
+      <td>{{ user.Role }}</td>
+      <td>{{ user.Status }}</td>
+      <td>{{ user.Emailverified }}</td>
+     
+      <td>
+        <!-- Edit button with icon -->
+       
+          <i class="fa fa-edit edit-icon"  title="EDIT" (click)="editUser(user.id)" [ngClass]="'editbutton'"></i>
+        
+      
+       
+          <i class="fa fa-trash delete-icon"  title="DELETE" (click)="deleteUser(user.id, user.Email)" [ngClass]="'deletebutton'"></i>
+       
+      </td>
+   
+      
+    </tr>
+    </table>
+
+
+<div *ngIf="isUserPopupOpen1" class="popup-container">
+  <div class="popup">
+  <form (submit)="updateUser()">
+    <h3>UPDATE LOGIN</h3>
+    <label for="email">Email:</label>
+    <input [(ngModel)]="user.Email" name="email" type="email" required />
+
+    <label for="username">Username:</label>
+    <input [(ngModel)]="user.Username" name="username" required />
+
+   
+
+    <label for="organization">Organization Display Name:</label>
+    <input [(ngModel)]="user.Organization" name="organization" required />
+
+
+
+    <label for="Department">Department</label>
+
+
+    <select  [(ngModel)]="user.Department" required (change)="onDropdownChangeDepart($event)">
+      <option *ngFor="let Dept of departments" [value]="Dept">{{ Dept }}</option>
+    </select>
+    
+        
+    <label for="role">Role</label>
+    
+    
+    <select  [(ngModel)]="user.Role"  required (change)="onDropdownChangeRole($event)">
+      <option *ngFor="let role of roles" [value]="role">{{ role}}</option>
+    </select>
+
+
+
+    
+  
+    
+    
+    
+
+    <label for="status">Login Status:</label>
+    <select [(ngModel)]="user.Status" name="status" required (ngModelChange)="onStatusChange($event)">
+      <option value="active">Active</option>
+      <option value="inactive">InActive</option>
+    </select>
+
+
+    <div class="button-container">
+    <button type="submit4"> <i class="fas fa-save"></i>UPDATE</button>
+    <button type="button5" class="cancel" (click)="resetUser(); closeUserPopup()"> <i class="fas fa-times"></i> CANCEL</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+</div>
+

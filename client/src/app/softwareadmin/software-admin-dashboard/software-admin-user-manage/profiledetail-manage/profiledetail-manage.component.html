@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Management</title>
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <h1>PROFILE MANAGEMENT</h1>
+        <div class="search-box">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input type="text" class="input-search" placeholder="Type to Search..." [(ngModel)]="searchTerm" (input)="onSearch()" />
+
+        </div>
+        
+        
+        
+      </header>
+
+      <!-- Main Content -->
+      <main class="content">
+        <h2>PROFILE DETAILS</h2>
+        <br>
+        <hr>
+        <br>
+
+        
+        <!-- Add User Button -->
+        <div class="add-user-container">
+          <button
+            class="add-user-button"
+            (click)="toggleUserPopup()"
+            [ngClass]="'Adduser'">
+            <i class="fas fa-plus"></i>Add User
+          </button>
+        </div>
+
+        <!-- Display Users in a Table -->
+        <div class="table-responsive">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>PSN No</th>
+                <th>Designation</th>
+                <th>Contact No</th>
+                <th>Date Of Joining</th>
+                <th>Date Of Birth</th>
+                <th>Department</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let emp of filtered_employee_data">
+                <td>{{ emp.NAME }}</td>
+                <td>{{ emp.email_id }}</td>
+                <td>{{ emp.PSN_NO }}</td>
+                <td>{{ emp.designation }}</td>
+                <td>{{ emp.contact_no }}</td>
+                <td>{{ datePipe.transform(emp.date_of_joining, "yyyy-MM-dd") }}</td>
+                <td>{{ datePipe.transform(emp.date_of_birth, "yyyy-MM-dd") }}</td>
+                <td>{{ emp.dept }}</td>
+                <td>
+                  <i class="fas fa-edit edit-icon" style="font-size: 15px;" type="button" title="EDIT" (click)="editEmployeeDataUser(emp)"></i>
+                  <i class="fas fa-trash-alt delete-icon" style="font-size: 15px;" type="button" title="DELETE" (click)="deleteEmployeeDataUser(emp.PSN_NO)"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Add User Popup Form -->
+        <div *ngIf="isUserPopupOpen" class="popup-container">
+          <div class="popup">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+              <h2 style="text-align: center; color: black; font-size:20px;">PROFILE REGISTER</h2>
+              <!-- Add form fields here -->
+              <label for="NAME">Name:</label>
+              <input [(ngModel)]="employee_data.NAME" name="NAME" required />
+              <label for="PSN_NO">PSN No:</label>
+              <input [(ngModel)]="employee_data.PSN_NO" name="PSN_NO" required />
+              <label for="email_id">Email:</label>
+              <input [(ngModel)]="employee_data.email_id" name="email_id" type="email" required />
+              <label for="contact_no">Contact No:</label>
+              <input [(ngModel)]="employee_data.contact_no" name="contact_no" required />
+              <label for="designation">Designation:</label>
+              <input [(ngModel)]="employee_data.designation" name="designation" required />
+              <label for="date_of_joining">Date of Joining:</label>
+              <input [(ngModel)]="employee_data.date_of_joining" name="date_of_joining" type="date" required />
+              <label for="date_of_birth">Date of Birth:</label>
+              <input [(ngModel)]="employee_data.date_of_birth" name="date_of_birth" type="date" required />
+              <label for="dept">Department:</label>
+              <input [(ngModel)]="employee_data.dept" name="dept" required />
+
+              <div class="button-container">
+                <button type="submit">SUBMIT</button>
+                <button type="button" (click)="closeUserPopup()">CANCEL</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Edit User Popup Form -->
+        <div *ngIf="isEditPopupOpen" class="popup-container">
+          <div class="popup">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+              <h2 style="text-align: center; color: black; font-size: 20px;">EDIT PROFILE</h2>
+              <!-- Add form fields here for editing -->
+              <label for="NAME">Name:</label>
+              <input [(ngModel)]="employee_data.NAME" name="NAME" required />
+              <label for="PSN_NO">PSN No:</label>
+              <input [(ngModel)]="employee_data.PSN_NO" name="PSN_NO" required />
+              <label for="email_id">Email:</label>
+              <input [(ngModel)]="employee_data.email_id" name="email_id" type="email" required />
+              <label for="contact_no">Contact No:</label>
+              <input [(ngModel)]="employee_data.contact_no" name="contact_no" required />
+              <label for="designation">Designation:</label>
+              <input [(ngModel)]="employee_data.designation" name="designation" required />
+              <label for="date_of_joining">Date of Joining:</label>
+              <input [(ngModel)]="employee_data.date_of_joining" name="date_of_joining" type="date" required />
+              <label for="date_of_birth">Date of Birth:</label>
+              <input [(ngModel)]="employee_data.date_of_birth" name="date_of_birth" type="date" required />
+              <label for="dept">Department:</label>
+              <input [(ngModel)]="employee_data.dept" name="dept" required />
+
+              <div class="button-container">
+                <button type="submit">UPDATE</button>
+                <button type="button" (click)="closeUserPopup()">CANCEL</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  
+  </body>
+</html>

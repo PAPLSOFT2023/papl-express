@@ -1,0 +1,985 @@
+
+/////////css///////
+
+//profile background blur
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for the desired level of transparency */
+    z-index: 999;
+    backdrop-filter: blur(5px); /* Adjust the blur value for the desired level of blur */
+  }
+  
+  
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for the desired level of transparency */
+    z-index: 999;
+    backdrop-filter: blur(5px); /* Adjust the blur value for the desired level of blur */
+  }
+  
+  //user_role background blur 
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+    z-index: 999; /* Ensure it's on top of other elements */
+  }
+  
+  .data-entry-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above the overlay */
+    width: 380px;
+    margin: 0 auto;
+    max-width: 400%;
+   
+    border: 1px solid #ffffff;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  
+  
+  /* Assuming your form container has a class named "form-container" */
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  /* Style for the Save button */
+  button[type="submit"] {
+    padding: 10px; /* Adjust padding as needed */
+    background-color: rgb(32, 108, 202); /* Green color, adjust as needed */
+    color: #fff; /* White text color, adjust as needed */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Center-align the button */
+  .button-container {
+    text-align: center;
+  }
+  
+  /* Style for the Cancel button */
+  .btn-danger {
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: rgb(214, 48, 48); /* Green color, adjust as needed */
+    color: #fff; /* White text color, adjust as needed */
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  
+  .custom-button_one{
+    font-size: 12px; /* Adjust font size as needed */
+    padding: 6px 10px; /* Adjust padding as needed */
+    background-color: #ff0000; /* Blue color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    margin-left: 10px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  
+  
+  
+  .custom-button_two{
+    font-size: 12px; /* Adjust font size as needed */
+    padding: 6px 10px; /* Adjust padding as needed */
+    background-color: #127338; /* Blue color */
+   color: white;
+   margin-left: 10px;
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  
+  }
+  .close-button {
+    position: absolute;
+    top: 5px; /* Adjust as needed */
+    right: 5px; /* Adjust as needed */
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px; /* Set the width and height to create a circular shape */
+    height: 40px; /* Set the width and height to create a circular shape */
+    border-radius: 50%; /* Make the button circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .close-button i {
+    font-size: 16px;
+    color: #df0f0f;
+  }
+  
+  
+  
+  .popup-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .popup-form label {
+    display: block;
+    font-weight: bold;
+  }
+  .popup-form .input-group{
+    position: relative;
+  }
+  .popup-form input[type="text"],
+  .popup-form input[type="password"]
+   {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #525258c6;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .card {
+    flex: 0 0 calc(30% - 20px);
+    min-height: 180px; /* Set a minimum height for the card (increase this value as needed) */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  /* Card header styling */
+  .card-header {
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center;     /* Vertically aligns the content */
+    padding: 16px;
+    // background-color: #4CAF50;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-header i {
+    margin-right: 8px;
+    font-size: 20px;
+    color: #333;
+  }
+  .card-header a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .card-content {
+    padding: 20px;
+    font-size: 1rem;
+    color: #555;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+  }
+  
+  .card-actions {
+    padding: 16px;
+    border-top: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fafafa;
+  }
+  
+  
+  /* Adjustments for table headers */
+  th {
+    background-image: linear-gradient(125deg, #2c3e50 50%, #000000 50%);
+    padding: 10px; /* Padding for table headers */
+    color: white;
+  }
+  
+  
+  
+  .data-entry-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  /* Form Group Styles */
+  .data-entry-container .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .data-entry-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  .data-entry-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+  }
+  /* Dropdown Styles */
+  .data-entry-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+  }
+  /* Button Styles */
+  .data-entry-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  .data-entry-container button.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+  }
+  
+  .data-entry-container button.btn-danger {
+    background-color: #ef233c;
+    color: #fff;
+    transition: background-color 0.2s;
+  }
+  
+  
+  
+  
+  /* Style for form inputs and select */
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style for buttons */
+  /* Style for the form container */
+  .form-group.has-error {
+    position: relative;
+  }
+  .form-group.has-error .error-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  
+  /* Style for form groups */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  /* Style for labels */
+  .form-group label {
+    display: block;
+    font-weight: bold;
+  }
+  /* Style for input fields */
+  .form-group input[type="text"],
+  .form-group select {
+    width: 100%;
+    padding:10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  
+  
+  // /* Style the table */
+  // .table-structure {
+  //   width: 100%;
+  //   border-collapse: collapse;
+  //   margin-top: 10px;
+  // }
+  // .table-structure th,
+  // .table-structure td {
+  //   padding: 10px;
+  //   text-align: left;
+  //   border: 1px solid #ccc;
+  // }
+  // /* Style the table header row */
+  // .table-structure th {
+  //   background-color: #007BFF;
+  //   color: #fff;
+  //   font-weight: bold;
+  // }
+  
+  // /* Style the table */
+  // .table-structure {
+  //   width: 100%;
+  //   border-collapse: collapse;
+  //   margin-top: 10px;
+  //   border: 1px solid #ccc;
+  // }
+  // .table-structure th,
+  // .table-structure td {
+  //   padding: 10px;
+  //   text-align: left;
+  //   border: 1px solid #ccc;
+  // }
+  // /* Style the table header row */
+  // .table-structure th {
+  //   background-color: #17316d;
+  //   color: #fff;
+  //   font-weight: bold;
+  // }
+  
+  
+  /* Add this style to your global styles or a separate CSS file */
+  
+  // p {
+  //   font-size: 16px; /* Adjust the font size as needed */
+  //   line-height: 1.6; /* Adjust the line height for better readability */
+  //   color: #333; /* Set the text color */
+  //   margin-top: 15px; /* Add margin at the bottom for spacing between paragraphs */
+  //   padding: 10px;
+  // }
+  
+  
+  
+  /* Add the rest of your existing styles below this */
+  /* ... */
+  
+  .manualentry {
+    position: fixed;
+    top: 0;
+    left: 35px;
+    width: 150%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.742); /* Semi-transparent background outside the container */
+    backdrop-filter: blur(8px); /* Add a blur effect to the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Ensure it's above other elements */
+  }
+  
+  
+  /* Media Query for smaller screens */
+  @media screen and (max-width: 768px) {
+    .data-entry-container {
+      width: 100%; /* Adjust for smaller screens */
+      max-width: none; /* Remove the maximum width */
+     
+    }
+    
+   
+  }
+  
+  /* Rest of your CSS remains unchanged */
+  
+  /* Rest of your CSS remains unchanged */
+  
+  /* Center the buttons horizontally */
+  .form-group {
+    text-align: center;
+  }
+  
+  
+  
+  
+  .manualentry {
+    width: 100%;
+    margin:  0px;
+  }
+  
+  
+  .data-entry-container1 {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    
+  }
+  
+  
+  
+  .openbtn {
+    background-color: #136c53; /* Blue background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    padding: 10px 16px; /* Padding */
+    cursor: pointer; /* Cursor style */
+    margin: 6px;
+    
+    border-radius: 5px; /* Rounded corners */
+    
+  }
+   /* Styles for the popup form */
+   .popup-formed-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Ensure it's above other elements */
+    backdrop-filter: blur(10px); /* Add a blur effect to the background */
+  }
+  
+  .popup-formed {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+  
+  
+  
+  .closebtn button {
+    background-color: #f44336; /* Red background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding */
+    cursor: pointer; /* Cursor style */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .closebtn button:hover {
+    background-color: #bf1e13; /* Darker red on hover */
+  }
+  
+  .table-wrapper {
+    max-height: 400px; /* Set max height for the table */
+    overflow-y: auto;
+  }
+  
+  
+  .crud-container table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    
+  }
+  
+  .crud-container th, .crud-container td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    
+  }
+  
+  .crud-container th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .scrollable-td {
+    max-width: 200px; /* Set max-width for scrollable cells */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+  }
+  
+  .edit-button1{
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* Style for form labels */
+  label {
+    margin-top: 10px;
+    // display: block;
+    font-weight: bold;
+  }
+  
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+    text-align: center; /* Center-align the buttons */
+   
+  }
+  
+  
+  .edit-button2,
+  .delete-button2 {
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .edit-button2 {
+    background-color: #188748;
+  }
+  
+  .delete-button2 {
+    background-color: #d71f1c;
+  }
+  
+  .delete-button2:hover {
+    background-color: #f44336;
+  }
+  
+  .closebtn3 {
+    display: block; /* Make the button a block-level element */
+    margin: 0 auto; /* Center-align the button horizontally */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-image: linear-gradient(125deg, #2c3e50 50%, #000000 50%);
+    color: white;
+  }
+  
+  
+  
+  
+  .button-container1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center; /* Center-align the buttons */
+  }
+  
+  .edit-button3,
+  .delete-button3 {
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .edit-button3 {
+    background-color: #2196F3;
+  }
+  
+  .delete-button3 {
+    background-color: #d71f1c;
+  }
+  
+  .delete-button3:hover {
+    background-color: #f44336;
+  }
+  
+  
+  /* Add the rest of your existing styles below this */
+  /* ... */
+  
+  /* Add this style to your global styles or a separate CSS file */
+  /* Add this style to your global styles or a separate CSS file */
+  
+  /* Overlay background */
+  /* Background overlay for blur effect */
+  .background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 999; /* Make sure the overlay appears above the content */
+  }
+  
+  
+  /* Upload Popup Container */
+  .upload-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    max-width: 410px;
+    width: 100%;
+    
+    padding: 30px;
+    text-align: center;
+  }
+  
+  /* Styling for the upload button */
+  .uploadbtn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: green;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  
+  
+  
+  
+  
+  /* Heading Style */
+  .upload-popup h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Label Style */
+  .upload-popup label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* File Input Style */
+  .upload-popup input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  // /* Upload Button Style */
+  .upload-popup button {
+  //   background-color: #171a78;
+  //   color: white;
+  //   border: none;
+  //   border-radius: 5px;
+  //   padding: 12px 20px;
+  //   cursor: pointer;
+    margin-right: 30px;
+  //   transition: background-color 0.3s ease;
+  }
+  
+  
+  
+  /* Close Button Style */
+  .upload-popup .close-btn {
+    // position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .upload-popup .close-btn:hover {
+    color: #555;
+  }
+  /* Add this style to your global styles or a separate CSS file */
+  
+  /* Heading Style */
+  .heading {
+    color: #151414;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 90px;
+  
+  }
+  
+  /* Add the rest of your existing styles below this */
+  /* ... */
+  
+  /* Add the rest of your existing styles below this */
+  /* ... */
+  /* Add this style to your global styles or a separate CSS file */
+  
+  /* Loading Overlay Styles */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001; /* Place it above the popup */
+  }
+  
+  .loading-spinner {
+    border: 8px solid #4CAF50; /* Green color */
+    border-top: 8px solid #fff; /* White color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  /* Header styling */
+  .header {
+      grid-area: header;
+      background-color: #24292e;
+      color: white;
+      padding: 12px;
+      position: relative;
+      display: flex;
+      justify-content: center; /* Center the h1 */
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+  /* Button group container */
+  .button-group {
+    display: flex;
+    gap: 30px; /* Adds spacing between buttons */
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Base button styling */
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  
+  
+  
+  /* Upload file button */
+  .btn-upload-file {
+    background-color: #28a745; /* Green color */
+    color: white;
+  }
+  
+  .btn-upload-file:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  /* Icon styling */
+  .btn i {
+    margin-right: 8px; /* Space between icon and text */
+  }
+  
+  /* Basic reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI','lato' Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Container holding everything */
+  .container {
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'content content'
+        'footer footer';
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr auto;
+    height: 100vh;
+    background: url('/assets/bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: #333;
+  }
+  /* Header styling */
+  .header {
+    grid-area: header;
+    background-color: #24292e;
+    color: white;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the h1 */
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Centered h1 */
+  .header h1 {
+    font-size: 1.8em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  
+  
+  /* Footer styling */
+  .footer {
+    grid-area: footer;
+    background-color: #24292e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .content {
+    position: relative;
+    grid-area: content;
+    padding: 20px;
+    background-color: rgba(15, 14, 14, 0.9);
+    overflow-y: auto;
+  }
+  
+  
+  .cancel-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+  }
+  
+  
+  /* Card actions styling */
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for the "Manual Entry" button */
+  .btn-manual-entry {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #333; /* Orange color */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-manual-entry i {
+    margin-right: 8px;
+  }
+  
+  
+  
+  
+  /* Styling for the "Upload XL-file" button */
+  .card-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #333; /* Blue color */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .inspection-count {
+   
+    margin: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .inspection-count p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    transition: transform 0.5s ease-in-out; /* Smooth transition effect */
+  }
+  
+  /* Optional: Add scaling effect to highlight the number change */
+  .inspection-count p.ng-animating {
+    transform: scale(1.2);
+  }
+  

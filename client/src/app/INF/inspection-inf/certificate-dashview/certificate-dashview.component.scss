@@ -1,0 +1,435 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'lato', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container holding everything */
+.container {
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'content content'
+        'footer footer';
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr auto;
+    height: 100vh;
+    background: url('/assets/bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: #333;
+}
+
+/* Header styling */
+.header {
+    grid-area: header;
+    background-color: #24292e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 2px 8px rgb(0, 0, 0);
+}
+
+/* Ensure content does not overlap search bar */
+.content {
+    position: relative;
+    grid-area: content;
+    padding: 20px;
+    background-color: #0f0e0ece;
+    overflow-y: auto;
+}
+
+.header h1 {
+    font-size: 1.5em;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: -30px;
+}
+
+.emoji-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Search box styling */
+.search-box {
+    position: fixed;
+    right: 40px;
+    top: 75px;
+    display: flex;
+    align-items: center;
+    width:fit-content;
+    height:fit-content;
+    z-index: 1000;
+}
+
+.input-search {
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.231);
+    padding-right: 40px;
+    color: #fff;
+}
+
+.input-search::placeholder {
+    color: rgba(255, 255, 255, .5);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+.btn-search {
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color: white;
+    background-color: transparent;
+    pointer-events: painted;
+}
+
+.btn-search:focus ~ .input-search {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.input-search:focus{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+
+.table-responsive {
+   
+    top: 150px; /* Adjust this value based on your layout */
+    left: 50px; /* Adjust this value based on your layout */
+    right: 50px; /* Adjust this value based on your layout */
+    bottom: 100px; /* Adjust this value based on your layout */
+    max-width: calc(100% - 100px); /* Responsive width */
+    max-height: calc(100vh - 250px); /* Responsive height */
+    overflow-y: auto;
+    overflow-x: auto;
+    margin: 0 auto; /* Center the table */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* wcc-view.component.scss */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  
+  
+  
+/* Adjusted styled-table to be fully responsive */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Set a minimum width for smaller screens */
+}
+
+.styled-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #24292e;
+    color: #ffffff;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #f3f3f3;
+}
+
+/* View Button */
+.view-btn {
+    color: #24292e;
+    background-color: transparent;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.view-btn:hover {
+    color: #1d1d1d70;
+    transform: translateY(-2px);
+}
+
+.view-btn:active {
+    transform: scale(0.98);
+}
+
+.view-btn i.fa {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+/* Custom Scrollbar Styling */
+.table-responsive::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Hover effects for rows */
+.styled-table tbody tr {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #e0e0e0d8;
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.styled-table tbody tr {
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Heading styling */
+.container h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Footer styling */
+.footer {
+    grid-area: footer;
+    background-color: #24292e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Query for Laptops (1024px and below) */
+@media (max-width: 1024px) {
+    /* Container adjustments */
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'header'
+            'content'
+            'footer';
+        padding: 10px;
+    }
+
+    /* Header adjustments */
+    .header {
+        padding: 10px;
+        text-align: left; /* Align text to the left for smaller screens */
+    }
+
+    .header h1 {
+        font-size: 1.2em; /* Adjust font size for better readability */
+    }
+
+    /* Search Box adjustments */
+    .search-box {
+        right: 20px;
+        top: 60px; /* Adjust position */
+    }
+
+    .input-search {
+        width: 200px; /* Smaller width for search box */
+        font-size: 16px;
+    }
+
+    .btn-search {
+        font-size: 18px;
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Content adjustments */
+    .content {
+        padding: 15px;
+    }
+
+    /* Table responsiveness */
+    .table-responsive {
+        top: 120px; /* Adjust top position */
+        left: 20px;
+        right: 20px;
+        bottom: 80px;
+        max-width: calc(100% - 40px);
+        max-height: calc(100vh - 200px);
+        overflow-x: auto;
+    }
+
+    .styled-table {
+        min-width: 600px; /* Reduce minimum width for smaller screens */
+    }
+
+    /* Footer adjustments */
+    .footer {
+        padding: 8px;
+        text-align: center;
+    }
+
+    /* Adjust any other specific elements for better spacing and readability */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+  }
+  
+  .logo {
+    background-image: url('/assets/papl_logo_sample.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 80px;
+  }
+  
+  .icon {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 0 auto 25px;
+    position: relative;
+    z-index: -1;
+  }
+  
+  .loader {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #3b3765;
+    animation: spin 1.5s linear infinite;
+    z-index: 5;
+  }
+  
+  .loader:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #ee7f22;
+    animation: spin 3s linear infinite;
+  }
+  
+  .loader:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #b3b4b3;
+    animation: spin 3.5s linear infinite;
+  }
+  
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+  }

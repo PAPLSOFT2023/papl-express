@@ -1,0 +1,126 @@
+<!-- <div style="color: red; font-weight: bold;">
+    <span style="font-size: 24px;">⚠️</span>
+    <span style="font-size: 18px;">Attention: Shutdown Notice Imminent!</span><br>
+    <span style="font-size: 16px;">Identifying Critical Lift Points</span><br>
+    <span style="font-size: 16px;">Proceed Inspection and Generate Shutdown Notice at the end</span>
+  </div>
+
+
+   -->
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shutdown Notice</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+
+
+  .container {
+    position: relative;
+    max-width: fit-content; /* Set max-width to fit the content */
+    width: auto; /* Allow width to adjust based on content */
+    background-image: url('\assets\skull.png'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* border-radius: 10px; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Darker shadow for added emphasis */
+    padding: 40px;
+    text-align: center;
+    background-color: rgba(119, 165, 116, 0.684);
+    color: #fff; /* Text color for better visibility on the image */
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    color: #ff4444; /* Red color for danger */
+    font-size: 32px; /* Increased font size for emphasis */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 2px; /* Increased letter spacing for readability */
+  }
+
+  p {
+    margin-bottom: 30px;
+    color: #007bff; /* Blue color for content */
+    line-height: 1.6;
+    font-size: 18px; /* Increased font size for better readability */
+  }
+
+  button {
+    background-color: #ff4444; /* Red color for danger */
+    color: #fff;
+    padding: 12px 24px; /* Increased padding for better clickability */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Added box-shadow for button */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 1px; /* Increased letter spacing for readability */
+  }
+
+  button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+  }
+
+  .icon {
+    font-size: 48px; /* Increased icon size for prominence */
+    margin-bottom: 20px;
+    color: #ff4444; /* Red color for danger */
+  }
+
+  .danger-text {
+    font-weight: bold;
+    color: #ff4444; /* Red color for danger */
+  }
+
+  .urgent-text {
+    font-weight: bold;
+    color: #cc0000; /* Darker red for urgency */
+  }
+
+  .skull {
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add space below */
+    width: 100px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    filter: brightness(0.7); /* Reduce brightness for better text visibility */
+  }
+
+  .left-image {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 50px; /* Adjust as needed */
+  }
+
+  .right-image {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 50px; /* Adjust as needed */
+  }
+ 
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img class="skull" src="\assets\skull.png" alt="Company Logo">
+  <img class="skull left-image" src="\assets\danger.png" alt="Company Logo">
+  <h2> Shutdown Notice</h2>
+  <img class="skull right-image" src="\assets\danger.png" alt="Company Logo">
+  <p style="font-size: 15px; color: #2e71b9;" class="urgent-text"><i class="fas fa-info-circle"></i> Attention: Shutdown Notice Imminent!</p> <!-- Icon added before the text -->
+  <p style="font-size: 15px; color: #0e0d0d;" class="danger-text"><i style="font-size: 20px; color: #cc0000;" class="fas fa-exclamation-triangle icon"></i> Identified Critical Lift Points</p>
+ <p style="font-size: 15px; color:  #ff4444;" class="danger-text"><i style="font-size: 15px; color: black;" class="fas fa-skull-crossbones icon"></i> Proceed Inspection and Generate Shutdown Notice at the end<i style="font-size: 20px; color: black;" class="fas fa-skull-crossbones icon"></i></p><!-- Icon added before the text -->
+ <button mat-button mat-dialog-close style="font-size: 12px; color: black; font-weight: bolder;"><i class="fas fa-check"></i> OK</button> <!-- Tick icon added before the button text -->
+</div>
+<!-- <button >Close Dialog</button> -->
+</body>
+</html>

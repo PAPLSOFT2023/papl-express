@@ -1,0 +1,209 @@
+<!-- <tr *ngFor="let item of inspection">
+    <td>{{item.inspector_name}}</td>
+</tr> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <title>Sales Form</title> -->
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>INSPECTION ANALYSIS</h1>
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search..." (input)="onSearch($event)">
+            </div>
+        </header>
+
+        <main class="content">
+            <h2>NO.OF UNITS INSPECTED</h2>
+            <br>
+            <hr>
+            
+
+            <!-- <table class="filter-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <input type="date" [(ngModel)]="fromDate" class="input-field" placeholder="From Date">
+                    </th>
+                    <th>
+                      <input type="date" [(ngModel)]="toDate" class="input-field" placeholder="To Date">
+                    </th>
+                    <th>
+                      <input type="text" [(ngModel)]="location" class="input-field" placeholder="Filter by Location">
+                    </th>
+                  
+                    <th>
+                      <select [(ngModel)]="region_name" required class="select-field">
+                        <option value="" disabled selected>Select an region</option>
+                        <option *ngFor="let region of region_details_d" [value]="region">{{ region }}</option>
+                      </select>
+                    </th>
+                    <th>
+                      <select [(ngModel)]="inspectors_name" required class="select-field">
+                        <option value="" disabled selected>Select an Inspector</option>
+                        <option *ngFor="let inspector of inspectors_name_d" [value]="inspector">{{ inspector }}</option>
+                      </select>
+                    </th>
+
+                    <th>
+                      <select [(ngModel)]="selectedFilter" class="select-field">
+                        <option value="" disabled selected>Select Filter</option>
+                        <option value="thisMonth">This Month</option>
+                        <option value="lastMonth">Last Month</option>
+                        <option value="last3Months">Last Three Months</option>
+                      </select>
+                    </th>
+                    <th>
+                      <button (click)="filterRecords()" class="filter-btn">Filter</button>
+                    </th>
+                  </tr>
+                </thead>
+              </table> -->
+              
+
+
+
+
+
+              <div class="filter-container">
+
+                <button class="filter-icon-btn" (click)="togglePopup()">
+                    <img src="/assets/calendar.png" alt="Calendar" />
+                </button>
+
+                <input type="text" class="text-box" name="newTextBoxName"  [(ngModel)]="location"  placeholder="Location...">
+
+                <select class="dropdown" [(ngModel)]="region_name" required>
+                    <option value="" disabled selected>Select an region</option>
+                    <option *ngFor="let region of region_details_d" [value]="region">{{ region }}</option>
+                  </select>
+                   
+
+               <select [(ngModel)]="inspectors_name" required class="dropdown">
+                <option value="" disabled selected>Select an inspector</option>
+                <option *ngFor="let inspector of inspectors_name_d" [value]="inspector">{{ inspector }}</option>
+            </select>
+
+        
+                <button  (click)="filterRecords()" class="filter-button1">
+                    <i class="fas fa-filter"></i><span class="filter-name">filter</span>
+                </button>
+
+                <button class="filter-button1"(click)="downloadData()">
+                                    
+                  <i class="fas fa-download"></i>
+  
+              </button>
+
+           </div>
+
+             
+              
+              
+              <!-- Filter Popup -->
+      <div class="popup" id="filterPopup" *ngIf="isPopupVisible">
+    <div class="popup-header">
+        <span class="cancel-icon" (click)="togglePopup()">
+            <i class="fas fa-times"></i> 
+        </span>
+    </div>
+    <div class="filter-field">
+      <label for="duration">Duration:</label>
+      <select id="duration" [(ngModel)]="selectedFilter" (change)="toggleDateRange($event)">
+        <option value="" disabled selected>Select Months</option>
+        <option value="thisMonth">This Month</option>
+        <option value="lastMonth">Last Month</option>
+        <option value="last3Months">Last Three Months</option>
+        <option value="last6Months">Last Six Months</option>
+        <option value="lastYear">Last Year</option>
+        <option value="date-range">Select Date Range</option>
+      </select>
+    </div>
+    
+              
+                <div class="date-range" *ngIf="isDateRangeFieldsVisible">
+                  <div class="filter-field">
+                    <label for="from-date">From Date:</label>
+                    <input type="date"  [(ngModel)]="fromDate" id="from-date">
+                  </div>
+                  <div class="filter-field">
+                    <label for="to-date">To Date:</label>
+                    <input type="date"  [(ngModel)]="toDate" id="to-date">
+                  </div>
+                </div>
+              
+              </div>
+         
+
+
+
+
+
+
+
+
+
+
+            <div class="table-responsive">
+                <h3></h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>INSPECTOR NAME</th>
+                            <!-- <th>FROM DATE</th>
+                            <th>TO DATE</th> -->
+                            <th>PROJECT NAME</th>
+                            <th>BUILDING NAME</th>
+                            <th>LOCATION</th>
+                            <th>NO.OF.UNITS</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                            <tr *ngFor="let record of filteredData; let i = index">
+                              <td>{{ i + 1 }}</td>
+                              <td>{{ parseInspectorList(record.inspector_name) }}</td>
+                              <!-- <td>{{ record.from_date | date: 'dd-MM-yyyy' }}</td>
+                              <td>{{ record.to_date | date: 'dd-MM-yyyy' }}</td> -->
+                              <td>{{ record.project_name }}</td>
+                              <td>{{ record.building_name }}</td>
+                              <td>{{ record.location }}</td>
+
+                              <td>{{ record.no_of_units }}</td>
+                           
+                            </tr>
+                          </tbody>
+                          
+                    
+                </table>
+            </div>
+        </main>
+
+
+        <div class="report-cards-container">
+          <div class="loader-container" *ngIf="isLoading">
+            <div class="icon logo">
+              <div class="loader"></div>
+            </div>
+          </div>
+          </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><a style="color: yellow;" href="https://paplexpress.com" target="_blank">Paplexpress.com</a> - All rights reserved 2024</p>
+        </footer>
+    </div>
+</body>
+</html>

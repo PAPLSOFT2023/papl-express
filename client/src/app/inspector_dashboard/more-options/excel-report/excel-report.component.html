@@ -1,0 +1,39 @@
+<br>
+<br>
+<div class="report-cards-container">
+  <div class="report-cards-container">
+    <!-- <div class="loader-container" *ngIf="isLoading">
+      <div class="icon logo">
+        <div class="loader"></div>
+      </div>
+    </div> -->
+    <div class="report-card"  *ngFor="let record of exceldata"  >
+        <!-- <tr *ngFor="let record of exceldata; let i = index"> -->
+
+      <div class="card-header">
+  
+        <div class="card-title">
+          <i class="fas fa-file-contract"></i> <!-- File contract icon -->
+          Contract No: {{record.contract_no}}
+        </div>
+        </div>
+  
+        <div class="card-content" >
+        
+        <div class="info-row">
+          <span class="info-label"><i class="fas fa-building"></i> Building Name:</span> <!-- Building icon -->
+          <span class="info-value">{{record.buildingNO}}</span>
+        </div>
+        <!-- Additional Information -->
+        <div class="info-row">
+          <span class="info-label"><i class="fa fa-credit-card"></i> Units :</span> <!-- Building icon -->
+          <span class="info-value"> {{record.Order_unit_str}}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label"><i class="fa fa-book-alt"></i>Document ID:</span> <!-- Calendar icon -->
+          <span class="info-value"> {{record.documentidForUrl}}</span>
+        </div>
+        <i class="fa fa-eye" (click)="viewexcel(record.id)"></i>
+  </div>
+      </div>
+    </div>

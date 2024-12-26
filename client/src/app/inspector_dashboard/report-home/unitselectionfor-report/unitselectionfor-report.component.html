@@ -1,0 +1,123 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<div class="loader-container" *ngIf="isLoading">
+  <div class="icon logo">
+    <div class="loader"></div>
+  </div>
+</div>
+
+<!-- <div *ngIf !="isLoading"> -->
+
+
+<mat-tab-group>
+  <mat-tab label="First Review">
+    <div class="container">
+      <!-- Table for Units and Unit Order -->
+      <table class="unit-table">
+        <thead>
+          <tr class="header-row">
+            <th>Unit</th>
+            <th *ngFor="let unit1 of unit; let i = index">{{ unit1 }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="checkbox-row">
+            <td><strong>Unit Order for Report</strong></td>
+            <td *ngFor="let unitval of unitArray; let i = index">
+              <input type="checkbox" [(ngModel)]="unitval.isSelected" (change)="toggleSelection(unitval)">
+            </td>
+
+          </tr>
+
+          
+        </tbody>
+      </table>
+      <span class="select-all-container">
+        <b>Select all units</b>
+        <input type="checkbox" [(ngModel)]="selectAllUnitsChecked" (change)="toggleSelectAll()">
+      </span>
+
+    </div>
+    
+
+    <div class="container1 selected-order">
+      <p><strong>Selected Order:</strong> {{ getSelectedOrder() }}</p>
+    </div>
+
+    <div class="btn-container">
+      <button 
+        class="btn btn-generate" 
+        (click)="GenReport()">Generate</button>
+      <button 
+        class="btn btn-proceed" 
+        [disabled]="isProceedDisabled" 
+        (click)="proceed()">Proceed</button>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+
+
+
+
+
+
+
+<!-- Button to download all images -->
+
+
+
+<div class="container" *ngIf="showSecondTable">
+  <button class="btn_three" (click)="pickTwo()" [disabled]="isButtonDisabled">Pick Two</button>
+  <button  (click)="downloadAllImagesAsZip()" class="btn_three" [disabled]="isButtonDisabled">Download All Images</button>
+
+
+  <ng-container *ngFor="let partsui of parts_for_UI">
+    <!-- Content as before -->
+    <table #myTable>
+      <thead>
+        <tr class="units">
+          <th>S. No.</th>
+          <th>Description</th>
+          <th *ngFor="let unit of selectedOrder; let unit_index = index">{{ unit }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let Row_data of Description_and_Parts; let i=index">{{i}}</tr> -->
+        <tr *ngFor="let Row_data of Description_and_Parts; let i=index">
+          <ng-container *ngIf="(partsui | uppercase) === (Row_data.Parts | uppercase)">
+            <td>{{ i+1 }}</td>
+            <td class="description-td">{{ Row_data.Description }}</td>
+            <ng-container *ngFor="let unit_for_img of selectedOrder; let unit_index = index">
+              <td>
+                <div *ngFor="let unit of getObjectKeys(image_val)">
+                  <ng-container *ngIf="unit_for_img === unit">
+                    <div *ngFor="let section of getObjectKeys(image_val[unit])">
+                      <div *ngFor="let description of getObjectKeys(image_val[unit][section])">
+                        <ng-container *ngIf="description.trim() === Row_data.Description.trim()">
+                          <div *ngFor="let dropdown of getObjectKeys(image_val[unit][section][description]); let i = index">
+                            <h5>{{ dropdown }}</h5>
+                            <img [src]="'data:image/jpeg;base64,'+image_val[unit][section][description][dropdown]" alt="Image" height="150" width="180"><br>
+                            <label for="inputId">
+                              Pick for Report:
+                              <input type="checkbox" #checkbox (change)="toggleImageRecord(i, checkbox.checked, unit, section, description, dropdown)">
+                            </label>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </td>
+            </ng-container>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
+
+
+<!-- </div> -->

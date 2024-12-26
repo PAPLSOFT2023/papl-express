@@ -1,0 +1,26 @@
+<div>
+    <h1>Reports</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Inspector Name</th>
+          <th>Building Name</th>
+          <th>Unit Name</th>
+          <th>Document ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of reports">
+          <td>{{ report.inspector_name }}</td>
+          <td>{{ report.building_name }}</td>
+          <td>{{ report.unit_name }}</td>
+          <td>{{ report.document_id }}</td>
+          <td>
+            <button (click)="sendEmail(report.document_id,report.customer_name,report.project_name)">Send Email</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

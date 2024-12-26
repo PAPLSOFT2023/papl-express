@@ -1,0 +1,12 @@
+{
+  "hosting": [
+    {
+      "target": "sidenav-with-multilevel-menu",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ],
+  "database": {
+    "rules": "database.firebase.rules"
+  }
+}

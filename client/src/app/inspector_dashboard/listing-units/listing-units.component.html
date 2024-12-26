@@ -1,0 +1,53 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Icon Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+  </head>
+<body>
+    <p class="heading">AUDIT BEGINS</p>
+    <div class="containers">
+       
+
+        <!-- List of Units -->
+        <ul>
+            <li *ngFor="let unit of units; let i = index">
+                <!-- Unit Text -->
+                <p>{{ unit }}</p>
+                <!-- Edit Icon -->
+                <span class="edit-icon" (click)="editUnit(i)">
+                  <i class="fas fa-edit"></i>
+                </span>
+                <!-- Proceed Button -->
+                <div class="content" (click)="proceed(unit)">
+                  <button>Proceed</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+ <!-- Modal Popup for Editing -->
+ <div *ngIf="editingIndex !== null" class="modal">
+    <div class="modal-content">
+      <!-- Close icon in top-right corner -->
+      <span class="close-icon" (click)="cancelEdit()">
+        &times;
+      </span>
+      <h3>Edit Unit</h3>
+      <input
+        type="text"
+        [(ngModel)]="editedValue"
+        placeholder="Enter new value"
+        autofocus
+      />
+      <!-- Save button centered at the bottom -->
+      <div class="modal-actions">
+        <button (click)="saveUnit()">Save</button>
+      </div>
+    </div>
+</div>
+
+

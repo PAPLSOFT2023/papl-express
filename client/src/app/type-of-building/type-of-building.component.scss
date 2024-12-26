@@ -1,0 +1,329 @@
+
+/* Adjust the body to prevent page scroll */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    overflow: hidden; /* Prevent unnecessary page scrollbars */
+  }
+  
+  /* Container holding everything */
+  .container {
+    display: grid;
+    grid-template-areas:
+        'header header'
+        'content content'
+        'footer footer';
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 1fr auto;
+    height: 100vh;
+    background: url('/assets/bg.jpg') no-repeat center center;
+    background-size: cover;
+    color: #333;
+  }
+  
+  /* Header styling */
+  .header {
+    grid-area: header;
+    background-color: #24292e;
+    color: white;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the h1 */
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Centered h1 */
+  .header h1 {
+    font-size: 1.8em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+  }
+  
+  .content {
+    position: relative;
+    grid-area: content;
+    padding: 20px;
+    background-color: rgba(15, 14, 14, 0.9);
+    overflow-y: auto; /* Allow vertical scroll if content exceeds screen */
+    max-height: 100%; /* Allow flexible height */
+  }
+  
+  /* Header style */
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 15px 0;
+    color: white;
+  }
+  
+  /* Styling for the Table Container to Enable Scrolling */
+  .table-responsive {
+    width: 100%;
+    max-height: 500px; /* Limit the table height to a specific value */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  
+  
+  /* Styled Table */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure no gaps between borders */
+  }
+  
+  .styled-table thead {
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick it to the top */
+    z-index: 1; /* Higher stacking context for the header */
+    background-color: #24292e; /* Header background color */
+    color: #ffffff; /* Text color for header */
+  }
+  
+  .styled-table th, .styled-table td {
+    padding: 12px 15px; /* Add padding for readability */
+    text-align: center; /* Align text to the center */
+  }
+  
+  .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd; /* Add bottom border for rows */
+  }
+  
+  .styled-table tbody tr {
+    background-color: #f3f3f3; /* Alternate row colors for readability */
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #f3f3f3; /* Bottom border for the last row */
+  }
+  
+  /* Hover effects for rows */
+  .styled-table tbody tr:hover {
+    background-color: #e0e0e0d8;
+    transform: scale(1.02); /* Slight scale effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Keyframes for slide-in animation */
+  @keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Apply animation to table rows */
+  .styled-table tbody tr {
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+  }
+  
+  /* Edit and Delete buttons in the table */
+  .edit-btn, .delete-btn {
+    padding: 5px 5px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .delete-btn{
+    color: red;
+  }
+  
+  /* Popup Styles */
+  .popup-overlay33 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .popup-content33 {
+    background: #fefefe;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    animation: popup-fade 0.3s ease;
+    position: relative;
+  }
+  
+  .popup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .form-group33 {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    align-items: flex-start; /* Align label and input to the left */
+    margin-bottom: 15px; /* Space between form elements */
+  }
+  
+  .form-group33 label {
+    text-align: left; /* Align the label to the left */
+    margin-bottom: 5px; /* Space between label and input */
+    font-size: 1rem; /* Adjust label font size for readability */
+  }
+  
+  .form-group33 input {
+    width: 100%; /* Ensure input takes the full width of the container */
+    padding: 8px; /* Padding inside the input box */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 5px; /* Rounded corners */
+    text-align: left; /* Align text inside input box to the left */
+    margin: 0; /* Remove margin for a flush look */
+  }
+  
+  
+  
+  .popup-buttons33 {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .confirm {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: red;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  /* Popup Animation */
+  @keyframes popup-fade {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .confirm {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+  }
+  
+  
+  .open-form-btn {
+    background-color: #24292e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: -14px; /* Adds a 2px top margin */
+  }
+  
+  .fa-plus{
+    margin-right: 6px;
+  }
+  
+
+  
+
+.search-box {
+  position: fixed; /* Fixed position to keep it on the screen */
+  right:40px; /* Distance from the right side */
+  top:75px; /* Adjust this value to control the vertical position */
+  display: flex;
+  align-items: center;
+  width: fit-content; /* Ensures the width adjusts to content */
+  height: fit-content; /* Adjusts height to fit the content */
+  z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+.input-search{
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color:rgba(255, 255, 255, 0.231) ;
+  padding-right: 40px;
+  color:#fff;
+}
+.input-search::placeholder{
+  color:rgba(255,255,255,.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:white;
+  background-color:transparent;
+  pointer-events: painted;  
+}
+.btn-search:focus ~ .input-search{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255,255,255,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}

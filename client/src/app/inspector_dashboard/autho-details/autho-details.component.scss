@@ -1,0 +1,363 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: whitesmoke;
+    width: calc(1000px + 16px); /* Account for scrollbar width */
+    height: calc(600px + 16px); /* Account for scrollbar height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding-top: 10px;
+    overflow: hidden; /* Hide the scrollbar */
+}
+
+
+
+// .signature-canvas {
+//     max-width: 150px;
+//     height: auto;
+//     display: block;
+//     margin: auto;
+//     border: 1px solid #ccc;
+//     padding: 5px;
+//     border-radius: 5px;
+//     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+//   }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 600px;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.dialog h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.dialog p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+canvas {
+    border: 1px solid #ccc;
+    width: 50%;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.new_button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.new_button:hover {
+    background-color: #0056b3;
+}
+
+.new_button:active {
+    background-color: #004085;
+}
+
+.new_button:focus {
+    outline: none;
+    box-shadow: 0 0 3px 2px rgba(0, 123, 255, 0.5);
+}
+.button{
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #ff0000;
+}
+
+.button:active {
+  background-color: #ff0000;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.5);
+}
+
+
+
+
+.close_button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #bb0c0c;
+   
+}
+
+
+
+  
+  
+  
+  
+ 
+ 
+  
+
+
+table {
+    width: 90%; /* Set a fixed width */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+  }
+td input[type="text"] {
+    border: none; 
+    outline: none; 
+    width: 100%; 
+    box-sizing: border-box; 
+    font-size: 18px;
+    text-align: center;
+  }
+
+  td input[type="tel"] {
+    border: none; 
+    outline: none; 
+    width: 100%; 
+    box-sizing: border-box; 
+    font-size: 18px;
+    text-align: center;
+  }
+th, td {
+    padding: 10px;
+    width:300px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+}
+td {
+    position: relative;
+}
+td:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 80%;
+    background: #ddd;
+    transform: translateY(-50%);
+}
+td[contenteditable="true"] {
+    width: 150px; 
+    min-width: 150px; 
+    max-width: 150px; 
+    text-align: center;
+}
+td[contenteditable]:focus{
+    outline:none;
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 10px; 
+    margin-bottom: 20px;
+}
+thead{
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+}
+
+
+
+.clear {
+    padding: 2px 5px;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    background: transparent;
+    cursor: pointer;
+   
+}
+.dropdown-container{
+    text-align: center;
+}
+
+.dropdown{
+    font-size:18px;
+    border: none;
+    outline: none;
+    appearance: none;
+    background-color:transparent;
+}
+
+.disabled-button {
+    background-color:gray; 
+    color: gray;
+    cursor: not-allowed; 
+}
+.btn[disabled] {
+    background-color:gray; /* Gray background color */
+    color: gray; /* Dark gray text color */
+    cursor: not-allowed; /* Change cursor to not-allowed */
+  }
+  
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 18px;
+    }
+    th, td {
+        padding: 8px;
+    }
+    td[contenteditable="true"] {
+        width: 120px; 
+        min-width: 120px;
+        max-width: 120px;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    table {
+        font-size: 12px;
+    }
+    th, td {
+        padding: 6px;
+    }
+    td[contenteditable="true"] {
+        width: 100px; 
+        min-width: 100px;
+        max-width: 100px;
+    }
+}
+
+
+
+
+
+
+
+
+.signature-pad {
+    border: 2px solid #ddd; /* Adjust border width and color */
+    background-color: white; /* Set background to black for contrast */
+    border-radius: 5px; /* Optional: add rounded corners */
+    position: relative; /* Necessary for positioning child elements if needed */
+    display: inline-block; /* Ensures proper spacing around the pad */
+}
+
+
+.signature-pad canvas {
+    /* Optional: Set canvas properties if needed */
+    color: white; /* Ensure any text within the canvas is white */
+}
+
+
+
+
+  .signature-pad-container {
+    position: relative; /* Make the container relative for absolute positioning */
+    display: inline-block; /* Ensures the button is positioned correctly */
+  }
+
+  .clear-signature-btn {
+    position: absolute; /* Position the button absolutely within the container */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: semi-transparent background */
+    border: none; /* Remove default button border */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 5px; /* Add some padding */
+    font-size: 16px; /* Font size for the button */
+  }
+  
+  .clear-signature-btn:hover {
+    background-color: rgba(255, 255, 255, 1); /* Solid background on hover */
+  }
+  
+  .capture-signature-btn {
+    position: absolute; /* Position the button absolutely within the container */
+    bottom:5px; /* Distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center the button */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default button border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    padding:6px 16px; /* Padding for the button */
+    font-size: 16px; /* Font size for the button */
+  }
+  
+  .capture-signature-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+
+ 
+  .text-danger {
+    color: red;
+    font-size: 12px;
+  }

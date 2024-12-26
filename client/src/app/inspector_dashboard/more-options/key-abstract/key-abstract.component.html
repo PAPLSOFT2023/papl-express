@@ -1,0 +1,1393 @@
+<div #contentToConvert>
+    <body>
+      <div class="container">
+        <div class="loader-container" *ngIf="isLoading">
+          <div class="icon logo">
+            <div class="loader"></div>
+          </div>
+        </div>
+      </div>
+        
+        
+        <div class="content">
+         
+    
+    <div class="logo">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+        <div class="logo-container">
+            <img class="logo1" [src]="location" alt="Company Logo">
+          </div>
+     
+    </div>
+    
+    <div class="new_table">
+        <div>
+            <table>
+                
+                    <tr>
+                        <th class="key_head" colspan="16">
+                            <p class="first">KEY ABSTRACT OF OBSERVATIONS FOR IMMEDIATE ACTION-TPT3 -Elevators</p>
+                            <p class="second">(Information provided for Vendor to take action as per criticality and priority)</p>
+                        </th>
+                    </tr>
+              
+                <tbody>
+                    <tr >
+                        <td colspan="8"><b>BUILDING NAME:</b> {{inf_26.building_name}}</td>
+                        <td colspan="8"><b>WORK ORDER NO:</b> {{inf_26.customer_workorder_name}}</td>
+                        
+                    </tr>
+                    <tr >
+                        <td colspan="8"><b>LOCATION:</b> {{inf_26.location}}</td>
+                        <td  colspan="8"><b>CONTRACT No:</b> {{inf_26.contract_number}}</td> 
+                    </tr>
+                    <tr >
+                        <td  colspan="8"><b>INSPECTOR NAME:</b> {{name}}</td>
+                        <td  colspan="8"><b>DATE  OF INSPECTION:</b> {{current_date |  date: 'dd-MM-yyyy'}} </td>
+                    </tr>
+                    </table>
+    
+                    <table>
+                        <tr class="field_namebold">
+                            <td rowspan="2" style="width: fit-content;" class="center-align bold-text"><b>Sl.No</b></td>
+                            <!-- <td colspan="4" class="center-align bold-text"><b></b></td> -->
+                            
+                            <td colspan="6" class="center-align bold-text"><b>ELEVATOR NUMBER</b></td>
+                           
+                            <td class="center-align bold-text"><b>{{unit}}</b></td>
+                          </tr>
+                          
+                    
+                    <tr>
+                        <td class="pit_center1" colspan="3"><b>LEGEND</b></td>
+                        <td class="pit_center2" colspan="3"><b>PIT</b></td>
+                        <td  class="pit_center1"></td>
+                       
+                       
+                    </tr>
+                 
+                    <tr  class="center_all">
+                        <td colspan="2">1</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+
+                        <td colspan="3">Functional Lights at Pit </td>
+                        <!-- <td>{{ pit_light_control ? <i class="fas fa-check"></i> : 'X' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="pit_light_control; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                          
+                          
+                       
+                    </tr>
+                     <tr class="center_all">
+                        <td colspan="2">2</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        <td colspan="3">Functional PIT Stop Switches- Upper </td>
+                        <!-- <td>{{ pit_stop_switch_upper ? '✔️' : 'X' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="pit_stop_switch_upper; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                       
+                    </tr>
+                    <tr class="center_all">
+                        <td colspan="2">3</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        <td colspan="3">Functional PIT Stop Switches- Lower </td>
+                        <!-- <td>{{ pit_stop_switch_lower ? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="pit_stop_switch_lower; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                         
+                        
+                       
+                    </tr>
+                    
+                  
+                    <tr class="center_all">
+                        <td colspan="2">4</td>
+                        <td>C</td>
+                        <td style="font-size: 12px; text-align: center;">
+                            <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                <i class="fas fa-desktop"></i>
+                                <i class="fas fa-microchip"></i>
+                        </td>
+                        <td colspan="3">Functional Down final Limit Switch </td>
+                        <!-- <td>{{ limit_switch ? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="limit_switch; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr class="center_all">
+                        <td colspan="2">5</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <!-- <i class="fas fa-exclamation-triangle" ></i></td> -->
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        <td colspan="3">Condition of Hydraulic Buffers </td>
+                        <!-- <td>{{ car_run_by ? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="car_run_by; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr class="center_all">
+                        <td colspan="2">6</td>
+                        <td>C</td>
+                        <td style="font-size: 12px; text-align: center;">
+                            <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                <i class="fas fa-desktop"></i>
+                                <i class="fas fa-microchip"></i>
+                        </td>
+                        <td colspan="3">Acceptable CWT buffer Clearance </td>
+                        <!-- <td>{{ cwt_run_by ? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="cwt_run_by; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    
+                    <tr class="center_all">
+                        <td colspan="2">7</td>
+                        <td>i</td>
+                        <td style="text-align: center; font-size: 20px;">
+                            &mu;
+                        </td>
+                        
+                        <td colspan="3">Acceptable condition of Pit </td>
+                        <!-- <td>{{ pit_condition ? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="pit_condition; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr class="center_all">
+                        <td colspan="2">8</td>
+                        <td>i</td>
+                        <td style="text-align: center; font-size: 20px;">
+                            &mu;
+                        </td>
+                        
+                        <td colspan="3">Identification of Lifts in & Pit </td>
+                        <!-- <td>{{ hasFunctionalPointYChecked1 ? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="hasFunctionalPointYChecked1; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr class="center_all">
+                        <td class="pit_center2" colspan="8" style="text-align: center;"><b>CABIN & FLOOR LANDING</b></tr>
+                   
+                    
+                    
+                    <tr class="center_all">
+                        
+                        <td colspan="2">9</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional COP </td>
+                        <!-- <td>{{ cop_operation? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="cop_operation; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">10</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Car Displays </td>
+                        <!-- <td>{{ cabin_display? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="cabin_display; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr   class="center_all">
+                        <td colspan="2">11</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Hall Button
+                        </td>
+                        <!-- <td>{{ function_hall_button? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="function_hall_button; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">12</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Hall Displays</td>
+                        <!-- <td>{{ function_hall_position? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="function_hall_position; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">13</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Hall Lantern</td>
+                        <!-- <td>{{ function_hall_latern? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="function_hall_latern; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                   
+                        
+                       
+                    <tr  class="center_all">
+                        <td colspan="2">14</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional DCS if applicable & with UPS</td>
+                        <!-- <td>{{ dcs? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="dcs; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">15</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Car Door Safety- Mech.or Sensor</td>
+                        <!-- <td>{{ door_safety? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="door_safety; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">16</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional ARD</td>
+                        <!-- <td>{{ ard? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="ard; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+    
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">17</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Emergency Alarm</td>
+                        <!-- <td>{{ alaram? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="alaram; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+    
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">18</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Emergency light</td>
+                        <!-- <td>{{ light? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="light; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">19</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Emergency 3-way Intercom </td>
+                        <!-- <td>{{ intercom? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="intercom; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+    
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">20</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Fireman Switch</td>
+                        <!-- <td>{{ fireman? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="fireman; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">21</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional De Locking Key System</td>
+                        <!-- <td>{{ unlocking? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="unlocking; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">22</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Acceptable Levelling accuracy</td>
+                        <!-- <td>{{ levelling? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="levelling; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">23</td>
+                        <td>i</td>
+                        <td style="text-align: center; font-size: 20px;">
+                            &mu;
+                        </td>
+                        
+                        <td colspan="3">Acceptable Ride Quality</td>
+                        <!-- <td>{{ riding? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="riding; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">24</td>
+                        <td>i</td>
+                        <td style="text-align: center; font-size: 20px;">
+                            &mu;
+                        </td>
+                        
+                        <td colspan="3">Acceptable Door Operation</td>
+                        <!-- <td>{{ door? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="door; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+    
+                      
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">25</td>
+                        <td>W</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Identification of Lifts in Cabin (For more than one lift) </td>
+                        <!-- <td>{{ cabin? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="cabin; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+    
+                       
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">26</td>
+                        <td>C</td>
+                        <td style="font-size: 12px; text-align: center;">
+                            <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                <i class="fas fa-desktop"></i>
+                                <i class="fas fa-microchip"></i>
+                        
+                        <td colspan="3">Provision of Toe Guard (750mm.) </td>
+                        <!-- <td>{{ toe_guard? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="toe_guard; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+    
+                       
+                    </tr>
+                
+                    <tr >
+                        <!-- <td  class="pit_center1" ></td> -->
+                        <td style="text-align: center; " class="pit_center1"  colspan="8" ><b>CAR TOP & HOIST WAY</b></td>
+                        <!-- <td  class="pit_center1"></td> -->
+                        
+                    </tr>
+                    <tr  class="center_all">
+                        <td colspan="2">27</td>
+                        <td>C</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-microchip"></i>
+                        </td>
+                        
+                        <td colspan="3">Functional Car top inspection Switches</td>
+                        <!-- <td>{{stop_switch? '✔️' : '❌' }}</td> -->
+                        <td>
+                            <ng-container *ngIf="stop_switch; else notChecked">
+                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                            </ng-container>
+                            <ng-template #notChecked>
+                              <span style="color: red; font-weight: bold;">X</span>
+                            </ng-template>
+                          </td>
+                       
+                    </tr>
+                    <tr>
+                        <tr  class="center_all">
+                            <td colspan="2">28</td>
+                            <td>C</td>
+                            <td style="font-size: 12px; text-align: center;">
+                                <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                    <i class="fas fa-desktop"></i>
+                                    <i class="fas fa-microchip"></i>
+                            </td>
+                            
+                            <td colspan="3">Functional Up final Limit Switch</td>
+                            <!-- <td>{{final_limit? '✔️' : '❌' }}</td> -->
+                            <td>
+                                <ng-container *ngIf="final_limit; else notChecked">
+                                  <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                </ng-container>
+                                <ng-template #notChecked>
+                                  <span style="color: red; font-weight: bold;">X</span>
+                                </ng-template>
+                              </td>
+    
+                           
+                        </tr>
+                    <tr>
+                        <tr  class="center_all">
+                            <td colspan="2">29</td>
+                            <td>i</td>
+                            <td style="text-align: center; font-size: 20px;">
+                                &mu;
+                            </td>
+                            
+                            
+                            <td colspan="3">Functional Lights at Car Top</td>
+                            <!-- <td>{{car_light? '✔️' : '❌' }}</td> -->
+                            <td>
+                                <ng-container *ngIf="car_light; else notChecked">
+                                  <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                </ng-container>
+                                <ng-template #notChecked>
+                                  <span style="color: red; font-weight: bold;">X</span>
+                                </ng-template>
+                              </td>
+    
+                           
+                        </tr>
+                        <tr>
+                            <tr  class="center_all">
+                                <td colspan="2">30</td>
+                                <td>C</td>
+                                <td style="font-size: 12px; text-align: center;">
+                                    
+                                        <i class="fas fa-desktop"></i>
+                                        <i class="fas fa-microchip"></i>
+                                </td>
+                                
+                                <td colspan="3">Functional Stop Switches at Car top</td>
+                                <!-- <td>{{gear_switch? '✔️' : '❌' }}</td> -->
+                                <td>
+                                    <ng-container *ngIf="gear_switch; else notChecked">
+                                      <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                    </ng-container>
+                                    <ng-template #notChecked>
+                                      <span style="color: red; font-weight: bold;">X</span>
+                                    </ng-template>
+                                  </td>
+    
+                               
+                            </tr>
+                            <tr>
+                                <tr  class="center_all">
+                                    <td colspan="2">31</td>
+                                    <td>C</td>
+                                    <td style="font-size: 12px; text-align: center;">
+                                        <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                            <i class="fas fa-desktop"></i>
+                                            <i class="fas fa-microchip"></i>
+                                    </td>
+                                    <td colspan="3">Functional SOS Switches </td>
+                                    <!-- <td>{{ gate_switch? '✔️' : '❌' }}</td> -->
+                                    <td>
+                                        <ng-container *ngIf="gate_switch; else notChecked">
+                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                        </ng-container>
+                                        <ng-template #notChecked>
+                                          <span style="color: red; font-weight: bold;">X</span>
+                                        </ng-template>
+                                      </td>
+    
+                                  
+                                </tr>
+                                <tr>
+                                    <tr  class="center_all">
+                                        <td colspan="2">32</td>
+                                        <td>C</td>
+                                        <td style="font-size: 12px; text-align: center;">
+                                            <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                                <i class="fas fa-desktop"></i>
+                                                <i class="fas fa-microchip"></i>
+                                        </td>
+                                        
+                                        <td colspan="3">Functional Car door Contact Switches </td>
+                                        <!-- <td>{{ contact? '✔️' : '❌' }}</td> -->
+                                        <td>
+                                            <ng-container *ngIf="contact; else notChecked">
+                                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                            </ng-container>
+                                            <ng-template #notChecked>
+                                              <span style="color: red; font-weight: bold;">X</span>
+                                            </ng-template>
+                                          </td>
+    
+                                        
+                                    </tr>
+                                <tr>
+                                    <tr  class="center_all">
+                                        <td colspan="2">33</td>
+                                        <td>C</td>
+                                        <td style="font-size: 12px; text-align: center;">
+                                            <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                                <i class="fas fa-desktop"></i>
+                                                <i class="fas fa-microchip"></i>
+                                        </td>
+                                        
+                                        <td colspan="3">Functional Landing Lock Switches  </td>
+                                        <!-- <td>{{ landing_locks? '✔️' : '❌' }}</td> -->
+                                        <td>
+                                            <ng-container *ngIf="landing_locks; else notChecked">
+                                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                            </ng-container>
+                                            <ng-template #notChecked>
+                                              <span style="color: red; font-weight: bold;">X</span>
+                                            </ng-template>
+                                          </td>
+    
+                                        
+                                    </tr>
+                                    <tr>
+                                        
+                                       
+                                            <tr>
+                                                <tr  class="center_all">
+                                                    <td colspan="2">34</td>
+                                                    <td>i</td>
+                                                    <td style="text-align: center; font-size: 20px;">
+                                                        &mu;
+                                                    </td>
+                                                    
+                                                    <td colspan="3">Acceptable Condition Of Cartop</td>
+                                                    <!-- <td>{{ condition_car_top? '✔️' : '❌' }}</td> -->
+                                                    <td>
+                                                        <ng-container *ngIf="condition_car_top; else notChecked">
+                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                        </ng-container>
+                                                        <ng-template #notChecked>
+                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                        </ng-template>
+                                                      </td>
+    
+                                                   
+                                                </tr>
+                                                <tr>
+                                                    <tr  class="center_all">
+                                                        <td colspan="2">35</td>
+                                                        <td>W</td>
+                                                        <td style="text-align: center; font-size: 20px;">
+                                                            &mu;
+                                                        </td>
+                                                        
+                                                        <td colspan="3">Identification of Lifts in Car top if there are two or more lifts in the building </td>
+                                                        <!-- <td>{{ identification_car_top? '✔️' : '❌' }}</td> -->
+                                                        <td>
+                                                            <ng-container *ngIf="identification_car_top; else notChecked">
+                                                              <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                            </ng-container>
+                                                            <ng-template #notChecked>
+                                                              <span style="color: red; font-weight: bold;">X</span>
+                                                            </ng-template>
+                                                          </td>
+    
+                                                        
+                                                    </tr>
+                                                    <tr >
+                                                        <!-- <td  class="pit_center1" colspan="2"></td> -->
+                                                        <td style="text-align: center; " class="pit_center1"  colspan="8" ><b>MACHINE ROOM</b></td>
+                                                        <!-- <td  class="pit_center1"></td> -->
+                                                     
+                                                    </tr>
+                                                   
+                                                        <tr>
+                                                            <tr  class="center_all">
+                                                                <td colspan="2">36</td>
+                                                                <td>i</td>
+                                                                <td style="text-align: center; font-size: 20px;">
+                                                                    &mu;
+                                                                </td>
+                                                                
+                                                                <td colspan="3">Acceptable Safe MCR Access</td>
+                                                                <!-- <td>{{ safe_access? '✔️' : '❌' }}</td> -->
+                                                                <td>
+                                                                    <ng-container *ngIf="safe_access; else notChecked">
+                                                                      <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                    </ng-container>
+                                                                    <ng-template #notChecked>
+                                                                      <span style="color: red; font-weight: bold;">X</span>
+                                                                    </ng-template>
+                                                                  </td>
+    
+                                                               
+                                                            </tr>
+                                                            <tr  class="center_all">
+                                                                <td colspan="2">37</td>
+                                                                <td>i</td>
+                                                                <td style="text-align: center; font-size: 20px;">
+                                                                    &mu;
+                                                                </td>
+                                                                
+                                                                <td colspan="3">Lockable Main Switches</td>
+                                                                <!-- <td>{{ main_switch? '✔️' : '❌' }}</td> -->
+                                                                <td>
+                                                                    <ng-container *ngIf="main_switch; else notChecked">
+                                                                      <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                    </ng-container>
+                                                                    <ng-template #notChecked>
+                                                                      <span style="color: red; font-weight: bold;">X</span>
+                                                                    </ng-template>
+                                                                  </td>
+    
+                                                               
+                                                            </tr>
+                                                            <tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">38</td>
+                                                                    <td>C</td>
+                                                                    <td style="font-size: 12px; text-align: center;">
+                                                                        <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                                                            <i class="fas fa-desktop"></i>
+                                                                            <i class="fas fa-microchip"></i>
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3">Earthing of all Equipments</td>
+                                                                    <!-- <td>{{ equipments_earthing? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="equipments_earthing; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                                <!-- <tr>
+                                                                    <td colspan="2">S.NO</td>
+                                                                    <td style="text-align: center; " colspan="5" ><b>ELEVATOR NUMBERS</b></td>
+                                                                    <td ></td>
+                                                                   
+                                                                </tr> -->
+                                                                <!-- <br> -->
+                                                                
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">39</td>
+                                                                    <td>C</td>
+                                                                    <td style="text-align: center;">
+                                                                        <i class="fas fa-desktop"></i>
+                                                                        <i class="fas fa-microchip"></i>
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3">Identification Of lifts in MCR(For more than one lift) </td>
+                                                                    <!-- <td>{{ equipments? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="equipments; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                  
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">40</td>
+                                                                    <td>C</td>
+                                                                    <td style="text-align: center;">
+                                                                        <i class="fas fa-desktop"></i>
+                                                                        <i class="fas fa-microchip"></i>
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3"> Condition of Sheave And Ropes </td>
+                                                                    <!-- <td>{{ machine_sheave? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="machine_sheave; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                    
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">41</td>
+                                                                    <td>C</td>
+                                                                    <td style="font-size: 12px; text-align: center;">
+                                                                        <!-- <i class="fas fa-exclamation-triangle" ></i> -->
+                                                                        <i class="fas fa-desktop"></i>
+                                                                        <i class="fas fa-microchip"></i>
+                                                                          
+                                                                    </td>
+                                                                    <td colspan="3">No Abnormal Noise In Machine</td>
+                                                                    <!-- <td>{{ abnormal_noise? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf=" abnormal_noise; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">42</td>
+                                                                    <td>C</td>
+                                                                    <td style="font-size: 12px; text-align: center;">
+                                                                        <!-- <i class="fas fa-exclamation-triangle" ></i> -->
+                                                                        <i class="fas fa-desktop"></i>
+                                                                        <i class="fas fa-microchip"></i>
+                                                                          
+                                                                    </td>
+                                                                    <td colspan="3">No Abnormal Heat In Machine</td>
+                                                                    <!-- <td>{{ abnormal_heat? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="abnormal_heat; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">43</td>
+                                                                    <td>C</td>
+                                                                    <td style="font-size: 12px; text-align: center;">
+                                                                        <i class="fas fa-exclamation-triangle" ></i> <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                                                          
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3">Functional Governor and Safety Gear System </td>
+                                                                    <!-- <td>{{ rope_condition? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="rope_condition; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                               
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">44</td>
+                                                                    <td>C</td>
+                                                                    <td style="text-align: center;">
+                                                                        <i class="fas fa-desktop"></i>
+                                                                        <i class="fas fa-microchip"></i>
+                                                                        
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3">Functional Overspeed Governer Switch</td>
+                                                                    <!-- <td>{{ overspeed? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="overspeed; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+                                                                   
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">45</td>
+                                                                    <td>C</td>
+                                                                    <td style="font-size: 12px; text-align: center;">
+                                                                        <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i>
+                                                                            <i class="fas fa-desktop"></i>
+                                                                            <i class="fas fa-microchip"></i>
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3">Functional Manual Rescue(Mech. & Battery) </td>
+                                                                    <!-- <td>{{ manual_brake? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="manual_brake; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">46</td>
+                                                                    <td>i</td>
+                                                                    <td style="font-size: 12px; text-align: center;">
+                                                                        
+                                                                            <i class="fas fa-desktop"></i>
+                                                                            <i class="fas fa-microchip"></i>
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3">Display of instructins for manual rescue  </td>
+                                                                    <!-- <td>{{ instruction? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="instruction; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">47</td>
+                                                                    <td>i</td>
+                                                                    <td style="text-align: center; font-size: 20px;">
+                                                                        &mu;
+                                                                    </td>
+                                            <td colspan="3">Functional Lights at MCR</td>
+                                                                    <!-- <td>{{ lighting? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="lighting; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                                
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">48</td>
+                                                                    <td>C</td>
+                                                                    <td style="font-size: 12px; text-align: center;">
+                                                                        
+                                                                            <i class="fas fa-desktop"></i>
+                                                                            <i class="fas fa-microchip"></i>
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    <td colspan="3">Functional Stop Switches MCR  </td>
+                                                                    <!-- <td>{{ mcrswitch? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="mcrswitch; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td colspan="2">49</td>
+                                                                    <td>C</td>
+                                                                    <td style="text-align: center; font-size: 20px;">
+                                                                        &mu;
+                                                                    </td>
+                                            
+                                                                    
+                                                                    <td colspan="3">Functional Controller Inspection Switches </td>
+                                                                    <!-- <td>{{ controller? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="controller; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+    
+                                                                   
+                                                                </tr>
+                                        
+                                        
+                                                          
+                                                          
+                                                                
+                                                                
+                                                              <tr>
+                                                                   
+                                                                    <td style="text-align: center; " class="pit_center1"  colspan="17" ><b>CERTIFICATION CRITERIA ASSESSMENT</b></td>
+                                                                  
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td   colspan="2">A</td>
+                                                                    <td   colspan="5" ><b>On site Re-Inspection</b> for Certification <b>Required/Not Required(R</b> or <b>NR)</b></td>
+                                                                    <td>
+                                                                        <ng-container *ngIf="onsite; else notChecked">
+                                                                          <i style="color: green; font-weight: bold;">NR</i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">R</span>
+                                                                        </ng-template>
+                                                                      </td>
+                                                                    
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td   colspan="2">B</td>
+                                                                    <td   colspan="5" ><b>Desktop</b> review for Certification <b>Required</b> or <b>Not Required </b> <b>(R </b>or <b> NR)</b></td>
+                                                                    <!-- <td ><input type="checkbox" class="big-checkbox"> -->
+                                                                        <td>
+                                                                            <ng-container *ngIf="desktop; else notChecked1">
+                                                                              <i style="color: green; font-weight: bold;">NR</i>
+                                                                            </ng-container>
+                                                                            <ng-template #notChecked1>
+                                                                              <span style="color: red; font-weight: bold;">R</span>
+                                                                            </ng-template>
+                                                                          </td>
+                                                                    
+                                                                   
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td   colspan="2">C</td>
+                                                                    <td  colspan="5" >Whether Certificate to issue or Not (<b>Y</b>ES or <b>N</b>o)</td>
+                                                                    <!-- <td >{{ certificate? '✔️' : '❌' }}</td> -->
+                                                                    <td>
+                                                                        <ng-container *ngIf="certificate; else notChecked">
+                                                                          <i class="fas fa-check" style="color: green; font-weight: bold;"></i>
+                                                                        </ng-container>
+                                                                        <ng-template #notChecked>
+                                                                          <span style="color: red; font-weight: bold;">X</span>
+                                                                        </ng-template>
+                                                                      </td>
+                                                                  
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td colspan="8" style="text-align: center;"><b>Note:</b>All critical snags (‘C’ in LEGEND-2) should be closed on priority and confirmed within 45 days from the date inspection to
+                                                                        enable the issuance of Certificate. Post 45 days, a re-inspection will be carried out on chargeable basis</td>
+                                                                </tr>
+                                                              
+                                                                  
+                                                          
+                                                            </table>
+                                                            
+                                                            <br>
+                                                            
+                                                         
+                                                        
+                                                        
+                                                        <table>
+                                                            <tr>
+                                                                <td colspan="9" class="centered-cell" ><b>Customer Name:</b></td>
+                                                                <td colspan="9"  class="centered-cell">{{inf_26.customer_name_as_per_work_order}}</td>
+                                                              </tr> 
+                                                                <tr >
+                                                                    <td class="pit1" style="text-align: center; " colspan="6"><b>Equipment  S. no</b></td>
+                                                                    <td class="pit1" style="text-align: center; "   colspan="6" ><b>Elevator Nomenclature</b></td>
+                                                                    <td class="pit1"  style="text-align: center; "  colspan="6" ><b>Inspector Signature</b></td>
+                                                                   
+                                                                    
+                                                
+                                                                </tr>
+                                                                <tr  class="center_all">
+                                                                    <td  colspan="6"><b>{{breif_spec[0]?.motor_serial_number}}</b></td>
+                                                                    <td    colspan="6" ><b>{{unit}}</b></td>
+                                                                    <!-- <td class="pit1"  colspan="6" ><b></b></td> -->
+                                                                    <td  colspan="6">
+                                                                        <img [src]="signature" class="small-page"  style="width: 100px;height: 50px;margin-left: 30px;"  alt="Inspector Signature Image">
+    
+                                                                       
+                                                                     
+                                                                      </td>
+                                                                    
+                                                                  
+                                                                   
+                                                                </tr>  
+                                                              
+                                                                
+                                                               
+                                                
+                                                                
+                                                              
+                                                                <br>
+                                                            </table>
+    
+                                                                <table>
+                                                                <tr>
+                                                                    <td class="pit1" colspan="17">Elevators qualifying for issue of certificates as mentioned above will be subject to internal scrutiny. Any observations will have to be rectified by respective stake holders before issue of certificate</td>
+                                                                </tr> 
+                                                                <!-- <tr>
+                                                                    <td  style="text-align: center; " colspan="4"><b>INTERNAL REVIEW</b></td>
+                                                                    <td   style="text-align: center; " colspan="4" ><b>REVIEW REMARKS</b></td>
+                                                                    <td  style="text-align: center; " colspan="9" ><b>SIGNATURE</b></td>
+                                                                  
+                                                                </tr> 
+                                                               <tr>
+                                                                <td colspan="4">REVIEWED BY:</td>
+                                                                <td colspan="4" rowspan="2"></td>
+                                                                <td colspan="7" rowspan="2"></td>  
+                                                               
+                                                                
+                                                            </tr> -->
+                                                            <!-- <tr>
+                                                                <td colspan="4">REVIEWED DATE:</td>
+                                                                
+                                                               
+                                                                
+                                                            </tr> -->
+    
+                                                            
+                                                         
+                                                            
+                                                            
+                                                        </table>
+                                                        
+                                                        <br>
+                                                             <table>
+                                                                <tr  class="center_all">
+                                                                    <!-- <td  style="text-align: center; " class="pit1"  colspan="7" ><u><b>Legend-3</b></u>
+                                                                        <p style="text-align: left;"><i class="fas fa-check"></i> - Items in conformity provided (Provided and working satisfactory)</p>
+    
+                                                                    <p class="legend-line" style="text-align: left; "><b>X</b> - Nonconformity (Not installed or not working)</p>
+                                                                    <p class="legend-line" style="text-align: left; "><b>NA</b> - Not Applicable</p> -->
+                                                                    <td  colspan="7"><u><b>Legend-1</b></u>
+    
+                                                                         
+                                                                    <p> 
+                                                                        
+                                                                          
+                                                                           
+                                                                            <i class="fas fa-exclamation-triangle" style="color: rgb(215, 82, 15);"></i> - Immediate Shutdown</p>
+                                                                            <p class="legend-line" ><i class="fas fa-exclamation-triangle"></i> - On site re-inspection compulsory</p>
+                                                                         <p class="legend-line" >
+                                                                        <i class="fas fa-circle"></i> - Desktop review required. 
+                                                                      </p> 
+                                                                      
+                                                                  <p class="legend-line"   ><b>µ</b>-Minor deviation, not a safety Hazard</p>
+                                                                </td>  
+                                                                    
+                                                                
+                                                                    <td   class="pit1"  colspan="5" ><u><b>Legend-2</b></u>
+                                                                    <p><b>C</b> - Critical Criteria fullfilment for issuance of certificate</p>
+                                                                    <p class="legend-line"><b>W</b> - Warning. Should be addressed on priority</p>
+                                                                    <p class="legend-line"><b>i</b> - Information – (To be addressed at the earliest)</p>
+                                                                </td>
+                                                                    <td   colspan="7" ><u><b>Legend-3</b></u>
+                                                                        <p ><i class="fas fa-check"></i> - Items in conformity provided (Provided and working satisfactory)</p>
+    
+                                                                    <p class="legend-line" ><b>X</b> - Nonconformity (Not installed or not working)</p>
+                                                                    <p class="legend-line" ><b>NA</b> - Not Applicable</p>
+                                                                    <p class="legend-line"><b><i class="fas fa-desktop"></i>
+                                                                        <i class="fas fa-microchip"></i></b> - Desktop Review</p>
+                                                                </td>
+                                                                    
+                                                
+                                                                </tr>
+                                                             
+                                                                  
+                                                                 
+                                                        </table>
+                                                        
+                                                       
+                                                        <br>
+                                                        <h1 class="system-generated">
+                                                            <i class="fas fa-info-circle"></i> <!-- Font Awesome icon -->
+                                                            NOTE: This is a system generated document
+                                                          </h1>
+                                                          
+                                                        <!-- <div class="container">
+                                                            <p class="doc_no"></p>
+                                                        </div> -->
+                                                        <footer class="footer" style="text-align: right;">
+                                                            PAPL/INF/19, VER.2.0, 10-07-2024
+                                                        </footer>
+                                                        
+                                                        
+                                                       
+                                                         
+        </div>
+    </div>
+    <!-- <div class="popup-overlay"></div> -->
+    <div *ngIf="certificate && showFalsePopup1" class="popup-container">
+        <p class="point" style="text-align: center; font-size: 23px; font-weight: bolder;">
+            <i class="fas fa-check-circle"></i> All Critical Points have been Met.
+          </p>
+          <div style="text-align: center; font-size: 25px;">
+            <i class="fas fa-award"></i>
+            <i class="fas fa-award"></i>
+            <i class="fas fa-award"></i>
+          </div>
+          
+          
+          <button class="btn_close" style="margin-top: 80px; margin-left: 30px;" (click)="closepopup1()">
+            <i class="fas fa-times"></i> Close
+          </button>
+          <button class="redirect" (click)="redirectToAnotherPage()">
+            <i class="fas fa-arrow-circle-right"></i> Redirect to Certificate Page
+          </button>
+          
+    </div>
+    
+     
+      
+    
+      <div *ngIf="!certificate && showFalsePopup" class="popup-container">
+        <p class="point" style="color: black; text-align: center; font-size: 16px; font-weight: bolder;">
+            <i style="color: red;" class="fas fa-exclamation-triangle"></i> We Observed deviation in the critical points <i style="color: red;" class="fas fa-exclamation-triangle"></i>
+        </p>
+        
+        <br>
+        <p style="font-size: 16px; color: rgba(244, 17, 17, 0.816); font-weight: 700; text-align: center;">
+            <i class="fas fa-times-circle" style="color: rgb(190, 55, 55);"></i> The Certificate can't be generated.
+        </p>
+        
+        <button class="btn_close" style="margin-top: 30px; margin-left: 130px;"   (click)="closePopupContainer()"> <i class="fas fa-times"></i>Close</button>
+      </div>
+    </div>
+    
+    </body>
+     
+      
+    
+      
+    
+    
+    
+    </div>
+    
+    <div class="button_pdf">
+        <button (click)="generated_PDF()" class="pdf-button">
+            <i class="fas fa-download"></i>  Download Keyabstract
+        </button>
+      </div>
+      
+    

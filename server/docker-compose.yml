@@ -1,0 +1,22 @@
+# version: '2.27.0'
+services:
+  paplexpress-server:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mariadb
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE1: ${SQL_DATABASE1}
+      DB_DATABASE2: ${SQL_DATABASE2}
+      SERVER_URL: ${SERVER_URL}
+      CLIENT_URL: ${CLEINT_URL}
+  mariadb:
+    image: mariadb
+    environment:
+      # Optional: Set a root password for MariaDB if needed
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      

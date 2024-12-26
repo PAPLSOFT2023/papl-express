@@ -1,0 +1,85 @@
+
+
+ 
+<!-- Main Content -->
+<!-- <div class="container">
+    <header class="header">
+      <h1>DEFAULT CC FOR INSPECTION SCHEDULE MAIL</h1>
+    </header>
+  
+    <main class="content">
+      <br> -->
+      <div class="container">
+        <header class="header">
+            <h1>DEFAULT CC FOR INSPECTION SCHEDULE MAIL</h1>
+            <!-- <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search...">
+            </div> -->
+        </header>
+    
+        <main class="content">
+            <!-- <h2>DEFAULT CC</h2>
+            <br><hr><br> -->
+            <br>
+  <!-- Button to open the form popup -->
+<button class="open-form-btn" (click)="toggleFormPopup()">
+    <i class="fas fa-plus"></i>ADD NEW
+  </button>
+  <br>
+      <br>
+  
+  <!-- Popup Form Container -->
+  <div *ngIf="showFormPopup" class="popup-overlay33">
+    <div class="popup-content33">
+      <h2 class="popup-title">{{ isUpdateMode ? "Update Mail ID" : "Add New Mail ID" }}</h2>
+      <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group33">
+          <label for="organizationName">Mail ID :</label>
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="default_all.mailid"
+            name="name"
+            required
+          />
+        </div>
+        <div class="popup-buttons33">
+          <button type="submit" class="confirm" [disabled]="!userForm.form.valid">
+            <i class="fa fa-check"></i>{{ isUpdateMode ? "Update" : "Add" }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+      <!-- OEM Details Table -->
+      <div class="table-responsive">
+        <table class="styled-table">
+          <thead>
+            <tr>
+                <th>S. No</th>
+                <th>Mail ID</th>
+                <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let default_all of default_all_details; let i=index">
+                <td>{{i+1}}</td>
+              <td>{{ default_all.mailid }}</td>
+              <td>
+                <button class="edit-btn" (click)="editDefaultUser(default_all)" >
+                  <i class="fas fa-edit" title="EDIT"></i> 
+                </button>
+                <button class="delete-btn" (click)="deleteDefaultUser(default_all.s_no)">
+                  <i class="fas fa-trash-alt" title="DELETE"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>

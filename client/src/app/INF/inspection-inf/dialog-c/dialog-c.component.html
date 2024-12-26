@@ -1,0 +1,95 @@
+<mat-card class="container">
+    <div class="div-2">
+    <div class="row">
+            <mat-form-field appearance="outline" class="form-field3">
+                <mat-label>No of Standard Elevators</mat-label>
+                    <input matInput [(ngModel)]="selectedDetails.no_of_elevator" type="number" disabled>         
+            </mat-form-field>
+            <button mat-icon-button>
+                <mat-icon matSuffix class="mat-icon">add_circle</mat-icon>
+                </button>
+
+                <mat-form-field appearance="outline" class="form-field3">
+                    <mat-label>No of Home Elevator</mat-label>
+                        <input matInput [(ngModel)]="selectedDetails.no_of_home_elevator" type="number" disabled>
+                </mat-form-field> 
+                <button mat-icon-button>
+                    <mat-icon >add_circle</mat-icon>
+                </button>
+
+                <mat-form-field appearance="outline" class="form-field3">
+                    <mat-label>No of DumbWaiter</mat-label>
+                        <input matInput [(ngModel)]="selectedDetails.no_of_dw" type="number" disabled>             
+                </mat-form-field> 
+                <button mat-icon-button>
+                    <mat-icon color="primary">add_circle</mat-icon>
+                </button>
+    </div>
+
+    <div class="row">
+        
+        <mat-form-field appearance="outline" class="form-field3">
+        <mat-label>No of Car Parking</mat-label>
+            <input matInput [(ngModel)]="selectedDetails.no_of_car_parking" type="number" disabled>
+            <!-- <input matInput [(ngModel)]="selectedDetails.no_of_elevator" name="total_number_of_units" required disabled> -->
+
+        </mat-form-field> 
+        <button mat-icon-button>
+            <mat-icon class="mat-icon1">add_circle</mat-icon>
+        </button>
+
+
+        <mat-form-field appearance="outline" class="form-field3">
+            <mat-label>No of Escalators</mat-label>
+                <input matInput [(ngModel)]="selectedDetails.no_of_escalator" type="number" disabled>
+        </mat-form-field> 
+        <button mat-icon-button  >
+            <mat-icon class="mat-icon1">add_circle</mat-icon>
+        </button>
+
+        <mat-form-field appearance="outline" class="form-field3">
+            <mat-label>No of Moving Walk</mat-label>
+                <input matInput [(ngModel)]="selectedDetails.no_of_mw" type="number" disabled> 
+        </mat-form-field>
+        <button mat-icon-button >
+            <mat-icon class="mat-icon1">add_circle</mat-icon>
+        </button>
+
+
+
+       
+</div>
+<div class="row">
+    <mat-form-field appearance="outline" class="form-field3">
+        <mat-label>No of Travelator</mat-label>
+            <input matInput [(ngModel)]="selectedDetails.no_of_travelator" type="number" disabled> 
+    </mat-form-field>
+    <button mat-icon-button>
+        <mat-icon class="mat-icon1">add_circle</mat-icon>
+    </button>
+
+
+   
+    
+    
+
+
+    <!-- <mat-form-field appearance="outline" class="form-field3">
+        <mat-label>Dump weighter</mat-label>
+            <input matInput[(ngModel)]="numOfElevators" #numOfElevatorsInput>
+            <mat-icon></mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form-field3" *ngFor="let i in numOfElevators; let j = index">
+        <mat-label>Dump weighter{{j+1}}</mat-label>
+            <input matInput type="text" *ngIf="j < numOfElevators-1">
+    </mat-form-field>  -->
+
+</div>
+</div>
+<mat-dialog-actions>
+    <button  style="margin-left: 540px;" mat-raised-button color="primary" mat-dialog-close>Ok</button>
+  </mat-dialog-actions>
+</mat-card>
+
+ 
+  

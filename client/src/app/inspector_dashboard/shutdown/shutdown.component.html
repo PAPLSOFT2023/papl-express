@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+<body>
+  <div #contentToConvert>
+ 
+    <div class="container">
+    <div class="page">
+        <span><img  class="logo" [src]="location" alt="Logo"></span>
+        <p><b>PAPL CORP PRIVATE LIMITED</b></p>
+        <p>Document Title: Equipment Shutdown Notice</p>
+        <div class="table-container">
+        <table>
+            <tr>
+              <td><b>1.1</b></td>
+              <td><b>Order Number</b></td>
+              <td>{{inf_26.contract_number}}</td>
+            </tr>
+            <tr>
+              <td><b>1.2</b></td>
+              <td><b>Unit No/ Serial No.</b></td>
+              <td>{{breif_spec[0]?.unit_no +'/'+breif_spec[0]?.motor_serial_number}}</td>
+            </tr>
+            <tr>
+              <td><b>1.3</b></td>
+              <td><b>Vendor/ Brand</b></td>
+              <td>{{breif_spec[0]?.oem}}</td>
+            </tr>
+            <tr>
+              <td><b>1.4</b></td>
+              <td><b>Service Provider</b></td>
+              <td>{{breif_spec[0]?.service_provider}}</td>
+            </tr>
+            <tr>
+              <td><b>2.1</b></td>
+              <td><b>Location (Building Details)</b></td>
+              <td>{{inf_26.site_address}}</td>
+            </tr>
+            <tr>
+              <td><b>2.2</b></td>
+              <td><b>Client/ Project</b></td>
+              <td>{{inf_26.customer_name_as_per_work_order}}</td>
+            </tr>
+            <tr>
+                <td><b>3</b></td>
+                <td><b>Reason for Shutdown recommendation</b></td>
+                <td>{{riskLevel5DropdownOptions | json}}</td>
+              </tr>
+              <tr>
+                <td><b>4</b></td>
+                <td><b>Shut Down Notice issued by</b></td>
+                <td>{{name}}</td>
+              </tr>
+              <tr>
+                <td><b>5</b></td>
+                <td><b>Recommendation</b></td>
+                <td>To be Rectified on Priority</td>
+              </tr>
+              <tr>
+                <td><b>6</b></td>
+                <td><b>Date of issue</b></td>
+                <td>{{current_date |  date: 'dd-MM-yyyy'}}</td>
+              </tr>
+          </table>
+        </div> 
+        <br><br>
+        <div class="table-container">
+            <table>
+
+                <tr>
+                 <td >
+                   <img [src]="signature" class="small-page"  style="width: 40px;height: 60px; text-align: center;"  alt="Inspector Signature Image">
+
+               </td>
+                    
+               <td>
+                 <div *ngIf="!isSignatureCaptured" class="signature-pad-container">
+                   <signature-pad 
+                     #signaturePad2
+                     class="signature-pad" 
+                     [options]="signaturePadOptions" 
+                     (onEnd)="drawComplete1()">
+                   </signature-pad>
+                   <div class="button-container">
+                   <button class="clear-signature-btn" (click)="clearSignature1()">x</button>
+                   <button class="capture-signature-btn" (click)="captureSignature1()">Save</button>
+                 </div>
+               </div>
+                 
+                 <div *ngIf="isSignatureCaptured">
+                  
+                   <img [src]="capturedSignature1" alt="Captured Signature" style="max-width: 100%; height: auto;" />
+                 </div>
+               </td>
+
+                  <td>
+                   <div *ngIf="!isSignatureCaptured1" class="signature-pad-container">
+                     <signature-pad 
+                       #signaturePad1
+                       class="signature-pad" 
+                       [options]="signaturePadOptions" 
+                       (onEnd)="drawComplete()">
+                     </signature-pad>
+                         <div class="button-container">
+                     <button class="clear-signature-btn" (click)="clearSignature()">x</button>
+                     <button class="capture-signature-btn" (click)="captureSignature()">Save</button>
+                   </div>
+                   </div>
+                   <div *ngIf="isSignatureCaptured1">
+                  
+                     <img [src]="capturedSignature" alt="Captured Signature" style="max-width: 100%; height: auto;" />
+                   </div>
+                 </td>
+                
+               
+               
+               
+                   
+                 
+                 
+                  
+                </tr>
+
+
+
+                <tr>
+                 <td>PAPL INSPECTOR</td>
+                 <td>CLIENT REPRESENTATIVE</td>
+                 <td>VENDOR REPRESENTATIVE</td>
+                   
+                 
+                </tr>
+
+                
+                
+                
+            </table>
+            <p style="font-size: 12px;"><b>NOTE:Mentioned unit shall not be used until the rectification is done and shutdown notice is revoked</b></p>
+          
+                
+            
+          
+              <p class="footer">PAPL/INF/19, VER.2.0, 10-07-2024</p>
+              
+          
+            
+       
+        </div>
+        
+        </div>
+        
+</div>
+</div>
+</body>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- <button class="view-btn" (click)="view_shutdown(pdfId)">
+   <i class="fas fa-download"></i> Download PDF
+ </button> -->
+ 
+ 
+ <div class="button_all">
+   <button class="download-btn" (click)="generateAndDownloadPDF()">
+     <i class="fas fa-download"></i>Download Shutdown
+    </button>
+   </div>
+ 

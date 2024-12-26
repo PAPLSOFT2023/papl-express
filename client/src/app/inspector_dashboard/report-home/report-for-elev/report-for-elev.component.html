@@ -1,0 +1,82 @@
+<!-- <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<div class="loader-container" *ngIf="isLoading">
+  <div class="icon logo">
+    <div class="loader"></div>
+  </div>
+</div>
+
+
+<div class="button-container" no-print>
+
+  <div class="button-row">
+
+    <button class="btn btn-xl"(click)="generateXL()">
+      <i class="fas fa-file-excel"></i> Download Excel
+    </button>
+
+    <button class="btn btn-pdf" (click)="generatePDF1()">
+      <i class="fas fa-file-pdf"></i> Download PDF
+    </button>
+
+  </div>
+
+
+
+  <div class="button-row">
+
+    <button class="btn btn-view-pdf" (click)="viewStoredPDF()">
+      <i class="fas fa-eye"></i> View Stored PDF
+    </button>
+
+    <button class="btn btn-report-pdf" (click)="uploadPDF()">
+      <i class="fas fa-file-signature"></i>  Send for Approval 
+    </button>
+
+  </div>
+
+</div>
+
+
+ -->
+
+
+
+ <body>
+  <!-- <p><b>Report No: </b> {{documentidForUrl+"/"+this.report_id}}</p> -->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<div class="loader-container" *ngIf="isLoading">
+  <div class="icon logo">
+    <div class="loader"></div>
+  </div>
+</div>
+
+  <div class="options-section">
+    <h2 class="options-title">REPORT GENERATION</h2>
+    <div class="button-container">
+      <div class="button-row">
+        <button class="btn btn-xl" (click)="generateXL()">
+          <i class="fas fa-file-excel"></i>Download Excel Report
+        </button>
+        <button class="btn btn-pdf" (click)="generatePDF1()">
+          <i class="fas fa-file-pdf"></i>Download Report PDF
+        </button>
+      </div>
+
+      <div class="button-row">
+        <button class="btn btn-view-pdf" (click)="viewStoredPDF()">
+          <i class="fas fa-eye"></i>View Report PDF
+        </button>
+        <button class="btn btn-report-pdf" (click)="uploadPDF()" >
+          <i class="fas fa-file-signature"></i>Send for Approval 
+        </button>
+      </div>
+    </div>
+  </div>
+</body>

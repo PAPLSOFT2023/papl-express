@@ -1,0 +1,54 @@
+<!-- <div>
+
+<mat-card class="container">
+    <td mat-cell>
+        <mat-form-field appearance="outline" class="form-field3">
+            <mat-label>Lift</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </td>
+</mat-card>
+
+</div> -->
+<!-- <app-dialog3 [repeatCount]=""></app-dialog3> -->
+<div class="container">
+    <div id="dynamic-div" class="container1" *ngFor="let _ of [].constructor(repeatCount_hydra); let i = index">
+        
+        <mat-form-field appearance="outline" class="form-field3">
+            <mat-label>Lift</mat-label>
+                <input matInput [(ngModel)]="lift_fieldValues[i]" name="lift{{i}}">
+        </mat-form-field> 
+    
+    <mat-form-field appearance="outline" class="form-field3">
+        <mat-label>Usage</mat-label>
+        <mat-select [(ngModel)]="usage_fieldValues[i]" name="usage{{i}}">
+            <mat-option *ngFor="let usages of type_usages" [value]="usages">{{usages}}</mat-option>                   
+
+          </mat-select>
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline" class="form-field3">
+        <mat-label>Type</mat-label>
+        <mat-select [(ngModel)]="type_fieldValues[i]" name="type{{i}}">
+            <mat-option *ngFor="let type of type_values" [value]="type">{{type}}</mat-option>                   
+
+          </mat-select>
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline" class="form-field3">
+        <mat-label>Stops</mat-label>
+            <input matInput [(ngModel)]="stops_fieldValues[i]" name="stops{{i}}" type="number">
+    </mat-form-field> 
+    
+    </div>
+    
+    
+    
+    
+    <mat-dialog-actions>
+        <button style="margin-left: 530px;" mat-raised-button  color="primary" mat-dialog-close (click)="submitForm()">Ok</button>
+    </mat-dialog-actions>
+    
+</div>
+    
+    

@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <h2>Organization Master</h2>
+  <div class="container">
+    <label for="orgName">Organization Name:</label>
+    <input [(ngModel)]="organizationName" id="orgName" />
+    <button (click)="addOrganization()">Add Organization</button>
+  </div>
+
+  <div class="list-container">
+    <h3>Existing Organizations</h3>
+    <ul>
+      <li *ngFor="let org of organizations; let i = index">
+        <span>{{ i + 1 }}. {{ org.organization_name }}</span>
+        <button (click)="setUpdateOrganization(org)">Edit</button>
+        <button (click)="deleteOrganization(org.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Update Modal -->
+<div *ngIf="isUpdating" class="modal">
+  <div class="modal-content">
+    <h3>Update Organization</h3>
+    <label for="updateOrgName">New Organization Name:</label>
+    <input [(ngModel)]="updateOrganizationName" id="updateOrgName" />
+    <button (click)="updateOrganization()">Update Organization</button>
+    <button (click)="cancelUpdate()">Cancel</button>
+  </div>
+</div>

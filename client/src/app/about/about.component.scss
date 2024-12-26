@@ -1,0 +1,84 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Allow main content to scroll */
+    box-sizing: border-box;
+}
+
+/* Basic styling for the whole page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: rgb(113, 113, 115); /* Transparent white color */
+    color: #000000;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 12px;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 60px; /* Adjust according to the header height */
+    padding-bottom: 60px; /* Adjust according to the footer height */
+    overflow-y: auto; /* Allow main content to scroll */
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #e7e9ec;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Footer styles */
+footer {
+    background-color: rgb(113, 113, 115);
+    color: #0b0b0b;
+    text-align: center;
+    font-weight: bolder;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.back-link {
+    position: fixed;
+    margin-top: 20px;
+    background-color: #20960bc8;
+    color: #dfdddd;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 8px 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 600px) {
+    main {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>admin</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+    
+        <div class="loader-container" *ngIf="isLoading">
+          <div class="icon logo">
+            <div class="loader"></div>
+          </div>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <h1>REPORT IN QUEUE</h1>
+            <div class="search-box">
+              <button class="btn-search"><i class="fas fa-search"></i></button>
+              <input type="text" class="input-search" placeholder="Type to Search..." [(ngModel)]="searchTerm">
+            </div>
+            
+            
+        </header>
+       
+        <main class="content">
+            <h2>PENDING REPORT</h2>
+            
+            <br>
+            <hr>
+            <br>
+<!-- New Styled Table -->
+<div class="table-responsive">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>S.NO</th>
+        <th>CONTRACT NO</th>
+        <th>DOC ID/REPORT ID</th>
+        <th>UNIT</th>
+        <th>PROJECT NAME</th>
+        <th>INSPECTOR NAME</th>
+        <!-- <th>TYPE OF INSPECTION</th>
+        <th>LOCATION</th> -->
+        <th>BUILDING NAME</th>
+        <th>PDF</th>
+        <th>STATUS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let unitDetail of filteredUnitDetails; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ unitDetail.contract }}</td>
+        <td>{{ unitDetail.document_id + '/' + unitDetail.report_id }}</td>
+        <td>{{unitDetail.unit_name}}</td>
+        <td>{{unitDetail.building_name}}</td>
+        <td>{{unitDetail.inspector_name}}</td>
+        <td>{{unitDetail.project_name}}</td>
+      
+        
+        <td><i class="fa fa-eye view-icon" (click)="displayPDF(unitDetail.document_id,unitDetail.unit_name)"></i></td>
+        <td>
+          <i class="fas fa-check approve-icon" (click)="approve(unitDetail.document_id,unitDetail.unit_name,unitDetail.inspector_name)" title="Approve"></i>
+          <i class="fas fa-times reject-icon" title="Reject" (click)="openRejectModal(unitDetail.document_id,unitDetail.unit_name,unitDetail.inspector_name)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</main>
+
+<!-- Modals -->
+<div class="modal" *ngIf="isRejectModalVisible">
+<div class="modal-content">
+  <p>Are you sure you want to reject this report?</p>
+  <div class="modal-actions">
+    <button class="confirm-btn" (click)="confirmReject()">Yes, Reject</button>
+    <button class="cancel-btn" (click)="closeRejectModal()">Cancel</button>
+  </div>
+</div>
+</div>
+
+<div class="modal" *ngIf="isCommandModalVisible">
+<div class="modal-content">
+  <p>Please type your comments:</p>
+  <textarea id="commandInput" rows="4" [(ngModel)]="commandText" placeholder="Enter comments..."></textarea>
+  <div class="modal-actions">
+    <button class="confirm-btn" (click)="submitCommand()">Submit Comment</button>
+    <button class="cancel-btn" (click)="closeCommandModal()">Cancel</button>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+<p>Paplcorp@dashboard</p>
+</footer>
+</div>

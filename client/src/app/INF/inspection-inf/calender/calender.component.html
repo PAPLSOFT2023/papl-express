@@ -1,0 +1,36 @@
+<mat-dialog-content class="dialog-content">
+    <div class="div1">
+      <span class="span1">Dates</span>
+      <span class="span2" style="font-size: 18px;">Inspector Names</span>
+    </div>
+    <mat-divider> </mat-divider>
+    
+    
+        <ng-container *ngFor="let item of dataArray1">
+          <tr *ngFor="let name of item.names">
+            <th style="width: 10vw;">
+              <h1 style="font-size: 15px;">{{item.date }}</h1>
+            </th>
+            <th style="width: 10vw;  padding-left: 20px;">
+              <p>{{ name }}</p>
+            </th>
+          </tr>
+        </ng-container>
+ 
+      
+    <mat-divider></mat-divider>
+    
+  
+    
+  
+  
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button style="margin-left: 180px;" mat-raised-button color="primary" mat-dialog-close (click)="viewDetails()">Ok</button>
+  </mat-dialog-actions>
+
+
+  
+
+
+

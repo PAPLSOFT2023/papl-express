@@ -1,0 +1,152 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    // background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Around Opening Meeting */
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Opening Meeting Container */
+.opening-meeting {
+    max-width: 900px;
+    padding: 30px;
+    background-color: #ffffff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1.5px solid #b7b2b2; /* Black border */
+    display: flex; /* Add flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align children horizontally */
+}
+
+/* Opening Meeting Heading */
+.opening-meeting h3 {
+    color: #232326; /* Dark gray color */
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Opening Meeting Paragraphs */
+.opening-meeting p {
+    color: #555555; /* Gray color */
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.opening-meeting p:last-child {
+    margin-bottom: 0;
+}
+
+.opening-meeting p b {
+    color: #000000; /* Black color */
+}
+
+.opening-meeting p.intro {
+    font-style: italic;
+}
+
+.opening-meeting p.disclaimer {
+    font-size: 17px;
+    color: #888888; /* Light gray color */
+    margin-top: 30px; /* Increased margin top */
+    border-top: 1px solid #cccccc; /* Light gray border top */
+    padding-top: 20px;
+}
+
+.opening-meeting p.disclaimer a {
+    color: #156419; /* Green color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.opening-meeting p.disclaimer a:hover {
+    text-decoration: underline;
+}
+
+/* Action Button */
+.action-button {
+    margin-top: 20px; /* Adjust margin as needed */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50; /* Green color */
+    color: #ffffff; /* White text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underlines */
+}
+.action-button:hover {
+    background-color: #45a049; /* Darker green color on hover */
+}
+.center{
+    text-align: center;
+    font-size: 25px;
+}
+.thank-you_one{
+    font-size: 20px;
+    margin-top: 30px;
+}
+.thank-you{
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.voice {
+    width: 8%; /* Adjust the width as needed */
+    height: auto; /* Let the height scale proportionally */
+    margin-left: -80%; /* Adjust the margin as needed */
+    cursor: pointer;
+}
+
+
+  
+  .wait-message {
+    margin-left:-377px;
+    margin-top: -75px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000;
+    animation: floatAnimation 3s infinite ease-in-out;
+    font-family: cursive;
+  }
+ @keyframes floatAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+    
+  
+  /* Add this CSS to your component's stylesheet */
+.disabled-button {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #888; /* Gray text color */
+    cursor: not-allowed; /* Show disabled cursor */
+  }
+  
+  .meet{
+    width: 1.5%;
+    height: 1.5%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }

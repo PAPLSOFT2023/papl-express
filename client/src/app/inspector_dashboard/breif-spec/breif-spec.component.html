@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevator Details</title>
+</head>
+<body>
+  <div class="container">
+    <div class="app">APPLY</div>
+    <div class="box" *ngFor="let unit of unit_details" (click)="fetch(unit)">{{ unit }}</div>
+  </div>
+  <!-- Back and Next Buttons -->
+<div class="button-containers">
+  <!-- Left Side Back Button -->
+  <button class="back-button" (click)="back()">
+      <img src="/assets/backicon.png" alt="Back" class="back-icon">
+      <b>Back</b>
+  </button>
+  </div>
+  <h3>BRIEF SPECIFICATION OF THE ELEVATOR <span>-</span><span></span>{{unit_no}}</h3>
+  <table>
+
+    <tbody>
+      <tr>
+        <th rowspan="14" scope="rowgroup">Suppliers Detail</th>
+        <th>Elevator Numbers</th>
+        <td><input type="text" name="elevator_number" [(ngModel)]="elevator_number" required></td>
+      </tr>
+      
+      <tr>
+        <th>Capacity(xx PAX/ xxxx Kg.)</th>
+        <td><input type="text" name="capacity" [(ngModel)]="capacity" required></td>
+      </tr>
+      <tr>
+        <th>Speed(xxxx m/s.)</th>
+        <td><input type="text" name="speed" [(ngModel)]="speed" required></td>
+      </tr>
+         <tr>
+        <th scope="row">OEM</th>
+        <td class="dropdown-container"><select  name="oem" [(ngModel)]="oem" required>
+          <option *ngFor="let value of values" [value]="value">{{value}}</option>
+         
+      </select></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">Service Provider</th>
+        <td><input type="text"  name="service_provider" [(ngModel)]="service_provider" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Year of Manufacture</th>
+        <td><input type="text" name="year_of_manufacture" [(ngModel)]="year_of_manufacture" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Type of equipment</th>
+        <td class="dropdown-container"><select  name="type_of_equipment" [(ngModel)]="type_of_equipment" required>
+          <option *ngFor="let equipment of type_of_equipment_d" [value]="equipment">{{equipment}}</option>
+          
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Type of usage</th>
+        <td class="dropdown-container"><select name="type_of_usage" [(ngModel)]="type_of_usage" required>
+          <option *ngFor="let usage of type_of_usage_d" [value]="usage">{{usage}}</option>
+      </select></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">Machine location</th>
+        <td class="dropdown-container"><select name="machine_location"  [(ngModel)]="machine_location" required>
+          <option *ngFor="let Machine of machine_location_d" [value]="Machine">{{Machine}}</option>
+
+          <!-- <option value="MR- Above the shaft ceiling slab">MR- Above the shaft ceiling slab</option>
+          <option value="MR- Below at shaft side">MR- Below at shaft side</option>
+          <option value="MR- At Top floor shaft side">MR- At Top floor shaft side</option>
+          <option value="MRL - Below in the pit">MRL - Below in the pit</option>
+          <option value="MRL - Under the shaft ceiling slab">MRL - Under the shaft ceiling slab </option> -->
+      </select></td>
+      </tr>
+
+      <tr>
+        <th scope="row">No. of Machine Room</th>
+        <td class="dropdown-container"><select name="no_of_machine_room" [(ngModel)]="no_of_machine_room" required>
+          <option *ngFor="let Machineroom of machine_room_d" [value]="Machineroom">{{Machineroom}}</option>
+      </select></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Machine Room</th>
+        <td class="dropdown-container"><select name="machine_room" [(ngModel)]="machine_room" required>
+          <option *ngFor="let Machineroom1 of machine_room_new_d" [value]="Machineroom1">{{Machineroom1}}</option>
+         </select></td>
+      </tr>
+
+
+      <tr>
+        <th scope="row">Controller & Drive Type</th>
+        <td class="dropdown-container"><select  name="controller_drive_type" [(ngModel)]="controller_drive_type" required>
+          <option *ngFor="let drive_type of Controller_Drive_Type_d" [value]="drive_type">{{drive_type}}</option>
+   </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Controller name as per OEM</th>
+        <td><input type="text"  name="controller_name_as_per_oem" [(ngModel)]="controller_name_as_per_oem" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Type of operation</th>
+        <td class="dropdown-container"><select name="type_of_operation" [(ngModel)]="type_of_operation" required>
+          <option *ngFor="let operation of type_of_operation_d" [value]="operation">{{operation}}</option>
+      </select></td>
+      </tr>
+      
+      <tr>
+        <th  class="span" colspan="2" scope="colgroup">Grouping Type</th>
+        <td class="dropdown-container"><select name="grouping_type" [(ngModel)]="grouping_type" required>
+          <option *ngFor="let group of grouping_type_d" [value]="group">{{group}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th  class="span" colspan="2" scope="colgroup">Name of the group / Bank</th>
+        <td><input type="text" name="name_of_the_group" [(ngModel)]="name_of_the_group" required></td>
+      </tr>
+      <tr>
+        <th rowspan="8" scope="rowgroup">Floor Details</th>
+        <th scope="row">Stops</th>
+        <td><input type="number" name="floor_details" [(ngModel)]="floor_details" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Openings</th>
+        <td><input type="number" name="openings" [(ngModel)]="openings" required> </td>
+      </tr>
+      <tr>
+       
+        <tr>
+        
+        <th scope="row">Floor Designations</th>
+        <td><input type="text" name="floor_designations" [(ngModel)]="floor_designations" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Front Opening Floors</th>
+        <td><input type="text" name="front_opening_floors" [(ngModel)]="front_opening_floors" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Rear Opening Floors</th>
+        <td><input type="text" name="rear_opening_floors" [(ngModel)]="rear_opening_floors" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Non-Stop/Service Floors</th>
+        <td><input type="text" name="non_stop_service_floors" [(ngModel)]="non_stop_service_floors" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Emergency Stop Floors</th>
+        <td><input type="text" name="emergency_stop_floors" [(ngModel)]="emergency_stop_floors" required></td>
+      </tr>
+      <tr>
+        <th rowspan="6" scope="rowgroup">Traction Details</th>
+        <th scope="row">Traction Category</th>
+        <td class="dropdown-container"> <select name="rope_category" [(ngModel)]="rope_category" required>
+          <option *ngFor="let Traction of traction_category_d" [value]="Traction">{{Traction}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">No.of Ropes/Belts</th>
+        <td><input type="text" name="no_of_ropes_belts" [(ngModel)]="no_of_ropes_belts" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Rope /Belt Size</th>
+        <td><input type="text" name="rope_size" [(ngModel)]="rope_size" required></td>
+      </tr>
+      <tr>
+        <th scope="row">No. of Drive sheave grooves</th>
+        <td><input type="text" name="no_of_drive_sheave_grooves" [(ngModel)]="no_of_drive_sheave_grooves" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Ropes Wrap details</th>
+        <td class="dropdown-container"><select name="ropes_wrap_details" [(ngModel)]="ropes_wrap_details" required>
+          <option *ngFor="let wrap of rope_wrap_details_d" [value]="wrap">{{wrap}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Type of Roping</th>
+        <td class="dropdown-container"><select name="type_of_roping" [(ngModel)]="type_of_roping" required>
+          <option *ngFor="let rope of type_of_roping_d" [value]="rope">{{rope}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="1" scope="rowgroup">Machine Details</th>
+        <th scope="row">Machine Type</th>
+        <td class="dropdown-container"> <select name="machine_type" [(ngModel)]="machine_type" required>
+          <option *ngFor="let machine_type of machine_type_d" [value]="machine_type">{{machine_type}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="11" scope="rowgroup">Motor Data</th>
+        <th scope="row">Kilo Watt</th>
+        <td><input type="text" name="kilo_watt" [(ngModel)]="kilo_watt" required></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Type Of Motor</th>
+        <td class="dropdown-container"><select name="type_of_motor" [(ngModel)]="type_of_motor" required>
+          <option *ngFor="let motor of type_of_motor_d" [value]="motor">{{motor}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Voltage</th>
+        <td><input type="text" name="voltage" [(ngModel)]="voltage" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Current in Ampere</th>
+        <td><input type="text" name="current_in_ampere" [(ngModel)]="current_in_ampere" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Frequency</th>
+        <td><input type="text" name="frequency" [(ngModel)]="frequency" required></td>
+      </tr>
+      <tr>
+        <th scope="row">RPM</th>
+        <td><input type="text" name="rpm" [(ngModel)]="rpm" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Insulation Class</th>
+        <td><input type="text" name="insulation_class" [(ngModel)]="insulation_class" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Ingress Protection(IP)</th>
+        <td><input type="text" name="ingress_protection" [(ngModel)]="ingress_protection" required></td>
+      </tr>
+      <tr>
+        <th scope="row">No.of Poles</th>
+        <td><input type="text" name="no_of_poles" [(ngModel)]="no_of_poles" required></td>
+      </tr>
+      <tr>
+        <th scope="row">St/Hr.</th>
+        <td><input type="text" name="st_hr" [(ngModel)]="st_hr" required ></td>
+      </tr>
+      <tr>
+        <th scope="row">Serial No.</th>
+        <td><input type="text" name="serial_no" [(ngModel)]="serial_no" required></td>
+      </tr>
+      <tr>
+        <th rowspan="4" scope="rowgroup">Car Governor Details</th>
+        <th scope="row">Rope dia.(mm)</th>
+        <td><input type="text" name="rope_dia"  [(ngModel)]="rope_dia" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Normal Speed(m/s)</th>
+        <td><input type="text" name="normal_speed" [(ngModel)]="normal_speed" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Electrical Tripping Speed</th>
+        <td><input type="text" name="electrical_tripping_speed" [(ngModel)]="electrical_tripping_speed" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Mechanical Tripping Speed</th>
+        <td><input type="text" name="mechanical_tripping_speed" [(ngModel)]="mechanical_tripping_speed" required></td>
+      </tr>
+      <tr>
+        <th  class="span" colspan="2" scope="colgroup">CWT Governor Details</th>
+        <td><input type="checkbox" name="cwt_governor_details" [(ngModel)]="cwt_governor_details" required></td>
+      </tr>
+      <tr *ngIf="cwt_governor_details">
+        <th rowspan="4" scope="rowgroup">CWT Governor Details</th>
+        <th scope="row">Rope dia.(mm)</th>
+        <td><input type="text" name="cwt_rope_dia" [(ngModel)]="cwt_rope_dia" required></td>
+      </tr>
+      <tr *ngIf="cwt_governor_details">
+        <th scope="row">Normal Speed(m/s)</th>
+        <td><input type="text" name="cwt_normal_speed" [(ngModel)]="cwt_normal_speed" required></td>
+      </tr>
+      <tr *ngIf="cwt_governor_details">
+        <th scope="row">Electrical Tripping Speed</th>
+        <td><input type="text" name="cwt_electrical_tripping_speed" [(ngModel)]="cwt_electrical_tripping_speed" required></td>
+      </tr>
+      <tr *ngIf="cwt_governor_details">
+        <th scope="row">Mechanical Tripping Speed</th>
+        <td><input type="text" name="cwt_mechanical_tripping_speed" [(ngModel)]="cwt_mechanical_tripping_speed" required></td>
+      </tr>
+      <tr>
+        <th rowspan="1" scope="rowgroup">Door Operator</th>
+        <th scope="row">Door Operator</th>
+        <td class="dropdown-container"><select name="door_operator" [(ngModel)]="door_operator" required>
+          <option *ngFor="let door of door_operator_d" [value]="door">{{door}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="3" scope="rowgroup">Entrance Details</th>
+        <th scope="row">Entrance Width</th>
+        <td><input type="text" name="entrance_width" [(ngModel)]="entrance_width" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Entrance Height</th>
+        <td><input type="text" name="entrance_height" [(ngModel)]="entrance_height" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Type Of Openings</th>
+        <td class="dropdown-container"><select name="type_of_openings" [(ngModel)]="type_of_openings" required>
+          <option *ngFor="let open of type_of_opening_d" [value]="open">{{open}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="4" scope="rowgroup">C.O.P</th>
+        <th scope="row">Cabin Width</th>
+        <td><input type="text" name="cabin_width" [(ngModel)]="cabin_width" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Cabin Height</th>
+        <td><input type="text" name="cabin_height" [(ngModel)]="cabin_height" required></td>
+      </tr>
+      <tr>
+        <th scope="row">Cabin Depth</th>
+        <td><input type="text" name="cabin_depth" [(ngModel)]="cabin_depth" required></td>
+      </tr>
+      <tr>
+        <th scope="row">No.of Car Operating Panels(C.O.P)</th>
+        <td class="dropdown-container"><select name="no_of_car_operating_panels" [(ngModel)]="no_of_car_operating_panels" required>
+          <option *ngFor="let car of car_operating_panels_d" [value]="car">{{car}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="14" scope="rowgroup">Car Features</th>
+        <th scope="row">Car Indicator Type</th>
+        <td class="dropdown-container"><select name="car_indicator_type" [(ngModel)]="car_indicator_type" required>
+          <option *ngFor="let indicator of car_indicator_type_d" [value]="indicator">{{indicator}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Multimedia Display</th>
+        <td class="dropdown-container"><select name="multimedia_display" [(ngModel)]="multimedia_display" required>
+          <option *ngFor="let display of multimedia_display_d" [value]="display">{{display}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">No.Cabin Fans</th>
+        <td class="dropdown-container"><select name="no_cabin_fans" [(ngModel)]="no_cabin_fans" required>
+          <option *ngFor="let fan of cabin_fans_d" [value]="fan">{{fan}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Type of Cabin Fan</th>
+        <td class="dropdown-container"><select name="type_of_cabin_fan" [(ngModel)]="type_of_cabin_fan" required>
+          <option *ngFor="let type_fan of type_of_cabin_fan_d" [value]="type_fan">{{type_fan}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Type Of Call Buttons</th>
+        <td class="dropdown-container"><select name="type_of_call_buttons"  [(ngModel)]="type_of_call_buttons" required>
+          <option *ngFor="let call_buttons of type_of_call_buttons_d" [value]="call_buttons">{{call_buttons}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">STOP Button</th>
+        <td class="dropdown-container"><select name="stop_button" [(ngModel)]="stop_button" required>
+          <option *ngFor="let stop_button of stop_button_d" [value]="stop_button">{{stop_button}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Service Cabinet</th>
+        <td class="dropdown-container"><select name="service_cabinet" [(ngModel)]="service_cabinet" required>
+          <option *ngFor="let cabinet of service_cabinet_d" [value]="cabinet">{{cabinet}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Voice Announcement</th>
+        <td class="dropdown-container"><select name="voice_announcement" [(ngModel)]="voice_announcement" required>
+          <option *ngFor="let voice of voice_announcement_d" [value]="voice">{{voice}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Handrail</th>
+        <td class="dropdown-container"><select name="handrail" [(ngModel)]="handrail" required>
+          <option *ngFor="let handrail of handrail_d" [value]="handrail">{{handrail}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Cabin Bumper</th>
+        <td class="dropdown-container"><select name="cabin_bumper" [(ngModel)]="cabin_bumper" required>
+          <option *ngFor="let bumper of cabin_bumper_d" [value]="bumper">{{bumper}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Auto /Attendant</th>
+        <td class="dropdown-container"><select name="auto_attendant" [(ngModel)]="auto_attendant" required>
+          <option *ngFor="let Auto of auto_attendant_d" [value]="Auto">{{Auto}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Auto /Independant</th>
+        <td class="dropdown-container"><select name="auto_independant" [(ngModel)]="auto_independant" required>
+          <option *ngFor="let independant of auto_independant_d" [value]="independant">{{independant}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Non Stop</th>
+        <td class="dropdown-container"><select name="non_stop" [(ngModel)]="non_stop" required>
+          <option *ngFor="let non_stop of non_stop_d" [value]="non_stop">{{non_stop}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Fan Switch</th>
+        <td class="dropdown-container"><select name="fan_switch" [(ngModel)]="fan_switch" required>
+          <option *ngFor="let fan_switch of fan_switch_d" [value]="fan_switch">{{fan_switch}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="7" scope="rowgroup">Hall Features </th>
+        <th scope="row">Hall Indicator Type</th>
+        <td class="dropdown-container"><select name="hall_indicator_type" [(ngModel)]="hall_indicator_type" required>
+          <option *ngFor="let hall_indicator_type of hall_indicator_type_d" [value]="hall_indicator_type">{{hall_indicator_type}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Hall Laterns</th>
+        <td class="dropdown-container"><select name="hall_laterns" [(ngModel)]="hall_laterns" required>
+          <option *ngFor="let hall_laterns of hall_laterns_d" [value]="hall_laterns">{{hall_laterns}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Arrival Chime</th>
+        <td class="dropdown-container"><select name="arrival_chime" [(ngModel)]="arrival_chime" required>
+          <option *ngFor="let arrival_chime of arrival_chime_d" [value]="arrival_chime">{{arrival_chime}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">No.Of Risers at Main Lobby</th>
+        <td class="dropdown-container"><select name="no_of_risers_at_main_lobby" [(ngModel)]="no_of_risers_at_main_lobby" required>
+          <option *ngFor="let risers of risers_at_main_lobby_d" [value]="risers">{{risers}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">No.Of Risers at Other Floors</th>
+        <td class="dropdown-container"><select name="no_of_risers_at_other_floors" [(ngModel)]="no_of_risers_at_other_floors" required>
+          <option *ngFor="let risers_at_other_floors of risers_at_other_floors_d" [value]="risers_at_other_floors">{{risers_at_other_floors}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Hall Call Type at Main Lobby</th>
+        <td class="dropdown-container"><select name="hall_call_type_at_main_lobby" [(ngModel)]="hall_call_type_at_main_lobby" required >
+          <option *ngFor="let hall_call_type_at_main_lobby of hall_call_type_at_main_lobby_d" [value]="hall_call_type_at_main_lobby">{{hall_call_type_at_main_lobby}}</option>
+
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Hall Call Type at All Floors</th>
+        <td class="dropdown-container"><select name="hall_call_type_at_all_floors" [(ngModel)]="hall_call_type_at_all_floors" required>
+          <option *ngFor="let hall_call_type_at_all_floors of hall_call_type_at_all_floors_d" [value]="hall_call_type_at_all_floors">{{hall_call_type_at_all_floors}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="2" scope="rowgroup">Car Buffer </th>
+        <th scope="row">No.Of.Car Buffers</th>
+        <td class="dropdown-container"><select name="no_of_car_buffers" [(ngModel)]="no_of_car_buffers" required>
+          <option *ngFor="let no_of_car_buffers of no_of_car_buffers_d" [value]="no_of_car_buffers">{{no_of_car_buffers}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Type Of Car Buffer</th>
+        <td class="dropdown-container"><select name="type_of_car_buffers" [(ngModel)]="type_of_car_buffers" required>
+          <option *ngFor="let type_of_car_buffers of type_of_car_buffers_d" [value]="type_of_car_buffers">{{type_of_car_buffers}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="2" scope="rowgroup">Counter Weight Buffer</th>
+        <th scope="row">No.Of CWT Buffers</th>
+        <td class="dropdown-container"><select name="no_of_cwt_buffer" [(ngModel)]="no_of_cwt_buffer" required>
+          <option *ngFor="let no_of_cwt_buffer of no_of_cwt_buffer_d" [value]="no_of_cwt_buffer">{{no_of_cwt_buffer}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th scope="row">Type Of CWT Buffer</th>
+        <td class="dropdown-container"><select name="type_of_cwt_buffer" [(ngModel)]="type_of_cwt_buffer" required>
+          <option *ngFor="let type_of_cwt_buffer of type_of_cwt_buffer_d" [value]="type_of_cwt_buffer">{{type_of_cwt_buffer}}</option>
+      </select></td>
+      </tr>
+      <tr>
+        <th rowspan="15" scope="rowgroup">Emergency Feature</th>
+        <th scope="row">E.LIGHT</th>
+        <td class="dropdown-container"><select name="e_light" [(ngModel)]="e_light">
+          <option *ngFor="let e_light of e_light_d" [value]="e_light">{{e_light}}</option>
+      </select>
+    </td>
+      </tr>
+      <tr>
+        <th scope="row">E.ALARM</th>
+        <td class="dropdown-container"><select name="e_alarm" [(ngModel)]="e_alarm">
+          <option *ngFor="let e_alarm of e_alarm_d" [value]="e_alarm">{{e_alarm}}</option>  
+      </select>
+    </td>
+      </tr>
+      <tr>
+      <th scope="row">E.INTERCOM (3 WAYS)</th>
+      <td class="dropdown-container"><select name="e_intercom" [(ngModel)]="e_intercom">
+        <option *ngFor="let e_intercom of e_intercom_d" [value]="e_intercom">{{e_intercom}}</option>
+    </select>
+  </td>
+    </tr>
+    
+    <tr>
+    <th scope="row">AUTOMATIC RESCUE DEVICE(ARD) OPERATION</th>
+    <td class="dropdown-container"><select name="ard_operation" [(ngModel)]="ard_operation">
+      <option *ngFor="let ard_operation of ard_operation_d" [value]="ard_operation">{{ard_operation}}</option>
+  </select>
+</td>
+  </tr>
+    <tr>
+  <th scope="row">ARD AUDIO</th>
+  <td class="dropdown-container"><select name="ard_audio" [(ngModel)]="ard_audio">
+    <option *ngFor="let ard_audio of ard_audio_d" [value]="ard_audio">{{ard_audio}}</option>
+</select>
+</td>
+</tr>
+<tr>
+<th scope="row">ARD VISUALS</th>
+<td class="dropdown-container"><select name="ard_visuals" [(ngModel)]="ard_visuals">
+  <option *ngFor="let ard_visuals of ard_visuals_d" [value]="ard_visuals">{{ard_visuals}}</option>
+</select></td>
+</tr>
+<tr>
+<th scope="row">FIREMAN OPERATION(FEO)</th>
+<td class="dropdown-container"><select name="fireman_operation" [(ngModel)]="fireman_operation">
+  <option *ngFor="let fireman_operation of fireman_operation_d" [value]="fireman_operation">{{fireman_operation}}</option>
+</select></td>
+</tr>
+<tr>
+  <th scope="row">FIREMAN EMERG.RETURN(FER)</th>
+  <td class="dropdown-container"><select name="fireman_emerg_return" [(ngModel)]="fireman_emerg_return">
+    <option *ngFor="let fireman_emerg_return of fireman_emerg_return_d" [value]="fireman_emerg_return">{{fireman_emerg_return}}</option>
+  </select></td>
+  </tr>
+  <tr>
+    <th scope="row">FIREMAN AUDIO</th>
+    <td class="dropdown-container"><select name="fireman_audio" [(ngModel)]="fireman_audio">
+      <option *ngFor="let fireman_audio of fireman_audio_d" [value]="fireman_audio">{{fireman_audio}}</option>
+    </select></td>
+    </tr>
+    <tr>
+      <th scope="row">FIREMAN VISUAL</th>
+      <td class="dropdown-container"><select name="fireman_visual" [(ngModel)]="fireman_visual">
+        <option *ngFor="let fireman_visual of fireman_visual_d" [value]="fireman_visual">{{fireman_visual}}</option>
+      </select></td>
+      </tr>
+        <tr>
+          <th scope="row">MANUAL RESCUE</th>
+            <td class="dropdown-container"><select name="manual_rescue" [(ngModel)]="manual_rescue">
+              <option *ngFor="let manual_rescue of manual_rescue_d" [value]="manual_rescue">{{manual_rescue}}</option>
+          </select></td>
+          </tr>
+        <tr>
+          <th scope="row">PASSENGER OVERLOAD OPERATION</th>
+          <td class="dropdown-container"><select name="passenger_overload_operation" [(ngModel)]="passenger_overload_operation">
+            <option *ngFor="let passenger_overload_operation of passenger_overload_operation_d" [value]="passenger_overload_operation">{{passenger_overload_operation}}</option>
+        </select>
+      </td>
+          </tr>
+          <tr>
+            <th scope="row">PASSENGER OVERLOAD VISUAL</th>
+            <td class="dropdown-container"><select name="passenger_overload_visual" [(ngModel)]="passenger_overload_visual">
+              <option *ngFor="let passenger_overload_visual of passenger_overload_visual_d" [value]="passenger_overload_visual">{{passenger_overload_visual}}</option>
+            </select></td>
+            </tr>
+            <tr>
+              <th scope="row">PASSENGER OVERLOAD AUDIO</th>
+              <td class="dropdown-container"><select name="passenger_overload_audio" [(ngModel)]="passenger_overload_audio">
+                <option *ngFor="let passenger_overload_audio of passenger_overload_audio_d" [value]="passenger_overload_audio">{{passenger_overload_audio}}</option>
+              </select></td>
+              </tr>
+              <tr>
+                <th scope="row">SEISMIC SENSOR OPERATION</th>
+                <td class="dropdown-container"><select name="seismic_sensor_operation" [(ngModel)]="seismic_sensor_operation">
+                  <option *ngFor="let seismic_sensor_operation of seismic_sensor_operation_d" [value]="seismic_sensor_operation">{{seismic_sensor_operation}}</option>
+                </select></td>
+                </tr>  
+    </tbody>
+    
+  </table>  
+
+
+    <div class="button-container">
+      <button [disabled]="isAnyInputNull()" (click)="Submit1()" [ngStyle]="{ 'background-color': isAnyInputNull() ? '#cccccc' : '', 'cursor': isAnyInputNull() ? 'not-allowed' : 'pointer' }">Proceed</button>
+      <button type="button" class="save-button" (click)="savePartial()">Save Partially</button>
+
+    </div>
+
+</body>
+</html>
+

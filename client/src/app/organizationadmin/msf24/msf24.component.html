@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>MSF</title>
+    <link rel="stylesheet" href="/msf.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>MSF24</h1>
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search . . .">
+            </div>
+        </header>
+       
+        <main class="content">
+            <h2>MSF24 RECORDS</h2>
+            <br>
+            <hr>
+            <br>
+
+            <!-- New Styled Table -->
+            <div class="table-responsive">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>PAPL NO</th>
+                            <th>REPORT ID</th>
+                            <th>DOC ID</th>
+                            <th>INSPECTION TYPE</th>
+                            <th>PROJECT NAME</th>
+                            <th>REGION</th>
+                            <th>OEM</th>
+                            <th>INSPECTOR NAME</th>
+                            <th colspan="2">INSPECTION DATE</th>
+                            <th>DOWNLOAD EXCEL</th>
+                        </tr>
+                        <tr>
+                            <th colspan="9"></th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                   
+    <tbody *ngIf="inf26Data && inf26Data.length > 0">
+        <tr *ngFor="let record of inf26Data; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ record.contract_number }}</td>
+            <td>N/A</td>
+            <td>{{record.id}}</td>
+            <td>{{record.type_of_inspection}}</td>
+            <td>{{record.project_name}}</td>
+            <td>{{ record.region }}</td>
+            <td>{{record.oem_details}}</td>
+            <td>{{formatInspectorList(record.inspector_list || '')}}</td>
+
+           <td>{{ formatDate(record.schedule_from) }}</td> <!-- Format date here -->
+            <td>{{ formatDate(record.schedule_to) }}</td> 
+            
+            <td>
+                <i class="fas fa-download download-icon" (click)="downloadExcel()"></i>
+            </td>
+    
+        </tr>
+    </tbody>
+    <tbody *ngIf="!inf26Data || inf26Data.length === 0">
+        <tr>
+            <td colspan="12">No records found.</td>
+        </tr>
+    </tbody>
+                </table>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Paplcorp@dashboard</p>
+        </footer>
+    </div>
+</body>
+</html>

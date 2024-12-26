@@ -1,0 +1,118 @@
+   <!-- <div class="headers_main"><h1 class="request1">REQUEST ACCEPTING PAGE</h1>
+    <b><p class="form" >Please review the requests below:</p></b>
+    </div>
+    
+    <div class="container" *ngFor="let request of records">
+        <div *ngFor="let inspector of request.inspector_array">
+        </div>
+       
+           <div class="request">
+              <h3><b>Building Name: </b>{{ request.building_name }}</h3>
+              <h3><b>Project Name: </b>{{ request.project_name }}</h3>
+              <h3><b>No Of Units: </b>{{ getUnits(request) }}</h3>
+              <h3><b>Location:</b> {{ request.location }}</h3>
+              <h3><b>Type Of Inspection:</b> {{ request.type_of_inspection }}</h3>
+                
+              <form #radioForm="ngForm">
+                <div class="acceptance">
+                    <p class="acceptance"><b>Have you been involved in the sales process for this contract?</b></p>
+                    <div class="radio-options">
+                        <input type="radio" id="yes" name="salesProcess" value="yes" [(ngModel)]="salesProcess" required>
+                        <label  class="yes_btn" for="yes"><b>Yes</b></label>
+                        
+                        <input type="radio" id="no" name="salesProcess" class="no_btn" value="no" [(ngModel)]="salesProcess" required>
+                        <label  class="no_btn" for="no"><b>No</b></label>
+                    </div>
+                </div>
+                
+                <div class="acceptance">
+                    <p class="acceptance"><b>Have you self-assigned for this inspection?</b></p>
+                    <div class="radio-options">
+                        <label class="yes_btn">
+                            <input  
+                            type="radio" name="selfAssigned" value="yes" [(ngModel)]="selfAssigned" required> <b>Yes</b>
+                        </label>
+                        <label  class="no_btn">
+                            <input  type="radio" name="selfAssigned" value="no" [(ngModel)]="selfAssigned" required> <b>No</b>
+                        </label>
+                    </div>
+                </div>
+                
+                
+                <div class="from_to">
+                    <h3 class="left-align"  style="font-size: 14px; margin-bottom: 20px;  color:rgb(21, 109, 28) "><b>Schedule From:</b>{{ getFromDate(request) | date: 'dd/MM/yyyy'}}</h3>
+                    <h3 class="right-align" style="font-size: 14px; color:rgb(21, 109, 28)"><b>Schedule To:</b>{{getToDate(request) | date: 'dd/MM/yyyy'}}</h3>
+                </div>
+             
+                
+                
+                <div class="buttons-container">
+                <button class="approve-btn" (click)="approveRequest(request.id)" [disabled]="!validateRadioButtons(records)"><i class="fas fa-check"></i> Accept</button>
+                <button class="reject-btn" (click)="openRejectDialog(request.id)"><i class="fas fa-times"></i> Reject</button>
+                </div>
+              </form>
+            </div>
+           
+         
+
+            <p *ngIf="records.length === 0">No more requests</p> -->
+
+
+
+
+            <div class="headers_main">
+                <h1 class="request1">REQUEST ACCEPTING PAGE</h1>
+                <b><p class="form">Please review the requests below:</p></b>
+              </div>
+              
+              <div class="container" *ngFor="let request of records; let i = index">
+                <div class="request">
+                  <h3><b>Project Name: </b>{{ request.project_name }}</h3>
+                  <h3><b>Building Name: </b>{{ request.building_name }}</h3>
+                  <h3><b>No Of Units: </b>{{ getUnits(request) }}</h3>
+                  <h3><b>Location:</b> {{ request.location }}</h3>
+                  <h3><b>Type Of Inspection:</b> {{ request.type_of_inspection }}</h3>
+              
+                  <form #radioForm="ngForm">
+                    
+                    <div class="acceptance">
+                      <p><b>Have you been involved in the sales process for this contract?</b></p>
+                      <div class="radio-options22">
+                        <input type="radio" id="yes-{{ i }}" name="salesProcess{{ i }}" value="yes" [(ngModel)]="request.salesProcess" required />
+                        <label class="yes_btn" for="yes-{{ i }}"><b>Yes</b></label>
+              
+                        <input type="radio" id="no-{{ i }}" name="salesProcess{{ i }}" value="no" [(ngModel)]="request.salesProcess" required />
+                        <label class="no_btn" for="no-{{ i }}"><b>No</b></label>
+                      </div>
+                    </div>
+              
+                    <div class="acceptance">
+                      <p><b>Have you self-assigned for this inspection?</b></p>
+                      <div class="radio-options22">
+                        <input type="radio" id="self-yes-{{ i }}" name="selfAssigned{{ i }}" value="yes" [(ngModel)]="request.selfAssigned" required />
+                        <label class="yes_btn" for="self-yes-{{ i }}"><b>Yes</b></label>
+              
+                        <input type="radio" id="self-no-{{ i }}" name="selfAssigned{{ i }}" value="no" [(ngModel)]="request.selfAssigned" required />
+                        <label class="no_btn" for="self-no-{{ i }}"><b>No</b></label>
+                      </div>
+                    </div>
+              
+                    
+                    <div class="from_to">
+                      <h3><b>Schedule From:</b> {{ getFromDate(request) | date: 'dd/MM/yyyy' }}</h3>
+                      <h3><b>Schedule To:</b> {{ getToDate(request) | date: 'dd/MM/yyyy' }}</h3>
+                    </div>
+              
+                    <div class="buttons-container">
+                      <button class="approve-btn" (click)="approveRequest(request.id)" [disabled]="!validateRadioButtons(request)">
+                        <i class="fas fa-check"></i> Accept
+                      </button>
+                      <button class="reject-btn" (click)="openRejectDialog(request)">
+                        <i class="fas fa-times"></i> Reject
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              
+              <!-- <p *ngIf="records.length === 0">No more requests</p> -->

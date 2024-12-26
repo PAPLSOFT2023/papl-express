@@ -1,0 +1,36 @@
+<h2>Last Sub-Product Master</h2>
+
+<!-- Form for Adding New Last Sub-Product -->
+<div>
+  <label for="lastSubProductName">Last Sub-Product Name:</label>
+  <input [(ngModel)]="lastSubProductName" id="lastSubProductName" />
+  <label for="subProductId">Select Sub-Product:</label>
+  <select [(ngModel)]="selectedSubProductId" id="subProductId">
+    <option *ngFor="let subProduct of subProducts" [value]="subProduct.id">{{ subProduct.sub_product_name }}</option>
+  </select>
+  <button (click)="addLastSubProduct()">Add Last Sub-Product</button>
+</div>
+
+<h3>Existing Last Sub-Products</h3>
+<ul>
+  <li *ngFor="let lastSubProduct of lastSubProducts">
+    {{ lastSubProduct.last_sub_product_name }} (Sub-Product: {{ lastSubProduct.sub_product_name }})
+    <button (click)="setUpdateLastSubProduct(lastSubProduct)">Edit</button>
+    <button (click)="deleteLastSubProduct(lastSubProduct.id)">Delete</button>
+  </li>
+</ul>
+
+<!-- Update Form -->
+<div *ngIf="isUpdating">
+  <h3>Update Last Sub-Product</h3>
+  <label for="updateLastSubProductName">New Last Sub-Product Name:</label>
+  <input [(ngModel)]="updateLastSubProductName" id="updateLastSubProductName" />
+
+  <label for="updateSubProductId">Select Sub-Product:</label>
+  <select [(ngModel)]="selectedUpdateSubProductId" id="updateSubProductId">
+    <option *ngFor="let subProduct of subProducts" [value]="subProduct.id">{{ subProduct.sub_product_name }}</option>
+  </select>
+  
+  <button (click)="updateLastSubProduct()">Update Last Sub-Product</button>
+  <button (click)="cancelUpdate()">Cancel</button>
+</div>

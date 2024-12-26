@@ -1,0 +1,171 @@
+header {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    font-size: large;
+    
+   
+    // justify-content: space-between; /* Distribute space between items */
+}
+
+.company-logo {
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+.certificate p {
+    text-align: center; /* Center align the text */
+    margin-left: 50px; /* Adjust margin as needed */
+    text-decoration: underline; /* Underline the content */
+    font-size: 25px;
+   
+}
+
+
+
+/* Style for the table containing the certificate number */
+table {
+    margin-bottom:50px; /* Adjust the space as needed */
+    margin-right: auto; /* Start the table from the left edge */
+}
+
+/* Style for the cells in the table */
+table td {
+    padding: 8px 12px; /* Adjust padding as needed */
+    border: 1px solid black; /* Add border */
+}
+
+.signature {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-content,
+.right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.top,
+.down {
+    display: flex;
+    align-items: center;
+}
+
+
+.down p {
+    margin-top: -260px;
+    border-top: 1px solid #000; 
+    
+}
+
+.signature i {
+    font-size: 20px; 
+}
+
+.date {
+   
+    font-size: 10px; 
+    color: #333; 
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.date p {
+    margin: 0; 
+}
+.logofooter {
+    display: flex; /* Use flexbox to align the logos */
+    justify-content: right; /* Center align the logos horizontally */
+    align-items: right; /* Center align the logos vertically */
+}
+
+.logofooter img {
+    width: 30px; /* Set a fixed width for all logos */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px; /* Add some space between logos */
+}
+.number{
+    margin-bottom:2px;
+   font-size: 8px;
+    
+}
+.down_page {
+    text-align: center;
+    margin-top: 180px;
+    
+}
+.footer {
+    text-align: center;
+}
+div .logo1 {
+    width: 40px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+   
+    margin: 0 auto; /* Center the image horizontally */
+}
+div .logo {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+  
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Align children with space between them */
+    align-items: center; /* Center align items vertically */
+    
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table td,
+table th {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f9f9f9; /* Set header background color */
+}
+
+table td {
+    text-align: center; /* Center align content in table cells */
+}
+
+.table-header td {
+    font-weight: bold;
+}
+
+.table-footer td {
+    font-style: italic;
+}
+.vertical {
+    position: absolute; /* Set position to absolute */
+    bottom: -1185px;
+    right: 10px;
+}
+.com{
+    color: rgb(137, 134, 134);
+}
+.borderless-input {
+    border: none;
+    /* Optionally, you can add additional styles to make it look more appealing */
+    outline: none; /* This removes the outline when the input is focused */
+    box-shadow: none; /* This removes any box shadow */
+}
+
+table td,
+table th {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left; /* Align content to the left */
+  }
+
+
+

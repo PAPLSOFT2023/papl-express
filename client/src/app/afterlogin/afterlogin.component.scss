@@ -1,0 +1,36 @@
+/* afterlogin.component.css */
+
+.container {
+    height: 100%;
+  }
+  
+  .content-container {
+    height: 100%;
+  }
+  
+  .sidebar {
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    transition: width 0.3s;
+  }
+  
+  .collapsed .sidebar {
+    width: 50px; /* Adjust the width as needed when collapsed */
+  }
+  
+  .main-content {
+    padding: 16px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    /* Styles for small screens */
+    .sidebar {
+      width: 100%;
+      border-right: none;
+    }
+  
+    .collapsed .sidebar {
+      width: 100%; /* Adjust the width as needed when collapsed on small screens */
+    }
+  }
+  

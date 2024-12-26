@@ -1,0 +1,34 @@
+<mat-dialog-content class="dialog-content">
+  <div class="div1">
+    <span class="span1">Units & Stops</span>
+    <span class="span2">Select Insp.</span>
+    <span class="select-all">
+      Select All 
+      <input type="checkbox" class="selectall" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()">
+    </span>
+   
+  </div>
+  
+  <mat-divider></mat-divider>
+ 
+
+  <div style="display: flex;" *ngFor="let item of items">
+    
+    <tr>
+      <th style="width: 10vw;">
+        <h1>{{item.name}}</h1>
+      </th>
+
+      <th>
+        <mat-checkbox class="check" [(ngModel)]="item.checked" (change)="updateTotals()"></mat-checkbox>
+      </th>
+    </tr>
+  </div>
+  
+  
+  <mat-divider></mat-divider>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button style="margin-left: 195px;" mat-raised-button color="primary" mat-dialog-close (click)="printItems()">Ok</button>
+</mat-dialog-actions>

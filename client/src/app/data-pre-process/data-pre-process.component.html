@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="header">
+        <h2>OutBox Saved Data</h2>
+    </div>
+    
+    <div class="sync-container">
+      
+        <div class="sync-loader-overlay" *ngIf="syncing"></div>
+        <div class="sync-loader" *ngIf="syncing">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <!-- Check if allValues array is empty -->
+        <ng-container *ngIf="groupedArray && groupedArray.length > 0; else noData">
+            <ng-container *ngFor="let subdata of groupedArray; let i = index;">
+                <!-- Sync Button for each group -->
+                <br>
+                <div class="sync-container">
+                <div class="group-sync-container">
+                    <button class="sync-button" [disabled]="allValues && allValues.length <= 0" *ngIf="isconnectivity==true" (click)="syncData(i)">
+                        <i class="fas fa-sync"></i> Sync {{ subdata.unitNo }}
+                    </button>
+                  
+                </div>
+
+                <div class="sync-loader-overlay" *ngIf="syncing"></div>
+                <div class="sync-loader" *ngIf="syncing">
+                    <div class="loader"></div>
+                </div>
+            </div>
+                <br>
+
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Saved Date</th>
+                            <th>UnitNo.</th>
+                            <th>No. of Points(Dropdown)</th>
+                            <th>Inspection Parts</th>
+                            <th>Description</th>
+                            <th>Inspector Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let value of subdata.entries">
+                            <tr>
+                                <td>{{ value.updatedAt | date: 'yyyy-MM-dd' }}</td>
+                                <td>{{ value.unitNo }}</td>
+                                <td>{{value.valueArray.length}}</td>
+                                <td style="text-transform: uppercase">{{ value.section }}</td>
+                                <td>{{ value.title }}</td>
+                                <td>{{ value.inspectorName }}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </ng-container>
+        </ng-container>
+        <!-- Display message if allValues array is empty -->
+        <div class="no-data-container">
+            <ng-template #noData>
+                <p class="no-data-message">{{DataNotAvai}}</p>
+            </ng-template>
+        </div>
+    </div>
+</div>

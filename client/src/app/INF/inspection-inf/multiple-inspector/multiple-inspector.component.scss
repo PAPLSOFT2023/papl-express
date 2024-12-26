@@ -1,0 +1,73 @@
+.styled-table-container {
+    width: 1200px;
+    max-height: 600px; /* Adjust the height as needed */
+    overflow-y: auto;  /* Enables vertical scrolling */
+  }
+  
+  .styled-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 10px auto;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .styled-table thead tr {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+  }
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .styled-table tbody tr:hover {
+    background-color: #33333352;
+  }
+  
+  .table-actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .table-actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .styled-table input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .date-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .date-input:focus, .number-input:focus {
+    outline: none;
+  }
+
+  .number-input{
+    width: 80%;
+    padding: 8px ;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  

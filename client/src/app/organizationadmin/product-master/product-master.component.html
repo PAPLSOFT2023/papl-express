@@ -1,0 +1,37 @@
+<h2>Product Master</h2>
+
+<div>
+  <label for="productName">Product Name:</label>
+  <input [(ngModel)]="productName" id="productName" />
+</div>
+<div>
+  <label for="typeId">Select Type:</label>
+  <select [(ngModel)]="selectedTypeId" id="typeId">
+    <option *ngFor="let type of types" [value]="type.id">{{ type.type_name }}</option>
+  </select>
+</div>
+<button (click)="addProduct()">Add Product</button>
+
+<h3>Existing Products</h3>
+<ul>
+  <li *ngFor="let product of products">
+    {{ product.product_name }} (Type: {{ product.type_name }})
+    <button (click)="setUpdateProduct(product)">Edit</button>
+    <button (click)="deleteProduct(product.id)">Delete</button>
+  </li>
+</ul>
+
+<!-- Update Form -->
+<div *ngIf="isUpdating">
+  <h3>Update Product</h3>
+  <label for="updateProductName">New Product Name:</label>
+  <input [(ngModel)]="updateProductName" id="updateProductName" />
+  <div>
+    <label for="updateTypeId">Select Type:</label>
+    <select [(ngModel)]="selectedTypeId" id="updateTypeId">
+      <option *ngFor="let type of types" [value]="type.id">{{ type.type_name }}</option>
+    </select>
+  </div>
+  <button (click)="updateProduct()">Update Product</button>
+  <button (click)="cancelUpdate()">Cancel</button>
+</div>

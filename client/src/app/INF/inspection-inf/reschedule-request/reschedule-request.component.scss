@@ -1,0 +1,202 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+
+  nav {
+    background-color:whitesmoke;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  body {
+    background:white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  
+  .job {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .department {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 5px;
+  }
+  .apply-button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .apply-button:hover {
+    background-color: #3e8e41;
+  }
+  
+
+  /* .button{
+      background-color:#4CAF50 ;
+      border-radius: 5px;
+      color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+  } */
+  .job-footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .job-dates {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+  }
+  .job-posted-date::before {
+    content: "Schedule From: ";
+  }
+  .job-expiry-date::before {
+    content: "Schedule To: ";
+  }
+  .eye-icon {
+    font-size: 18px;
+    color:black;
+    margin-top: 10px;
+  }
+
+  .menu-icon {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+  }
+
+  .profile-icon {
+    font-size: 30px;
+    color: black;
+    margin-right:30px;
+    cursor: pointer;
+  }
+  .profile-text {
+    margin-left: 10px;
+    color: black;
+    font-size: 20px;
+  }
+  .menu-text{
+    margin-left: 150px;
+    color: black;
+    font-size: 30px;
+  }
+  .icon-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: #333333;
+        background: #dddddd;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+      }
+      
+      .icon-button:hover {
+        cursor: pointer;
+      }
+      
+      .icon-button:active {
+        background: #cccccc;
+      }
+      
+      .icon-button__badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 25px;
+        height: 25px;
+        background: red;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+      a{
+        color: black;
+      }
+
+
+
+      .menu-icon {
+        font-size: 30px;
+        color: black;
+        cursor: pointer;
+      }
+    
+      .profile-icon {
+        font-size: 20px;
+        // color:brown;
+        margin-right:10px;
+        cursor: pointer;
+      }
+      .profile-text {
+        margin-left: 10px;
+        color: black;
+        font-size: 20px;
+      }
+       .menu-text{
+        margin-left: 250px;
+        color: black;
+        font-size: 30px; 
+      } 
+    
+      .menu-logo {
+        margin-left: 10px;
+        width:1px; 
+        height:1px;
+      }
+    
+        .one{
+          width: 140px;
+          height: 40px;
+          margin-top: 3px;
+          margin-left: 30px;
+        }
+    
+
+       
+    

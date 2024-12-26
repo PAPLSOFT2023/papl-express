@@ -1,0 +1,58 @@
+<div class="styled-table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>INSPECTOR NAME</th>
+        <th>SELECT INSPECTOR</th>
+        <th>LEAD INSPECTOR</th>
+        <th>FROM DATE</th>
+        <th>TO DATE</th>
+        <th>NO.OF UNITS</th>
+      </tr>
+    </thead>
+
+  
+    <tbody>
+      <tr *ngFor="let item of items" class="data-row">
+        <td>{{ item.name }}</td>
+
+        
+
+          <td>
+
+          <input type="checkbox" [(ngModel)]="item.checked">
+         </td>
+
+
+         <td>
+          <input type="checkbox" [(ngModel)]="item.headChecked">
+        </td>   
+
+
+       
+
+        <td>
+          <input type="date" [(ngModel)]="item.fromDate" class="date-input" [min]="minDate | date: 'yyyy-MM-dd'"
+            [max]="maxDate | date: 'yyyy-MM-dd'" />
+        </td>
+        <td>
+          <input type="date" [(ngModel)]="item.toDate" class="date-input" [min]="minDate | date: 'yyyy-MM-dd'"
+            [max]="maxDate | date: 'yyyy-MM-dd'" />
+        </td>
+
+        <td>
+          <input type="number" class="number-input" [(ngModel)]="item.units" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  <div class="table-actions">
+    <button mat-raised-button mat-dialog-close color="primary"   [disabled]="!areCheckedRowsValid()"    (click)="printItems()">OK</button>
+    
+  </div>
+  <br>
+</div>
+

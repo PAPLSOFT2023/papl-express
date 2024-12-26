@@ -1,0 +1,51 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 Column Table</title>
+<style>
+
+    
+</style>
+</head>
+<body>
+  <h3>On–Site Risk Assessment & Clearance for Inspection Commencement </h3>
+
+
+
+<table>
+    <thead>
+        <tr class="th">
+            
+            <th>Description</th>
+            <th>Remarks</th>
+            <th>Yes</th>
+            <th>No</th>
+            <!-- <th>Not applicable</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let assessment of riskAssessments">
+            
+            <td>{{ assessment.description }}</td>
+            <td>{{ assessment.remarks }}</td>
+	 <td>
+            <input type="radio" name="radio{{assessment.id}}" value="Yes" [(ngModel)]="assessment.selectedValue" (change)="updateSelectedValue(assessment, 'Yes')">
+          </td>
+          <td>
+            <input type="radio" name="radio{{assessment.id}}" value="No" [(ngModel)]="assessment.selectedValue" (change)="updateSelectedValue(assessment, 'No')">
+          </td>
+          <!-- <td>
+            <input type="radio" name="radio{{assessment.id}}" value="Not Applicable" [(ngModel)]="assessment.selectedValue" (change)="updateSelectedValue(assessment, 'Not Applicable')">
+          </td> -->
+
+                  </tr>
+           </tbody>
+</table>
+<div class="button-container">
+  <button (click)="generateJSON()" [ngClass]="{'disabled-button': !isFormValid}" [disabled]="!isFormValid">Proceed</button>
+</div>
+
+</body>
+</html>

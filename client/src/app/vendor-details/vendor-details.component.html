@@ -1,0 +1,89 @@
+<!-- Main Content -->
+<div class="container">
+  <header class="header">
+    <h1>VENDOR DETAILS</h1>
+    <div class="search-box">
+      <button class="btn-search"><i class="fas fa-search"></i></button>
+      <input 
+        type="text" 
+        class="input-search" 
+        placeholder="Type to Search..." 
+        [(ngModel)]="searchQuery" 
+        (ngModelChange)="fetchVendors()">
+    </div>
+  </header>
+
+  <main class="content">
+    <br><br>
+
+    <!-- Button to open the form popup for adding a new vendor -->
+    <button class="open-form-btn" (click)="openAddForm()">
+      <i class="fas fa-plus"></i> Add Vendor Details
+    </button>
+    <br><br>
+
+    <!-- Popup Form Container for Add or Update -->
+    <div *ngIf="showFormPopup" class="popup-overlay33">
+      <div class="popup-content33">
+        <h2 class="popup-title">{{ isUpdateMode ? 'UPDATE VENDOR DETAILS' : 'ADD NEW VENDOR DETAILS' }}</h2>
+        <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+          <div class="form-group33">
+            <label for="vendor_name">Vendor Name :</label>
+            <input
+              type="text"
+              id="vendor_name"
+              [(ngModel)]="vendor_master.vendor_name"
+              name="vendor_name"
+              required
+            />
+            <br>
+
+            <label for="alias">ALIAS : </label>
+            <input
+              type="text"
+              id="alias"
+              [(ngModel)]="vendor_master.alias"
+              name="alias"
+              required
+            />
+          </div>
+
+          <div class="popup-buttons33">
+            <button type="submit" class="confirm">
+              <i class="fa fa-check"></i>{{ isUpdateMode ? 'UPDATE' : 'ADD' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Vendor Details Table -->
+    <div class="table-responsive">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Vendor Name</th>
+            <th>Alias</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vendor_master of filteredVendors">
+            <td>{{ vendor_master.vendor_name }}</td>
+            <td>{{ vendor_master.alias }}</td>
+            <td>
+              <button class="edit-btn" (click)="editUser(vendor_master)">
+                <i class="fas fa-edit" title="EDIT"></i>
+              </button>
+              <button class="delete-btn" (click)="deleteUser(vendor_master.id)">
+                <i class="fas fa-trash-alt" title="DELETE"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>

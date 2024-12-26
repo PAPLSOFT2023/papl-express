@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+</head>
+<body>
+    
+    <div class="container">
+      <div class="button-container">
+        <!-- Left Side Back Button -->
+        <button class="back-button" (click)="back()">
+          <img src="/assets/backicon.png" alt="Back" class="back-icon">
+          <b>Back</b>
+        </button>
+      </div>
+    
+        <!-- <i class="fas fa-power-off" style="color: red; font-size:24;"></i> -->
+      
+    
+
+        <p>UNIT ID: {{val}}</p>
+        <ul>
+          <!-- <button  class="disabled-button"> -->
+          <!-- <img class="switch" [src]="location" (click)="check()" [disabled]="!hasFunctionalPointYChecked1" alt="Logo"> -->
+          <!-- <img class="switch" [src]="location" (click)="hasFunctionalPointYChecked1 ? check() : null" [style.pointer-events]="hasFunctionalPointYChecked1 ? 'auto' : 'none'" alt="Logo"> -->
+          <img class="switch" *ngIf="!hasFunctionalPointYChecked1" [src]="location" (click)="shutdown()" alt="Logo">
+
+
+        <!-- </button> -->
+
+            <!-- <li>
+                <p>P2</p>
+                <div class="content">
+                    <button>Proceed</button>
+                </div>
+            </li> -->
+            <!-- <li *ngFor="let unit of units">
+                <button (click)="proceed(unit)"><p>{{ unit }}</p></button>
+               
+              </li> -->
+              <li>
+                <button (click)="proceed('Breif_specification','unit_no')">Brief Specification</button>
+               
+              </li>
+              <li>
+                <button (click)="proceed1('pit')">Pit</button>
+               
+              </li>
+              <li>
+                <button (click)="proceed2('cabin')">Cabin</button>
+               
+              </li>
+
+              <li>
+                <button (click)="proceed3('cartop')">Cartop</button>
+               
+              </li>
+              <li>
+                <button (click)="proceed4('machineroom')">Machine Room</button>
+              </li>
+              <li>
+                <button (click)="proceed5('floorlanding')">Floor Landing</button>
+              </li>
+          
+        </ul>
+    </div>
+    <div class="loader-container" *ngIf="isLoading">
+      <div class="icon logo">
+        <div class="loader"></div>
+      </div>
+      </div>
+</body>
+</html>

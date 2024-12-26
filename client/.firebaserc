@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "paplapplication": {
+      "hosting": {
+        "sidenav-with-multilevel-menu": [
+          "paplapplication"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "paplapplication"
+  }
+}

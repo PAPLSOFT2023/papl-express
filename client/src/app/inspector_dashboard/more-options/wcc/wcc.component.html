@@ -1,0 +1,177 @@
+<div #contentToConvert>
+
+  <body>
+    <table>
+      <tr>
+        <th colspan="10" class="title">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        
+          <img [src]="location" alt="Company Logo" class="logo">
+         
+          <p  class="wcc">WORK COMPLETION CERTIFICATE [WCC]</p>
+        </th>
+      </tr>
+      <tr>
+        <td colspan="10" class="inspection-body">
+          <p><b>INSPECTION BODY:</b></p>
+          <p>Address: PAPL CORP PRIVATE LIMITED
+            No.389, 2nd FLOOR,
+            1St MAIN ROAD,
+            NEHRU NAGAR, OMR,
+            KOTTIVAKKAM,
+            CHENNAI – 600041.
+            TEL: +91 988450 7535
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 35%;"><b>Building name:</b></td>
+        
+        <td style="width: 35%;">{{ formData.building_name }}</td> <!-- Second empty td for equal spacing -->
+      </tr>
+      
+      <tr>
+        <td style="width: 35%;"><b>Location:</b></td>
+        <td style="width: 35%;">{{ formData.location }}</td>
+      </tr>
+      <tr>
+        <td style="width: 35%;"><b>Work Order & Date:</b></td>
+        <td style="width: 35%;">
+          {{ formData.customer_workorder_name }} & {{ formData.customer_workorder_date  }}
+        </td>
+      </tr>
+      
+      <tr>
+        <td style="width: 35%;"><b>Work Nature:</b></td>
+        <td style="width: 35%;">Inspection</td>
+      </tr>
+      <tr>
+        <td style="width: 35%;"><b>PAPL No.:</b></td>
+        <td style="width: 35%;">{{formData.contract_number}}</td>
+      </tr>
+      <tr>
+        <td style="width: 35%;"><b>Inspector Name & Code:</b></td>
+        <td style="width: 35%;">{{formData.inspector_list}}</td>
+      </tr>
+      
+      <tr>
+        <td style="width: 35%;"><b>Number of Units:</b></td>
+        <td style="width: 35%;">{{ getUnits(formData) }}</td>
+      </tr>
+      <tr>
+        <td style="width: 35%;"><b>Type:</b></td>
+        <td style="width: 35%;">Elevator</td>
+      </tr>
+  
+      <tr>
+        <td style="width: 35%;"><b>From & To:</b></td>
+        <td style="width: 35%;">
+          {{ getFromDate(formData) | date: 'dd/MM/yyyy' }} - {{ getToDate(formData) | date: 'dd/MM/yyyy' }}
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 35%;"><b>Total Days:</b></td>
+        <td style="width: 35%;">{{ formData.total_days }}</td>
+      </tr>
+      
+     <tr>
+        <td style="width: 35%;"><b>Inspector Signature:</b></td>
+       
+        <!-- <img [src]="'data:image/jpeg;base64,' + imageData" alt="Image" height="350" width="300"> -->
+       <!-- Ensure the correct binding and usage of `src` attribute -->
+        <td style="width: 35%;"> <img *ngIf="formData.inspector_signature" [src]="formData.inspector_signature" alt="Inspector Signature" [style.width.px]="80" style="max-width: 100%; max-height: 200px; object-fit: contain;" /></td>
+      
+      </tr>
+     <tr>
+        <td colspan="10" class="declaration">
+          <p><b><u>Declaration</u></b></p>
+          <p>It is hereby certified that the obligations of the Agency in respect of above works at Site in accordance with the requirements of the PO have been fully and satisfactorily discharged to the extent as stated above. Inspection report will be issued separately.</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="10" class="issue">
+          <p><u>Approved By</u></p>
+
+        </td>
+      </tr>
+      <!-- Example HTML structure -->
+  
+      
+<tr>
+  <td style="width: 35%;"><b>Name:</b></td>
+  <td style="width: 35%;">
+    <!-- Display text if name is provided -->
+    <!-- <span *ngIf="!isEditingName">{{ issuedByName }}</span> -->
+    <span *ngIf="!isEditingName" (click)="isEditingName = true">{{ issuedByName }}</span>
+
+    <!-- Input field, shown when editing -->
+    <input *ngIf="isEditingName" type="text" [(ngModel)]="issuedByName" placeholder="Enter name"  (blur)="isEditingName = false"/>
+
+   
+  </td>
+</tr>
+
+<!-- Designation Field -->
+<tr>
+  <td style="width: 35%;"><b>Designation:</b></td>
+  <td style="width: 35%;">
+    <!-- Display text if designation is provided -->
+    <span *ngIf="!isEditingDesignation" (click)="isEditingDesignation = true">{{ designation }}</span>
+
+    <!-- Input field, shown when editing -->
+    <input *ngIf="isEditingDesignation" type="text" [(ngModel)]="designation" placeholder="Enter designation" (blur)="isEditingDesignation = false" />
+  </td>
+</tr>
+
+
+<!-- Signature Field -->
+<tr>
+  <td style="width: 35%;"><b>Signature:</b></td>
+  <td style="width: 35%;">
+
+    <!-- Signature pad is shown if signature is not yet captured -->
+    <div *ngIf="!signature" class="signature-pad-container">
+      <signature-pad 
+        class="signature-pad" 
+        [options]="signaturePadOptions" 
+        (onEnd)="drawComplete()">
+      </signature-pad>
+      <button class="clear-signature-btn" (click)="clearSignature()">x</button>
+      <button class="capture-signature-btn" (click)="captureSignature()">Save</button>
+    </div>
+
+    <!-- Captured signature image is shown in place of signature pad -->
+    <div *ngIf="signature">
+      <img [src]="signature" class="signature-image" alt="Captured Signature" />
+    </div>
+
+    <!-- Optionally display the date of signature -->
+    <p *ngIf="currentDate" class="signature-date">{{ currentDate }}</p>
+
+  </td>
+</tr>
+
+      
+    
+   
+      
+    </table>
+
+  
+  
+
+  </body>
+  <footer class="footer" style="text-align: right;">
+    PAPL/INF/19, VER.2.0, 10-07-2024
+</footer>
+
+  </div>
+  
+  <div class="container">
+    <button class="download-btn" (click)="PDF_wcc()">
+      <i class="fas fa-download"></i> Download Wcc
+    </button>
+   
+  
+  </div>

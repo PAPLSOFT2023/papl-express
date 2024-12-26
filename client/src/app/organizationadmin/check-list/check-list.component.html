@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Checklist Data (TPT-3)</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>CHECKLIST-TPT3</h1>
+            <div class="search-box">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" class="input" placeholder="Type to Search..." [(ngModel)]="searchQuery" (input)="searchItems()">
+              </div>
+              
+        </header>
+      
+        <main class="content">
+            <div class="crud-container">
+                <!-- Add New Entry Button -->
+                <button class="add-button" (click)="OpenEntry()">
+                    <i class="fas fa-plus" style="font-size: 14px;"></i> ADD
+                </button>
+                <button class="add-button1" (click)="exceldownload()">
+                    <i class="fas fa-download" style="font-size: 14px;"></i> Download Excel
+                </button>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product</th>
+                                <th>Parts</th>
+                                <th>Description</th>
+                                <th>Reference</th>
+                                <th>Risklevel</th>
+                                <th>Photo</th>
+                                <th>Dropdown</th>
+                                <th>Functional Point</th>
+                                <th>Emergency Features</th>
+                                <th>Customer Scope</th>
+                                <th>MNT/ADJ</th>
+                                <th>Marks</th>
+                                <th>Security</th>
+                                <th>Dropdown Count</th>
+                                <th>INF30_Key_Abstract_S_No</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of filteredInspections">
+
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.Product }}</td>
+                                <td>{{ item.Parts }}</td>
+                                <td>{{ item.Description }}</td>
+                                <td>{{ item.Reference }}</td>
+                                <td>{{ item.Risklevel }}</td>
+                                <td>{{ item.Photo }}</td>
+                                <td>{{ item.Dropdown }}</td>
+                                <td>{{ item.functional_point }}</td>
+                                <td>{{ item.Emergency_Features }}</td>
+                                <td>{{ item.Customer_Scope}}</td>
+                                <td>{{ item.MNT_ADJ }}</td>
+                                <td>{{ item.marks }}</td>
+                                <td>{{ item.security }}</td>
+                                <td>{{ item.dropdown_count }}</td>
+                                <td>{{ item.INF30_Key_Abstract_S_No }}</td>
+                                <td>
+                                    <!-- Edit icon triggers openEditForm with the item data -->
+                                    <i class="fas fa-edit edit-icon" (click)="openEditForm(item)" title="EDIT"></i>
+                                    <i class="fas fa-trash-alt delete-icon" (click)="deleteItem(item.id)" title="DELETE"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div *ngIf="isFormVisible" class="popup-formed-container">
+                    <div class="popup-formed">
+                      <form (submit)="submitForm($event)">
+                        <label for="product">Product:</label>
+                        <input type="text" id="product" [(ngModel)]="formData.Product" name="product" required>
+                  
+                        <label for="parts">Parts:</label>
+                        <input type="text" id="parts" [(ngModel)]="formData.Parts" name="parts" required>
+                  
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" [(ngModel)]="formData.Description" name="description" required>
+                  
+                        <label for="reference">Reference:</label>
+                        <input type="text" id="reference" [(ngModel)]="formData.Reference" name="reference" required>
+                  
+                        <label for="Risklevel">Risklevel:</label>
+                        <input type="text" id="Risklevel" [(ngModel)]="formData.Risklevel" name="Risklevel" required>
+                  
+                        <label for="photo">Photo:</label>
+                        <input type="text" id="photo" [(ngModel)]="formData.Photo" name="photo" required>
+                  
+                        <label for="dropdown">Dropdown:</label>
+                        <input type="text" id="dropdown" [(ngModel)]="formData.Dropdown" name="dropdown" required>
+                  
+                        <label for="functional_point">Functional Point:</label>
+                        <input type="text" id="functional_point" [(ngModel)]="formData.functional_point" name="functional_point" required>
+                  
+                        <label for="Emergency_Features">Emergency Features:</label>
+                        <input type="text" id="Emergency_Features" [(ngModel)]="formData.Emergency_Features" name="Emergency_Features" required>
+                  
+                        <label for="Customer_Scope">Customer Scope:</label>
+                        <input type="text" id="Customer_Scope" [(ngModel)]="formData.Customer_Scope" name="Customer_Scope" required>
+                  
+                        <label for="MNT_ADJ">MNT/ADJ:</label>
+                        <input type="text" id="MNT_ADJ" [(ngModel)]="formData.MNT_ADJ" name="MNT_ADJ" required>
+                  
+                        <label for="marks">Marks:</label>
+                        <input type="text" id="marks" [(ngModel)]="formData.marks" name="marks" required>
+                  
+                        <label for="security">Security:</label>
+                        <input type="text" id="Security" [(ngModel)]="formData.security" name="security" required>
+                  
+                        <label for="dropdown_count">Dropdown Count:</label>
+                        <input type="text" id="dropdown_count" [(ngModel)]="formData.dropdown_count" name="dropdown_count" required>
+                  
+                        <label for="INF30_Key_Abstract_S_No">INF30_Key_Abstract_S_No:</label>
+                        <input type="text" id="INF30_Key_Abstract_S_No" [(ngModel)]="formData.INF30_Key_Abstract_S_No" name="INF30_Key_Abstract_S_No" required>
+                  
+                        <div class="button-container">
+                          <button class="save-button" type="submit">{{ editing ? 'Update' : 'Save' }}</button>
+                          <button class="cancel-button" (click)="closeForm()">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  

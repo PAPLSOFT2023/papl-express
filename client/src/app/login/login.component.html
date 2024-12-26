@@ -1,0 +1,219 @@
+<!-- <body>
+  <div class="forgot-password-link">
+    <div class="center-container"></div>
+  
+    <div class="login-container">
+  
+      <div class="login-form">
+        <h2><img src="assets/papl_logo.png" alt="Your Logo" class="logo"></h2>
+  
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <div class="input-container">
+            <label for="username">
+              <i class="fa fa-envelope"></i> Email:
+            </label>
+            <div class="input-with-icon">
+              <input type="email" id="username" [(ngModel)]="username" name="username" [attr.placeholder]="usernameInput.invalid ? 'Email is required' : 'Enter your email'" required #usernameInput="ngModel" />
+            </div>
+            <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)" class="error-message">
+              Email is required.
+            </div>
+          </div>
+  
+          <div class="input-container">
+            <label for="password">
+              <i class="fa fa-lock"></i> Password:
+            </label>
+            <div class="input-with-icon">
+              <input
+                type="{{ showPassword ? 'text' : 'password' }}"
+                id="password"
+                [(ngModel)]="password"
+                name="password"
+                [attr.placeholder]="passwordInput.invalid ? 'Password is required' : 'Enter your password'"
+                required
+                #passwordInput="ngModel"
+                class="password-input"
+              />
+              <i
+                class="fa"
+                [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                id="togglePassword"
+                (click)="togglePasswordVisibility()"
+              ></i>
+            </div>
+            <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+              Password is required.
+            </div>
+          </div>
+  
+          <div class="remember-forgot-container">
+            <div class="remember-me-container">
+              <label for="rememberMe" class="remember-me-label">
+                <input type="checkbox" id="rememberMe" [(ngModel)]="rememberMe" name="rememberMe" />
+                Remember Me
+              </label>
+            </div>
+            <div class="forgot-password-link">
+              <a routerLink="/forgotpassword">Forgot Password?</a>
+            </div>
+          </div>
+  
+          <div class="input-container">
+            <button type="submit" class="submit-button">
+              <i class="fa fa-sign-in"></i> LOGIN
+            </button>
+          </div>
+        </form>
+  
+        <div class="links">
+          <p>New Organization <a routerLink="/neworganization" class="signup-link1" style="color: rgba(18, 75, 181, 0.871);"><i style="margin-left: -10px;" class="fas fa-arrow-right"></i> Here</a></p>
+        </div>
+  
+      </div>
+  
+      <p style="color: rgba(144, 145, 145, 0.7);" class="copyright-notice"><b>Copyright © 2024 by PAPL. All rights reserved.</b></p>
+    </div>
+  </div>
+  </body> -->
+
+
+
+
+
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Background with Color Overlay</title>
+  </head>
+  <body>
+
+    <!-- signup---------------------------------------------------------------------------------------------- -->
+
+       <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form #registrationForm="ngForm" (ngSubmit)="submitForm()">
+          <h1>Create Account</h1>
+          
+            <div class="input-wrapper">
+           <input type="text" id="name" name="name" [(ngModel)]="userData.name" required  placeholder="Name" />
+
+          <input
+          type="text"
+          id="email"
+          name="email"
+          [(ngModel)]="userData.email"
+          required
+          pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"  placeholder="Email ID"
+        />
+        <div *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched" class="error-message">
+          <p>Please enter a valid email address.</p>
+        </div>
+          <input type="text" id="organization" placeholder="Organization" name="organization" [(ngModel)]="userData.organization"  required  />
+        <div *ngIf="registrationForm.controls['organization'].invalid && registrationForm.controls['organization'].touched" class="error-message">
+          <p>Please enter your organization.</p>
+        </div>
+
+
+          <input type="text" id="organization_display_name" placeholder="Organization Acronym" name="organization_display_name" [(ngModel)]="userData.organization_display_name" required />
+        <div *ngIf="registrationForm.controls['organization_display_name'].invalid && registrationForm.controls['organization_display_name'].touched" class="error-message">
+          <p>Please enter the organization display name.</p>
+        </div>
+		<div class="password-container">
+			<input type="{{ passwordVisible1 ? 'text' : 'password' }}" id="password" placeholder="Password" name="password" [(ngModel)]="userData.password" required />
+			<i class="fas fa-eye" [ngClass]="{'fa-eye-slash': passwordVisible1}" (click)="togglePasswordVisibility1()"></i>
+		  </div>
+		  <div class="password-container">
+          <input type="{{ passwordVisible2 ? 'text' : 'password' }}" id="confirm_password"  placeholder="Confirm Password"  name="confirm_password" [(ngModel)]="userData.confirm_password" required />
+
+          <i class="fas fa-eye" [ngClass]="{'fa-eye-slash': passwordVisible2}"(click)="togglePasswordVisibility2()"></i>
+		</div>
+           </div>
+         
+           <button  class="sign-up" type="submit" [disabled]="registrationForm.invalid">Sign Up</button>
+          
+
+        </form>
+      
+      </div> 
+
+
+      <!-- sign----------------------------------------------------------------------------------------------------------- -->
+
+      <div class="form-container sign-in-container">
+        
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+          <img class="img" src="/assets/papl_logo_sample.png" alt="Logo">
+       
+          <!-- <span>or use your account</span> -->
+          <input type="email" placeholder="Email" id="username" [(ngModel)]="username" name="username" [attr.placeholder]="usernameInput.invalid ? 'Email is required' : 'Enter your email'" required #usernameInput="ngModel"  style="border-radius: 10px;" />
+          <!-- <input type="email" id="username" [(ngModel)]="username" name="username" [attr.placeholder]="usernameInput.invalid ? 'Email is required' : 'Enter your email'" required #usernameInput="ngModel" /> -->
+          <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)" class="error-message">
+            Email is required.
+          </div>
+		  <div class="password-container">
+          <input
+          type="{{ showPassword ? 'text' : 'password' }}"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          [attr.placeholder]="passwordInput.invalid ? 'Password is required' : 'Enter your password'"
+          required
+          #passwordInput="ngModel"
+          class="password-input"
+          style="border-radius: 10px;"
+        />
+
+       
+
+        <i
+                class="fa"
+                [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                id="togglePassword"
+                (click)="togglePasswordVisibility()"
+              ></i>
+			</div>
+
+
+
+     
+
+
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+          Password is required.
+        </div>
+
+          <a routerLink="/forgotpassword">Forgot Password?</a>
+
+          
+  
+          <button class="signup-button">Sign in</button>				
+        </form>
+      </div>
+
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p style="font-weight: bold; ">If you possess an account, please log in [here].</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+
+
+<!-- --------------------------------------------------------------------------------------------------- -->
+
+          <div class="overlay-panel overlay-right">
+            <h1 style="color: #3b3765;">Welcome Aboard!</h1>
+            <p style="color: #3b3765; font-weight: bold;">Don’t have an account yet? Create one easily by signing up [here].</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

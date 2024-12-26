@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa, #dee2e6);
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .containers {
+    width: 50%; 
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+    max-height: 70vh; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+  }
+  
+  .containers:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  ul li {
+    list-style: none;
+    width: 80%;
+    max-width: 350px; 
+    padding: 15px;
+    background: linear-gradient(135deg, #ffffff 50%, #f0f0f0 50%);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  ul li:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+  }
+  
+  ul li p {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  ul li .content {
+    display: flex;
+    gap: 10px;
+  }
+  
+  ul li button {
+    padding: 12px 24px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  p {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  /* Custom Scrollbar Styling */
+  .containers::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .containers::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .containers::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  
+  .containers::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Custom Scrollbar for Firefox */
+  .containers {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+  
+  @media (max-width: 768px) {
+    .containers {
+      width: 90%;
+    }
+  }

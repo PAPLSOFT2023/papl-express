@@ -1,0 +1,195 @@
+/* Original CSS styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: whitesmoke;
+}
+.disabled-button {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+.container {
+    width: 50%; 
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+}
+
+ul {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center; 
+}
+
+ul li {
+    position: relative;
+    list-style: none;
+    width:60%; 
+    max-width: 350px; 
+    padding: 10px; 
+    background-image: linear-gradient(125deg, #2c3e50 50%, #000000 50%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+ul li .content {
+    display: flex;
+    gap: 12px;
+}
+
+ul li button {
+    padding: 15px 40px;
+    background-image: linear-gradient(125deg, #2c3e50 50%,#000000 50%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}
+p{
+    text-align: center;
+    font-size:24px;
+}
+.switch {
+    width: 6%; 
+    height: auto; 
+    margin-left: 90%; 
+    margin-top:-6%; 
+}
+
+.button-container {
+    display: flex; /* Flexbox to arrange buttons in a row */
+    justify-content: space-between; /* Space between buttons */
+    align-items: center; /* Aligns buttons vertically to the same level */
+    width: 100%; /* Set width to ensure buttons are contained within the container */
+    margin: 0px auto; /* Center button container and add some margin */
+  }
+  
+  /* Your existing CSS for back and next buttons */
+  .back-button {
+    background-color: white; /* Background color */
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex; /* Aligns image and text horizontally */
+    align-items: center; /* Vertically centers the content */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+   
+  }
+  
+
+  .back-icon {
+    width: 20px; /* Adjust the size of the icon */
+    height: auto;
+    margin-right: 8px; /* Space between the image and text */
+  }
+
+
+
+
+
+
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+  }
+  
+  .logo {
+    background-image: url('/assets/papl_logo_sample.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 80px;
+  }
+  
+  .icon {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 0 auto 25px;
+    position: relative;
+    z-index: -1;
+  }
+  
+  .loader {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #3b3765;
+    animation: spin 1.5s linear infinite;
+    z-index: 5;
+  }
+  
+  .loader:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #ee7f22;
+    animation: spin 3s linear infinite;
+  }
+  
+  .loader:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #b3b4b3;
+    animation: spin 3.5s linear infinite;
+  }
+  
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+  }

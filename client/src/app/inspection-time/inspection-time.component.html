@@ -1,0 +1,81 @@
+
+<!-- Main Content -->
+<div class="container">
+    <header class="header">
+      <h1>INSPECTION TIME</h1>
+    </header>
+  
+    <main class="content">
+      <br>
+      <!-- <h2>{{ isUpdateMode ? "Update OEM" : "Add New OEM" }}</h2> -->
+  
+      <!-- Button to open the form popup -->
+      <button class="open-form-btn" (click)="toggleFormPopup()">
+        <i class="fas fa-plus"></i>Add Inspection Time
+      </button>
+      <br>
+      <br>
+  
+      <!-- Popup Form Container -->
+     <!-- Popup Form Container -->
+  <div *ngIf="showFormPopup" class="popup-overlay33">
+    <div class="popup-content33">
+      <h2 class="popup-title">{{ isUpdateMode ? "UPDATE INSPECTION TIME" : "ADD INSPECTION TIME" }}</h2>
+      <i class="fa fa-times cancel-icon" (click)="toggleFormPopup()"></i>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group33">
+          <label for="Name">Time Shift :</label>
+          <input
+          type="text"
+          id="name"
+          [(ngModel)]="inspection_time.time_shift"
+          name="name"
+          required
+        />
+  
+        </div>
+  
+       
+      
+  
+      
+        <div class="popup-buttons33">
+          <button type="submit" class="confirm"><i class="fa fa-check"></i>{{ isUpdateMode ? "UPDATE" : "ADD" }}</button>
+        </div>
+      </form>
+      
+  </div>
+  </div>
+  
+  
+      <!-- OEM Details Table -->
+      <div class="table-responsive">
+        
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Time Shift</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inspection_time of inspection_all_time">
+              <td>{{ inspection_time.time_shift }}</td>
+              <td>
+                <button class="edit-btn" (click)="editInspectionUser(inspection_time)">
+                    <i class="fas fa-edit" title="EDIT"></i> 
+                </button>
+                <button class="delete-btn" (click)="deleteInspectionUser(inspection_time.id)">
+                    <i class="fas fa-trash-alt" title="DELETE"></i>
+                </button>
+  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  
+  
